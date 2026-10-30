@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { Stack } from 'expo-router'
+import { Link, Stack } from 'expo-router'
 import { useState } from 'react'
 import {
   ActivityIndicator,
@@ -86,6 +86,11 @@ export default function PetsPage() {
       <Text style={{ color: ink, fontSize: 15 }}>
         登录后可先浏览。发布或互动前，请建立并选定一只猫或狗作为宠物身份。
       </Text>
+      <Link href="/settings/species-request" asChild>
+        <Pressable accessibilityRole="button">
+          <Text style={{ color: green }}>养其他宠物？申请支持其他物种</Text>
+        </Pressable>
+      </Link>
 
       {data === undefined && !error && (
         <ActivityIndicator accessibilityLabel="正在加载宠物档案" />
