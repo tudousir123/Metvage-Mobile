@@ -1,20 +1,22 @@
 import { useFocusEffect } from '@react-navigation/native'
 import { useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import type { ErrorBoundaryProps } from 'expo-router'
-import { Stack, useLocalSearchParams, useNavigation, useRouter } from 'expo-router'
+import { Link, Stack, useLocalSearchParams, useNavigation, useRouter } from 'expo-router'
 import { useShareIntentContext } from 'expo-share-intent'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   ActivityIndicator,
   FlatList,
   type ListRenderItemInfo,
+  Text as NativeText,
+  View as NativeView,
+  Pressable,
   StyleSheet,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import EmptyFeed from 'src/components/common/EmptyFeed'
 import ErrorFeed from 'src/components/common/ErrorFeed'
 import FeedHeader from 'src/components/common/FeedHeader'
-import StoryCarousel from 'src/components/common/Stories'
 import FeedPost from 'src/components/post/FeedPost'
 import { useVideo } from 'src/hooks/useVideoProvider'
 import {
@@ -27,7 +29,6 @@ import {
 } from 'src/lib/api'
 import type { Status } from 'src/lib/api-types'
 import { useUserCache } from 'src/state/AuthProvider'
-import { Storage } from 'src/state/cache'
 import { Button, Spinner, Text, useTheme, View, XStack } from 'tamagui'
 
 const VIEW_CONFIG = { viewAreaCoveragePercentThreshold: 50 }
@@ -103,35 +104,52 @@ export default function HomeScreen() {
   const theme = useTheme()
   const user = useUserCache()
   const { playVideo, currentVideoId } = useVideo()
-  const hideStories = Storage.getBoolean('ui.hideStories') == true
-
-  const {
-    isPending: mutateIsPending,
-    isError: mutateIsError,
-    error: mutateError,
-    isSuccess: mutateIsSuccess,
-    mutate,
-  } = useMutation({
-    mutationFn: (storyView) => postStoryViewed(storyView),
-  })
-
-  const onStoryViewed = useCallback(
-    (userId: string, storyId: string) => {
-      mutate({ id: storyId })
-    },
-    [mutate]
-  )
-
   const EnhancedListHeader = useMemo(() => {
     return (
       <View>
-        {/* Stories section */}
-        {!hideStories && (
-          <View>
-            <StoryCarousel onStoryViewed={onStoryViewed} />
-          </View>
-        )}
-
+        <NativeView
+          style={{
+            flexDirection: 'row',
+            gap: 12,
+            paddingHorizontal: 12,
+            paddingVertical: 12,
+          }}
+        >
+          <Link href="/unavailable/daily-inspiration" asChild>
+            <Pressable
+              style={{
+                flex: 1,
+                padding: 10,
+                borderWidth: 1,
+                borderRadius: 10,
+                borderColor: theme.borderColor?.val.default.val,
+              }}
+            >
+              <NativeText
+                style={{ color: theme.color?.val.default.val, textAlign: 'center' }}
+              >
+                每日灵感 · 未开放
+              </NativeText>
+            </Pressable>
+          </Link>
+          <Link href="/unavailable/tasks" asChild>
+            <Pressable
+              style={{
+                flex: 1,
+                padding: 10,
+                borderWidth: 1,
+                borderRadius: 10,
+                borderColor: theme.borderColor?.val.default.val,
+              }}
+            >
+              <NativeText
+                style={{ color: theme.color?.val.default.val, textAlign: 'center' }}
+              >
+                任务 · 未开放
+              </NativeText>
+            </Pressable>
+          </Link>
+        </NativeView>
         {/* Upload progress section */}
         {isPosting && (
           <View p="$5">
@@ -149,7 +167,7 @@ export default function HomeScreen() {
         )}
       </View>
     )
-  }, [hideStories, onStoryViewed, isPosting, theme])
+  }, [isPosting, theme])
 
   useEffect(() => {
     if (hasShareIntent) {
@@ -201,7 +219,6 @@ export default function HomeScreen() {
   })
 
   const refetch = () => {
-    queryClient.invalidateQueries({ queryKey: ['getStoryCarousel'] })
     handleRefetch()
   }
 

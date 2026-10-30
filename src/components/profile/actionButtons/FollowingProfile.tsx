@@ -1,4 +1,4 @@
-import { Alert } from 'react-native'
+import { Alert, Pressable, Text } from 'react-native'
 import { Button, useTheme, XStack } from 'tamagui'
 
 export default function FollowingProfile({
@@ -39,19 +39,26 @@ export default function FollowingProfile({
         Unfollow
       </Button>
 
-      <Button
-        theme="light"
-        bg="transparent"
-        size="$3"
-        borderWidth={1}
-        borderColor={theme.borderColor?.val.default.val}
-        color={theme.color?.val.default.val}
-        fontWeight="bold"
-        fontSize="$4"
-        onPress={() => onSendMessage()}
+      <Pressable
+        style={{
+          borderWidth: 1,
+          borderColor: theme.borderColor?.val.default.val,
+          borderRadius: 8,
+          paddingHorizontal: 16,
+          justifyContent: 'center',
+        }}
+        onPress={onSendMessage}
       >
-        Send Message
-      </Button>
+        <Text
+          style={{
+            color: theme.color?.val.default.val,
+            fontSize: 14,
+            fontWeight: 'bold',
+          }}
+        >
+          私信 · 未开放
+        </Text>
+      </Pressable>
     </XStack>
   )
 }
