@@ -120,6 +120,18 @@ export default function PetTimelineScreen() {
               {isOwner && (
                 <Pressable
                   accessibilityRole="button"
+                  onPress={() =>
+                    router.push(
+                      `/records/${record.id}/edit` as Parameters<typeof router.push>[0]
+                    )
+                  }
+                >
+                  <Text style={{ color: green, fontWeight: '700' }}>编辑或删除记录</Text>
+                </Pressable>
+              )}
+              {isOwner && (
+                <Pressable
+                  accessibilityRole="button"
                   accessibilityLabel={
                     record.visibility === 'public' ? '改为私人记录' : '公开这条记录'
                   }
