@@ -58,6 +58,11 @@ export const getPublicPet = (id: number) =>
 export const getPublicPetRecords = (id: number) =>
   publicRequest<{ records: PetRecord[] }>(`/api/v1/metvage/pets/${id}/records`)
 
+export const searchPublicPetsAndRecords = (query: string) =>
+  publicRequest<{ records: PetRecord[]; pets: PetProfile[] }>(
+    `/api/v1/metvage/search?q=${encodeURIComponent(query.trim())}`
+  )
+
 export async function verifyInvitation(code: string): Promise<void> {
   const response = await fetch(`${metvageOrigin()}/api/v1.1/auth/invite/admin/verify`, {
     method: 'POST',
