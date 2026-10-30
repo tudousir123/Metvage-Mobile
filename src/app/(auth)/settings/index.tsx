@@ -111,6 +111,7 @@ export default function Page() {
             separator={<Separator borderColor={theme.borderColor?.val.default.val} />}
           >
             <GroupButton icon="heart" title="我的宠物" path="/settings/pets" />
+            <GroupButton icon="slash" title="屏蔽关系" path="/settings/blocked-pets" />
             <GroupButton
               icon="user"
               title="Avatar, Bio and Display Name"

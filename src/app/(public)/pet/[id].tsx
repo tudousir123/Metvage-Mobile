@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Image } from 'expo-image'
 import { router, Stack, useLocalSearchParams } from 'expo-router'
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native'
-import { PetFollowButton } from 'src/components/pets/pet-follow-button'
+import { PetSocialControls } from 'src/components/pets/pet-block-button'
 import {
   getPublicPet,
   getPublicPetRecords,
@@ -57,7 +57,7 @@ export default function PublicPet() {
           {!!profile.data.bio && (
             <Text style={{ color: '#18332f' }}>{profile.data.bio}</Text>
           )}
-          <PetFollowButton targetPetId={petId} />
+          <PetSocialControls targetPetId={petId} />
         </>
       )}
       {timeline.data?.records.length === 0 && (
