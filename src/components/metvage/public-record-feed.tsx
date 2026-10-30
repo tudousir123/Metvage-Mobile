@@ -1,7 +1,8 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
+import { Image } from 'expo-image'
 import { router } from 'expo-router'
 import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native'
-import { getPublicRecords } from 'src/lib/metvage-public'
+import { getPublicRecords, publicRecordPhotoUrl } from 'src/lib/metvage-public'
 import type { PetRecord } from 'src/lib/records'
 
 const ink = '#18332f'
@@ -45,7 +46,20 @@ export function PublicRecordFeed({ guest = false }: { guest?: boolean }) {
           {item.pet.nickname} · {item.pet.species === 'cat' ? '猫咪' : '狗狗'}
         </Text>
       </Pressable>
-      <Text style={{ color: ink, fontSize: 16, lineHeight: 24 }}>{item.text}</Text>
+      {item.title && (
+        <Text style={{ color: ink, fontSize: 18, fontWeight: '700' }}>{item.title}</Text>
+      )}
+      {item.text && (
+        <Text style={{ color: ink, fontSize: 16, lineHeight: 24 }}>{item.text}</Text>
+      )}
+      {item.photos[0] && (
+        <Image
+          source={{ uri: publicRecordPhotoUrl(item.photos[0].url) }}
+          cachePolicy="none"
+          contentFit="cover"
+          style={{ width: '100%', height: 220, borderRadius: 10 }}
+        />
+      )}
       <Text style={{ color: '#667b76', fontSize: 12 }}>
         {item.published_at ? new Date(item.published_at).toLocaleString() : ''}
       </Text>

@@ -1,8 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
+import { Image } from 'expo-image'
 import { router, Stack, useLocalSearchParams } from 'expo-router'
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native'
 import { PetFollowButton } from 'src/components/pets/pet-follow-button'
-import { getPublicPet, getPublicPetRecords } from 'src/lib/metvage-public'
+import {
+  getPublicPet,
+  getPublicPetRecords,
+  publicRecordPhotoUrl,
+} from 'src/lib/metvage-public'
 
 export default function PublicPet() {
   const { id } = useLocalSearchParams<{ id: string }>()
@@ -67,7 +72,18 @@ export default function PublicPet() {
           }
           style={{ padding: 16, borderRadius: 14, backgroundColor: '#f5f8f6' }}
         >
-          <Text style={{ color: '#18332f' }}>{record.text}</Text>
+          {record.title && (
+            <Text style={{ color: '#18332f', fontWeight: '700' }}>{record.title}</Text>
+          )}
+          {record.text && <Text style={{ color: '#18332f' }}>{record.text}</Text>}
+          {record.photos[0] && (
+            <Image
+              source={{ uri: publicRecordPhotoUrl(record.photos[0].url) }}
+              cachePolicy="none"
+              contentFit="cover"
+              style={{ width: '100%', height: 180, borderRadius: 8 }}
+            />
+          )}
         </Pressable>
       ))}
     </ScrollView>
