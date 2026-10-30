@@ -1,5 +1,6 @@
-import Constants from 'expo-constants'
 import { Storage } from 'src/state/cache'
+import { instanceOrigin } from './instanceOrigin'
+import { metvageOrigin } from './metvage-public'
 import type { PetProfile } from './pets'
 
 export type RecordLike = { id: number; actor_pet: PetProfile }
@@ -18,14 +19,10 @@ async function interactionRequest<T>(
   body?: object
 ): Promise<T> {
   const server = Storage.getString('app.instance')
-  const token = Storage.getString('app.token')
-  if (!server) throw new Error('请先选择服务')
+  const origin = metvageOrigin()
+  const token =
+    server && instanceOrigin(server) === origin ? Storage.getString('app.token') : null
   if (method !== 'GET' && !token) throw new Error('请先登录')
-
-  const localTestServer =
-    server === 'localhost:18080' &&
-    Constants.expoConfig?.extra?.localInstanceHost === 'localhost:18080'
-  const origin = `${localTestServer ? 'http' : 'https'}://${server}`
   const response = await fetch(`${origin}/api/v1/metvage${path}`, {
     method,
     headers: {
