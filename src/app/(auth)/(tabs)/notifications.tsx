@@ -1,218 +1,126 @@
-import Feather from '@expo/vector-icons/Feather'
-import { useInfiniteQuery, useQueryClient } from '@tanstack/react-query'
-import { Stack, useNavigation } from 'expo-router'
-import { useEffect, useLayoutEffect, useState } from 'react'
-import { ActivityIndicator, Dimensions, FlatList } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import RenderNotificationItem from 'src/components/notifications/RenderNotificationItem'
-import { fetchNotifications } from 'src/lib/api'
-import { Separator, Tabs, Text, useTheme, View } from 'tamagui'
+import { useInfiniteQuery } from '@tanstack/react-query'
+import { router, Stack, useFocusEffect } from 'expo-router'
+import { useCallback } from 'react'
+import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native'
+import { getPetNotifications, type PetNotification } from 'src/lib/petNotifications'
+import { useAuth } from 'src/state/AuthProvider'
 
-const SCREEN_WIDTH = Dimensions.get('screen').width
+const green = '#075e52'
+
+function notificationText(notification: PetNotification): string {
+  switch (notification.type) {
+    case 'follow':
+      return '关注了你的宠物'
+    case 'like':
+      return '赞了你的公开笔记'
+    case 'comment':
+      return '评论了你的公开笔记'
+  }
+}
 
 export default function NotificationsScreen() {
-  const queryClient = useQueryClient()
-  const navigation = useNavigation()
-  const theme = useTheme()
-  useLayoutEffect(() => {
-    navigation.setOptions({ title: 'Notifications', headerBackTitle: 'Back' })
-  }, [navigation])
-
-  const [activeTab, setActiveTab] = useState('all')
-
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    isFetching,
-    isRefetching,
-    error,
-    refetch,
-  } = useInfiniteQuery({
-    queryKey: ['notifications', activeTab],
-    queryFn: fetchNotifications,
-    getNextPageParam: (lastPage) => lastPage.nextPage,
-    getPreviousPageParam: (firstPage) => firstPage.prevPage,
+  const { user } = useAuth()
+  const notificationsQuery = useInfiniteQuery({
+    queryKey: ['metvage-notifications', user?.server, user?.token],
+    queryFn: ({ pageParam }) => getPetNotifications(pageParam),
+    initialPageParam: 1,
+    getNextPageParam: (lastPage) => lastPage.next_page ?? undefined,
+    enabled: !!user,
   })
+  useFocusEffect(
+    useCallback(() => {
+      notificationsQuery.refetch()
+    }, [notificationsQuery.refetch])
+  )
+  const notifications =
+    notificationsQuery.data?.pages.flatMap((page) => page.notifications) ?? []
 
-  useEffect(() => {
-    refetch()
-  }, [activeTab, refetch])
-
-  const handleTabChange = (value) => {
-    queryClient.invalidateQueries(['notifications', value])
-    setActiveTab(value)
-  }
-
-  const handleInfiniteScroll = (_: { distanceFromEnd: number }) => {
-    if (isFetchingNextPage) {
-      return
+  const openNotification = (notification: PetNotification) => {
+    if (notification.type === 'follow' && notification.target_pet_id) {
+      router.push(
+        `/pet/${notification.target_pet_id}` as Parameters<typeof router.push>[0]
+      )
+    } else if (notification.target_record_id) {
+      router.push(
+        `/note/${notification.target_record_id}` as Parameters<typeof router.push>[0]
+      )
     }
-
-    if (hasNextPage) {
-      fetchNextPage()
-    }
-  }
-
-  // Since refetching cause the refetch of all the pages sequentially (longer waits), !isRefetching avoid unmonting of the FlatList and
-  // allow the user to see the past notifications in the meantime
-  if (isFetching && !isFetchingNextPage && !isRefetching) {
-    return (
-      <View flexGrow={1} mt="$5" p="$3">
-        <ActivityIndicator color={theme.color?.val.default.val} />
-      </View>
-    )
-  }
-
-  if (error) {
-    return (
-      <View flexGrow={1}>
-        <Text>Error</Text>
-      </View>
-    )
   }
 
   return (
-    <SafeAreaView edges={['left', 'bottom']}>
-      <Stack.Screen
-        options={{
-          title: 'Notifications',
-          headerBackTitle: 'Back',
-        }}
-      />
-
-      <Tabs
-        value={activeTab}
-        onValueChange={handleTabChange}
-        flexDirection="row"
-        orientation="horizontal"
-        overflow="hidden"
-        width={SCREEN_WIDTH}
-        bg={theme.background?.val.tertiary.val}
-      >
-        <Tabs.List flex={1}>
-          <Tabs.Tab
-            value="all"
-            px="$0"
-            flexGrow={1}
-            bg={theme.background?.val.tertiary.val}
-          >
-            <Text
-              fontSize="$2"
-              fontWeight="bold"
-              allowFontScaling={false}
-              color={
-                activeTab === 'all'
-                  ? theme.colorHover?.val.hover.val
-                  : theme.color?.val.default.val
-              }
-            >
-              All
-            </Text>
-          </Tabs.Tab>
-          <Separator vertical borderColor={theme.borderColor?.val.default.val} />
-          <Tabs.Tab
-            value="mentions"
-            px="$0"
-            flexGrow={1}
-            bg={theme.background?.val.tertiary.val}
-          >
-            <Feather
-              name="at-sign"
-              size={20}
-              color={
-                activeTab === 'mentions'
-                  ? theme.colorHover?.val.hover.val
-                  : theme.color?.val.default.val
-              }
-            />
-          </Tabs.Tab>
-          <Separator vertical borderColor={theme.borderColor?.val.default.val} />
-          <Tabs.Tab
-            value="likes"
-            px="$0"
-            flexGrow={1}
-            bg={theme.background?.val.tertiary.val}
-          >
-            <Feather
-              name="heart"
-              size={20}
-              color={
-                activeTab === 'likes'
-                  ? theme.colorHover?.val.hover.val
-                  : theme.color?.val.default.val
-              }
-            />
-          </Tabs.Tab>
-          <Separator vertical borderColor={theme.borderColor?.val.default.val} />
-          <Tabs.Tab
-            value="follows"
-            px="$0"
-            flexGrow={1}
-            bg={theme.background?.val.tertiary.val}
-          >
-            <Feather
-              name="user-plus"
-              size={20}
-              color={
-                activeTab === 'follows'
-                  ? theme.colorHover?.val.hover.val
-                  : theme.color?.val.default.val
-              }
-            />
-          </Tabs.Tab>
-          <Separator vertical borderColor={theme.borderColor?.val.default.val} />
-          <Tabs.Tab
-            value="reblogs"
-            px="$0"
-            flexGrow={1}
-            bg={theme.background?.val.tertiary.val}
-          >
-            <Feather
-              name="refresh-cw"
-              size={20}
-              color={
-                activeTab === 'reblogs'
-                  ? theme.colorHover?.val.hover.val
-                  : theme.color?.val.default.val
-              }
-            />
-          </Tabs.Tab>
-        </Tabs.List>
-      </Tabs>
-
+    <View style={{ flex: 1, backgroundColor: '#f7faf8' }}>
+      <Stack.Screen options={{ title: '消息' }} />
       <FlatList
-        style={{ height: '100%' }}
-        data={data?.pages.flatMap((page) => page.data)}
-        ItemSeparatorComponent={() => (
-          <Separator borderColor={theme.borderColor?.val.default.val} />
-        )}
-        renderItem={({ item }) => <RenderNotificationItem item={item} />}
-        // In case of duplicates, discriminate the item with id_index avoid printing errors in console
-        keyExtractor={(item, index) => `${item.id}_${index.toString()}`}
-        onEndReached={handleInfiniteScroll}
-        refreshing={isRefetching}
-        onRefresh={() =>
-          queryClient.invalidateQueries({
-            queryKey: ['notifications'],
-          })
-        }
-        onEndReachedThreshold={0.5}
-        contentContainerStyle={{ flexGrow: 1 }}
-        ListFooterComponent={() => (
-          <View py="$6">
-            {isFetchingNextPage ? (
-              <ActivityIndicator color={theme.color?.val.default.val} />
-            ) : null}
-            {!hasNextPage ? (
-              <Text ta="center" color={theme.color?.val.default.val}>
-                No more notifications for now!
-              </Text>
-            ) : null}
+        contentInsetAdjustmentBehavior="automatic"
+        data={notifications}
+        keyExtractor={(notification) => String(notification.id)}
+        contentContainerStyle={{ padding: 20, paddingBottom: 40, gap: 12, flexGrow: 1 }}
+        refreshing={notificationsQuery.isRefetching}
+        onRefresh={() => notificationsQuery.refetch()}
+        onEndReached={() => {
+          if (notificationsQuery.hasNextPage && !notificationsQuery.isFetchingNextPage) {
+            notificationsQuery.fetchNextPage()
+          }
+        }}
+        ListHeaderComponent={
+          <View style={{ gap: 12 }}>
+            <Text style={{ fontSize: 22, fontWeight: '700', color: '#18332f' }}>
+              站内通知
+            </Text>
+            <Text style={{ color: '#536a64' }}>关注、点赞和评论会显示在这里。</Text>
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => router.push('/unavailable/messages')}
+              style={{ padding: 14, borderRadius: 12, backgroundColor: '#e7f4ee' }}
+            >
+              <Text style={{ color: green, fontWeight: '700' }}>私信 · 未开放</Text>
+            </Pressable>
+            {notificationsQuery.isLoading && (
+              <ActivityIndicator accessibilityLabel="正在加载站内通知" />
+            )}
+            {notificationsQuery.error && (
+              <View style={{ gap: 8 }}>
+                <Text style={{ color: '#b42318' }}>
+                  {notificationsQuery.error.message}
+                </Text>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => notificationsQuery.refetch()}
+                >
+                  <Text style={{ color: green }}>重试加载</Text>
+                </Pressable>
+              </View>
+            )}
+            {notificationsQuery.isFetching && notifications.length > 0 && (
+              <Text style={{ color: '#536a64' }}>正在同步…</Text>
+            )}
           </View>
+        }
+        ListEmptyComponent={
+          notificationsQuery.data && !notificationsQuery.error ? (
+            <Text style={{ color: '#536a64' }}>还没有站内通知。</Text>
+          ) : null
+        }
+        renderItem={({ item }) => (
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => openNotification(item)}
+            style={{ padding: 16, borderRadius: 12, backgroundColor: '#fff', gap: 6 }}
+          >
+            <Text style={{ color: '#18332f', fontWeight: '700' }}>
+              {item.actor_pet.nickname} {notificationText(item)}
+            </Text>
+            <Text style={{ color: '#536a64' }}>
+              {new Date(item.created_at).toLocaleString()}
+            </Text>
+          </Pressable>
         )}
+        ListFooterComponent={
+          notificationsQuery.isFetchingNextPage ? (
+            <ActivityIndicator accessibilityLabel="正在加载更多通知" />
+          ) : null
+        }
       />
-    </SafeAreaView>
+    </View>
   )
 }
