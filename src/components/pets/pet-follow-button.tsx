@@ -40,7 +40,7 @@ export function PetFollowButton({ targetPetId }: { targetPetId: number }) {
 
   if (!user) {
     return (
-      <Pressable accessibilityRole="button" onPress={() => router.push('/login')}>
+      <Pressable accessibilityRole="button" onPress={() => router.push('/handleLogin')}>
         <Text style={{ color: green, fontWeight: '700' }}>登录后关注</Text>
       </Pressable>
     )
