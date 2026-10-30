@@ -49,3 +49,8 @@ export const createTextRecord = (input: {
 
 export const getPetTimeline = (petId: number) =>
   recordRequest<{ records: PetRecord[] }>(`/pets/${petId}/records`)
+
+export const updateRecordVisibility = (recordId: number, visibility: RecordVisibility) =>
+  recordRequest<{ record: PetRecord }>(`/records/${recordId}/visibility`, 'PATCH', {
+    visibility,
+  })

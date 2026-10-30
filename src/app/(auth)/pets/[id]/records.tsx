@@ -1,7 +1,12 @@
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { router, Stack, useLocalSearchParams } from 'expo-router'
-import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native'
-import { getPetTimeline } from 'src/lib/records'
+import { useState } from 'react'
+import { ActivityIndicator, Alert, Pressable, ScrollView, Text, View } from 'react-native'
+import {
+  getPetTimeline,
+  type RecordVisibility,
+  updateRecordVisibility,
+} from 'src/lib/records'
 import { useAuth } from 'src/state/AuthProvider'
 
 const green = '#075e52'
@@ -9,12 +14,44 @@ const green = '#075e52'
 export default function PetTimelineScreen() {
   const { id } = useLocalSearchParams<{ id: string }>()
   const { user } = useAuth()
+  const queryClient = useQueryClient()
+  const [visibilityError, setVisibilityError] = useState('')
   const petId = Number(id)
   const { data, error, isLoading, isFetching, refetch } = useQuery({
     queryKey: ['metvage-records', petId, user?.server, user?.token],
     queryFn: () => getPetTimeline(petId),
     enabled: !!user && Number.isSafeInteger(petId) && petId > 0,
   })
+  const visibilityChange = useMutation({
+    mutationFn: ({
+      recordId,
+      visibility,
+    }: {
+      recordId: number
+      visibility: RecordVisibility
+    }) => updateRecordVisibility(recordId, visibility),
+    onSuccess: async () => {
+      setVisibilityError('')
+      await queryClient.invalidateQueries()
+    },
+    onError: (failure) => setVisibilityError(failure.message),
+  })
+
+  const changeVisibility = (recordId: number, visibility: RecordVisibility) => {
+    if (visibilityChange.isPending) return
+    setVisibilityError('')
+    if (visibility === 'public') {
+      Alert.alert('公开这条记录？', '公开后，未登录访客也能看到这条笔记。', [
+        { text: '取消', style: 'cancel' },
+        {
+          text: '确认公开',
+          onPress: () => visibilityChange.mutate({ recordId, visibility }),
+        },
+      ])
+      return
+    }
+    visibilityChange.mutate({ recordId, visibility })
+  }
 
   return (
     <ScrollView
@@ -30,6 +67,9 @@ export default function PetTimelineScreen() {
             <Text style={{ color: green }}>重试加载</Text>
           </Pressable>
         </View>
+      )}
+      {visibilityError !== '' && (
+        <Text style={{ color: '#b42318' }}>{visibilityError}</Text>
       )}
       {data && (
         <>
@@ -47,6 +87,24 @@ export default function PetTimelineScreen() {
               <Text style={{ color: '#63746f' }}>
                 {new Date(record.created_at).toLocaleString()}
               </Text>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={
+                  record.visibility === 'public' ? '改为私人记录' : '公开这条记录'
+                }
+                disabled={visibilityChange.isPending}
+                onPress={() =>
+                  changeVisibility(
+                    record.id,
+                    record.visibility === 'public' ? 'private' : 'public'
+                  )
+                }
+                style={{ opacity: visibilityChange.isPending ? 0.6 : 1 }}
+              >
+                <Text style={{ color: green }}>
+                  {record.visibility === 'public' ? '改为私人记录' : '公开这条记录'}
+                </Text>
+              </Pressable>
             </View>
           ))}
           <Pressable
