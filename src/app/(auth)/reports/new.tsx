@@ -12,7 +12,8 @@ export default function NewPetReportScreen() {
     target_id?: string
   }>()
   const targetId = Number(target_id)
-  const validTarget = target_type === 'record' || target_type === 'pet'
+  const validTarget =
+    target_type === 'record' || target_type === 'pet' || target_type === 'comment'
   const [reason, setReason] = useState('')
   const [error, setError] = useState('')
   const submit = useMutation({
@@ -50,7 +51,11 @@ export default function NewPetReportScreen() {
       ) : (
         <>
           <Text style={{ fontSize: 20, fontWeight: '700' }}>
-            {target_type === 'record' ? '举报公开笔记' : '举报宠物身份'}
+            {target_type === 'record'
+              ? '举报公开笔记'
+              : target_type === 'comment'
+                ? '举报评论'
+                : '举报宠物身份'}
           </Text>
           <Text>请描述你看到的问题。举报不会让你看到对方的私人记录。</Text>
           <TextInput

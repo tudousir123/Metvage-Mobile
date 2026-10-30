@@ -39,8 +39,12 @@ export default function TeamPetReportsScreen() {
               style={{ backgroundColor: '#fff', borderRadius: 10, padding: 14, gap: 5 }}
             >
               <Text style={{ fontWeight: '700' }}>
-                {report.target_type === 'record' ? '公开笔记' : '宠物身份'} #
-                {report.target_id}
+                {report.target_type === 'record'
+                  ? '公开笔记'
+                  : report.target_type === 'comment'
+                    ? '评论'
+                    : '宠物身份'}{' '}
+                #{report.target_id}
               </Text>
               <Text>举报账号 #{report.reporter_id}</Text>
               <Text>{report.reason}</Text>

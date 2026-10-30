@@ -199,6 +199,22 @@ export function RecordInteractions({
                   <Text style={{ color: '#b42318' }}>删除我的评论</Text>
                 </Pressable>
               )}
+              {visibility === 'public' && (
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() =>
+                    router.push(
+                      user
+                        ? (`/reports/new?target_type=comment&target_id=${item.id}` as Parameters<
+                            typeof router.push
+                          >[0])
+                        : '/handleLogin'
+                    )
+                  }
+                >
+                  <Text style={{ color: '#b42318' }}>举报这条评论</Text>
+                </Pressable>
+              )}
             </View>
           ))}
           {removeComment.error && (

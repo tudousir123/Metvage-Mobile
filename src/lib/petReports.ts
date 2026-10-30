@@ -1,7 +1,8 @@
-import Constants from 'expo-constants'
 import { Storage } from 'src/state/cache'
+import { instanceOrigin } from './instanceOrigin'
+import { metvageOrigin } from './metvage-public'
 
-export type PetReportTargetType = 'record' | 'pet'
+export type PetReportTargetType = 'record' | 'pet' | 'comment'
 
 export type PetReport = {
   id: number
@@ -15,13 +16,10 @@ export type PetReport = {
 
 async function reportRequest<T>(path: string, method = 'GET', body?: object): Promise<T> {
   const server = Storage.getString('app.instance')
-  const token = Storage.getString('app.token')
-  if (!server || !token) throw new Error('请先登录')
-
-  const localTestServer =
-    server === 'localhost:18080' &&
-    Constants.expoConfig?.extra?.localInstanceHost === 'localhost:18080'
-  const origin = `${localTestServer ? 'http' : 'https'}://${server}`
+  const origin = metvageOrigin()
+  const token =
+    server && instanceOrigin(server) === origin ? Storage.getString('app.token') : null
+  if (!token) throw new Error('请先登录当前社区账号')
   const response = await fetch(`${origin}/api/v1/metvage/${path}`, {
     method,
     headers: {
