@@ -7,6 +7,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from 'rea
 import { Alert, Platform } from 'react-native'
 import { getAccountById } from 'src/lib/api'
 import type { Account, LoginUserResponse } from 'src/lib/api-types'
+import { instanceOrigin } from 'src/lib/instanceOrigin'
 import { get, loginPreflightCheck, postForm, verifyCredentials } from 'src/requests'
 import { Storage } from './cache'
 
@@ -111,7 +112,18 @@ function useProtectedRoute(user: User | null, setUser: any, setIsLoading: any) {
 
     if (!user && inAuthGroup) {
       router.replace('/login')
-    } else if (user && !inAuthGroup) {
+    } else if (
+      user &&
+      !inAuthGroup &&
+      segments[0] === '(public)' &&
+      [
+        'login',
+        'handleLogin',
+        'handleSignup',
+        'verifyEmail',
+        'verificationCode',
+      ].includes(segments[1])
+    ) {
       router.replace('/(auth)/(tabs)/')
     }
   }, [user, segments, setUser, setIsLoading])
@@ -170,7 +182,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = async (server: string, enabledScopes: string) => {
     const precheck = await loginPreflightCheck(server)
-    const url = 'https://' + server
+    const url = instanceOrigin(server)
     if (!precheck) {
       return false
     }
@@ -214,7 +226,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   const _loginCallback = async (url: any) => {
-    const { path, queryParams } = Linking.parse(url)
+    const { queryParams } = Linking.parse(url)
     const REDIRECT_URI = Linking.createURL('login')
 
     if (queryParams?.message || queryParams?.error) {
@@ -231,7 +243,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     if (!instance) {
       throw new Error('instance missing')
     }
-    const api = `https://${instance}`
+    const api = instanceOrigin(instance)
     const clientId = Storage.getString('app.client_id')
     const clientSecret = Storage.getString('app.client_secret')
 
