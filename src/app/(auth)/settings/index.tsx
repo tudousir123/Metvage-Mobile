@@ -110,6 +110,7 @@ export default function Page() {
             borderColor={theme.borderColor?.val.default.val}
             separator={<Separator borderColor={theme.borderColor?.val.default.val} />}
           >
+            <GroupButton icon="heart" title="我的宠物" path="/settings/pets" />
             <GroupButton
               icon="user"
               title="Avatar, Bio and Display Name"
