@@ -55,6 +55,10 @@ npm run ios -- --device
 npm run check
 ```
 
+The TypeScript check compares all diagnostics against the existing error baseline.
+See [TypeScript baseline](docs/typechecking.md) for a full diagnostic report and the
+procedure for reducing the baseline.
+
 ### fix formatting & linting
 ```sh
 npm run lint

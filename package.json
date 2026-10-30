@@ -12,7 +12,9 @@
     "test": "jest --watchAll",
     "lint": "biome check --write ./src",
     "check": "npm run check:ts && npm run check:lint",
-    "check:ts": "tsc",
+    "check:ts": "node scripts/typecheck-baseline.cjs",
+    "check:ts:full": "node scripts/typecheck-baseline.cjs --full",
+    "check:ts:update": "node scripts/typecheck-baseline.cjs --update",
     "check:lint": "biome check ./src",
     "postinstall": "patch-package"
   },
