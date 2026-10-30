@@ -91,6 +91,11 @@ export default function PetsPage() {
           <Text style={{ color: green }}>养其他宠物？申请支持其他物种</Text>
         </Pressable>
       </Link>
+      <Link href="/following" asChild>
+        <Pressable accessibilityRole="button">
+          <Text style={{ color: green }}>查看当前宠物的关注流</Text>
+        </Pressable>
+      </Link>
 
       {data === undefined && !error && (
         <ActivityIndicator accessibilityLabel="正在加载宠物档案" />
