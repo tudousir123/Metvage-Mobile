@@ -55,11 +55,77 @@ async function recordRequest<T>(path: string, method = 'GET', body?: object): Pr
     throw new Error(error?.message || `请求失败 (${response.status})`)
   }
 
+  if (response.status === 204) return undefined as T
   return response.json()
 }
 
 export const getPetTimeline = (petId: number) =>
   recordRequest<{ records: PetRecord[] }>(`/pets/${petId}/records`)
+
+export const getPetRecord = (recordId: number) =>
+  recordRequest<{ record: PetRecord }>(`/records/${recordId}`)
+
+export const deletePetRecord = (recordId: number) =>
+  recordRequest<void>(`/records/${recordId}`, 'DELETE')
+
+export async function updatePetRecord(
+  recordId: number,
+  input: {
+    pet_id: number
+    text: string
+    title: string
+    photos: RecordPhotoInput[]
+    remove_photo_ids: number[]
+  }
+): Promise<{ record: PetRecord }> {
+  const token = Storage.getString('app.token')
+  if (!token) throw new Error('请先登录')
+
+  const form = new FormData()
+  form.append('pet_id', String(input.pet_id))
+  form.append('text', input.text)
+  form.append('title', input.title)
+  input.remove_photo_ids.forEach((id, index) => {
+    form.append(`remove_photo_ids[${index}]`, String(id))
+  })
+  input.photos.forEach((photo, index) => {
+    form.append(`photos[${index}]`, {
+      uri: photo.uri,
+      name: photo.fileName || `photo-${index + 1}.jpg`,
+      type: photo.mimeType || 'image/jpeg',
+    } as unknown as Blob)
+  })
+
+  let response: Response
+  try {
+    response = await fetch(`${recordOrigin()}/api/v1/metvage/records/${recordId}/edit`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/json',
+      },
+      body: form,
+    })
+  } catch {
+    throw new Error('保存失败，请检查网络后重试。编辑内容已保留。')
+  }
+
+  if (!response.ok) {
+    const error = await response.json().catch(() => null)
+    const photoValidationFailed =
+      response.status === 422 &&
+      error?.errors &&
+      Object.keys(error.errors).some(
+        (field) => field === 'photos' || field.startsWith('photos.')
+      )
+    if (photoValidationFailed) {
+      throw new Error('照片保存失败，请选择 JPG、PNG 或 WebP 图片，每张不超过 10 MB。')
+    }
+    throw new Error(error?.message || `保存失败 (${response.status})，请重试。`)
+  }
+
+  return response.json()
+}
 
 export async function createPetRecord(input: {
   pet_id: number
