@@ -60,6 +60,7 @@ export default function Page() {
               countDanger={true}
               path="/admin/reports/"
             />
+            <GroupButton icon="list" title="物种申请" path="/admin/species-requests" />
             {/* <GroupButton
               icon="message-circle"
               title="Admin Inbox"
