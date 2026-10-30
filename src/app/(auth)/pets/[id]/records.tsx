@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
+import { Image } from 'expo-image'
 import { router, Stack, useLocalSearchParams } from 'expo-router'
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native'
-import { getPetTimeline } from 'src/lib/records'
+import { getPetTimeline, recordPhotoUrl } from 'src/lib/records'
 import { useAuth } from 'src/state/AuthProvider'
 
 const green = '#075e52'
@@ -43,7 +44,28 @@ export default function PetTimelineScreen() {
               <Text style={{ fontWeight: '700', color: green }}>
                 {record.visibility === 'public' ? '公开笔记' : '私人记录 · 仅自己可见'}
               </Text>
-              <Text style={{ fontSize: 16 }}>{record.text}</Text>
+              {record.title && (
+                <Text style={{ fontSize: 18, fontWeight: '700' }}>{record.title}</Text>
+              )}
+              {record.text && <Text style={{ fontSize: 16 }}>{record.text}</Text>}
+              {record.photos.length > 0 && (
+                <ScrollView horizontal contentContainerStyle={{ gap: 8 }}>
+                  {record.photos.map((photo) => (
+                    <Image
+                      key={photo.id}
+                      source={{
+                        uri: recordPhotoUrl(photo.url),
+                        headers: user?.token
+                          ? { Authorization: `Bearer ${user.token}` }
+                          : undefined,
+                      }}
+                      cachePolicy="none"
+                      contentFit="cover"
+                      style={{ width: 220, height: 220, borderRadius: 10 }}
+                    />
+                  ))}
+                </ScrollView>
+              )}
               <Text style={{ color: '#63746f' }}>
                 {new Date(record.created_at).toLocaleString()}
               </Text>
