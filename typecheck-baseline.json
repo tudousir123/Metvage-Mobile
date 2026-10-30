@@ -1,7 +1,7 @@
 {
   "version": 1,
   "typescript": "5.3.3",
-  "total": 2604,
+  "total": 2467,
   "diagnostics": [
     {
       "fingerprint": "00091802970e42f7f7b4b52f231380689eabb2df319febb555520b7341d709c9",
@@ -70,12 +70,6 @@
       "count": 1
     },
     {
-      "fingerprint": "0132a25f24164862818ca9b5a8412a05435b59b9e1e32465c17035954b321923",
-      "file": "src/lib/api.ts",
-      "code": 7053,
-      "count": 1
-    },
-    {
       "fingerprint": "0132cb0c5bff7bbc9328a064db77aefde15f2baa4a083f03389f06a14b688edb",
       "file": "src/components/notifications/PushNotificationSettings.tsx",
       "code": 2339,
@@ -91,12 +85,6 @@
       "fingerprint": "0179b98632a11dda788741ac52ca9c1141fe95d9cb235e7ef510e5aa671a7845",
       "file": "src/components/common/SelfStoriesModal.tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "01975c501310c9d5c81a1050cc142933d3b39accbdbe5bf58151418ebf6df15c",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2747,
       "count": 1
     },
     {
@@ -212,12 +200,6 @@
       "file": "src/components/post/FeedPost.tsx",
       "code": 2322,
       "count": 2
-    },
-    {
-      "fingerprint": "03aa62171f37d29663eefaaf410f006e3e20128625f981488c0732429dbe7fa2",
-      "file": "src/app/(public)/login.tsx",
-      "code": 7053,
-      "count": 1
     },
     {
       "fingerprint": "03d0783f38e44b86be06a32b78c2edad72c7f8160df44e42a802d63f828ad242",
@@ -400,12 +382,6 @@
       "count": 1
     },
     {
-      "fingerprint": "08427ac065b8d510440b5b4b233e52fb0639a9fa8aa2a181da74cb5dda5a8b99",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "086dc58fedf72d5af41f77f95c76b58ddf962879bd022a344c5a761353d994ce",
       "file": "src/app/(auth)/admin/reports/index.tsx",
       "code": 2339,
@@ -415,12 +391,6 @@
       "fingerprint": "0878c8d9476344337c2bd563bf348638359609ab5f3f0feca5bdbc893bd6c500",
       "file": "src/app/(auth)/search/index.tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "08891aa6e8a2ef8e6c2557fad76e8231714365af2574029f489b3093fb7f62c2",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2345,
       "count": 1
     },
     {
@@ -544,12 +514,6 @@
       "count": 4
     },
     {
-      "fingerprint": "0b0572e227017143f373c7e5511df3f8660909ff461dc41987b3e1716395bad9",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "0b0fc14e3b8eb3f083bd32b80a08c501cef0b66be14ec3759c59bda96c88d051",
       "file": "src/app/(auth)/profile/[id].tsx",
       "code": 2322,
@@ -616,21 +580,9 @@
       "count": 1
     },
     {
-      "fingerprint": "0be8a63a501a608f10fc0f8a8396002f4f9f4a10e6fa1be5a358330bfe24182d",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "0c0af47815ec155153c06a0bc9001911023f5efc5be1b567b120d66d6e77289c",
       "file": "src/app/(auth)/admin/instances/index.tsx",
       "code": 2345,
-      "count": 1
-    },
-    {
-      "fingerprint": "0c2d320d7836196bb9a67a606a66fbc1cfae2ebf8893fd37338dd36983154e32",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2820,
       "count": 1
     },
     {
@@ -740,12 +692,6 @@
       "file": "src/components/notifications/RenderNotificationItem.tsx",
       "code": 2339,
       "count": 2
-    },
-    {
-      "fingerprint": "0eb040810165949d1a522fb58c875e087c6e2ccb3b3ef28cddb145505d56fc8a",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
     },
     {
       "fingerprint": "0edd7abdf500ce37943657843f65a6fa998460bdd7862cbd980f8017440b0318",
@@ -874,12 +820,6 @@
       "count": 1
     },
     {
-      "fingerprint": "10fff3ab8e4261eaf5a1d4f8c4199086b9012e4d0fe85f6f910d199ea33baca6",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "1135b1143397cf63d58fea502a87c6c8935f75c2e4b3447e11a4ff512baa9e0c",
       "file": "src/components/post/FeedPost.tsx",
       "code": 2322,
@@ -932,12 +872,6 @@
       "file": "src/app/(auth)/admin/reports/index.tsx",
       "code": 2322,
       "count": 2
-    },
-    {
-      "fingerprint": "11f3a7af030801028a6eb0c79228c7acc056aa9886fe2490e9bba4f48b7aa4c5",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2339,
-      "count": 1
     },
     {
       "fingerprint": "120f7e2bed207d079f85fd8a8e827fa74762cf86c82758a8921a8503fc52492c",
@@ -1270,26 +1204,8 @@
       "count": 1
     },
     {
-      "fingerprint": "18d9dd2e4293c08c8d8bab0512c88e9ed6a320c5f2c6d65dc12ac9b73b7c5267",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "18e6ee8961500055a35bd0c2e61445038050f9b02c4f1ca6f90e20f9e45fb36e",
       "file": "src/app/(auth)/profile/report/sent.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "18fc2bb6d310fd4d31add11595392369b81ab6a25c38e3f67cc126990c57b8a0",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "18fed63238faf05c9a88004fef42c5ab54dd68b936f4f4d2d37f51952af8f33c",
-      "file": "src/app/(public)/handleSignup.tsx",
       "code": 2322,
       "count": 1
     },
@@ -1340,12 +1256,6 @@
       "file": "src/hooks/useCustomAlertProvider.tsx",
       "code": 2322,
       "count": 2
-    },
-    {
-      "fingerprint": "1a328cedb1559a6f81cee333c725a78adac111d6633f8e04d01ce4773a0e4228",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
     },
     {
       "fingerprint": "1a775cb8666245fce739f9596e92b6efeaac3272c0011f9b33d13a423c56231e",
@@ -1450,18 +1360,6 @@
       "count": 1
     },
     {
-      "fingerprint": "1c434bce741af7a51b4fa4d05ad703543ad2f80606f67e7b9b7a96985d601a9f",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2769,
-      "count": 1
-    },
-    {
-      "fingerprint": "1c4e76014fbbbecefd7c96c06c9b8f6ab8efc1c107745940bf6c9cc5bdba8e5f",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2747,
-      "count": 1
-    },
-    {
       "fingerprint": "1cbc51c1bf9c5e54ff50fd8858c670cae645d901dedea9ebcb7c2d481aa0eb1a",
       "file": "tamagui.config.ts",
       "code": 2353,
@@ -1496,12 +1394,6 @@
       "file": "src/app/(auth)/admin/reports/index.tsx",
       "code": 2769,
       "count": 1
-    },
-    {
-      "fingerprint": "1d225034858492e7f00abbabc97f009c68c45c0980e089edeb3643ae958e67a3",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 5
     },
     {
       "fingerprint": "1d3511e9e6f5713a92dd60df0d3c2f3f8de40b7a973e7fefd057edf50368235e",
@@ -1594,12 +1486,6 @@
       "count": 6
     },
     {
-      "fingerprint": "1f242870f4fcbfb0e92c1b7d1fe5f9c1276ab7bf904548ce9c4fe047c35e8967",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "1f46c7b6c61aa029840f57c3f621830f48dc8b6886256c366e0a8d5d8f1d0d82",
       "file": "src/app/(auth)/admin/instances/index.tsx",
       "code": 2322,
@@ -1666,12 +1552,6 @@
       "count": 3
     },
     {
-      "fingerprint": "20af41e72fd3942c089cf8c6059d1ed3d12eaf3b795b5667b43451135a26b714",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "20c6f4a92c1e737ac33c1c02492453e067ee05acf0601661bdbef3e2af6d0ca8",
       "file": "src/app/(auth)/admin/users/index.tsx",
       "code": 2322,
@@ -1681,12 +1561,6 @@
       "fingerprint": "20f0ccc4079e8ea973ec16a00edb859f4e39e51f3abe67ff51b8185456d68f04",
       "file": "src/app/(auth)/post/comments/[id].tsx",
       "code": 2339,
-      "count": 1
-    },
-    {
-      "fingerprint": "20f4e02a2087c0f091049b9e8734a98692b27c6a464795ffdc2212fa49fa9ace",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -1741,18 +1615,6 @@
       "fingerprint": "21c23ea8f70debd6c9d6d55374a9e16512b3f928c0462059b8ef7258e258e932",
       "file": "src/app/(auth)/admin/users/show/[id].tsx",
       "code": 7031,
-      "count": 1
-    },
-    {
-      "fingerprint": "21e011c506bafcb46803e25414acda9600f871999b6d8ddf4bf09c85e30927de",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "2204c6bb3d257756eedd849d059fbf9f1ec7a7f828d811584e8dce84f2e0931c",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -2002,12 +1864,6 @@
       "count": 2
     },
     {
-      "fingerprint": "269f8622675dde71aa5792b42b56a68c80045bc341852dffa5e5014f8c9e68e8",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "26a67f397dfb143653a844bf475efaa971594d51649092546ea46caf7766942c",
       "file": "src/components/post/FeedPost.tsx",
       "code": 2304,
@@ -2016,12 +1872,6 @@
     {
       "fingerprint": "2714b0ed2daf618a2a1b3b8bb548e87e9c94e836e2d5245cceb3e9f8b0f68996",
       "file": "src/app/(auth)/settings/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "271670bd96ebe67391d837870e72ccdc95aeb75c491a6065531fddbda3be5605",
-      "file": "src/app/(public)/handleSignup.tsx",
       "code": 2322,
       "count": 1
     },
@@ -2086,22 +1936,10 @@
       "count": 1
     },
     {
-      "fingerprint": "2853c0698c00def6375ac350b2682cbbc2d6c5d4ce46c18b04695b0eb0069afb",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "2855e9977a934291a13a32529115c7c628258e32b140e55a8c09ae87c7240a89",
       "file": "src/app/(auth)/settings/instance/index.tsx",
       "code": 2322,
       "count": 3
-    },
-    {
-      "fingerprint": "287bf90d41b36be5586c7cde3189044ffbe7cac26c011cb8bdae14bf0d4c08e1",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2322,
-      "count": 1
     },
     {
       "fingerprint": "28c26480e012e3eb5cfc503f73c32e01565e1420288574d80943882ac84b28ee",
@@ -2137,12 +1975,6 @@
       "fingerprint": "29220782efa1bc3044aebea7874cc93bcb9863351c8cadbc5ab44c8c3ec13726",
       "file": "src/components/profile/ProfileHeader.tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "2928c55688b4a87a5f6afcbbc229fefbf4b62822762761d47cd1e1efe3908c47",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 7006,
       "count": 1
     },
     {
@@ -2266,21 +2098,9 @@
       "count": 1
     },
     {
-      "fingerprint": "2a8737feacd573a30d54123381097392c0b01db24a69e22df74f386d89f9f044",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "2aa4d3a63193a8e88d763732be20c326bb254b1674b091bc6c67cc5bde85918a",
       "file": "src/app/(auth)/story/viewers/[id].tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "2ac43611f8441a435e482c39d758c7c03a4c69b1ba5651b75ed4e13e94bc8860",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 7006,
       "count": 1
     },
     {
@@ -2446,12 +2266,6 @@
       "count": 1
     },
     {
-      "fingerprint": "2dd911695b2f6031c9f9b9bf3642774a51e2e8fe64877fba155ea6ba879142e9",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2345,
-      "count": 1
-    },
-    {
       "fingerprint": "2ddc44fbddab62b9a8664b45b1abf66face80dd0687fb1daaa55bc85c01bb8c9",
       "file": "src/app/(auth)/settings/index.tsx",
       "code": 2322,
@@ -2509,12 +2323,6 @@
       "fingerprint": "2ee3a615b72b9c0ffc8a88bf7ceb46a46a18b4eac97d2b967e2dd56ba42fb0c1",
       "file": "src/components/common/FeedHeader.tsx",
       "code": 7031,
-      "count": 1
-    },
-    {
-      "fingerprint": "2ef8c9bb4d1f96841d655350cafd0a8c332e2a862c08aed515ccc792014976bb",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -2598,12 +2406,6 @@
     {
       "fingerprint": "2fe422011849e5a24038c0cca09ec483e24d42b023324351121506ed80b84471",
       "file": "src/app/(auth)/profile/[id].tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "2fe857ec0fd4cfafe25b1bf963125b82c0639e6132cf69c96362a3894cb1e693",
-      "file": "src/app/(public)/handleLogin.tsx",
       "code": 2322,
       "count": 1
     },
@@ -2812,12 +2614,6 @@
       "count": 1
     },
     {
-      "fingerprint": "359b9f74c244f41ee5428d553ff4483e66ee0ed0a41b43e210d6b39d7989b687",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "35ae5b3b75780d7ec8bebb90145fc9757e7955ca49f2095ec56940d7751c4ff0",
       "file": "src/app/(auth)/story/viewers/[id].tsx",
       "code": 2322,
@@ -2880,12 +2676,6 @@
     {
       "fingerprint": "371c94cf2a38734d6865d6203f80567d52370849c70ba625288273b52b2a3d9f",
       "file": "src/app/(auth)/admin/config/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "3733b940295cae59cf58c011317cf8a28fa1354e13b0361de7bb0da57ecfe2da",
-      "file": "src/app/(public)/handleSignup.tsx",
       "code": 2322,
       "count": 1
     },
@@ -3052,12 +2842,6 @@
       "count": 1
     },
     {
-      "fingerprint": "3abb97c9b6d4fe1a1e54335aa33060c32f09c7ad23b9a53e571c95c281644205",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "3abcdcb0c5de9373055e307d9490900a98cadd8a666bd064c301744253a34e80",
       "file": "src/components/post/CommentFeed.tsx",
       "code": 2322,
@@ -3085,12 +2869,6 @@
       "fingerprint": "3b649769932bd883c6ba9b6ae8398f2c26531c86fa3f6d82bb7a0b51a8092e45",
       "file": "src/app/(auth)/profile/[id].tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "3b66767bd6c5b4c21d710618fab3600d5afb174d9f1474d55dd17cfd5be3105a",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2345,
       "count": 1
     },
     {
@@ -3226,12 +3004,6 @@
       "count": 1
     },
     {
-      "fingerprint": "3ebe6bb77a6842a5bb654dc0a2fba41030ee249859cca9d2998e416d010d271f",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "3ef83740d1dea2fc92724a3a3b3f0c70dd1ee1b3b6534339272d561d7e354231",
       "file": "src/app/(auth)/admin/users/show/[id].tsx",
       "code": 2322,
@@ -3301,12 +3073,6 @@
       "fingerprint": "3fee231f4bdee8ccfb169a3b3b5890d7dcf4b62d4a6bd4f54e89fa773f650d2e",
       "file": "src/components/post/FeedPost.tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "3ffbcd75233653aa7b457b7c7b5563a4b0f0c8288d2abe91519b09db512440c2",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 18048,
       "count": 1
     },
     {
@@ -3394,12 +3160,6 @@
       "count": 1
     },
     {
-      "fingerprint": "425235b64ab2f2be69c032302e90dbdb32e661b28f46639e18c16a82dc642ca5",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "426ce11b4f6300e87bc8955ac92be35948efc1c780ed81f8be1f8bf5512ab02a",
       "file": "tamagui.config.ts",
       "code": 2353,
@@ -3440,12 +3200,6 @@
       "file": "src/components/post/FeedPost.tsx",
       "code": 2322,
       "count": 2
-    },
-    {
-      "fingerprint": "4380363750b9897f93ddc747cbf2cb48bb3b7bafee70a8fec29e8d345ad91f46",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
     },
     {
       "fingerprint": "43a1575a6537e36a0e8877233caf1d18061326e4d293cf7dbf57be5769e83e36",
@@ -3499,12 +3253,6 @@
       "fingerprint": "43f602ddc537d3d2aad2547dfd6cd6df3c373daed534942583abd632eb579e7b",
       "file": "src/app/(auth)/settings/privacy/blocked-accounts.tsx",
       "code": 7031,
-      "count": 1
-    },
-    {
-      "fingerprint": "43f62e7a2e8fa9346ea2ecf956245de59f8e1f9f5719171621572f7dfe344e4f",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -3916,12 +3664,6 @@
       "count": 1
     },
     {
-      "fingerprint": "4cc0523e9b9a47b0bc84275f5f80f38508948b0e04a861c335da98cc6e7bd861",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 3
-    },
-    {
       "fingerprint": "4d0b1ca76d526d12c0ae37f060f4a9ed6aa9afd8b8e45468e2a34a905270538c",
       "file": "src/app/(auth)/search/index.tsx",
       "code": 2322,
@@ -3954,12 +3696,6 @@
     {
       "fingerprint": "4da06d0e6ca129b20ab1f4eda175e750a0bae7aec8f7ef003052c41f1021525a",
       "file": "src/components/form/Select.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "4da79a559a0f50063e7dc71fb4322a5d0ffb82e9ac3175bafae193ff33aa60fe",
-      "file": "src/app/(public)/handleLogin.tsx",
       "code": 2322,
       "count": 1
     },
@@ -4090,12 +3826,6 @@
       "count": 2
     },
     {
-      "fingerprint": "515d1ae3df48094d617bdab5d77110d4da92cc538f7ca043d32dcb8607247d2c",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "516266d3cc6db9f99856a1faf598fb2b748dbbec0090adcb7fc31d475a33000b",
       "file": "src/app/(auth)/settings/profile.tsx",
       "code": 2322,
@@ -4210,12 +3940,6 @@
       "count": 1
     },
     {
-      "fingerprint": "52b954eaeed0513dc5822a7eaac6c85cb13a562ce98aa762ec48aae53f371bc1",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "52c74581d247e1527aa552b0953a8ec38f56741d217bed47a07da0b1f0990acc",
       "file": "src/components/common/SelfStoriesModal.tsx",
       "code": 2322,
@@ -4274,12 +3998,6 @@
       "file": "src/components/post/FeedPost.tsx",
       "code": 2339,
       "count": 1
-    },
-    {
-      "fingerprint": "53a6faafba0487f4f8b9a607d6be0237c5daeaf2ed693eeece92e60d7a3ccf07",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2345,
-      "count": 2
     },
     {
       "fingerprint": "53eb8127d8abca51a655f33b27557969ca7abc2739dfaf3529779ccb727ec571",
@@ -4471,12 +4189,6 @@
       "fingerprint": "57d464b6a3cf153648ee40aceec8544e18465de8109375858364030c8c0d96d5",
       "file": "src/app/(auth)/post/likes/[id].tsx",
       "code": 18046,
-      "count": 1
-    },
-    {
-      "fingerprint": "57d9af0e7c6b4f2048b93005d66ba431d0d3474f864e1dfaf584b3a307a07f51",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -4852,12 +4564,6 @@
       "count": 1
     },
     {
-      "fingerprint": "5ee2f5575006d2d41367f267f32daa24f3fe42518588001b4a84110d3e78c1a8",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "5ef8fc96cd3818bb6676b079b980b757eeb8be36d63e96c8a2960ecb79abb9fe",
       "file": "src/components/common/SelfStoriesModal.tsx",
       "code": 7006,
@@ -5068,21 +4774,9 @@
       "count": 2
     },
     {
-      "fingerprint": "627f87b4034474c554987fc75ca2e0e01961e3b9823f367eb59b3805079a96b6",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 3
-    },
-    {
       "fingerprint": "62ad6c0915c1d923272db0d14e98303e28ab637b625cd7c74d269c1ebc030318",
       "file": "src/app/(auth)/profile/follow-requests/index.tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "631c760b37739049e3b6e1c97669395580597d9caa33e20d97fbf50ba64794b9",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2554,
       "count": 1
     },
     {
@@ -5518,12 +5212,6 @@
       "count": 1
     },
     {
-      "fingerprint": "6c7643faa8b24c17299a33b57a5235091cd05f0501f39bfca748139a2c9cd02d",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "6cf7d173caa8ded0ea375c87e1eac4fb2143491117e4132cc5ea89d1102ce195",
       "file": "src/app/(auth)/post/edit/[id].tsx",
       "code": 2339,
@@ -5562,12 +5250,6 @@
     {
       "fingerprint": "6daf053f9e578c1b5c479ffc5d47ea01054d0e3a6509856945cf43bdaf311838",
       "file": "src/app/(auth)/post/edit/[id].tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "6db33297b71f72f02b59da9e95cd66050a076c865bd07cbe8316d377ae32b47c",
-      "file": "src/app/(public)/handleSignup.tsx",
       "code": 2322,
       "count": 1
     },
@@ -5680,12 +5362,6 @@
       "count": 4
     },
     {
-      "fingerprint": "6f751875a7ff712ab92d68367de61d05627584a8c682be72466e3c9d94fe3665",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "6f8f45b22374d66cc651033735d17f56b5f65b9583bd2fb31fca555fed0caf3c",
       "file": "src/components/form/Select.tsx",
       "code": 2322,
@@ -5730,12 +5406,6 @@
     {
       "fingerprint": "700a610f5cc86ab7e587654e1fa1bf897e5fee8ab6f9f60ba6475e6ea9fbd786",
       "file": "src/app/(auth)/profile/follow-requests/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "701b5ce35d7b3baa3d9580e32b2528980735c2af675d5723a962751b7a3d47a6",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
       "code": 2322,
       "count": 1
     },
@@ -5839,18 +5509,6 @@
       "fingerprint": "7264a6af9e9f0a1bfa6c8691d26b6c176b69ca98074e91861f32f9571e2d04f4",
       "file": "src/components/profile/ProfileHeader.tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "7267d47de4c7ef96621e47c7f43b532bcdf49d074235a07a2213eed69cac8d59",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "729914eb06465b80af5cf3352fb6cff85bd95d08572f436ac6385b1f2e06d188",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2747,
       "count": 1
     },
     {
@@ -5971,12 +5629,6 @@
       "fingerprint": "74dbf2f6d2f57d92b52400ffc139459557f79d41a1a38d359c4b7adc98ce3db7",
       "file": "src/app/(public)/verifyEmail.tsx",
       "code": 7016,
-      "count": 1
-    },
-    {
-      "fingerprint": "74fda179f8cc8912156e868734fc13169c6ab19f1dd9fd14ba7a77669ae85069",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -6142,12 +5794,6 @@
       "count": 1
     },
     {
-      "fingerprint": "783d48e8b190359f9b19ef54e5246a0978fb2ca594cc2aad3816b3277c1dfcc3",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "788306c9de8bf292a5cd1c52962710565ba52750c74e8bdcc7672921c3242c50",
       "file": "src/app/(auth)/post/report/[id].tsx",
       "code": 2322,
@@ -6164,12 +5810,6 @@
       "file": "src/lib/api.ts",
       "code": 7006,
       "count": 1
-    },
-    {
-      "fingerprint": "78d362c0598f6c94e4c35ef9561b42007db74502053788a44ba52137c5116610",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 2
     },
     {
       "fingerprint": "78d659edc0eae5e5039f4e22f879ef1f76ddd59607fbd72c6642f2b4b8478ee9",
@@ -6244,12 +5884,6 @@
       "count": 2
     },
     {
-      "fingerprint": "7a15c2dc3204a6409e32e53508ea26b8f16e0bc805ccb012d5a5b34afa687a4f",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "7a31b99bab995268ffb69f0b1812df09d7efb90a3ffe1f3fea96679cb77503fb",
       "file": "src/app/(auth)/settings/updateBio.tsx",
       "code": 2322,
@@ -6316,12 +5950,6 @@
       "count": 1
     },
     {
-      "fingerprint": "7bbb0477718bfc1a1ff1707dfbf0428bb63a4e38dc94ecf1a6e9b46a433c1a65",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 18048,
-      "count": 2
-    },
-    {
       "fingerprint": "7bcabaedaf593348aacd9501b1251b52cfa2b356df39d1f1e565e4b057e66adc",
       "file": "src/app/(auth)/admin/reports/index.tsx",
       "code": 2322,
@@ -6349,12 +5977,6 @@
       "fingerprint": "7c7df29a471910b555223c1e36eaccceed9219be997ae289f075e2a9ee5d5024",
       "file": "src/app/(auth)/notifications/index.tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "7c8f076075a0e307200b5172e888070b0623cadcf3fd84eb19800a06e8e60794",
-      "file": "src/app/(public)/login.tsx",
-      "code": 18048,
       "count": 1
     },
     {
@@ -6454,12 +6076,6 @@
       "count": 1
     },
     {
-      "fingerprint": "7ee3ac393c9f0ed572db165cfa27ddb785ec344c3c477a87023f77645b6fa43a",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 7006,
-      "count": 1
-    },
-    {
       "fingerprint": "7efe3ff2f2dcf6cce1b8b7fd906907b92dee7a26f9c4702303b6ee81ac497469",
       "file": "src/app/(auth)/admin/users/show/[id].tsx",
       "code": 2322,
@@ -6518,12 +6134,6 @@
       "file": "src/app/(auth)/story/viewers/[id].tsx",
       "code": 2322,
       "count": 2
-    },
-    {
-      "fingerprint": "8068fdeb0f4b6be3f3632711e358addd30d10df58c34daf0e0a1a6cc20747f29",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2322,
-      "count": 1
     },
     {
       "fingerprint": "808d4539f90b25690b13d515e01bb6ae35835e6ad0be87c5bffe04ba48815429",
@@ -6784,12 +6394,6 @@
       "count": 1
     },
     {
-      "fingerprint": "87c0319a5ef01e79381030f6f142c557aa25d3cc4c797ff147c21115ebe4a045",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "87c1b681adccef937e322a9b606a0bd26b88c5fc4f944a4ded79683a649fdc30",
       "file": "src/components/common/SelfStoriesModal.tsx",
       "code": 2322,
@@ -6804,12 +6408,6 @@
     {
       "fingerprint": "8836ba978794be62ead311c9d92bcdf60ebdc0a32b4286cfecfa18af80801ba1",
       "file": "src/app/(auth)/hashtag/[id].tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "88412f84b30e7675f41523eaf1700f2060c830e4135890925877b049b65a8988",
-      "file": "src/app/(public)/login.tsx",
       "code": 2322,
       "count": 1
     },
@@ -6922,12 +6520,6 @@
       "count": 2
     },
     {
-      "fingerprint": "8a723edc390258eb7ebe3861f693e7d998d2012826ca9b62be896791fc04c755",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "8aba29ec9be1d5067164bc13970b138bae2a0e774e6b55e93f0892e4b77a7e67",
       "file": "src/app/(auth)/post/edit/[id].tsx",
       "code": 7006,
@@ -7012,12 +6604,6 @@
       "count": 1
     },
     {
-      "fingerprint": "8cafdcebaf66bbe5890b5a3ee89c51e52edb1b579de8fcd056b18fa53ff87def",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "8cd59b369087bb98bfd0dfea34d9c61b1e1d1d32093b69543c29a4bfabf3cf91",
       "file": "src/app/(auth)/settings/contributors/index.tsx",
       "code": 2322,
@@ -7026,12 +6612,6 @@
     {
       "fingerprint": "8ce5b082e50ee8b75e4e0c8a43ae5706415ed8fd5ee8e7d066ecb164a084b63c",
       "file": "src/app/(auth)/profile/followers/[id].tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "8d0d3b85bbc2843f43f15668c787914fc4523551865b809dae33455197d8fff4",
-      "file": "src/app/(public)/handleLogin.tsx",
       "code": 2322,
       "count": 1
     },
@@ -7126,12 +6706,6 @@
       "count": 3
     },
     {
-      "fingerprint": "8f50cb2cb68bd400cb0318b31768879d7f5b62ee30a32707b4e44ceb4d1e7f9f",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "8f64f4bd017928d3318340d5683eb432a939d05d3d5220da52dfad10eb216dda",
       "file": "src/components/profile/actionButtons/FollowProfile.tsx",
       "code": 2774,
@@ -7158,12 +6732,6 @@
     {
       "fingerprint": "8fdc0783074a6e18f0bd4a1159f033371f3aa122713e114215b2cbf9156bd90d",
       "file": "src/app/(auth)/settings/notifications/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "8fe7e74c40ed1cbd3c79b8d902ffcae3b7ada6229964ecc551efd2cb027b8b14",
-      "file": "src/app/(public)/handleSignup.tsx",
       "code": 2322,
       "count": 1
     },
@@ -7267,12 +6835,6 @@
       "fingerprint": "9333ef58d13dd2d48386d9f4de45f1ee6dbf5151ed5d5bda6d2a2dc2e1a99cd9",
       "file": "src/app/(auth)/admin/instances/index.tsx",
       "code": 7006,
-      "count": 1
-    },
-    {
-      "fingerprint": "9350a51f43f0aebd9a1586b9d75738cd7338a5c0f9e1fc6905ffc52ecdd589c3",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -7384,12 +6946,6 @@
       "count": 1
     },
     {
-      "fingerprint": "954263c1d60b665b3fec0cb9e27d55b258dfad05257585fc699139ae6eacf3f8",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "959e22fb5e7b7ae7cb2b1346889d08472f117fdabda9c04ba503b14553b05529",
       "file": "src/app/(auth)/post/comments/[id].tsx",
       "code": 7006,
@@ -7414,21 +6970,9 @@
       "count": 1
     },
     {
-      "fingerprint": "96866112e23f46cb41eea900628ec2c0aa35ae15be909e879c83b1fcb42153f2",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "96d68b5376f1ed2b31429f0c3f0011514d197afefda4d8990ff7a9f75dd50f55",
       "file": "src/app/(auth)/(tabs)/profile.tsx",
       "code": 2339,
-      "count": 1
-    },
-    {
-      "fingerprint": "96f5bfe5f58da668c8e511ac6c6cf78bfca0ae46e1e237b5e16f2080f1c9c2c9",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -7702,12 +7246,6 @@
       "count": 1
     },
     {
-      "fingerprint": "9b09afbeea41755cdf83cea7c0ee7b7fc9216536db8a368e2d21c1563aff0a4c",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "9b24e836473b5f7df52aa811351efcef2bb973480aa87e2b4acc5d086e466904",
       "file": "src/app/(auth)/profile/feed/[id].tsx",
       "code": 2322,
@@ -7716,12 +7254,6 @@
     {
       "fingerprint": "9b754c99f84d783b546513a2e54b4d063e32f7f8b9c96f0960ad036c93e0247c",
       "file": "src/app/(auth)/post/comments/[id].tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "9b97682581952f3965c97d0a13c986d3b52ce952f007829d8520efed77dee253",
-      "file": "src/app/(public)/handleLogin.tsx",
       "code": 2322,
       "count": 1
     },
@@ -7756,12 +7288,6 @@
       "count": 1
     },
     {
-      "fingerprint": "9c71092b5b17f2ecdeed5b84e549f404cd09b95f5dc56bb8fab8a20c930db39c",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "9c92fde8c1064cf31247023b29cbddaac853551c600848cae8576a9702733783",
       "file": "src/app/(auth)/post/comments/[id].tsx",
       "code": 18047,
@@ -7782,12 +7308,6 @@
     {
       "fingerprint": "9cc194ca3bc2411019d3ccbda27c1e716d5f5ba71d9b00f4046f59335216eb16",
       "file": "src/hooks/useCustomAlertProvider.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "9cdbb1ea7de31dea600934d6614fb99dca01446561f3ef31ddbb816f50bc7d0a",
-      "file": "src/app/(public)/handleLogin.tsx",
       "code": 2322,
       "count": 1
     },
@@ -7902,12 +7422,6 @@
     {
       "fingerprint": "9ef0dd92fa1f96858dd998211e1430ee9e3da0c921e47bea63f42a417154bf62",
       "file": "src/app/(auth)/(tabs)/notifications.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "9f1367949d30475df9d60d933a67fefaf272ccf54772e4c369ea970169139921",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
       "code": 2322,
       "count": 1
     },
@@ -8260,12 +7774,6 @@
       "count": 1
     },
     {
-      "fingerprint": "a600f4a827362d303a8278f445ed12843fab2745181d6d6599a55a9829be3c4f",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "a606056ef3045a569156401239f0353a8361d806087052a6ae5ba6ab27005824",
       "file": "src/app/(auth)/story/viewers/[id].tsx",
       "code": 2322,
@@ -8320,12 +7828,6 @@
       "count": 3
     },
     {
-      "fingerprint": "a6cc01e3ebd2f6695b17e15bf77e42972762b30f50b9cc290d7b88de9c222fb8",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "a6d8787d6763e63cc1d87770fa3539dd18bdb04ef02c0797e15a9cce77436a52",
       "file": "src/components/common/SelfStoriesModal.tsx",
       "code": 2322,
@@ -8371,12 +7873,6 @@
       "fingerprint": "a859051c860a13006dfb7554712d76eeccfc4fa4c5b2af16a9cef7d63a27bb0b",
       "file": "src/components/post/FeedPost.tsx",
       "code": 2339,
-      "count": 1
-    },
-    {
-      "fingerprint": "a8729d8b64c01ff737ab010eb9c45dcfe3a2e7772c1c3f71f4166a4764c5b289",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -8479,12 +7975,6 @@
       "fingerprint": "aa83372dc8ababc5e9036ad74f61e7b575c0c0b65a4f82826b66d45c752dc283",
       "file": "src/components/post/FeedPost.tsx",
       "code": 2747,
-      "count": 1
-    },
-    {
-      "fingerprint": "aa8901f108d85c1deddc1771beaea65a00696cfe4e09ef376e1a30b2de4e84ef",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -8776,12 +8266,6 @@
       "count": 1
     },
     {
-      "fingerprint": "af17ad4851691ff23193002d3fa6e6982a166ab328bed6d8901e8337e4cca5a9",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "af2ef418afc53f8cb84be611e761eca8b595ecce8db5a5aeab41854a44a7266b",
       "file": "src/app/(auth)/profile/feed/[id].tsx",
       "code": 2322,
@@ -8899,12 +8383,6 @@
       "fingerprint": "b1f8aab646d2ecb12c3f51bc738c0e8ecedf036f72592360552063cf7c2f538d",
       "file": "src/lib/api.ts",
       "code": 7006,
-      "count": 1
-    },
-    {
-      "fingerprint": "b1fed84918baa107882aeca8c2d7a3c684d1cdfcfd01ff9ae5276fadd06499c8",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -9052,21 +8530,9 @@
       "count": 1
     },
     {
-      "fingerprint": "b4a3878e3b4a680ba0b31b4bb3181f09f4ccbe780b9f90c8bf90574a0a821e0a",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "b5036615d9c5c3049fa92aab47c40358934a2a216eabca9c9a0c69a3543745f1",
       "file": "src/lib/api.ts",
       "code": 7006,
-      "count": 1
-    },
-    {
-      "fingerprint": "b53db5a957a9ebbe3abe1072ac6c7d01c3c30d59c63afdbbfaec8cbc864642b2",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2345,
       "count": 1
     },
     {
@@ -9120,12 +8586,6 @@
     {
       "fingerprint": "b63725050c3609d38481c29153d3a106d9d40d04a7745437621c060518300cc6",
       "file": "src/app/(auth)/post/likes/[id].tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "b63e1c64325199eb41c8128d6705a2bc0383a0ddd9470479804c6cc02e07ef0f",
-      "file": "src/app/(public)/handleLogin.tsx",
       "code": 2322,
       "count": 1
     },
@@ -9348,12 +8808,6 @@
     {
       "fingerprint": "b9b3babd826d9f260041a951b855f454b2cabd695a55cd570887692e4b1c46ef",
       "file": "src/app/(auth)/settings/appearance/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "baa4c5aec2af5dd01df56f40f05b3eebbb754522fbb34fa336a37be4427531f5",
-      "file": "src/app/(public)/handleLogin.tsx",
       "code": 2322,
       "count": 1
     },
@@ -9616,12 +9070,6 @@
       "count": 1
     },
     {
-      "fingerprint": "bfcf9440c0f28b0ce597f02f1cef2c53092dc899aa34462bd7bab51135146573",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "bff192e5c32f436b3ffe22134adaca02be7d7ec3a093cf2a7fc2a1fe96f2a0fe",
       "file": "src/app/(auth)/admin/autospam/index.tsx",
       "code": 2339,
@@ -9730,12 +9178,6 @@
       "count": 2
     },
     {
-      "fingerprint": "c18eb2897f3a882e1f3a6ab12b6f20c1046095ca06907986485df5cfdf033384",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "c1959b52ac90f6a13b038c29e278e1472df9929ae20c2c2e35a3b8ff456eb994",
       "file": "src/app/(auth)/settings/privacy/blocked-accounts.tsx",
       "code": 2322,
@@ -9751,12 +9193,6 @@
       "fingerprint": "c1e9d1b40182fd683c37939a6725d471fbd7b720458e3f8cce5f54c5577227c2",
       "file": "src/app/(auth)/feeds/network.tsx",
       "code": 7006,
-      "count": 1
-    },
-    {
-      "fingerprint": "c1fea52846e96daccc56e92ad1c42c69bf662f7fc29653cd18fc6ff864cc4dd3",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -9790,12 +9226,6 @@
       "count": 1
     },
     {
-      "fingerprint": "c323ecd3deda9668076f29f809a765444951e19242c5daa6518bc412bfbecfbc",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "c327cdeb8aa60941220b5833ab924d8ac06d7d39d494936f6e6d3964f8d4cdef",
       "file": "src/components/post/CommentFeed.tsx",
       "code": 2322,
@@ -9814,12 +9244,6 @@
       "count": 1
     },
     {
-      "fingerprint": "c34d384eb685f7598beb294ceba58ec88440a682c24441407efd546d37ea6944",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "c43466400e0acf92f5489a5baab88d276ede2d987a51238a1c1817ccaace515a",
       "file": "src/components/post/CommentFeed.tsx",
       "code": 2322,
@@ -9830,12 +9254,6 @@
       "file": "src/app/(auth)/admin/index.tsx",
       "code": 2322,
       "count": 3
-    },
-    {
-      "fingerprint": "c47db0af5dac032b1483aee1c55ea81966bc72ba92a7bd46201648cd1b773ade",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2322,
-      "count": 1
     },
     {
       "fingerprint": "c4bd21968fc4b52872597390f94aa833d8c38326869ea699cee155479261f0cb",
@@ -9884,12 +9302,6 @@
       "file": "src/app/(auth)/settings/index.tsx",
       "code": 2746,
       "count": 3
-    },
-    {
-      "fingerprint": "c564e31a230001d289aea4e343ce0540b2b06529010f47b0ebc11890d9deaefd",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2339,
-      "count": 1
     },
     {
       "fingerprint": "c56a17ec5939cc5803ba979e462c952a0f852c37aff72bd4bc58f2cd931e1f6d",
@@ -10042,12 +9454,6 @@
       "count": 1
     },
     {
-      "fingerprint": "c8874d82b6b5e645e87c99f17c8012ea1398a65cafad2242ddd1a218e796c066",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2820,
-      "count": 1
-    },
-    {
       "fingerprint": "c8b9fe48ab3fba4758fcd90bfce7c3041f019cc8f62669116dbbcd657656782b",
       "file": "src/components/form/Select.tsx",
       "code": 2322,
@@ -10108,12 +9514,6 @@
       "count": 1
     },
     {
-      "fingerprint": "c9fcc8695e27acf74f95d54a73c316baa1d65dcf78b32b050c74ef425228c126",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2345,
-      "count": 1
-    },
-    {
       "fingerprint": "ca3bb2f8b03db4791b89a3557a5242bb92c1f48fd8d858dbc393a862f1751eef",
       "file": "src/app/(auth)/post/comments/[id].tsx",
       "code": 18048,
@@ -10132,12 +9532,6 @@
       "count": 1
     },
     {
-      "fingerprint": "ca8eceba273ecb81dda498b40d793448d45db484f97e2d8e2922992b8322571b",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "cae0299b426b0bb7983f146c4d3ccf9d24f1d9cb1ac9487832d05a048b6d0829",
       "file": "src/app/(auth)/settings/instance/index.tsx",
       "code": 2322,
@@ -10148,12 +9542,6 @@
       "file": "src/components/form/Select.tsx",
       "code": 7006,
       "count": 1
-    },
-    {
-      "fingerprint": "cb01d7de00c3c026468519ee46bf1fd66f937ca09e89168642ad380d2e0f4e7c",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 3
     },
     {
       "fingerprint": "cb3f7acda761b034487bf6691cc468273cf554e67dbcf5c68407a7798a958370",
@@ -10345,12 +9733,6 @@
       "fingerprint": "cec89dd106c5f205c2e6407bd60fc208ebc555c5dd900d0374e0f3f669b3d4aa",
       "file": "src/app/(auth)/profile/report/[id].tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "ceea103fe2544906a9bd61d120651810e9b527970dca4945bd09dea831972de0",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 7006,
       "count": 1
     },
     {
@@ -10750,12 +10132,6 @@
       "count": 1
     },
     {
-      "fingerprint": "d81952bcf7c91a60dd9f685a58ce599c4935000eca6ef18df60455f56ba115ed",
-      "file": "src/app/(public)/login.tsx",
-      "code": 18048,
-      "count": 1
-    },
-    {
       "fingerprint": "d81d86c51280c758465c761c07773e816db49eb6c971a596b084030adffa9e3a",
       "file": "src/app/(auth)/profile/[id].tsx",
       "code": 2322,
@@ -10826,12 +10202,6 @@
       "file": "src/app/(auth)/post/likes/[id].tsx",
       "code": 2322,
       "count": 1
-    },
-    {
-      "fingerprint": "d95d5bf23305656e0810b589fff2ddf34c199402c6eb7aa9b8f29215d52694d0",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 2
     },
     {
       "fingerprint": "d9a1c742f55af21dbbde69de510b74b7af109a63ed2c74881de68a5c0ba38a08",
@@ -11122,12 +10492,6 @@
       "count": 2
     },
     {
-      "fingerprint": "e23d4fa8ec595ceda1941ec64c0fd066412a954df19916d9ff39e7bf36865d57",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "e260e030e8e5bbfadca0cc41939dd9b2bef0b043cbd0ce18c01b2d700118d95d",
       "file": "src/app/(auth)/settings/accessibility/index.tsx",
       "code": 2322,
@@ -11185,12 +10549,6 @@
       "fingerprint": "e315d390497a56ae28bb009ef04070106c1f39926fe8e203b49cd5ff681936a0",
       "file": "src/app/(auth)/hashtag/[id].tsx",
       "code": 7031,
-      "count": 1
-    },
-    {
-      "fingerprint": "e3669e0bc7d427cdd76e8ebf8c3dabbfa0cd4c97edef7d2da3bd39bf3b68c214",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -11326,12 +10684,6 @@
       "count": 1
     },
     {
-      "fingerprint": "e6508b067a85704c9d11ca9c23d85f5d5ad32b5d4fd789b716401d27d6410bae",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 7006,
-      "count": 1
-    },
-    {
       "fingerprint": "e65cfc3d69be3df204ab20b92015144fc445fe6dea62ccdbbb3d98ce19cb30b4",
       "file": "src/components/post/FeedPost.tsx",
       "code": 2322,
@@ -11360,12 +10712,6 @@
       "file": "src/components/notifications/PushNotificationSettings.tsx",
       "code": 2322,
       "count": 2
-    },
-    {
-      "fingerprint": "e68e1b47ece482d2f43e1ea95625f7875b17ee2d244af01f5de6947e92131880",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2322,
-      "count": 1
     },
     {
       "fingerprint": "e6dc2e894c7ecc9ceae47cf4a08dc0be8e135f9e571cd9254ec415d45372d8bd",
@@ -11413,12 +10759,6 @@
       "fingerprint": "e7b58744ea3038470f8567dca17fa4ba7edacb38e50a29f4487c8b12673f18f5",
       "file": "src/app/(auth)/profile/about/[id].tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "e7ca4ff4dd265479ba109e054e0efef65501e449e6051e982a8e173d9331c34d",
-      "file": "src/app/(public)/login.tsx",
-      "code": 18048,
       "count": 1
     },
     {
@@ -11716,12 +11056,6 @@
       "count": 1
     },
     {
-      "fingerprint": "ed85d25211971b414632c3ab35fa699f2c8372759ed0757b7c2ec318f54f4e34",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "ed8901c2f90f959ff348fddddc042bd29941f5dccbb5508576600eaabe715c45",
       "file": "src/components/post/CommentFeed.tsx",
       "code": 2322,
@@ -11818,12 +11152,6 @@
       "count": 1
     },
     {
-      "fingerprint": "eef4ea5b40d7aa8f07ec3ba48f8fb0ddbe2b338728c22d82025949c810c2a74d",
-      "file": "src/app/(public)/login.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "eef8126d01c87bde9483f924552a0515feb48ebf94b0966b7081e64017d7c291",
       "file": "src/app/(auth)/search/index.tsx",
       "code": 7031,
@@ -11838,12 +11166,6 @@
     {
       "fingerprint": "ef1752e606816a804d7e31c8951d029a9ca5cabe7596f3f6706beed9e443621d",
       "file": "src/app/(auth)/admin/config/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "ef37a47c2afd0122b15dcc412eae0c73d9098656c968002f6403fd6281081c87",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
       "code": 2322,
       "count": 1
     },
@@ -11878,21 +11200,9 @@
       "count": 1
     },
     {
-      "fingerprint": "f084e4545ac14c093ae35c018a489dec07c9188b164522cdfb9ae8ed8e3bb51a",
-      "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "f08ed04b4c94f69cb499a34979c90c4982c5a012ee1967d997bc9ae32c77bb7f",
       "file": "src/components/post/VideoPlayer.tsx",
       "code": 7031,
-      "count": 1
-    },
-    {
-      "fingerprint": "f0aec04f86046da9a7a323964042f4c4dbc7914a8ce1032dc8a9681d9e942425",
-      "file": "src/app/(auth)/(tabs)/index.tsx",
-      "code": 2345,
       "count": 1
     },
     {
@@ -11980,12 +11290,6 @@
       "count": 1
     },
     {
-      "fingerprint": "f1a5a90816680c5b8831904dae67df51d9b56a6854df7d64d6b7d525c1d5c92e",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2345,
-      "count": 1
-    },
-    {
       "fingerprint": "f1ba27264e8f434a40390943a96b0cf5ff1891faf12323802796bf341697fd49",
       "file": "src/app/(auth)/profile/feed/[id].tsx",
       "code": 2322,
@@ -12070,12 +11374,6 @@
       "count": 1
     },
     {
-      "fingerprint": "f2f5b5740ed6038ae1d9d975ff04ca5f0ef794db38ade780db34eb17fe7c8df6",
-      "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "f306329811123656a315e49fc0386bfcd7e5c1b83da81986d74bf54407bda3bb",
       "file": "src/hooks/useCustomAlertProvider.tsx",
       "code": 2322,
@@ -12108,12 +11406,6 @@
     {
       "fingerprint": "f3beb877eb32b01d5f835067f3c8c98affdc0974030d9559dbd61aad82091b00",
       "file": "src/app/(auth)/settings/privacy/muted-accounts.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "f3fc1b0d304f3633ac78bc6594550caca775fa7d32a586fe5c84a45695528f15",
-      "file": "src/app/(public)/login.tsx",
       "code": 2322,
       "count": 1
     },

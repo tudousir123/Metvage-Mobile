@@ -1,3 +1,4 @@
+import { instanceOrigin } from 'src/lib/instanceOrigin'
 import { objectToForm } from 'src/requests'
 import { Storage } from 'src/state/cache'
 import { parseLinkHeader } from 'src/utils'
@@ -44,7 +45,7 @@ export async function selfPost<
   let headers: Record<string, string> = {}
   const instance = Storage.getString('app.instance')
   const token = Storage.getString('app.token')
-  const url = `https://${instance}/${path}`
+  const url = `${instanceOrigin(instance)}/${path}`
 
   headers['Authorization'] = `Bearer ${token}`
   headers['Accept'] = 'application/json'
@@ -80,7 +81,7 @@ export async function selfDelete(
   let headers: Record<string, string> = {}
   const instance = Storage.getString('app.instance')
   const token = Storage.getString('app.token')
-  const url = `https://${instance}/${path}`
+  const url = `${instanceOrigin(instance)}/${path}`
 
   headers['Authorization'] = `Bearer ${token}`
   headers['Accept'] = 'application/json'
@@ -108,7 +109,7 @@ export async function selfGet(
   let headers: Record<string, string> = {}
   const instance = Storage.getString('app.instance')
   const token = Storage.getString('app.token')
-  const url = `https://${instance}/${path}`
+  const url = `${instanceOrigin(instance)}/${path}`
 
   headers['Authorization'] = `Bearer ${token}`
   headers['Accept'] = 'application/json'
@@ -193,7 +194,7 @@ export async function searchQuery(query: string) {
   const instance = Storage.getString('app.instance')
   const token = Storage.getString('app.token')
 
-  const url = `https://${instance}/api/v2/search?q=${encodeURIComponent(
+  const url = `${instanceOrigin(instance)}/api/v2/search?q=${encodeURIComponent(
     query
   )}&_pe=1&resolve=1`
   const response = await fetch(url, {
@@ -235,7 +236,7 @@ export async function searchHashtagQuery(query: string) {
   const instance = Storage.getString('app.instance')
   const token = Storage.getString('app.token')
 
-  const url = `https://${instance}/api/v2/search?q=${encodeURIComponent(
+  const url = `${instanceOrigin(instance)}/api/v2/search?q=${encodeURIComponent(
     query
   )}&_pe=1&resolve=1`
   const response = await fetch(url, {
@@ -260,10 +261,11 @@ export async function fetchNotifications({ queryKey, pageParam = false }) {
   }
   if (!pageParam) {
     const instance = Storage.getString('app.instance')
-    if (queryKey[1] != 'all') {
-      url = `https://${instance}/api/v1/notifications?types[]=${filterMap[queryKey[1]]}`
+    const filter = Object.entries(filterMap).find(([key]) => key === queryKey[1])?.[1]
+    if (filter) {
+      url = `${instanceOrigin(instance)}/api/v1/notifications?types[]=${filter}`
     } else {
-      url = `https://${instance}/api/v1/notifications`
+      url = `${instanceOrigin(instance)}/api/v1/notifications`
     }
   } else {
     url = pageParam
@@ -275,7 +277,7 @@ export async function fetchHomeFeed({ pageParam = false }): Promise<PaginatedSta
   let url
   if (!pageParam) {
     const instance = Storage.getString('app.instance')
-    url = `https://${instance}/api/v1/timelines/home?_pe=1&limit=20`
+    url = `${instanceOrigin(instance)}/api/v1/timelines/home?_pe=1&limit=20`
   } else {
     url = pageParam + '&_pe=1&limit=20'
   }
@@ -286,7 +288,7 @@ export async function fetchNetworkFeed({ pageParam = false }): Promise<Paginated
   let url
   if (!pageParam) {
     const instance = Storage.getString('app.instance')
-    url = `https://${instance}/api/v1/timelines/public?_pe=1&limit=20`
+    url = `${instanceOrigin(instance)}/api/v1/timelines/public?_pe=1&limit=20`
   } else {
     url = pageParam + '&_pe=1&limit=20'
   }
@@ -298,8 +300,8 @@ export async function getAccountFollowers(id: string, cursor) {
   let url
   const instance = Storage.getString('app.instance')
   url = cursor
-    ? `https://${instance}/api/v1/accounts/${id}/followers?_pe=1&limit=20&cursor=${cursor}`
-    : `https://${instance}/api/v1/accounts/${id}/followers?_pe=1&limit=20`
+    ? `${instanceOrigin(instance)}/api/v1/accounts/${id}/followers?_pe=1&limit=20&cursor=${cursor}`
+    : `${instanceOrigin(instance)}/api/v1/accounts/${id}/followers?_pe=1&limit=20`
   return await fetchPaginatedData(url)
 }
 
@@ -307,8 +309,8 @@ export async function getAccountFollowing(id: string, cursor) {
   let url
   const instance = Storage.getString('app.instance')
   url = cursor
-    ? `https://${instance}/api/v1/accounts/${id}/following?_pe=1&limit=20&cursor=${cursor}`
-    : `https://${instance}/api/v1/accounts/${id}/following?_pe=1&limit=20`
+    ? `${instanceOrigin(instance)}/api/v1/accounts/${id}/following?_pe=1&limit=20&cursor=${cursor}`
+    : `${instanceOrigin(instance)}/api/v1/accounts/${id}/following?_pe=1&limit=20`
   return await fetchPaginatedData(url)
 }
 
@@ -382,25 +384,25 @@ export async function getAccountStatusesById(
 
 export async function getHashtagByName({ queryKey }) {
   const instance = Storage.getString('app.instance')
-  const url = `https://${instance}/api/v1/tags/${queryKey[1]}/?_pe=1`
+  const url = `${instanceOrigin(instance)}/api/v1/tags/${queryKey[1]}/?_pe=1`
   return await fetchData(url)
 }
 
 export async function getHashtagByNameFeed(id: string, page) {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1/timelines/tag/${id}?_pe=1&max_id=${page}`
+  let url = `${instanceOrigin(instance)}/api/v1/timelines/tag/${id}?_pe=1&max_id=${page}`
   return await fetchPaginatedData(url)
 }
 
 export async function getHashtagRelated(id: string) {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1/tags/${id}/related`
+  let url = `${instanceOrigin(instance)}/api/v1/tags/${id}/related`
   return await fetchPaginatedData(url)
 }
 
 export async function getMutualFollowers() {
   const instance = Storage.getString('app.instance')
-  const url = `https://${instance}/api/v1.1/direct/compose/mutuals`
+  const url = `${instanceOrigin(instance)}/api/v1.1/direct/compose/mutuals`
   return await fetchData(url)
 }
 
@@ -409,7 +411,7 @@ export async function getConversations({ pageParam = false }) {
   let url
   if (!pageParam) {
     const instance = Storage.getString('app.instance')
-    url = `https://${instance}/api/v1/conversations`
+    url = `${instanceOrigin(instance)}/api/v1/conversations`
   } else {
     url = pageParam
   }
@@ -423,13 +425,13 @@ export async function getComposeSettings() {
 
 export async function getConfig() {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v2/config`
+  let url = `${instanceOrigin(instance)}/api/v2/config`
   return await fetchData(url)
 }
 
 export async function getStatusRepliesById(id: string, page) {
   const instance = Storage.getString('app.instance')
-  const url = `https://${instance}/api/v1/statuses/${id}/context?_pe=1&max_id=${page}`
+  const url = `${instanceOrigin(instance)}/api/v1/statuses/${id}/context?_pe=1&max_id=${page}`
   let res = await fetchPaginatedData(url)
 
   res.data = res.data.descendants
@@ -470,8 +472,8 @@ export async function getStatusLikes(id: string, cursor) {
   let url
   const instance = Storage.getString('app.instance')
   url = cursor
-    ? `https://${instance}/api/v1/statuses/${id}/favourited_by?_pe=1&limit=20&cursor=${cursor}`
-    : `https://${instance}/api/v1/statuses/${id}/favourited_by?_pe=1&limit=20`
+    ? `${instanceOrigin(instance)}/api/v1/statuses/${id}/favourited_by?_pe=1&limit=20&cursor=${cursor}`
+    : `${instanceOrigin(instance)}/api/v1/statuses/${id}/favourited_by?_pe=1&limit=20`
   return await fetchPaginatedData(url)
 }
 
@@ -479,44 +481,44 @@ export async function getStatusReblogs(id: string, cursor) {
   let url
   const instance = Storage.getString('app.instance')
   url = cursor
-    ? `https://${instance}/api/v1/statuses/${id}/reblogged_by?_pe=1&limit=20&cursor=${cursor}`
-    : `https://${instance}/api/v1/statuses/${id}/reblogged_by?_pe=1&limit=20`
+    ? `${instanceOrigin(instance)}/api/v1/statuses/${id}/reblogged_by?_pe=1&limit=20&cursor=${cursor}`
+    : `${instanceOrigin(instance)}/api/v1/statuses/${id}/reblogged_by?_pe=1&limit=20`
   return await fetchPaginatedData(url)
 }
 
 export async function getTrendingHashtags() {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1.1/discover/posts/hashtags`
+  let url = `${instanceOrigin(instance)}/api/v1.1/discover/posts/hashtags`
   return await fetchData(url)
 }
 
 export async function getTrendingPopularAccounts() {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1.1/discover/accounts/popular`
+  let url = `${instanceOrigin(instance)}/api/v1.1/discover/accounts/popular`
   return await fetchData(url)
 }
 
 export async function getTrendingPopularPosts() {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1.1/discover/posts/trending?range=daily`
+  let url = `${instanceOrigin(instance)}/api/v1.1/discover/posts/trending?range=daily`
   return await fetchData(url)
 }
 
 export async function getTrendingPopularPostsMonthly() {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1.1/discover/posts/trending?range=monthly`
+  let url = `${instanceOrigin(instance)}/api/v1.1/discover/posts/trending?range=monthly`
   return await fetchData(url)
 }
 
 export async function getTrendingPopularPostsYearly() {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1.1/discover/posts/trending?range=yearly`
+  let url = `${instanceOrigin(instance)}/api/v1.1/discover/posts/trending?range=yearly`
   return await fetchData(url)
 }
 
 export async function getAccountRelationship({ queryKey }): Promise<Relationship> {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1/accounts/relationships?id[]=${queryKey[1]}&_pe=1`
+  let url = `${instanceOrigin(instance)}/api/v1/accounts/relationships?id[]=${queryKey[1]}&_pe=1`
   const res = await fetchData(url)
   return res[0]
 }
@@ -532,7 +534,7 @@ export async function postComment({ postId, commentText, scope = 'public', cw = 
     visibility: scope,
     sensitive: String(cw),
   })
-  const url = `https://${instance}/api/v1/statuses?${params}`
+  const url = `${instanceOrigin(instance)}/api/v1/statuses?${params}`
   const response = await fetch(url, {
     method: 'post',
     headers: new Headers({
@@ -549,7 +551,7 @@ export async function likeStatus({ id }: { id: string }) {
   await requireCurrentPet()
   const token = Storage.getString('app.token')
 
-  const url = `https://${instance}/api/v1/statuses/${id}/favourite?_pe=1`
+  const url = `${instanceOrigin(instance)}/api/v1/statuses/${id}/favourite?_pe=1`
   const response = await fetch(url, {
     method: 'post',
     headers: new Headers({
@@ -565,7 +567,7 @@ export async function unlikeStatus({ id }: { id: string }) {
   const instance = Storage.getString('app.instance')
   const token = Storage.getString('app.token')
 
-  const url = `https://${instance}/api/v1/statuses/${id}/unfavourite?_pe=1`
+  const url = `${instanceOrigin(instance)}/api/v1/statuses/${id}/unfavourite?_pe=1`
   const response = await fetch(url, {
     method: 'post',
     headers: new Headers({
@@ -589,7 +591,7 @@ export async function deleteStatus({ id }: { id: string }) {
   const instance = Storage.getString('app.instance')
   const token = Storage.getString('app.token')
 
-  const url = `https://${instance}/api/v1/statuses/${id}`
+  const url = `${instanceOrigin(instance)}/api/v1/statuses/${id}`
   const response = await fetch(url, {
     method: 'delete',
     headers: new Headers({
@@ -603,7 +605,7 @@ export async function deleteStatus({ id }: { id: string }) {
 
 export async function getMutes() {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1/mutes`
+  let url = `${instanceOrigin(instance)}/api/v1/mutes`
   return await fetchData(url)
 }
 
@@ -619,7 +621,7 @@ export async function unmuteProfileById(id: string) {
 
 export async function getBlocks() {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1/blocks`
+  let url = `${instanceOrigin(instance)}/api/v1/blocks`
   return await fetchData(url)
 }
 
@@ -635,31 +637,31 @@ export async function unblockProfileById(id: string) {
 
 export async function getSelfCollections({ pageParam = 1 }) {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1.1/collections/self?page=${pageParam}`
+  let url = `${instanceOrigin(instance)}/api/v1.1/collections/self?page=${pageParam}`
   return await fetchData(url)
 }
 
 export async function getFollowedTags() {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1/followed_tags`
+  let url = `${instanceOrigin(instance)}/api/v1/followed_tags`
   return await fetchData(url)
 }
 
 export async function getInstanceV1() {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1/instance`
+  let url = `${instanceOrigin(instance)}/api/v1/instance`
   return await fetchData(url)
 }
 
 export async function getAppSettings() {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/pixelfed/v1/app/settings`
+  let url = `${instanceOrigin(instance)}/api/pixelfed/v1/app/settings`
   return await fetchData(url)
 }
 
 export async function getFollowRequests() {
   const instance = Storage.getString('app.instance')
-  let url = `https://${instance}/api/v1/follow_requests`
+  let url = `${instanceOrigin(instance)}/api/v1/follow_requests`
   return await fetchData(url)
 }
 
@@ -673,7 +675,7 @@ export async function getSelfAccount() {
 export async function updateCredentials(params: URLSearchParams) {
   const instance = Storage.getString('app.instance')
   const token = Storage.getString('app.token')
-  let url = `https://${instance}/api/v1/accounts/update_credentials?${params.toString()}`
+  let url = `${instanceOrigin(instance)}/api/v1/accounts/update_credentials?${params.toString()}`
   const response = await fetch(url, {
     method: 'patch',
     headers: new Headers({
@@ -711,7 +713,7 @@ export async function accountFollowRequestReject(id: string) {
 export async function deleteAvatar() {
   const instance = Storage.getString('app.instance')
   const token = Storage.getString('app.token')
-  let url = `https://${instance}/api/v1.1/accounts/avatar`
+  let url = `${instanceOrigin(instance)}/api/v1.1/accounts/avatar`
   const response = await fetch(url, {
     method: 'DELETE',
     headers: new Headers({
@@ -768,7 +770,7 @@ export async function adminInstances(queryKey?: { pageParam?: string }, sort, so
   const instance = Storage.getString('app.instance')
   let path = queryKey?.pageParam
     ? queryKey.pageParam
-    : `https://${instance}/api/admin/instances/list?order_by=sort=${sort}&sort_by=${sortBy}`
+    : `${instanceOrigin(instance)}/api/admin/instances/list?order_by=sort=${sort}&sort_by=${sortBy}`
   const res = await fetchData(path)
   return { data: res.data, nextPage: res.links?.next, prevPage: res.links?.prev }
 }
@@ -784,7 +786,7 @@ export async function getDomainBlocks() {
 export async function deleteStatusV1(id: string) {
   const instance = Storage.getString('app.instance')
   const token = Storage.getString('app.token')
-  let url = `https://${instance}/api/v1/statuses/${id}`
+  let url = `${instanceOrigin(instance)}/api/v1/statuses/${id}`
   const response = await fetch(url, {
     method: 'delete',
     headers: new Headers({
@@ -802,7 +804,7 @@ export async function editPostMedia(id: string, description: string) {
   const params = new URLSearchParams({
     description: description,
   })
-  let url = `https://${instance}/api/v1/media/${id}?${params}`
+  let url = `${instanceOrigin(instance)}/api/v1/media/${id}?${params}`
   const response = await fetch(url, {
     method: 'put',
     headers: new Headers({
@@ -853,7 +855,8 @@ export async function updateAdminConfig(params) {
 export async function getAdminUsers(cursor) {
   let url
   const instance = Storage.getString('app.instance')
-  url = cursor != null ? cursor : `https://${instance}/api/admin/users/list?sort=desc`
+  url =
+    cursor != null ? cursor : `${instanceOrigin(instance)}/api/admin/users/list?sort=desc`
   return await fetchCursorPagination(url)
 }
 
@@ -893,7 +896,7 @@ export async function getSelfLikes({ pageParam = false }) {
   let url
   const instance = Storage.getString('app.instance')
   if (!pageParam) {
-    url = `https://${instance}/api/v1/favourites`
+    url = `${instanceOrigin(instance)}/api/v1/favourites`
   } else {
     url = pageParam
   }
@@ -904,7 +907,7 @@ export async function getSelfBookmarks({ pageParam = false }) {
   let url
   const instance = Storage.getString('app.instance')
   if (!pageParam) {
-    url = `https://${instance}/api/v1/bookmarks`
+    url = `${instanceOrigin(instance)}/api/v1/bookmarks`
   } else {
     url = pageParam
   }
@@ -934,7 +937,7 @@ export async function getStoryViewers(storyId, cursor) {
   url =
     cursor != null
       ? cursor
-      : `https://${instance}/api/v1.2/stories/viewers?sid=${storyId}`
+      : `${instanceOrigin(instance)}/api/v1.2/stories/viewers?sid=${storyId}`
   return await fetchCursorPagination(url)
 }
 

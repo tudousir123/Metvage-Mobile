@@ -1,4 +1,5 @@
 import { Alert } from 'react-native'
+import { instanceOrigin } from './lib/instanceOrigin'
 import { Storage } from './state/cache'
 import { compareSemver } from './utils'
 
@@ -148,7 +149,7 @@ export function getJsonWithTimeout(
 }
 
 export async function loginPreflightCheck(server: string) {
-  let url = 'https://' + server + '/api/nodeinfo/2.0.json'
+  let url = instanceOrigin(server) + '/api/nodeinfo/2.0.json'
 
   try {
     let res = await getJsonWithTimeout(url, undefined, false, undefined, 5000)
@@ -189,7 +190,7 @@ export async function loginPreflightCheck(server: string) {
 
 export async function verifyCredentials(domain: string, token: string) {
   const resp = await get(
-    `https://${domain}/api/v1/accounts/verify_credentials?_pe=1`,
+    `${instanceOrigin(domain)}/api/v1/accounts/verify_credentials?_pe=1`,
     token
   )
 
@@ -204,7 +205,7 @@ export async function queryApi(endpoint: string, params = null) {
   let server = Storage.getString('app.instance')
   let token = Storage.getString('app.token')
 
-  let url = `https://${server}/${endpoint}`
+  let url = `${instanceOrigin(server)}/${endpoint}`
 
   return await getJSON(url, token, params)
 }
