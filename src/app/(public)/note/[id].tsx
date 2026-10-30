@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Image } from 'expo-image'
 import { router, Stack, useLocalSearchParams } from 'expo-router'
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native'
+import { RecordInteractions } from 'src/components/records/record-interactions'
 import { getPublicRecord, publicRecordPhotoUrl } from 'src/lib/metvage-public'
 import { useAuth } from 'src/state/AuthProvider'
 
@@ -68,14 +69,7 @@ export default function PublicNote() {
               ? new Date(note.data.record.published_at).toLocaleString()
               : ''}
           </Text>
-          <Pressable
-            accessibilityRole="button"
-            onPress={() => router.push('/handleLogin')}
-          >
-            <Text style={{ color: '#075e52', fontWeight: '700' }}>
-              点赞或评论 · 登录后参与
-            </Text>
-          </Pressable>
+          <RecordInteractions recordId={recordId} visibility="public" />
           <Pressable
             accessibilityRole="button"
             onPress={() =>
