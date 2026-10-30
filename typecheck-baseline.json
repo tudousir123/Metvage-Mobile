@@ -1,14 +1,8 @@
 {
   "version": 1,
   "typescript": "5.3.3",
-  "total": 2875,
+  "total": 2746,
   "diagnostics": [
-    {
-      "fingerprint": "00040ecf499c5c0bfe675efe7573ee40c449de7c3294fdf5428421ae99bab80f",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 12
-    },
     {
       "fingerprint": "00091802970e42f7f7b4b52f231380689eabb2df319febb555520b7341d709c9",
       "file": "src/components/common/SelfStoriesModal.tsx",
@@ -127,12 +121,6 @@
       "fingerprint": "0241469a0b3ccb1ea907bd830c0194fd55605fb6e43d8f7b76eabc3774efdbf0",
       "file": "src/app/(auth)/admin/reports/index.tsx",
       "code": 2304,
-      "count": 1
-    },
-    {
-      "fingerprint": "0245994bed5271a210864ac15900ec81c190c5bc5bdbf31da29cdb00f35896be",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -274,12 +262,6 @@
       "count": 1
     },
     {
-      "fingerprint": "0467f91f28740ef0f66f02a0428e052c785347805746807213cefc914587e3e8",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "0491e3cef5f75bf97e9782ce6b20b9f7741770e9be6fe0a49799c3533bbab6c2",
       "file": "src/app/(auth)/admin/autospam/index.tsx",
       "code": 7006,
@@ -346,12 +328,6 @@
       "count": 1
     },
     {
-      "fingerprint": "06254d70cd57d6e94528eeb9c0ee3841f04b1bc979ffa2d691963da1b90f1d85",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "065ef6239a7df068fcb86d788cd6e6bdd8dc9fdfb1046d2455a3c245a8b3577d",
       "file": "src/app/(auth)/admin/reports/index.tsx",
       "code": 2322,
@@ -380,12 +356,6 @@
       "file": "src/app/(auth)/settings/contributors/index.tsx",
       "code": 7053,
       "count": 1
-    },
-    {
-      "fingerprint": "07162649369128f11d0ba3d51c5d440385ae31f2795017eb3c23f272080c56d4",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 3
     },
     {
       "fingerprint": "0717e1aaad2a79e38222a24dd2868dbb72139496c4a8484e9bb5106a902f4ce2",
@@ -952,18 +922,6 @@
       "count": 1
     },
     {
-      "fingerprint": "1137a0a29272f0c101bf08a83a7ec8a658b3b3c83dc33d639ef6b884c5a1bcd8",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "1146d8fe4acc160eea760efca0609251663a717571593fabcdbccace6b77c162",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "116ea71ee13a4e647e315c3bda5b2879d835fe61ac6e7909fb976e046b015e74",
       "file": "src/components/common/AutolinkText.tsx",
       "code": 2322,
@@ -1144,12 +1102,6 @@
       "count": 1
     },
     {
-      "fingerprint": "1554c18123bceab648af7a8d9170b7da26099dd51a77476c7b2abf2e4a6bc542",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "15685d63b34b76493ecbb58aaae81f6370c52ee8c7364c5513a3729502338282",
       "file": "src/app/(auth)/profile/follow-requests/index.tsx",
       "code": 2322,
@@ -1270,12 +1222,6 @@
       "count": 1
     },
     {
-      "fingerprint": "16fff2a3c38ad2d3c2e98e3be835a3c78a0b0d76985f4d60d9acbc012b6f00d5",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "170c3973bb61f675649501b965733f6744659847a56a59537cf8c889377a7fbe",
       "file": "src/components/common/SelfStoriesModal.tsx",
       "code": 2322,
@@ -1309,12 +1255,6 @@
       "fingerprint": "177e735429b93a53bb9f68bfd5adfcd86e1a2eebc7c390bd7cad2469d47cc46f",
       "file": "src/components/post/FeedPost.tsx",
       "code": 18048,
-      "count": 1
-    },
-    {
-      "fingerprint": "17a3de3c48774f19357e8d9ceb8c3ae032fb07c8d523c4642d1512634d217143",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -1522,12 +1462,6 @@
       "count": 1
     },
     {
-      "fingerprint": "1b523c8261b44b18d78896db9709f71b71217f65bf305bfdb70ebaa5b5c3f777",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2747,
-      "count": 1
-    },
-    {
       "fingerprint": "1b8003031eba2d04a852806f1a4c10af3ec82a071bf78214fef7099672395aee",
       "file": "src/app/(auth)/profile/[id].tsx",
       "code": 2322,
@@ -1597,12 +1531,6 @@
       "fingerprint": "1cc2530ccd1937aefbbf1885bc04e83432b8d2f400f788678ffc15ffa1efca64",
       "file": "src/app/(auth)/chats/conversation/[id].tsx",
       "code": 7053,
-      "count": 1
-    },
-    {
-      "fingerprint": "1cd48c4dbe2c2b96e543829720591b857b0e2b702de7a599f9c132a96b6513fb",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -1810,12 +1738,6 @@
       "count": 1
     },
     {
-      "fingerprint": "20927b2bb607022b7a8fd9e8637927bafee81c3488dd0912dd03252457a4698d",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "209a0e3598be2ed1873166f0706e30386b8fc426b9f224279c2f5d10969d4850",
       "file": "src/app/(auth)/search/index.tsx",
       "code": 2322,
@@ -1912,12 +1834,6 @@
       "count": 1
     },
     {
-      "fingerprint": "21cf1ea4d7e9a4dae485fd5216499586ca6a62e391839fde0407642cbf15b9e3",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "21e011c506bafcb46803e25414acda9600f871999b6d8ddf4bf09c85e30927de",
       "file": "src/app/(public)/handleSignup.tsx",
       "code": 2322,
@@ -1932,12 +1848,6 @@
     {
       "fingerprint": "2204c6bb3d257756eedd849d059fbf9f1ec7a7f828d811584e8dce84f2e0931c",
       "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "221e75b7b2420c319b9867772811fd442415e794a5ac40b1365b3d4f1aa48ac8",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -2125,12 +2035,6 @@
       "fingerprint": "253ee7d27c34053d99efdc1b8746d0d79c345a68a4e25ab3feffddbcc6cc83b2",
       "file": "src/app/(auth)/post/comments/[id].tsx",
       "code": 7006,
-      "count": 1
-    },
-    {
-      "fingerprint": "25409025ac9ee03c1832faa89463971cf9b5a0b2c84acac7d5633838a69b456f",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -2334,12 +2238,6 @@
     {
       "fingerprint": "28ff611b74f3437b26fe71587ee25db18761692efd76629a5fcbbbc7ddbf775d",
       "file": "src/components/profile/actionButtons/BlockingProfile.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "2920f258fed52fa7dbc5679832e9f59a913a6d378fe07b1b1360183179942864",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -2596,12 +2494,6 @@
       "count": 1
     },
     {
-      "fingerprint": "2ca2220bbdbd2fd4b2580a8dd2413c9bb8b58f39b08ec31b24202c09679afc26",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "2cbda8361ac8a2a11b4017d0f51268d1ca9e57c20cb1024d374438544170a75d",
       "file": "src/app/(auth)/profile/follow-requests/index.tsx",
       "code": 2747,
@@ -2794,12 +2686,6 @@
       "count": 1
     },
     {
-      "fingerprint": "2f8a86db5bb78d1b74f6d5ebe8e78219b445f94c87bb23d860c41f0385b2407b",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "2f94d793555e21618a0094f713dac3714c77316e39afeaffb1622ad2cf4eb8aa",
       "file": "src/components/post/FeedPost.tsx",
       "code": 2322,
@@ -2836,12 +2722,6 @@
       "count": 4
     },
     {
-      "fingerprint": "2fd70312c6cf80758ba61f0a618fbef7c86b3dba60502afdc13e5964401d8de7",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "2fe010db7c8994b94cb4ad2d5092fff1163ae439c3c89ded12008709469fd039",
       "file": "src/app/(auth)/post/edit/[id].tsx",
       "code": 2322,
@@ -2856,12 +2736,6 @@
     {
       "fingerprint": "2fe857ec0fd4cfafe25b1bf963125b82c0639e6132cf69c96362a3894cb1e693",
       "file": "src/app/(public)/handleLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "302f62fd9e19e6ff1f613f8e77af578ce911e7e12ed2918560a0eec3a7bd6c45",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -3310,12 +3184,6 @@
       "count": 1
     },
     {
-      "fingerprint": "3a5bae3539352e44b2646ac10fd2c2f846d5903870967291f646e5628b6b5b22",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "3a82d034a10c3ef6cba5c74144575334b260bebab5f99a63bdeb7939f62cad10",
       "file": "src/app/(auth)/admin/users/index.tsx",
       "code": 2322,
@@ -3409,12 +3277,6 @@
       "fingerprint": "3c1c6096b57fa7b8ef74ecdd192c062180dcd2539edd4828567a49f18b8de2c4",
       "file": "src/app/(auth)/admin/autospam/index.tsx",
       "code": 7006,
-      "count": 1
-    },
-    {
-      "fingerprint": "3c1f0e5c7dc6311e47c93ec77845916e2f93eb1e78e8e4b653295862f8d465e8",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -3643,12 +3505,6 @@
       "fingerprint": "40e38046225c319d90ccab35ba3b7b5c116affbab2f221841d10cd1a54e21127",
       "file": "src/components/post/FeedPost.tsx",
       "code": 7006,
-      "count": 1
-    },
-    {
-      "fingerprint": "40f773bc42c94e9efa6fb0de067e1b7b3274aa641442f8c8467fcefe1aae1470",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -4090,12 +3946,6 @@
       "count": 1
     },
     {
-      "fingerprint": "490767dc39fc255c0cc09593ff06d1d3b9a327a300a3b5a88ef45c368e6a4d18",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "4907de26a30d599abf363124bd4655d8ed6a83cce59ad541528cf9a7cf8b672c",
       "file": "src/app/(auth)/profile/report/sent.tsx",
       "code": 2322,
@@ -4153,12 +4003,6 @@
       "fingerprint": "49f6a040ac9e8cd1f7a3cd796975769b4753e9fa9a9da03b2fa6c704cdc8d753",
       "file": "src/components/post/CommentItem.tsx",
       "code": 7031,
-      "count": 1
-    },
-    {
-      "fingerprint": "4a4e8d7418fcaf414dc6cf70a3132ef42d69ad34e00bdd984ca438bc87af5469",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -4450,12 +4294,6 @@
       "count": 2
     },
     {
-      "fingerprint": "5138cf971ba7cdc667962b736f8d3b3c35bef44923fcdac0b1c9d724a9e2394a",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "515d1ae3df48094d617bdab5d77110d4da92cc538f7ca043d32dcb8607247d2c",
       "file": "src/app/(public)/handleSignup.tsx",
       "code": 2322,
@@ -4633,12 +4471,6 @@
       "fingerprint": "5369bfc052bb56f589af5c0795600fe400f01538b6afcbe10b0fa95cda78e472",
       "file": "src/app/(public)/verifyEmail.tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "5388c35ccb652165f813a071c396b46f1bfa20247eff75626a32299d5365c4ed",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 18048,
       "count": 1
     },
     {
@@ -4852,12 +4684,6 @@
       "count": 1
     },
     {
-      "fingerprint": "57b8c77c97d49358f04a719ea58b0bba465d24b0112604e78094940c8d9b3595",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 7016,
-      "count": 1
-    },
-    {
       "fingerprint": "57d464b6a3cf153648ee40aceec8544e18465de8109375858364030c8c0d96d5",
       "file": "src/app/(auth)/post/likes/[id].tsx",
       "code": 18046,
@@ -4908,12 +4734,6 @@
     {
       "fingerprint": "58e9bdbe7adbf4d20f47bd5f735c16cc1a1c7162a2951221b984003353432df2",
       "file": "src/app/(public)/manualLogin.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "58ea10f87ce0f22a04fb40642987f62788726a5c1d6dff8c6dc729a454315087",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -5146,12 +4966,6 @@
       "count": 1
     },
     {
-      "fingerprint": "5d1aaed8ad94e3ad735f9fbc1328be01d01e9ac7d9f40d6d9dfd3782fb7999a5",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "5d40ac6b5e160f0f6e881420ba3485f70107667e4cd2592962535cb6b4518928",
       "file": "src/components/post/FeedPost.tsx",
       "code": 2322,
@@ -5374,12 +5188,6 @@
       "count": 1
     },
     {
-      "fingerprint": "60b0ff3b2bc4f8ef3112400aa39fd12175b51ab0263be413e9a89331ad358abc",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "60cc2d295b080cdd076de72789ba5bb545ca7d5e439369e73b0ea86faca35181",
       "file": "src/components/post/CommentFeed.tsx",
       "code": 2322,
@@ -5418,12 +5226,6 @@
     {
       "fingerprint": "61255588532595103a6fc872c19914f5bf42fe3dc8debb5fde057e68a4552445",
       "file": "src/app/(auth)/chats/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "612b538775861fe4abb94dedf4bfec8408e2d3c2d1c3ea33ce00d614c93b57f5",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -5584,12 +5386,6 @@
       "count": 1
     },
     {
-      "fingerprint": "64e47d99f71c6fa48aa0b52c6b13f371364bf7226f72c7bdab09f1b58034e406",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "651f9677a9dce41497ebc99255249cffcf2b527cda9419e57f8079d7c5a4b3d6",
       "file": "src/app/(auth)/profile/following/[id].tsx",
       "code": 2322,
@@ -5734,12 +5530,6 @@
       "count": 2
     },
     {
-      "fingerprint": "67ab959d78383a7c1a9aedb60d93b023ab5b24710ad01d90b4a8144044d70d9d",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 7053,
-      "count": 1
-    },
-    {
       "fingerprint": "67d2e124fd371fafee101e2b07cc0852a69f8d243fcf9fdfdce7e19a71bb9130",
       "file": "src/app/(auth)/post/report/sent.tsx",
       "code": 2322,
@@ -5848,12 +5638,6 @@
       "count": 1
     },
     {
-      "fingerprint": "69bd998a3e5ea286b9710bc1b8cce5c19bbcd5888bd71be706452c14ccf1c213",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "69c47d7bffde6870ff72552fa674e5a614bdccb3e24379972ba22fef0eed0c63",
       "file": "src/app/(auth)/settings/updateName.tsx",
       "code": 2322,
@@ -5892,12 +5676,6 @@
     {
       "fingerprint": "6a7cecae668c6d47a34e8ac637ce58bccf85925b999788231e6e4020c85313e7",
       "file": "src/app/(auth)/admin/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "6a8d32c462987a0a86c4f760e371951965b415b557a880eb03a7171ae6db7e07",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -5948,12 +5726,6 @@
       "file": "src/components/notifications/PushNotificationSettings.tsx",
       "code": 7006,
       "count": 1
-    },
-    {
-      "fingerprint": "6b99ef93e3b34ea9ca2ebff51aa62ee785c2504e23e552092d41ec869ca50829",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 2
     },
     {
       "fingerprint": "6be23afe992a5f16840d49f172c451cc8543b2b932a5f89b8bb74e192415cb46",
@@ -6211,12 +5983,6 @@
       "fingerprint": "6feaa8b1def75366a40fb30a848a3a4aa41d8db0e2090b19adea2307f56bc8d9",
       "file": "src/lib/api.ts",
       "code": 7031,
-      "count": 1
-    },
-    {
-      "fingerprint": "7001d8098227a2c384f18c576b2ec551a701d7840bcff04e0ce5efea4db35ff4",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -6484,18 +6250,6 @@
       "count": 1
     },
     {
-      "fingerprint": "749fd89bb09a9cdf1db35cfd25ff09e1eae14967099a20b9eb392ec15d8090c0",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "74b3ed897e9183b085559cfa90419f2b63d5dd5c55e561c0be8cbe6c4472bf20",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "74babecffdca9bdc7fc5cd4d0a4b46a00029c7ea7e81908a0075a0e581d48adf",
       "file": "src/app/(auth)/admin/reports/index.tsx",
       "code": 2339,
@@ -6640,12 +6394,6 @@
       "count": 1
     },
     {
-      "fingerprint": "7740ef00a7f01023dba5cd29f895f214b78dc73df7c2ee539296814b6d6debd3",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "77415ea28d2f6906735e8d1a4d67552426df8581413249c4de64d85770344a7b",
       "file": "src/state/AuthProvider.tsx",
       "code": 2345,
@@ -6766,12 +6514,6 @@
       "count": 1
     },
     {
-      "fingerprint": "792871e5e0d7e15f9d9f8f3c7b2bee70f630f796cff70913820a3a6a0cc35238",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "7953b2aedfe1676f49428414c5dcb941de5f67f7f7d10f86b2b67021dc7020ac",
       "file": "src/components/common/SelfStoriesModal.tsx",
       "code": 18048,
@@ -6886,12 +6628,6 @@
       "count": 1
     },
     {
-      "fingerprint": "7bb219222497c1a30400d3a8f3335a5ed356a94496c4b2ffd4b40453cc715334",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 18048,
-      "count": 1
-    },
-    {
       "fingerprint": "7bbb0477718bfc1a1ff1707dfbf0428bb63a4e38dc94ecf1a6e9b46a433c1a65",
       "file": "src/app/(auth)/(tabs)/index.tsx",
       "code": 18048,
@@ -6906,12 +6642,6 @@
     {
       "fingerprint": "7c06bc65523338ecf3d85b7462052de3daa315369415e4f348ba9cdafbe12500",
       "file": "src/app/(auth)/hashtag/followedTags.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "7c0f0abe33ea752974c10aad06eed94b751071d51f305a43890ed533efaeaa38",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -7072,12 +6802,6 @@
       "count": 1
     },
     {
-      "fingerprint": "7f89d244118c65b322739aac2344cc3d7c3fb82c4ffbf6a7ac22f7c1f5b6a7e2",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 7053,
-      "count": 1
-    },
-    {
       "fingerprint": "7f8fa87ab297e08ee3a02a42d38ff9cdc700809359a419a6e8ed2c4e885299b8",
       "file": "src/app/(auth)/admin/autospam/index.tsx",
       "code": 2322,
@@ -7182,24 +6906,6 @@
     {
       "fingerprint": "82f0ed40e8a222501521772a8d69968345723995ec0aec4b606592acd68302a3",
       "file": "src/components/post/FeedPost.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "82f3d3d35d5af0e725ceed3753a4c8a2449967617e2cdf3635c93e49598b22a6",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "831a7173b875ad0ed476ae127dc30c2bf388ad8eb6ee621a31a4cf2317c1d674",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "8346a9a8f5f147057e8277fce5faf1d0b33477bcb22e7d1266c3afcfc00eae6c",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -7362,12 +7068,6 @@
     {
       "fingerprint": "8671590d0368a6b865c9abf17e87e96c3d3ef1312bfc7b7b86dcb0ef5469a154",
       "file": "src/app/(auth)/story/viewers/[id].tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "86748fa33f3233b7b061faccd0dccbebea79db2281e6d77584139cf108494db1",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -7546,12 +7246,6 @@
       "count": 1
     },
     {
-      "fingerprint": "8a0b69564f023696d58b02163d631a6cc7040b73e28ed4ced724657748035a12",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "8a24570bf859295538f819cf7a479a1f703666b6689db9ad89a49480ff0c22e7",
       "file": "src/components/post/CommentFeed.tsx",
       "code": 2322,
@@ -7586,12 +7280,6 @@
       "file": "src/components/profile/ProfileHeader.tsx",
       "code": 2322,
       "count": 2
-    },
-    {
-      "fingerprint": "8a71605a3ffb658bc180e0a6d14e537081082f171a9bba5466a32c23e420b8b9",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
     },
     {
       "fingerprint": "8a723edc390258eb7ebe3861f693e7d998d2012826ca9b62be896791fc04c755",
@@ -7642,12 +7330,6 @@
       "count": 1
     },
     {
-      "fingerprint": "8bb87012079dcca0034fc0b67da049734fd30af8b1d1c32c2a7ca2028a32d9e0",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "8bc0157fe256833367a74872f06e635d2e3f24e0bc3ab750e40badfdd5746bd6",
       "file": "src/components/profile/ProfileHeader.tsx",
       "code": 2322,
@@ -7692,12 +7374,6 @@
     {
       "fingerprint": "8cafdcebaf66bbe5890b5a3ee89c51e52edb1b579de8fcd056b18fa53ff87def",
       "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "8cb07ca23588241bac2a8e6c84d1e353a7ffa18026dee39409f9539c56cc49fa",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -7759,12 +7435,6 @@
       "fingerprint": "8dd0a3d1255ef5d1bdf6ca3806eb6b0162d9d8f24d2dff6f7f58a72aa6d8cb63",
       "file": "src/components/notifications/RenderNotificationItem.tsx",
       "code": 2339,
-      "count": 1
-    },
-    {
-      "fingerprint": "8dd65551e19734c7c6a1c91a3b4657cf95045b780d3aa6ddb95a6ce5683645f4",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -7858,12 +7528,6 @@
       "count": 1
     },
     {
-      "fingerprint": "8fe956175a491e9ffa96354bfafd80defb125a7531a0dcd1145113f46a2bbd82",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "8fff8f83610b07891c1fa5dafd59f1013899d12bbe2bdfb8753ca3eec6be6031",
       "file": "src/app/(auth)/post/[id].tsx",
       "code": 2345,
@@ -7897,12 +7561,6 @@
       "fingerprint": "909696f24c64066157a5f0bee132aadc117aba77cc8e077164f972a85ebc0754",
       "file": "src/app/(auth)/profile/about/[id].tsx",
       "code": 2747,
-      "count": 1
-    },
-    {
-      "fingerprint": "90a9afa5ab8e80af1073a06e8d1f590b7707f6564dc5cc19b2c5612526aba94d",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 7006,
       "count": 1
     },
     {
@@ -7974,12 +7632,6 @@
     {
       "fingerprint": "9315a005eddc76d00fcbf3637875c461d5d8b3f14413e2eac08d435646a5db4f",
       "file": "src/app/(auth)/chats/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "932b78ea86e50f652c2c9f743d7dc7f6fd15a0b7fbda8f376b904ec2376101c8",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -8734,12 +8386,6 @@
       "count": 1
     },
     {
-      "fingerprint": "9fde8afe6b7a5a79f3a81bf5c04e5d46f23d653250d810674638ca0b98652c21",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "9ffa16938b1632d1fd44c9a1e782dc45481a1f39b9420ece34b3240ed66c90b2",
       "file": "src/components/common/SelfStoriesModal.tsx",
       "code": 2322,
@@ -8860,12 +8506,6 @@
       "count": 1
     },
     {
-      "fingerprint": "a24bf8eb3c48c37ab9654a5e42264ca7691e3da7d830f79ddf9ffcd3b225891c",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "a2655cfb1687461748ddf238d744400d7ad52fa745e803534bfac5094cd6d96f",
       "file": "src/app/(public)/verifyEmail.tsx",
       "code": 2322,
@@ -8914,12 +8554,6 @@
       "count": 1
     },
     {
-      "fingerprint": "a3076ee1840b0028ca7ff12c9fbce6a70ecaa4d6fc7139c7536d6d85f0626e08",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "a3257ffb1d18a0724f5389c2c0e62172050756e84fb5d3a65777b4a17d47fc6d",
       "file": "src/app/(auth)/admin/index.tsx",
       "code": 2322,
@@ -8956,12 +8590,6 @@
       "count": 2
     },
     {
-      "fingerprint": "a3bc10a387ad2a7dbf473eb8a4236515dfe57d3dae47c9c02fe7d46341c420a0",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "a3cbd43a4c3a433d79fe6dd62d2b3561dd3c07fedfbaad9f8bedb581ca5c233c",
       "file": "src/components/profile/ProfileHeader.tsx",
       "code": 2322,
@@ -8978,12 +8606,6 @@
       "file": "src/app/(auth)/(tabs)/explore.tsx",
       "code": 7006,
       "count": 1
-    },
-    {
-      "fingerprint": "a418d958eaef781b5cbb0988db1ccfe3cc08b1b37a2d8f53394f61e067736ede",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 2
     },
     {
       "fingerprint": "a439b7b5caff34302ac90145ae44e16e2484c84cc4c4d21dc6ea8c1caf38b20e",
@@ -9067,18 +8689,6 @@
       "fingerprint": "a4eedbbfbaed17dbdd2e9a8dd3a05f228a0895b904057af45da04b9598aab6d5",
       "file": "src/lib/api.ts",
       "code": 7031,
-      "count": 1
-    },
-    {
-      "fingerprint": "a4fa80669c9635292f648663b8ef49ac6929ec04be0b6116a3910b8c8815d28d",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 18048,
-      "count": 2
-    },
-    {
-      "fingerprint": "a505997ccaf111fedd5bdd151c8328605530432a5b4a229f24c1b871ebfcea6d",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -9340,12 +8950,6 @@
       "count": 1
     },
     {
-      "fingerprint": "aab67fe00344060cada2def6f112c80fc8d33f52901fb78c7401511050009936",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "aac4dcf18ae2d94c1bebce6eb2da1282599cbc2ce7ae9a41b8ba2996d6940bcd",
       "file": "src/app/(auth)/profile/report/[id].tsx",
       "code": 2322,
@@ -9466,12 +9070,6 @@
       "count": 1
     },
     {
-      "fingerprint": "ac9359616026ddf4b42f29d112ae200232ea9d69d124d62e8330716b659164e4",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "acc465320bc2c96602314a4addba8a299470d0621ccfc51348aef04304c55979",
       "file": "src/components/form/Switch.tsx",
       "code": 2322,
@@ -9571,12 +9169,6 @@
       "fingerprint": "ae3228f6a79fa9f93287203f35978407817a28a4b4883af91ef9f94710047d0e",
       "file": "src/app/(auth)/post/edit/[id].tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "ae324206413943dda3c10976e8b08b9484b463783a55e5189ff1ed57974c44ea",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2746,
       "count": 1
     },
     {
@@ -9694,12 +9286,6 @@
       "count": 1
     },
     {
-      "fingerprint": "afa204132b68a381c098898bff3d542d82d986399f4cfe156eb1ab8609c202c6",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "afbabc3a10defa38730de1ab73d6f0a77132ec5ecd07ab3841d40c1f9fef14b8",
       "file": "tamagui.config.ts",
       "code": 2345,
@@ -9768,12 +9354,6 @@
     {
       "fingerprint": "b181f174b4b7058eb6a497cf3c5bae632d290886f645c5b4edede368298039bf",
       "file": "src/app/(auth)/story/viewers/[id].tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "b1a2595659a4b80d1a72202acc5bce16a634d15262a847d5e79d7b830b213bef",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -10024,12 +9604,6 @@
       "count": 1
     },
     {
-      "fingerprint": "b6397ffa7fb30914ac4978b98633be9429c701d34a193343380aeb9237ddf105",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "b63e1c64325199eb41c8128d6705a2bc0383a0ddd9470479804c6cc02e07ef0f",
       "file": "src/app/(public)/handleLogin.tsx",
       "code": 2322,
@@ -10081,12 +9655,6 @@
       "fingerprint": "b744836c606ee55b652479d095a420a9c3ed1f81948dfeed2f811d38ce861bd1",
       "file": "src/app/(auth)/post/shares/[id].tsx",
       "code": 7031,
-      "count": 1
-    },
-    {
-      "fingerprint": "b7518ff4dbd9b59b535396ff5c2e60634ba328888607c9ca378e2f72762ef75d",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -10198,12 +9766,6 @@
       "count": 1
     },
     {
-      "fingerprint": "b8c34a3fae0e104225858b24f6b91582061d30c2f0bada02817b326f71613e98",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 18048,
-      "count": 2
-    },
-    {
       "fingerprint": "b8c8dcf1754b1c0af58f23a330b4130db504d70747637b77bb1aec9f048ab59e",
       "file": "src/app/(auth)/search/index.tsx",
       "code": 2322,
@@ -10261,12 +9823,6 @@
       "fingerprint": "b95b09646d4364e9c6db36ae4557b4af68c077b3f0d3680cf2f3e634f7c4446f",
       "file": "src/components/post/CommentFeed.tsx",
       "code": 7008,
-      "count": 1
-    },
-    {
-      "fingerprint": "b97df8adf8ae83fca6332786410964d23196d66279ebefa4d3272188ee4591f9",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
       "count": 1
     },
     {
@@ -10426,12 +9982,6 @@
       "count": 1
     },
     {
-      "fingerprint": "bd090c69e97ce8cf06c1656746b3061f52e16e4c766840aaef5b50d7eb42dabb",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "bd172e33b95f930e3762735bf1133755cf1c8ecf7963d79efb4593c906007c50",
       "file": "src/app/(auth)/settings/appearance/index.tsx",
       "code": 2322,
@@ -10498,12 +10048,6 @@
       "count": 1
     },
     {
-      "fingerprint": "bdd1a2c746816facddb2d799d3b755d67e2d0e58e2c58218f9dcb12a5e5d0a7e",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 18048,
-      "count": 1
-    },
-    {
       "fingerprint": "bdd616c9aa7c5c4efb6a0a10ffcf3e3b01bb884e5ec8c53bcb5ddb1d65531827",
       "file": "src/app/(auth)/admin/autospam/index.tsx",
       "code": 2322,
@@ -10540,12 +10084,6 @@
       "count": 1
     },
     {
-      "fingerprint": "bedb575e0203cd72162d31dd2a01cef12a38007df02baf3ddfabc5a6e5d41fc2",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "bef62fe6e80255ebf5bde02be043def5a1c07e583ddce1391f4cc95df2b170bf",
       "file": "src/app/(auth)/admin/users/show/[id].tsx",
       "code": 2322,
@@ -10574,12 +10112,6 @@
       "file": "src/app/(auth)/settings/notifications/index.tsx",
       "code": 2747,
       "count": 1
-    },
-    {
-      "fingerprint": "bf747e33834c60072596c78d0f71687e944825b4f2e41b42f469836309a3a52d",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 2
     },
     {
       "fingerprint": "bfa4e9bf34e832f86ad4daa25cc3e367944523e40acc67679f92a65225c73cdc",
@@ -10702,12 +10234,6 @@
       "count": 2
     },
     {
-      "fingerprint": "c155d6b47e1804906d9235eeb8c18444a34591365542c90f839175b11ab833bd",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "c16da79ac06cbff1c4b08ea12697672b82a5694a7246a6dd1f960bf6444da0e5",
       "file": "src/app/(auth)/admin/users/show/[id].tsx",
       "code": 2322,
@@ -10812,12 +10338,6 @@
     {
       "fingerprint": "c34d384eb685f7598beb294ceba58ec88440a682c24441407efd546d37ea6944",
       "file": "src/app/(public)/handleSignup.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "c3ca00d3e69ec323c266aec7ed23009c544ca57c3bd8f6dbd105696dd717a058",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -11074,12 +10594,6 @@
       "count": 2
     },
     {
-      "fingerprint": "c91499821064c055b9aa024226005c4f282b28305cb813194112bea640801a5e",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "c92067e6af7a165965e074c819366b17ee20bc1263502099320e85ca75dee8e0",
       "file": "src/components/notifications/GlobalToast.tsx",
       "code": 2322,
@@ -11286,12 +10800,6 @@
     {
       "fingerprint": "cd75e68aaeee2dc9a3e5e4239f5e6f05e65a00fb07dace0c3ddc45360dd97c94",
       "file": "src/app/(auth)/settings/updateWebsite.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "cdaa4fd2c6cfcb673859f5fd17d3e478d2db775947270ba7dad8ef56a2615aa6",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -11506,20 +11014,8 @@
       "count": 1
     },
     {
-      "fingerprint": "d18117c870dc36502e6232dd9078d3d1ab4e87e6060790c88baf5cca82dc5191",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "d1b3901dba6dbe5e16e7262d0e015d17940324120672be08d09b766c948db6d8",
       "file": "src/components/notifications/GlobalToast.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "d1c04752a1b467b1711c1d405364f53e4593a218c92760ab829b0c1c82213cf3",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -11528,12 +11024,6 @@
       "file": "src/app/(auth)/hashtag/[id].tsx",
       "code": 2322,
       "count": 2
-    },
-    {
-      "fingerprint": "d1e09df125c6a77cc532fab15094aee6eb246add42299b8602ce7d0e87eef670",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
     },
     {
       "fingerprint": "d1e81b389c59a3a42c5428371a18678f0340e92e29fcc4382c1ecd4037cb34dd",
@@ -12016,12 +11506,6 @@
       "count": 1
     },
     {
-      "fingerprint": "db8c29113ae9be0a558a2566f5ee61455722a089dbbd4f5e1cd2ce1942213e14",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 18048,
-      "count": 1
-    },
-    {
       "fingerprint": "dbca1a465b7dc40411d95c8562439dcedee8c396af2e403b40dc8811c7e65f59",
       "file": "src/app/(auth)/admin/index.tsx",
       "code": 2322,
@@ -12094,18 +11578,6 @@
       "count": 1
     },
     {
-      "fingerprint": "dd54b6006e5d4187798e42759f8e8c951ae3006867d91b96100f150e0ab30ef3",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "dd64e93d8733aeae952c2ec9d9541a1e001eadb5486c2318cbe8ff7269dba1ab",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "dd6ba0103dbfcf503340ce4b015fa7e1a82c3aa368bfb7a2fefdb819a8be30ed",
       "file": "src/components/profile/ProfileHeader.tsx",
       "code": 2322,
@@ -12148,18 +11620,6 @@
       "count": 1
     },
     {
-      "fingerprint": "dea8e36b96c7426a89cbf6c1277ddd71dd9592d9a0cfb49a9c367d622ff68532",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "deea2a63ff730d2a4184e23ea4aab2560f6a587e080e88846d7a93f2cf13b546",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "def920e664f1c4fa61e8627bfa80021cecfa25e10f4dfaad51827a3fad5cba31",
       "file": "src/app/(auth)/settings/privacy/blocked-accounts.tsx",
       "code": 2322,
@@ -12186,12 +11646,6 @@
     {
       "fingerprint": "e0095a1dd5e32de5599011e0c1efa1cc322e7729550d9e0e8e8961f890d32c9d",
       "file": "src/app/(auth)/profile/follow-requests/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "e024e1a80c94011f294cb39f7cbca45dfca6d9a2680b0b177368fa5bf647865a",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -12256,12 +11710,6 @@
       "count": 1
     },
     {
-      "fingerprint": "e1d666a92a9ab26c55accd6e2d68c6d92279fadf66f2f7831f558c72722c0104",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "e21cfcaec06de0c2bdd2ae010cbecd913bd6a08f63a2f61d37b99958a5cf8ee0",
       "file": "src/app/(auth)/settings/notifications/index.tsx",
       "code": 2322,
@@ -12324,12 +11772,6 @@
     {
       "fingerprint": "e2f09e87a3e7cf17b883ac35ab249ee287576a70ce4efbbd5e50c4249f3d1d24",
       "file": "src/app/(auth)/settings/updateName.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "e2f317e32860aac63c7dcf9169065ed652022e5174c2af374c5b840f62dc3359",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -12604,12 +12046,6 @@
       "count": 1
     },
     {
-      "fingerprint": "e7f2683654fcd275b75805d73ffb6e07555a712f363bc51d2f118a1ba50a8675",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "e802d7fc85592c0d08fe268bc14fea10b1ba2f5db5135e9bbea6be8e1b8b4feb",
       "file": "src/app/(auth)/discover/index.tsx",
       "code": 2322,
@@ -12762,12 +12198,6 @@
     {
       "fingerprint": "ead8bb4f54ed40558e1530431844db60dacb3a8ce7cafdb85839466d8cc8dfa3",
       "file": "src/components/post/FeedPost.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
-      "fingerprint": "eadff5bb89f5361f6be5c976f916595a21334325728a4d6de5da822ecc90a753",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 2
     },
@@ -13456,12 +12886,6 @@
       "count": 1
     },
     {
-      "fingerprint": "f7bb7f356fdd43dade7f5b4b9a825cca1acbe2a35421bce40b50564e2731a55b",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
       "fingerprint": "f813e151460a2a010bf6ff4641e7fe9705544a0cbee065a761a08decc7c774aa",
       "file": "src/app/(auth)/hashtag/[id].tsx",
       "code": 2747,
@@ -13540,12 +12964,6 @@
       "count": 1
     },
     {
-      "fingerprint": "f92dd7fe63486f6f747c0ed0546d39b60291f310af2af34c09ed568ea3412c99",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 2
-    },
-    {
       "fingerprint": "f96606508c1ac8dd707276c1ed59bfafbf4ccdf04cbd23055c3d16ed9e3c220d",
       "file": "src/app/(auth)/(tabs)/explore.tsx",
       "code": 2339,
@@ -13566,18 +12984,6 @@
     {
       "fingerprint": "f9db5cf12aba3ffaba4f48bd019a7fcbb9ceb7929b6ffce28ffe21f3f1181ea3",
       "file": "src/components/post/CommentItem.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "f9dbb5c1affa6f650602f0c6abcdb2914de0dc83469fbf14b962f27845e4ccaa",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "f9fddb50a5faac64a61d9249ded11722981eddd28eba9fd94a73a969608a8baf",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -13686,12 +13092,6 @@
     {
       "fingerprint": "fba3024e7f3ad68d5993b65ba15cd72f26a9519a63b69c117f14066d80d2c3dd",
       "file": "src/app/(auth)/settings/privacy/index.tsx",
-      "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "fbb3bd058d45b02ded25bf2fa87db62a018757b7f08be0e78ed61c8230bd6f6b",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
       "code": 2322,
       "count": 1
     },
@@ -13886,12 +13286,6 @@
       "file": "src/components/notifications/PushNotificationSettings.tsx",
       "code": 2322,
       "count": 2
-    },
-    {
-      "fingerprint": "ff625b8d6dcf8fc244eda5c290b09c107dc0fd3ef6d14713c9fdf7868ce16916",
-      "file": "src/app/(auth)/(tabs)/camera.tsx",
-      "code": 2322,
-      "count": 1
     },
     {
       "fingerprint": "ffbcbe8825347ed1aac2a4dd23ea980e0ec52bc429bc4160f96d65af93cf6838",

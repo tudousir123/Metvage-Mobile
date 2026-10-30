@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { Stack } from 'expo-router'
+import { router, Stack } from 'expo-router'
 import { useState } from 'react'
 import {
   ActivityIndicator,
@@ -125,6 +125,16 @@ export default function PetsPage() {
                   {pet.bio ? ` · ${pet.bio}` : ''}
                 </Text>
                 <View style={{ flexDirection: 'row', gap: 20 }}>
+                  <Pressable
+                    accessibilityRole="button"
+                    onPress={() =>
+                      router.push(
+                        `/pets/${pet.id}/records` as Parameters<typeof router.push>[0]
+                      )
+                    }
+                  >
+                    <Text style={{ color: green }}>查看时间线</Text>
+                  </Pressable>
                   {!current && (
                     <Pressable
                       accessibilityRole="button"
