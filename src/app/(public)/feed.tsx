@@ -1,4 +1,4 @@
-import { router, Stack } from 'expo-router'
+import { Link, router, Stack } from 'expo-router'
 import { Pressable, Text, View } from 'react-native'
 import { PublicRecordFeed } from 'src/components/metvage/public-record-feed'
 
@@ -15,6 +15,11 @@ export default function GuestFeed() {
           backgroundColor: '#fff',
         }}
       >
+        <Link href="/public-search" asChild>
+          <Pressable accessibilityRole="button">
+            <Text style={{ color: '#075e52', fontWeight: '700' }}>搜索</Text>
+          </Pressable>
+        </Link>
         <Pressable accessibilityRole="button" onPress={() => router.push('/handleLogin')}>
           <Text style={{ color: '#075e52', fontWeight: '700' }}>登录</Text>
         </Pressable>
