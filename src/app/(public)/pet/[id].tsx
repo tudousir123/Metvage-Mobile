@@ -8,9 +8,11 @@ import {
   getPublicPetRecords,
   publicRecordPhotoUrl,
 } from 'src/lib/metvage-public'
+import { useAuth } from 'src/state/AuthProvider'
 
 export default function PublicPet() {
   const { id } = useLocalSearchParams<{ id: string }>()
+  const { user } = useAuth()
   const petId = Number(id)
   const profile = useQuery({
     queryKey: ['metvage-public-pet', petId],
@@ -58,6 +60,20 @@ export default function PublicPet() {
             <Text style={{ color: '#18332f' }}>{profile.data.bio}</Text>
           )}
           <PetFollowButton targetPetId={petId} />
+          <Pressable
+            accessibilityRole="button"
+            onPress={() =>
+              router.push(
+                user
+                  ? (`/reports/new?target_type=pet&target_id=${petId}` as Parameters<
+                      typeof router.push
+                    >[0])
+                  : '/handleLogin'
+              )
+            }
+          >
+            <Text style={{ color: '#b42318' }}>举报这个宠物身份</Text>
+          </Pressable>
         </>
       )}
       {timeline.data?.records.length === 0 && (
