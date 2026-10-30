@@ -1,6 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { Image } from 'expo-image'
+import * as ImagePicker from 'expo-image-picker'
 import { router, Stack, useLocalSearchParams } from 'expo-router'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   ActivityIndicator,
   Pressable,
@@ -10,7 +12,7 @@ import {
   View,
 } from 'react-native'
 import { getPets } from 'src/lib/pets'
-import { createTextRecord, type RecordVisibility } from 'src/lib/records'
+import { createPetRecord, type RecordVisibility } from 'src/lib/records'
 import { useAuth } from 'src/state/AuthProvider'
 
 const green = '#075e52'
@@ -20,6 +22,11 @@ export default function NewRecordScreen() {
   const { user } = useAuth()
   const queryClient = useQueryClient()
   const [text, setText] = useState('')
+  const [title, setTitle] = useState('')
+  const [photos, setPhotos] = useState<ImagePicker.ImagePickerAsset[]>([])
+  const requestId = useRef(
+    `record-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`
+  )
   const [visibility, setVisibility] = useState<RecordVisibility>(
     mode === 'private' ? 'private' : 'public'
   )
@@ -28,6 +35,31 @@ export default function NewRecordScreen() {
   }, [mode])
   const [chosenPetId, setChosenPetId] = useState<number | null>(null)
   const [formError, setFormError] = useState('')
+
+  const pickPhotos = async () => {
+    setFormError('')
+    try {
+      const remaining = 9 - photos.length
+      if (remaining <= 0) {
+        setFormError('每条记录最多添加 9 张照片。')
+        return
+      }
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ['images'],
+        allowsMultipleSelection: true,
+        selectionLimit: remaining,
+        quality: 0.8,
+      })
+      if (result.canceled) return
+      if (result.assets.length > remaining) {
+        setFormError('每条记录最多添加 9 张照片，请减少选择数量。')
+        return
+      }
+      setPhotos((previous) => [...previous, ...result.assets])
+    } catch {
+      setFormError('无法打开相册，请检查照片权限后重试。')
+    }
+  }
   const { data, error, isLoading, refetch } = useQuery({
     queryKey: ['metvage-pets', user?.server, user?.token],
     queryFn: getPets,
@@ -45,13 +77,24 @@ export default function NewRecordScreen() {
     mutationFn: async () => {
       if (selectedPetId === null) throw new Error('请先建立并选定宠物身份')
       const content = text.trim()
-      if (!content) throw new Error('请写下记录内容')
-      return createTextRecord({ pet_id: selectedPetId, text: content, visibility })
+      if (!content && photos.length === 0) throw new Error('请写下记录内容或添加照片')
+      if (title.length > 50) throw new Error('标题最多 50 个字')
+      if (photos.length > 9) throw new Error('每条记录最多添加 9 张照片')
+      return createPetRecord({
+        pet_id: selectedPetId,
+        text: content,
+        title: title.trim(),
+        visibility,
+        photos: photos.map(({ uri, fileName, mimeType }) => ({
+          uri,
+          fileName,
+          mimeType,
+        })),
+        client_request_id: requestId.current,
+      })
     },
     onSuccess: async ({ record }) => {
-      await queryClient.invalidateQueries({
-        queryKey: ['metvage-records', record.pet_id],
-      })
+      await queryClient.invalidateQueries()
       router.replace(
         `/pets/${record.pet_id}/records` as Parameters<typeof router.replace>[0]
       )
@@ -111,8 +154,21 @@ export default function NewRecordScreen() {
             ))}
           </View>
           <TextInput
+            accessibilityLabel="记录标题（可选）"
+            placeholder="标题（可选，最多 50 字）"
+            value={title}
+            onChangeText={setTitle}
+            maxLength={50}
+            style={{
+              padding: 14,
+              borderWidth: 1,
+              borderColor: '#ccd8d2',
+              borderRadius: 10,
+            }}
+          />
+          <TextInput
             accessibilityLabel="记录内容"
-            placeholder="写下这一刻…"
+            placeholder="写下这一刻…（可只发照片）"
             value={text}
             onChangeText={setText}
             multiline
@@ -125,6 +181,33 @@ export default function NewRecordScreen() {
               borderRadius: 10,
             }}
           />
+          <View style={{ gap: 10 }}>
+            <Pressable accessibilityRole="button" onPress={pickPhotos}>
+              <Text style={{ color: green, fontWeight: '700' }}>
+                添加照片（{photos.length}/9）
+              </Text>
+            </Pressable>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
+              {photos.map((photo, index) => (
+                <View key={`${photo.uri}-${index}`} style={{ gap: 4 }}>
+                  <Image
+                    source={{ uri: photo.uri }}
+                    style={{ width: 96, height: 96, borderRadius: 8 }}
+                    contentFit="cover"
+                  />
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={`移除第 ${index + 1} 张照片`}
+                    onPress={() =>
+                      setPhotos((current) => current.filter((_, item) => item !== index))
+                    }
+                  >
+                    <Text style={{ color: '#b42318' }}>移除</Text>
+                  </Pressable>
+                </View>
+              ))}
+            </View>
+          </View>
           <View style={{ gap: 8 }}>
             <Text style={{ fontSize: 18, fontWeight: '700' }}>谁能看到</Text>
             {(['public', 'private'] as const).map((value) => (

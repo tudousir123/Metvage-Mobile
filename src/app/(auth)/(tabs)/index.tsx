@@ -1,8 +1,12 @@
 import { Link, Stack } from 'expo-router'
+import { useState } from 'react'
 import { Pressable, Text, View } from 'react-native'
+import { FollowingRecordFeed } from 'src/components/metvage/following-record-feed'
 import { PublicRecordFeed } from 'src/components/metvage/public-record-feed'
 
 export default function HomeScreen() {
+  const [feed, setFeed] = useState<'recommended' | 'following'>('recommended')
+
   return (
     <View style={{ flex: 1 }}>
       <Stack.Screen options={{ title: '首页' }} />
@@ -40,7 +44,26 @@ export default function HomeScreen() {
           </Pressable>
         </Link>
       </View>
-      <PublicRecordFeed />
+      <View
+        style={{ flexDirection: 'row', backgroundColor: '#fff', paddingHorizontal: 12 }}
+      >
+        {(['recommended', 'following'] as const).map((tab) => (
+          <Pressable
+            key={tab}
+            accessibilityRole="tab"
+            accessibilityState={{ selected: feed === tab }}
+            onPress={() => setFeed(tab)}
+            style={{ flex: 1, alignItems: 'center', padding: 12 }}
+          >
+            <Text
+              style={{ color: feed === tab ? '#075e52' : '#536a64', fontWeight: '700' }}
+            >
+              {tab === 'recommended' ? '推荐' : '关注'}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
+      {feed === 'recommended' ? <PublicRecordFeed /> : <FollowingRecordFeed />}
     </View>
   )
 }
