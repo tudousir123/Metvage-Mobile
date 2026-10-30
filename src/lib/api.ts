@@ -12,6 +12,7 @@ import type {
   UploadV2Params,
   UploadV2ResponseOrError,
 } from './api-types'
+import { requireCurrentPet } from './pets'
 import { randomKey } from './randomKey'
 
 function removeDuplicateObjects(array: any[], keyProps: string[]) {
@@ -325,6 +326,7 @@ export async function followAccountById(
   id: string
 ): Promise<RelationshipFromFollowAPIResponse> {
   const api = ContextFromStorage()
+  await requireCurrentPet()
   return await api.jsonRequest('POST', `api/v1/accounts/${id}/follow`)
 }
 
@@ -521,6 +523,7 @@ export async function getAccountRelationship({ queryKey }): Promise<Relationship
 
 export async function postComment({ postId, commentText, scope = 'public', cw = false }) {
   const instance = Storage.getString('app.instance')
+  await requireCurrentPet()
   const token = Storage.getString('app.token')
 
   const params = new URLSearchParams({
@@ -543,6 +546,7 @@ export async function postComment({ postId, commentText, scope = 'public', cw = 
 
 export async function likeStatus({ id }: { id: string }) {
   const instance = Storage.getString('app.instance')
+  await requireCurrentPet()
   const token = Storage.getString('app.token')
 
   const url = `https://${instance}/api/v1/statuses/${id}/favourite?_pe=1`
@@ -751,6 +755,7 @@ export async function uploadMediaV2(params: UploadV2Params) {
 
 export async function postNewStatus(params) {
   const path = `api/v1/statuses`
+  await requireCurrentPet()
   return await selfPost(path, params, false, false, true)
 }
 

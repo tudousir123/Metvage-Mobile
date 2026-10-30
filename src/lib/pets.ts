@@ -1,3 +1,4 @@
+import { router } from 'expo-router'
 import { Storage } from 'src/state/cache'
 
 export type PetSpecies = 'cat' | 'dog'
@@ -55,3 +56,11 @@ export const updatePet = (
 
 export const selectCurrentPet = (petId: number) =>
   petRequest<{ current_pet_id: number }>('/current', 'PUT', { pet_id: petId })
+
+export async function requireCurrentPet(): Promise<void> {
+  const { pets, current_pet_id } = await getPets()
+  if (pets.some((pet) => pet.id === current_pet_id)) return
+
+  router.push('/settings/pets' as Parameters<typeof router.push>[0])
+  throw new Error('请先建立并选定宠物身份')
+}

@@ -19,11 +19,10 @@ import FeedPost from 'src/components/post/FeedPost'
 import { useVideo } from 'src/hooks/useVideoProvider'
 import {
   deleteStatusV1,
-  favouriteStatus,
   fetchHomeFeed,
-  postStoryViewed,
+  likeStatus,
   reblogStatus,
-  unfavouriteStatus,
+  unlikeStatus,
   unreblogStatus,
 } from 'src/lib/api'
 import type { Status } from 'src/lib/api-types'
@@ -227,7 +226,7 @@ export default function HomeScreen() {
 
   const likeMutation = useMutation({
     mutationFn: async ({ id, isLiked }: { id: string; isLiked: boolean }) => {
-      return isLiked ? await unfavouriteStatus(id) : await favouriteStatus(id)
+      return isLiked ? await unlikeStatus({ id }) : await likeStatus({ id })
     },
     onMutate: async ({ id, isLiked }) => {
       await queryClient.cancelQueries({ queryKey: ['homeFeed'] })
