@@ -4,9 +4,11 @@ import { router, Stack, useLocalSearchParams } from 'expo-router'
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native'
 import { RecordInteractions } from 'src/components/records/record-interactions'
 import { getPublicRecord, publicRecordPhotoUrl } from 'src/lib/metvage-public'
+import { useAuth } from 'src/state/AuthProvider'
 
 export default function PublicNote() {
   const { id } = useLocalSearchParams<{ id: string }>()
+  const { user } = useAuth()
   const recordId = Number(id)
   const note = useQuery({
     queryKey: ['metvage-public-note', recordId],
@@ -68,6 +70,20 @@ export default function PublicNote() {
               : ''}
           </Text>
           <RecordInteractions recordId={recordId} visibility="public" />
+          <Pressable
+            accessibilityRole="button"
+            onPress={() =>
+              router.push(
+                user
+                  ? (`/reports/new?target_type=record&target_id=${recordId}` as Parameters<
+                      typeof router.push
+                    >[0])
+                  : '/handleLogin'
+              )
+            }
+          >
+            <Text style={{ color: '#b42318' }}>举报这篇公开笔记</Text>
+          </Pressable>
         </>
       )}
     </ScrollView>
