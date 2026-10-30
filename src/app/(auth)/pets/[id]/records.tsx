@@ -117,16 +117,18 @@ export default function PetTimelineScreen() {
               <Text style={{ color: '#63746f' }}>
                 {new Date(record.created_at).toLocaleString()}
               </Text>
-              {isOwner && <Pressable
-                accessibilityRole="button"
-                onPress={() =>
-                  router.push(
-                    `/records/${record.id}/edit` as Parameters<typeof router.push>[0]
-                  )
-                }
-              >
-                <Text style={{ color: green, fontWeight: '700' }}>编辑或删除记录</Text>
-              </Pressable>}
+              {isOwner && (
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() =>
+                    router.push(
+                      `/records/${record.id}/edit` as Parameters<typeof router.push>[0]
+                    )
+                  }
+                >
+                  <Text style={{ color: green, fontWeight: '700' }}>编辑或删除记录</Text>
+                </Pressable>
+              )}
               {isOwner && (
                 <Pressable
                   accessibilityRole="button"

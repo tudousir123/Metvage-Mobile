@@ -34,7 +34,7 @@ export default function EditRecordScreen() {
   const [keptPhotoIds, setKeptPhotoIds] = useState<number[]>([])
   const [newPhotos, setNewPhotos] = useState<ImagePicker.ImagePickerAsset[]>([])
   const [formError, setFormError] = useState('')
-  const initializedRecordId = useRef<number | null>(null)
+  const initializedRecordKey = useRef<string | null>(null)
 
   const recordQuery = useQuery({
     queryKey: ['metvage-record', recordId, user?.server, user?.token],
@@ -47,10 +47,15 @@ export default function EditRecordScreen() {
     enabled: !!user,
   })
   const record = recordQuery.data?.record
+  const isOwner =
+    record !== undefined &&
+    (petsQuery.data?.pets.some((pet) => pet.id === record.pet_id) ?? false)
 
   useEffect(() => {
-    if (!record || initializedRecordId.current === record.id) return
-    initializedRecordId.current = record.id
+    if (!record || !user) return
+    const recordKey = `${user.server}:${user.token}:${record.id}`
+    if (initializedRecordKey.current === recordKey) return
+    initializedRecordKey.current = recordKey
     setText(record.text ?? '')
     setTitle(record.title ?? '')
     setPetId(record.pet_id)
@@ -84,7 +89,7 @@ export default function EditRecordScreen() {
 
   const save = useMutation({
     mutationFn: async () => {
-      if (!record || petId === null) throw new Error('请先选择宠物档案')
+      if (!record || !isOwner || petId === null) throw new Error('无权编辑这条记录')
       if (!text.trim() && keptPhotoIds.length + newPhotos.length === 0) {
         throw new Error('请填写文字或保留至少一张照片')
       }
@@ -159,7 +164,10 @@ export default function EditRecordScreen() {
           </Pressable>
         </View>
       )}
-      {record && petsQuery.data && (
+      {record && petsQuery.data && !isOwner && (
+        <Text style={{ color: '#b42318' }}>只有记录主人可以编辑或删除。</Text>
+      )}
+      {record && petsQuery.data && isOwner && (
         <>
           <Text style={{ fontSize: 18, fontWeight: '700' }}>关联宠物</Text>
           {petsQuery.data.pets.map((pet) => (
