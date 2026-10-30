@@ -44,6 +44,20 @@ export default function ExploreScreen() {
           </Text>
         </View>
 
+        <Link href="/search" asChild>
+          <Pressable
+            accessibilityRole="button"
+            style={{ padding: 16, borderRadius: 16, backgroundColor: cardColor }}
+          >
+            <Text style={{ fontSize: 17, fontWeight: '700', color: textColor }}>
+              搜索公开笔记与宠物档案
+            </Text>
+            <Text style={{ fontSize: 14, color: secondaryColor, marginTop: 4 }}>
+              搜索已开放的公开内容
+            </Text>
+          </Pressable>
+        </Link>
+
         <View style={{ gap: 12 }}>
           <Text style={{ fontSize: 18, fontWeight: 'bold', color: textColor }}>
             计划中的功能
