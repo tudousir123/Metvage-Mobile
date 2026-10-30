@@ -1,3 +1,4 @@
+import Constants from 'expo-constants'
 import { router } from 'expo-router'
 import { Storage } from 'src/state/cache'
 
@@ -20,11 +21,10 @@ async function petRequest<T>(path: string, method = 'GET', body?: object): Promi
   const token = Storage.getString('app.token')
   if (!server || !token) throw new Error('请先登录')
 
-  const origin = (
-    server.startsWith('http://') || server.startsWith('https://')
-      ? server
-      : `https://${server}`
-  ).replace(/\/+$/, '')
+  const localTestServer =
+    server === 'localhost:18080' &&
+    Constants.expoConfig?.extra?.localInstanceHost === 'localhost:18080'
+  const origin = `${localTestServer ? 'http' : 'https'}://${server}`
 
   const response = await fetch(`${origin}/api/v1/metvage/pets${path}`, {
     method,
