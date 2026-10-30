@@ -127,6 +127,10 @@ export async function updatePetRecord(
   return response.json()
 }
 
+export const updateRecordVisibility = (recordId: number, visibility: RecordVisibility) =>
+  recordRequest<{ record: PetRecord }>(`/records/${recordId}/visibility`, 'PATCH', {
+    visibility,
+  })
 export async function createPetRecord(input: {
   pet_id: number
   text: string

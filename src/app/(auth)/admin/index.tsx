@@ -61,6 +61,7 @@ export default function Page() {
               path="/admin/reports/"
             />
             <GroupButton icon="list" title="物种申请" path="/admin/species-requests" />
+            <GroupButton icon="flag" title="宠物举报" path="/admin/metvage-reports" />
             {/* <GroupButton
               icon="message-circle"
               title="Admin Inbox"
