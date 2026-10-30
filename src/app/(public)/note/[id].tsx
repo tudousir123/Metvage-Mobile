@@ -4,12 +4,14 @@ import { router, Stack, useLocalSearchParams } from 'expo-router'
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native'
 import { RecordInteractions } from 'src/components/records/record-interactions'
 import { getPublicRecord, publicRecordPhotoUrl } from 'src/lib/metvage-public'
+import { useAuth } from 'src/state/AuthProvider'
 
 export default function PublicNote() {
   const { id } = useLocalSearchParams<{ id: string }>()
   const recordId = Number(id)
+  const { user } = useAuth()
   const note = useQuery({
-    queryKey: ['metvage-public-note', recordId],
+    queryKey: ['metvage-public-note', recordId, user?.server, user?.token],
     queryFn: () => getPublicRecord(recordId),
     enabled: Number.isInteger(recordId) && recordId > 0,
   })
@@ -29,7 +31,7 @@ export default function PublicNote() {
           </Pressable>
         </View>
       )}
-      {note.data && (
+      {!note.isError && note.data && (
         <>
           <Pressable
             accessibilityRole="button"

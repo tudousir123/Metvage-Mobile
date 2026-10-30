@@ -16,10 +16,12 @@ function BlockedPetRow({ block }: { block: PetAccountBlock }) {
       await Promise.all([
         queryClient.invalidateQueries({ queryKey: ['metvage-blocks'] }),
         queryClient.invalidateQueries({ queryKey: ['metvage-block-status'] }),
-        queryClient.invalidateQueries({ queryKey: ['metvage-public-records'] }),
-        queryClient.invalidateQueries({ queryKey: ['metvage-public-pet'] }),
-        queryClient.invalidateQueries({ queryKey: ['metvage-public-pet-records'] }),
-        queryClient.invalidateQueries({ queryKey: ['metvage-public-search'] }),
+        queryClient.resetQueries({ queryKey: ['metvage-public-records'] }),
+        queryClient.resetQueries({ queryKey: ['metvage-public-pet'] }),
+        queryClient.resetQueries({ queryKey: ['metvage-public-pet-records'] }),
+        queryClient.resetQueries({ queryKey: ['metvage-public-note'] }),
+        queryClient.resetQueries({ queryKey: ['metvage-public-search'] }),
+        queryClient.resetQueries({ queryKey: ['metvage-interactions'] }),
         queryClient.invalidateQueries({ queryKey: ['metvage-following-feed'] }),
         queryClient.invalidateQueries({ queryKey: ['metvage-follows'] }),
       ])
