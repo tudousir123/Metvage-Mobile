@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Image } from 'expo-image'
 import { router, Stack, useLocalSearchParams } from 'expo-router'
 import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native'
-import { PetFollowButton } from 'src/components/pets/pet-follow-button'
+import { PetSocialControls } from 'src/components/pets/pet-block-button'
 import {
   getPublicPet,
   getPublicPetRecords,
@@ -15,12 +15,12 @@ export default function PublicPet() {
   const { user } = useAuth()
   const petId = Number(id)
   const profile = useQuery({
-    queryKey: ['metvage-public-pet', petId],
+    queryKey: ['metvage-public-pet', petId, user?.server, user?.token],
     queryFn: () => getPublicPet(petId),
     enabled: Number.isInteger(petId) && petId > 0,
   })
   const timeline = useQuery({
-    queryKey: ['metvage-public-pet-records', petId],
+    queryKey: ['metvage-public-pet-records', petId, user?.server, user?.token],
     queryFn: () => getPublicPetRecords(petId),
     enabled: Number.isInteger(petId) && petId > 0,
   })
@@ -48,7 +48,7 @@ export default function PublicPet() {
           </Pressable>
         </View>
       )}
-      {profile.data && (
+      {!profile.isError && profile.data && (
         <>
           <Text style={{ fontSize: 26, fontWeight: '700', color: '#18332f' }}>
             {profile.data.nickname}
@@ -59,7 +59,7 @@ export default function PublicPet() {
           {!!profile.data.bio && (
             <Text style={{ color: '#18332f' }}>{profile.data.bio}</Text>
           )}
-          <PetFollowButton targetPetId={petId} />
+          <PetSocialControls targetPetId={petId} />
           <Pressable
             accessibilityRole="button"
             onPress={() =>
@@ -76,32 +76,33 @@ export default function PublicPet() {
           </Pressable>
         </>
       )}
-      {timeline.data?.records.length === 0 && (
+      {!timeline.isError && timeline.data?.records.length === 0 && (
         <Text style={{ color: '#536a64' }}>还没有公开笔记。</Text>
       )}
-      {timeline.data?.records.map((record) => (
-        <Pressable
-          key={record.id}
-          accessibilityRole="button"
-          onPress={() =>
-            router.push(`/note/${record.id}` as Parameters<typeof router.push>[0])
-          }
-          style={{ padding: 16, borderRadius: 14, backgroundColor: '#f5f8f6' }}
-        >
-          {record.title && (
-            <Text style={{ color: '#18332f', fontWeight: '700' }}>{record.title}</Text>
-          )}
-          {record.text && <Text style={{ color: '#18332f' }}>{record.text}</Text>}
-          {record.photos[0] && (
-            <Image
-              source={{ uri: publicRecordPhotoUrl(record.photos[0].url) }}
-              cachePolicy="none"
-              contentFit="cover"
-              style={{ width: '100%', height: 180, borderRadius: 8 }}
-            />
-          )}
-        </Pressable>
-      ))}
+      {!timeline.isError &&
+        timeline.data?.records.map((record) => (
+          <Pressable
+            key={record.id}
+            accessibilityRole="button"
+            onPress={() =>
+              router.push(`/note/${record.id}` as Parameters<typeof router.push>[0])
+            }
+            style={{ padding: 16, borderRadius: 14, backgroundColor: '#f5f8f6' }}
+          >
+            {record.title && (
+              <Text style={{ color: '#18332f', fontWeight: '700' }}>{record.title}</Text>
+            )}
+            {record.text && <Text style={{ color: '#18332f' }}>{record.text}</Text>}
+            {record.photos[0] && (
+              <Image
+                source={{ uri: publicRecordPhotoUrl(record.photos[0].url) }}
+                cachePolicy="none"
+                contentFit="cover"
+                style={{ width: '100%', height: 180, borderRadius: 8 }}
+              />
+            )}
+          </Pressable>
+        ))}
     </ScrollView>
   )
 }

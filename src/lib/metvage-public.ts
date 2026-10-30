@@ -27,10 +27,14 @@ export function publicRecordPhotoUrl(url: string): string {
 }
 
 async function publicRequest<T>(path: string, options?: RequestInit): Promise<T> {
+  const token = Storage.getString('app.token')
+  const signedInHost = Storage.getString('app.instance')
+  const sameInstance = signedInHost && instanceOrigin(signedInHost) === metvageOrigin()
   const response = await fetch(`${metvageOrigin()}${path}`, {
     ...options,
     headers: {
       Accept: 'application/json',
+      ...(token && sameInstance ? { Authorization: `Bearer ${token}` } : {}),
       ...options?.headers,
     },
   })
