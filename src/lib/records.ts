@@ -61,6 +61,10 @@ async function recordRequest<T>(path: string, method = 'GET', body?: object): Pr
 export const getPetTimeline = (petId: number) =>
   recordRequest<{ records: PetRecord[] }>(`/pets/${petId}/records`)
 
+export const updateRecordVisibility = (recordId: number, visibility: RecordVisibility) =>
+  recordRequest<{ record: PetRecord }>(`/records/${recordId}/visibility`, 'PATCH', {
+    visibility,
+  })
 export async function createPetRecord(input: {
   pet_id: number
   text: string
