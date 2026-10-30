@@ -3,6 +3,13 @@ import { instanceOrigin } from './instanceOrigin'
 import { metvageOrigin } from './metvage-public'
 
 export type PetReportTargetType = 'record' | 'pet' | 'comment'
+export type PetReportAction =
+  | 'none'
+  | 'hide'
+  | 'restore'
+  | 'delete'
+  | 'suspend'
+  | 'unsuspend'
 
 export type PetReport = {
   id: number
@@ -10,6 +17,8 @@ export type PetReport = {
   target_id: number
   reason: string
   status: 'pending' | string
+  action?: PetReportAction | null
+  resolution?: string | null
   created_at: string
   reporter_id?: number
 }
@@ -51,3 +60,8 @@ export const submitPetReport = (input: {
 
 export const getTeamPetReports = () =>
   reportRequest<{ reports: PetReport[] }>('admin/reports')
+
+export const resolvePetReport = (
+  id: number,
+  input: { action: PetReportAction; resolution: string }
+) => reportRequest<{ report: PetReport }>(`admin/reports/${id}`, 'PATCH', input)
