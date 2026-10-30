@@ -58,12 +58,6 @@ async function recordRequest<T>(path: string, method = 'GET', body?: object): Pr
   return response.json()
 }
 
-export const createTextRecord = (input: {
-  pet_id: number
-  text: string
-  visibility: RecordVisibility
-}) => recordRequest<{ record: PetRecord }>('/records', 'POST', input)
-
 export const getPetTimeline = (petId: number) =>
   recordRequest<{ records: PetRecord[] }>(`/pets/${petId}/records`)
 

@@ -21,6 +21,11 @@ export function metvageOrigin(): string {
   return instanceOrigin(host)
 }
 
+export function publicRecordPhotoUrl(url: string): string {
+  const path = url.replace(/^https?:\/\/[^/]+/, '')
+  return `${metvageOrigin()}${path}`
+}
+
 async function publicRequest<T>(path: string, options?: RequestInit): Promise<T> {
   const response = await fetch(`${metvageOrigin()}${path}`, {
     ...options,
