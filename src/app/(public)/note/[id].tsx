@@ -11,7 +11,7 @@ export default function PublicNote() {
   const { user } = useAuth()
   const recordId = Number(id)
   const note = useQuery({
-    queryKey: ['metvage-public-note', recordId],
+    queryKey: ['metvage-public-note', recordId, user?.server, user?.token],
     queryFn: () => getPublicRecord(recordId),
     enabled: Number.isInteger(recordId) && recordId > 0,
   })
@@ -31,7 +31,7 @@ export default function PublicNote() {
           </Pressable>
         </View>
       )}
-      {note.data && (
+      {!note.isError && note.data && (
         <>
           <Pressable
             accessibilityRole="button"

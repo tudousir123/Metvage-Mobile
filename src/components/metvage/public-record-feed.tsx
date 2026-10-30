@@ -4,6 +4,7 @@ import { router } from 'expo-router'
 import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native'
 import { getPublicRecords, publicRecordPhotoUrl } from 'src/lib/metvage-public'
 import type { PetRecord } from 'src/lib/records'
+import { useAuth } from 'src/state/AuthProvider'
 
 const ink = '#18332f'
 const green = '#075e52'
@@ -13,13 +14,16 @@ export function promptLogin(): void {
 }
 
 export function PublicRecordFeed({ guest = false }: { guest?: boolean }) {
+  const { user } = useAuth()
   const feed = useInfiniteQuery({
-    queryKey: ['metvage-public-records'],
+    queryKey: ['metvage-public-records', user?.server, user?.token],
     initialPageParam: 1,
     queryFn: ({ pageParam }) => getPublicRecords(pageParam),
     getNextPageParam: (page) => page.next_page ?? undefined,
   })
-  const records = feed.data?.pages.flatMap((page) => page.records) ?? []
+  const records = feed.isError
+    ? []
+    : (feed.data?.pages.flatMap((page) => page.records) ?? [])
 
   const renderItem = ({ item }: { item: PetRecord }) => (
     <Pressable

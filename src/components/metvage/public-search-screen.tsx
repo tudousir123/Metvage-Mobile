@@ -12,6 +12,7 @@ import {
 import { searchPublicPetsAndRecords } from 'src/lib/metvage-public'
 import type { PetProfile } from 'src/lib/pets'
 import type { PetRecord } from 'src/lib/records'
+import { useAuth } from 'src/state/AuthProvider'
 
 type Result = { kind: 'pet'; value: PetProfile } | { kind: 'record'; value: PetRecord }
 
@@ -23,6 +24,7 @@ export function PublicSearchScreen() {
   const [query, setQuery] = useState(initialQuery ?? '')
   const [term, setTerm] = useState(query.trim())
   const queryClient = useQueryClient()
+  const { user } = useAuth()
 
   useEffect(() => {
     const timer = setTimeout(() => setTerm(query.trim()), 250)
@@ -30,7 +32,7 @@ export function PublicSearchScreen() {
   }, [query])
 
   const search = useQuery({
-    queryKey: ['metvage-public-search', term],
+    queryKey: ['metvage-public-search', term, user?.server, user?.token],
     queryFn: () => searchPublicPetsAndRecords(term),
     enabled: term.length > 0,
     refetchOnMount: 'always',
@@ -44,13 +46,13 @@ export function PublicSearchScreen() {
   )
   const loading = query.trim() !== term || search.isLoading
   const sections: { title: string; data: Result[] }[] = []
-  if (search.data?.pets.length) {
+  if (!search.isError && search.data?.pets.length) {
     sections.push({
       title: '宠物档案',
       data: search.data.pets.map((value) => ({ kind: 'pet', value })),
     })
   }
-  if (search.data?.records.length) {
+  if (!search.isError && search.data?.records.length) {
     sections.push({
       title: '公开笔记',
       data: search.data.records.map((value) => ({ kind: 'record', value })),
