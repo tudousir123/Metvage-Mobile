@@ -1,125 +1,46 @@
-import { useAuth } from '@state/AuthProvider'
-import { Link, useRouter } from 'expo-router'
-import { ActivityIndicator, Pressable } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { Storage } from 'src/state/cache'
-import { Button, Image, Text, useTheme, View, XStack, YStack } from 'tamagui'
+import { router, Stack } from 'expo-router'
+import { Pressable, Text, View } from 'react-native'
 
-export default function Login() {
-  const { isLoading } = useAuth()
-  const router = useRouter()
-  const theme = useTheme()
-
-  const _handleDeepLink = (domain: string, url: string) => {
-    const parsedUrl = new URL(url)
-    const _path = parsedUrl.pathname.substring(2)
-    const searchParams = new URLSearchParams(parsedUrl.search)
-    const params = {
-      domain: domain,
-      email: searchParams.get('email') ?? '',
-      expires_in: Number.parseInt(searchParams.get('expires_in') ?? '0').toString(),
-      status: searchParams.get('status') ?? '',
-    }
-    const q = new URLSearchParams(params)
-    const finalPath = `/verifyEmail?${q.toString()}`
-    router.push(finalPath as Parameters<typeof router.push>[0])
-  }
-
-  const clearStorage = () => {
-    Storage.clearAll()
-  }
-
-  const toggleTheme = () => {
-    const curTheme = Storage.getString('ui.theme') || 'light'
-    const themeMap = {
-      light: 'dark',
-      dark: 'slateDark',
-      slateDark: 'hotPink',
-      hotPink: 'light',
-      honey: 'honey',
-    }
-    Storage.set('ui.theme', themeMap[curTheme])
-  }
-
-  if (isLoading) {
-    return (
-      <SafeAreaView
-        style={{
-          backgroundColor: theme.background.val.default.val,
-          flexGrow: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-        edges={['top']}
-      >
-        <View m="$5">
-          <ActivityIndicator color={theme.color?.val.default.val} />
-        </View>
-      </SafeAreaView>
-    )
-  }
-
+export default function WelcomeScreen() {
   return (
-    <SafeAreaView
+    <View
       style={{
-        backgroundColor: theme.background?.val.default.val,
-        flexGrow: 1,
+        flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
+        padding: 28,
+        backgroundColor: '#f5f8f6',
+        gap: 18,
       }}
-      edges={['top', 'bottom']}
     >
-      <YStack flexGrow={1} w="100%" px="$5">
-        <View flexGrow={1} justifyContent="center" alignItems="center">
-          <Pressable onPress={() => toggleTheme()} onLongPress={() => clearStorage()}>
-            <Image
-              source={require('../../../assets/icon.png')}
-              width={140}
-              height={140}
-              borderRadius={140}
-            />
-          </Pressable>
-          <Text
-            color={theme.color.val.default.val}
-            fontSize="$10"
-            mt={10}
-            fontWeight="bold"
-          >
-            Pixelfed
-          </Text>
-        </View>
-
-        <YStack space="$4" mb="$5">
-          <XStack space="$3" mb="$5">
-            <Link href="handleLogin" asChild>
-              <Button
-                size="$5"
-                theme="blue"
-                themeInverse={true}
-                color="white"
-                bg={theme.colorHover.val.hover.val}
-                fontWeight="bold"
-                flexGrow={1}
-              >
-                Login
-              </Button>
-            </Link>
-
-            <Link href="handleSignup" asChild>
-              <Button
-                size="$5"
-                theme="gray"
-                bg="white"
-                color="black"
-                px="$7"
-                fontWeight="bold"
-              >
-                Sign Up
-              </Button>
-            </Link>
-          </XStack>
-        </YStack>
-      </YStack>
-    </SafeAreaView>
+      <Stack.Screen options={{ headerShown: false }} />
+      <Text style={{ fontSize: 38, fontWeight: '700', color: '#18332f' }}>Metvage</Text>
+      <Text style={{ fontSize: 17, lineHeight: 25, color: '#536a64' }}>
+        记录宠物的日常，分享它们的故事。公开笔记无需登录即可浏览。
+      </Text>
+      <Pressable
+        accessibilityRole="button"
+        onPress={() => router.push('/feed')}
+        style={{ backgroundColor: '#075e52', padding: 15, borderRadius: 12 }}
+      >
+        <Text style={{ color: '#fff', textAlign: 'center', fontWeight: '700' }}>
+          以访客身份浏览
+        </Text>
+      </Pressable>
+      <Pressable
+        accessibilityRole="button"
+        onPress={() => router.push('/handleLogin')}
+        style={{ padding: 15, borderRadius: 12, borderWidth: 1, borderColor: '#075e52' }}
+      >
+        <Text style={{ color: '#075e52', textAlign: 'center', fontWeight: '700' }}>
+          登录
+        </Text>
+      </Pressable>
+      <Pressable accessibilityRole="button" onPress={() => router.push('/handleSignup')}>
+        <Text style={{ color: '#075e52', textAlign: 'center' }}>凭邀请码注册</Text>
+      </Pressable>
+      <Text style={{ color: '#536a64', textAlign: 'center' }}>
+        首版采用邀请试用。主动公开的笔记仍可被访客看到。
+      </Text>
+    </View>
   )
 }
