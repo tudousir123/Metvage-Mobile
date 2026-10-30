@@ -1,4 +1,5 @@
 import { Storage } from 'src/state/cache'
+import { instanceOrigin } from './instanceOrigin'
 import { randomKey } from './randomKey'
 
 type ApiRequestOptions = {
@@ -42,7 +43,7 @@ export class ApiContext {
     fetch_options: RequestInit,
     options?: ApiRequestOptions
   ): Promise<Response> {
-    const url = new URL(`${path}`, `https://${this.instanceHostName}`)
+    const url = new URL(`${path}`, instanceOrigin(this.instanceHostName))
 
     if (options?.searchParams) {
       let { searchParams } = options
