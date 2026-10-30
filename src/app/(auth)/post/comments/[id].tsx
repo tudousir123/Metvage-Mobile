@@ -204,11 +204,6 @@ export default function CommentsScreen() {
       scope: replyScope,
       cw: hasCW,
     })
-
-    setComment('')
-    setInReplyToId(null)
-    setReply(undefined)
-    Keyboard.dismiss()
   }
 
   const handleReplyTo = (item, level) => {
@@ -390,6 +385,10 @@ export default function CommentsScreen() {
         })
       }
       setCommentActionPending(false)
+      setComment('')
+      setInReplyToId(null)
+      setReply(undefined)
+      Keyboard.dismiss()
     },
     onError: () => setCommentActionPending(false),
   })

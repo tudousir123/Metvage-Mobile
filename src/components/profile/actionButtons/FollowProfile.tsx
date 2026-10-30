@@ -29,6 +29,7 @@ export default function FollowProfile({
         setIsLoading(false)
       }, 1000)
     },
+    onError: () => setIsLoading(false),
   })
 
   const handlePress = async () => {

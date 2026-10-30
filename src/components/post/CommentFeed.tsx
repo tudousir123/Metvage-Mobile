@@ -261,9 +261,6 @@ export default function CommentFeed({
       scope: replyScope,
       cw: hasCW,
     })
-    setComment('')
-    setInReplyToId(null)
-    setReply()
   }
 
   const handleShowLikes = (id: string) => {
@@ -400,6 +397,9 @@ export default function CommentFeed({
     mutationFn: postComment,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['getStatusRepliesById'] })
+      setComment('')
+      setInReplyToId(null)
+      setReply()
     },
   })
 
