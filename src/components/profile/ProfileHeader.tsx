@@ -85,9 +85,7 @@ export default function ProfileHeader({
   }
 
   const onSendMessage = () => {
-    router.push(
-      `/chats/conversation/${profile.id.toString()}?id=${profile.id.toString()}}`
-    )
+    router.push('/unavailable/messages')
   }
 
   const onGotoSettings = () => {

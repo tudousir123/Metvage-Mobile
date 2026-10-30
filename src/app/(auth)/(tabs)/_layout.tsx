@@ -31,7 +31,7 @@ export default function AppLayout() {
       backBehavior="history"
       screenOptions={{
         tabBarStyle: {
-          height: (Platform.OS === 'ios' ? 40 : 60) + insets.bottom,
+          height: (Platform.OS === 'ios' ? 54 : 60) + insets.bottom,
           paddingBottom: insets.bottom + 8,
           paddingTop: 8,
         },
@@ -43,7 +43,7 @@ export default function AppLayout() {
       <Tabs.Screen
         name={TabName.Index}
         options={{
-          tabBarShowLabel: false,
+          tabBarLabel: '首页',
           headerShown: false,
           tabBarIcon: ({ color }) => <Feather name="home" size={26} color={color} />,
         }}
@@ -52,7 +52,7 @@ export default function AppLayout() {
       <Tabs.Screen
         name={TabName.Explore}
         options={{
-          tabBarShowLabel: false,
+          tabBarLabel: '探索',
           headerShown: true,
           tabBarIcon: ({ color }) => <Feather name="compass" size={26} color={color} />,
         }}
@@ -61,7 +61,7 @@ export default function AppLayout() {
       <Tabs.Screen
         name={TabName.Camera}
         options={{
-          tabBarShowLabel: false,
+          tabBarLabel: '发布',
           headerShown: true,
           tabBarIcon: ({ color }) => <Feather name="camera" size={28} color={color} />,
         }}
@@ -70,7 +70,7 @@ export default function AppLayout() {
       <Tabs.Screen
         name={TabName.Notifications}
         options={{
-          tabBarShowLabel: false,
+          tabBarLabel: '消息',
           headerShown: true,
           tabBarIcon: ({ color }) => <Feather name="bell" size={26} color={color} />,
         }}
@@ -79,7 +79,7 @@ export default function AppLayout() {
       <Tabs.Screen
         name={TabName.Profile}
         options={{
-          tabBarShowLabel: false,
+          tabBarLabel: '我的',
           headerShown: false,
           tabBarIcon: ({ color }) => <Feather name="user" size={26} color={color} />,
         }}

@@ -1,6 +1,6 @@
 import { Feather } from '@expo/vector-icons'
 import { Link } from 'expo-router'
-import { Platform, Pressable } from 'react-native'
+import { Text as NativeText, View as NativeView, Platform, Pressable } from 'react-native'
 import { Text, useTheme, XStack } from 'tamagui'
 
 export default function FeedHeader({ title = 'Home', user }) {
@@ -45,8 +45,11 @@ export default function FeedHeader({ title = 'Home', user }) {
           </Link>
         )}
         <Link href="/chats" asChild>
-          <Pressable hitSlop={12}>
-            <Feather name="mail" size={26} color={textColor} />
+          <Pressable hitSlop={8} accessibilityLabel="私信，未开放">
+            <NativeView style={{ alignItems: 'center' }}>
+              <Feather name="mail" size={23} color={textColor} />
+              <NativeText style={{ fontSize: 10, color: textColor }}>未开放</NativeText>
+            </NativeView>
           </Pressable>
         </Link>
         <Link href="/search" asChild>
