@@ -1,6 +1,4 @@
-import { Storage } from 'src/state/cache'
-import { instanceOrigin } from './instanceOrigin'
-import { metvageOrigin } from './metvage-public'
+import { metvageApi } from './metvage-request'
 import type { PetProfile } from './pets'
 
 export type RecordLike = { id: number; actor_pet: PetProfile }
@@ -13,30 +11,14 @@ export type RecordComment = {
 }
 export type RecordInteractions = { likes: RecordLike[]; comments: RecordComment[] }
 
-async function interactionRequest<T>(
-  path: string,
-  method = 'GET',
-  body?: object
-): Promise<T> {
-  const server = Storage.getString('app.instance')
-  const origin = metvageOrigin()
-  const token =
-    server && instanceOrigin(server) === origin ? Storage.getString('app.token') : null
-  if (method !== 'GET' && !token) throw new Error('请先登录')
-  const response = await fetch(`${origin}/api/v1/metvage${path}`, {
+function interactionRequest<T>(path: string, method = 'GET', body?: object): Promise<T> {
+  return metvageApi<T>(`${path}`, {
     method,
-    headers: {
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: body ? JSON.stringify(body) : undefined,
+    body,
+    origin: 'configured',
+    auth: method === 'GET' ? 'optional' : 'required',
+    loginMessage: '请先登录',
   })
-  if (!response.ok) {
-    const error = await response.json().catch(() => null)
-    throw new Error(error?.message || `请求失败 (${response.status})`)
-  }
-  return response.json()
 }
 
 export const getRecordInteractions = (recordId: number) =>

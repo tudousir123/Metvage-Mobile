@@ -1,6 +1,5 @@
-import Constants from 'expo-constants'
 import { router } from 'expo-router'
-import { Storage } from 'src/state/cache'
+import { metvageApi } from './metvage-request'
 
 export type PetSpecies = 'cat' | 'dog'
 
@@ -16,32 +15,14 @@ export type PetsResponse = {
   current_pet_id: number | null
 }
 
-async function petRequest<T>(path: string, method = 'GET', body?: object): Promise<T> {
-  const server = Storage.getString('app.instance')
-  const token = Storage.getString('app.token')
-  if (!server || !token) throw new Error('请先登录')
-
-  const localTestServer =
-    server === 'localhost:18080' &&
-    Constants.expoConfig?.extra?.localInstanceHost === 'localhost:18080'
-  const origin = `${localTestServer ? 'http' : 'https'}://${server}`
-
-  const response = await fetch(`${origin}/api/v1/metvage/pets${path}`, {
+function petRequest<T>(path: string, method = 'GET', body?: object): Promise<T> {
+  return metvageApi<T>(`/pets${path}`, {
     method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: body ? JSON.stringify(body) : undefined,
+    body,
+    origin: 'signed-in',
+    auth: 'required',
+    loginMessage: '请先登录',
   })
-
-  if (!response.ok) {
-    const error = await response.json().catch(() => null)
-    throw new Error(error?.message || `请求失败 (${response.status})`)
-  }
-
-  return response.json()
 }
 
 export const getPets = () => petRequest<PetsResponse>('')

@@ -3,6 +3,7 @@ import { Image } from 'expo-image'
 import { router, Stack, useLocalSearchParams } from 'expo-router'
 import { useState } from 'react'
 import { ActivityIndicator, Alert, Pressable, ScrollView, Text, View } from 'react-native'
+import { RecordInteractions } from 'src/components/records/record-interactions'
 import { getPets } from 'src/lib/pets'
 import {
   getPetTimeline,
@@ -148,6 +149,9 @@ export default function PetTimelineScreen() {
                     {record.visibility === 'public' ? '改为私人记录' : '公开这条记录'}
                   </Text>
                 </Pressable>
+              )}
+              {isOwner && record.visibility === 'private' && (
+                <RecordInteractions recordId={record.id} visibility="private" />
               )}
             </View>
           ))}

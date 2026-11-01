@@ -1,5 +1,4 @@
-import Constants from 'expo-constants'
-import { Storage } from 'src/state/cache'
+import { metvageApi } from './metvage-request'
 import type { PetProfile } from './pets'
 import type { PetRecord } from './records'
 
@@ -8,29 +7,14 @@ export type PetFollow = {
   target_pet: PetProfile
 }
 
-async function followRequest<T>(path: string, method = 'GET'): Promise<T> {
-  const server = Storage.getString('app.instance')
-  const token = Storage.getString('app.token')
-  if (!server || !token) throw new Error('请先登录')
-
-  const localTestServer =
-    server === 'localhost:18080' &&
-    Constants.expoConfig?.extra?.localInstanceHost === 'localhost:18080'
-  const origin = `${localTestServer ? 'http' : 'https'}://${server}`
-  const response = await fetch(`${origin}/api/v1/metvage${path}`, {
+function followRequest<T>(path: string, method = 'GET', body?: object): Promise<T> {
+  return metvageApi<T>(`${path}`, {
     method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: 'application/json',
-    },
+    body,
+    origin: 'signed-in',
+    auth: 'required',
+    loginMessage: '请先登录',
   })
-
-  if (!response.ok) {
-    const error = await response.json().catch(() => null)
-    throw new Error(error?.message || `请求失败 (${response.status})`)
-  }
-
-  return response.json()
 }
 
 export const getPetFollows = () => followRequest<{ follows: PetFollow[] }>('/follows')

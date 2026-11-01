@@ -190,7 +190,7 @@ export function RecordInteractions({
                 {item.actor_pet.nickname}
               </Text>
               <Text>{item.text}</Text>
-              {item.can_delete && (
+              {visibility === 'public' && item.can_delete && (
                 <Pressable
                   accessibilityRole="button"
                   disabled={removeComment.isPending}

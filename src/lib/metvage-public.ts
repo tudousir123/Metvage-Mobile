@@ -1,48 +1,17 @@
-import Constants from 'expo-constants'
-import { Storage } from 'src/state/cache'
-import { instanceOrigin } from './instanceOrigin'
+import { metvageFetch, metvageOrigin, metvageRequest } from './metvage-request'
+
+export { metvageInstanceHost, metvageOrigin } from './metvage-request'
+
 import type { PetProfile } from './pets'
 import type { PetRecord } from './records'
-
-export function metvageInstanceHost(): string | null {
-  const configured = process.env.EXPO_PUBLIC_METVAGE_INSTANCE_HOST?.trim()
-  const local = Constants.expoConfig?.extra?.localInstanceHost
-  return (
-    configured ||
-    (typeof local === 'string' ? local : null) ||
-    Storage.getString('app.instance') ||
-    null
-  )
-}
-
-export function metvageOrigin(): string {
-  const host = metvageInstanceHost()
-  if (!host) throw new Error('未配置 Metvage 服务地址')
-  return instanceOrigin(host)
-}
 
 export function publicRecordPhotoUrl(url: string): string {
   const path = url.replace(/^https?:\/\/[^/]+/, '')
   return `${metvageOrigin()}${path}`
 }
 
-async function publicRequest<T>(path: string, options?: RequestInit): Promise<T> {
-  const token = Storage.getString('app.token')
-  const signedInHost = Storage.getString('app.instance')
-  const sameInstance = signedInHost && instanceOrigin(signedInHost) === metvageOrigin()
-  const response = await fetch(`${metvageOrigin()}${path}`, {
-    ...options,
-    headers: {
-      Accept: 'application/json',
-      ...(token && sameInstance ? { Authorization: `Bearer ${token}` } : {}),
-      ...options?.headers,
-    },
-  })
-  if (!response.ok) {
-    const error = await response.json().catch(() => null)
-    throw new Error(error?.message || `请求失败 (${response.status})`)
-  }
-  return response.json()
+function publicRequest<T>(path: string): Promise<T> {
+  return metvageRequest<T>(path, { origin: 'configured', auth: 'optional' })
 }
 
 export const getPublicRecords = (page = 1) =>
@@ -65,10 +34,11 @@ export const searchPublicPetsAndRecords = (query: string) =>
   )
 
 export async function verifyInvitation(code: string): Promise<void> {
-  const response = await fetch(`${metvageOrigin()}/api/v1.1/auth/invite/admin/verify`, {
+  const response = await metvageFetch('/api/v1.1/auth/invite/admin/verify', {
+    origin: 'configured',
+    auth: 'none',
     method: 'POST',
-    headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-    body: JSON.stringify({ token: code }),
+    body: { token: code },
   })
   if (response.ok) return
   if (response.status === 404) throw new Error('邀请码无效，请核对后重试。')

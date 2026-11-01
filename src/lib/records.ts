@@ -1,5 +1,4 @@
-import Constants from 'expo-constants'
-import { Storage } from 'src/state/cache'
+import { metvageApi, metvageFetch, signedInOrigin } from './metvage-request'
 import type { PetProfile } from './pets'
 
 export type RecordVisibility = 'public' | 'private'
@@ -22,41 +21,19 @@ export type RecordPhotoInput = {
   mimeType?: string | null
 }
 
-function recordOrigin(): string {
-  const server = Storage.getString('app.instance')
-  if (!server) throw new Error('请先登录')
-  const localTestServer =
-    server === 'localhost:18080' &&
-    Constants.expoConfig?.extra?.localInstanceHost === 'localhost:18080'
-  return `${localTestServer ? 'http' : 'https'}://${server}`
-}
-
 export function recordPhotoUrl(url: string): string {
   const path = url.replace(/^https?:\/\/[^/]+/, '')
-  return `${recordOrigin()}${path}`
+  return `${signedInOrigin()}${path}`
 }
 
-async function recordRequest<T>(path: string, method = 'GET', body?: object): Promise<T> {
-  const token = Storage.getString('app.token')
-  if (!token) throw new Error('请先登录')
-
-  const response = await fetch(`${recordOrigin()}/api/v1/metvage${path}`, {
+function recordRequest<T>(path: string, method = 'GET', body?: object): Promise<T> {
+  return metvageApi<T>(`${path}`, {
     method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: body ? JSON.stringify(body) : undefined,
+    body,
+    origin: 'signed-in',
+    auth: 'required',
+    loginMessage: '请先登录',
   })
-
-  if (!response.ok) {
-    const error = await response.json().catch(() => null)
-    throw new Error(error?.message || `请求失败 (${response.status})`)
-  }
-
-  if (response.status === 204) return undefined as T
-  return response.json()
 }
 
 export const getPetTimeline = (petId: number) =>
@@ -78,9 +55,6 @@ export async function updatePetRecord(
     remove_photo_ids: number[]
   }
 ): Promise<{ record: PetRecord }> {
-  const token = Storage.getString('app.token')
-  if (!token) throw new Error('请先登录')
-
   const form = new FormData()
   form.append('pet_id', String(input.pet_id))
   form.append('text', input.text)
@@ -98,12 +72,8 @@ export async function updatePetRecord(
 
   let response: Response
   try {
-    response = await fetch(`${recordOrigin()}/api/v1/metvage/records/${recordId}/edit`, {
+    response = await metvageFetch(`/api/v1/metvage/records/${recordId}/edit`, {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: 'application/json',
-      },
       body: form,
     })
   } catch {
@@ -139,9 +109,6 @@ export async function createPetRecord(input: {
   photos: RecordPhotoInput[]
   client_request_id: string
 }): Promise<{ record: PetRecord }> {
-  const token = Storage.getString('app.token')
-  if (!token) throw new Error('请先登录')
-
   const form = new FormData()
   form.append('pet_id', String(input.pet_id))
   form.append('visibility', input.visibility)
@@ -158,12 +125,8 @@ export async function createPetRecord(input: {
 
   let response: Response
   try {
-    response = await fetch(`${recordOrigin()}/api/v1/metvage/records`, {
+    response = await metvageFetch('/api/v1/metvage/records', {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: 'application/json',
-      },
       body: form,
     })
   } catch {

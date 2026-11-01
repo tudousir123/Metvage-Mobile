@@ -1,5 +1,4 @@
-import { Storage } from 'src/state/cache'
-import { instanceOrigin } from './instanceOrigin'
+import { metvageApi } from './metvage-request'
 import type { PetProfile } from './pets'
 
 export type PetAccountBlock = {
@@ -7,23 +6,14 @@ export type PetAccountBlock = {
   pet: PetProfile | null
 }
 
-async function blockRequest<T>(path: string, method = 'GET'): Promise<T> {
-  const host = Storage.getString('app.instance')
-  const token = Storage.getString('app.token')
-  if (!host || !token) throw new Error('请先登录')
-
-  const response = await fetch(`${instanceOrigin(host)}/api/v1/metvage${path}`, {
+function blockRequest<T>(path: string, method = 'GET', body?: object): Promise<T> {
+  return metvageApi<T>(`${path}`, {
     method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: 'application/json',
-    },
+    body,
+    origin: 'signed-in',
+    auth: 'required',
+    loginMessage: '请先登录',
   })
-  if (!response.ok) {
-    const error = await response.json().catch(() => null)
-    throw new Error(error?.message || `请求失败 (${response.status})`)
-  }
-  return response.json()
 }
 
 export const getPetAccountBlocks = () =>
