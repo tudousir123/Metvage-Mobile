@@ -157,7 +157,28 @@ export default function EditRecordScreen() {
   }
 
   return (
-    <ComposerPage title="编辑记录" onCancel={cancel}>
+    <ComposerPage
+      title="编辑记录"
+      onCancel={cancel}
+      footer={
+        record && petsQuery.data && isOwner ? (
+          <ComposerSubmit
+            title={save.isPending ? '正在保存…' : '保存更改'}
+            busy={busy}
+            onPress={() => {
+              setFormError('')
+              save.mutate()
+            }}
+          />
+        ) : undefined
+      }
+    >
+      {((!record && recordQuery.fetchStatus === 'paused') ||
+        (!petsQuery.data && petsQuery.fetchStatus === 'paused')) && (
+        <Text accessibilityRole="alert" style={{ color: c.secondaryText }}>
+          正在等待网络连接，恢复后会继续加载记录。
+        </Text>
+      )}
       {(recordQuery.isLoading || petsQuery.isLoading) && (
         <ActivityIndicator color={c.green} accessibilityLabel="正在加载记录" />
       )}
@@ -216,14 +237,7 @@ export default function EditRecordScreen() {
               {formError}
             </Text>
           )}
-          <ComposerSubmit
-            title={save.isPending ? '正在保存…' : '保存更改'}
-            busy={busy}
-            onPress={() => {
-              setFormError('')
-              save.mutate()
-            }}
-          />
+
           <Pressable
             accessibilityRole="button"
             disabled={busy}

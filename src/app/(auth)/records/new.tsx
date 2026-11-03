@@ -70,7 +70,7 @@ export default function NewRecordScreen() {
     }
   }, [user?.server, accountId])
 
-  const { data, error, isLoading, refetch } = useQuery({
+  const { data, error, isLoading, fetchStatus, refetch } = useQuery({
     queryKey: ['metvage-pets', user?.server, user?.token],
     queryFn: getPets,
     enabled: !!user,
@@ -207,6 +207,25 @@ export default function NewRecordScreen() {
     <ComposerPage
       title={visibility === 'private' ? '添加私人记录' : '发布笔记'}
       onCancel={cancel}
+      footer={
+        data && data.pets.length > 0 && draftReady && !savedDraft ? (
+          <ComposerSubmit
+            title={
+              save.isPending
+                ? '正在保存…'
+                : visibility === 'public'
+                  ? '发布'
+                  : '保存私人记录'
+            }
+            busy={busy}
+            onPress={() => {
+              setFormError('')
+              setNotice('')
+              save.mutate()
+            }}
+          />
+        ) : undefined
+      }
       headerAction={
         <Pressable
           accessibilityRole="button"
@@ -240,6 +259,11 @@ export default function NewRecordScreen() {
     >
       {(isLoading || !draftReady) && (
         <ActivityIndicator color={c.green} accessibilityLabel="正在准备编辑器" />
+      )}
+      {!data && fetchStatus === 'paused' && (
+        <Text accessibilityRole="alert" style={{ color: c.secondaryText }}>
+          正在等待网络连接，恢复后会继续加载宠物档案。
+        </Text>
       )}
       {error && (
         <View style={{ gap: 8 }}>
@@ -307,42 +331,25 @@ export default function NewRecordScreen() {
         </View>
       )}
       {data && data.pets.length > 0 && draftReady && !savedDraft && (
-        <>
-          <ComposerFields
-            pets={data.pets}
-            petId={selectedPetId}
-            onPetChange={setChosenPetId}
-            photos={photos.map((photo, index) => ({
-              key: `${photo.uri}-${index}`,
-              uri: photo.uri,
-              onRemove: () =>
-                setPhotos((items) => items.filter((_, item) => item !== index)),
-            }))}
-            onAddPhotos={pickPhotos}
-            title={title}
-            onTitleChange={setTitle}
-            text={text}
-            onTextChange={setText}
-            visibility={visibility}
-            onVisibilityChange={setVisibility}
-            busy={busy}
-          />
-          <ComposerSubmit
-            title={
-              save.isPending
-                ? '正在保存…'
-                : visibility === 'public'
-                  ? '发布'
-                  : '保存私人记录'
-            }
-            busy={busy}
-            onPress={() => {
-              setFormError('')
-              setNotice('')
-              save.mutate()
-            }}
-          />
-        </>
+        <ComposerFields
+          pets={data.pets}
+          petId={selectedPetId}
+          onPetChange={setChosenPetId}
+          photos={photos.map((photo, index) => ({
+            key: `${photo.uri}-${index}`,
+            uri: photo.uri,
+            onRemove: () =>
+              setPhotos((items) => items.filter((_, item) => item !== index)),
+          }))}
+          onAddPhotos={pickPhotos}
+          title={title}
+          onTitleChange={setTitle}
+          text={text}
+          onTextChange={setText}
+          visibility={visibility}
+          onVisibilityChange={setVisibility}
+          busy={busy}
+        />
       )}
     </ComposerPage>
   )

@@ -23,11 +23,13 @@ export function ComposerPage({
   title,
   onCancel,
   headerAction,
+  footer,
   children,
 }: {
   title: string
   onCancel: () => void
   headerAction?: ReactNode
+  footer?: ReactNode
   children: ReactNode
 }) {
   return (
@@ -41,7 +43,7 @@ export function ComposerPage({
           flexDirection: 'row',
           alignItems: 'center',
           paddingHorizontal: 16,
-          minHeight: 60,
+          minHeight: 48,
           gap: 8,
         }}
       >
@@ -73,19 +75,31 @@ export function ComposerPage({
       </View>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
         <ScrollView
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{
             padding: 16,
-            paddingTop: 8,
-            paddingBottom: 28,
-            gap: 18,
+            paddingTop: 4,
+            paddingBottom: 12,
+            gap: 12,
           }}
         >
           {children}
         </ScrollView>
+        {footer && (
+          <View
+            style={{
+              paddingHorizontal: 16,
+              paddingTop: 8,
+              paddingBottom: 8,
+              backgroundColor: c.background,
+            }}
+          >
+            {footer}
+          </View>
+        )}
       </KeyboardAvoidingView>
     </SafeAreaView>
   )
@@ -141,20 +155,20 @@ export function ComposerFields({
         onPress={choosePet}
         style={({ pressed }) => ({
           flexDirection: 'row',
-          gap: 14,
-          padding: 12,
+          gap: 12,
+          padding: 10,
           borderRadius: 14,
           backgroundColor: c.field,
           alignItems: 'center',
           opacity: pressed ? 0.65 : 1,
         })}
       >
-        <PetAvatar name={pet?.nickname ?? '选择宠物'} species={pet?.species} size={54} />
-        <View style={{ flex: 1, gap: 5 }}>
+        <PetAvatar name={pet?.nickname ?? '选择宠物'} species={pet?.species} size={44} />
+        <View style={{ flex: 1, gap: 3 }}>
           <Text style={{ color: c.secondaryText, fontSize: 13 }}>以谁的身份发布</Text>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <Text
-              style={{ flexShrink: 1, fontSize: 23, fontWeight: '700', color: c.text }}
+              style={{ flexShrink: 1, fontSize: 22, fontWeight: '700', color: c.text }}
             >
               {pet?.nickname ?? '选择宠物'}
             </Text>
@@ -169,7 +183,7 @@ export function ComposerFields({
         contentContainerStyle={{ gap: 10, paddingTop: 2, paddingBottom: 2 }}
       >
         {photos.map((photo, index) => (
-          <View key={photo.key} style={{ width: 98, height: 120 }}>
+          <View key={photo.key} style={{ width: 98, height: 100 }}>
             <Image
               source={{ uri: photo.uri, headers: photo.headers }}
               cachePolicy="none"
@@ -205,8 +219,8 @@ export function ComposerFields({
             disabled={busy}
             onPress={onAddPhotos}
             style={({ pressed }) => ({
-              width: photos.length ? 96 : 120,
-              height: 120,
+              width: photos.length ? 86 : 100,
+              height: 100,
               borderWidth: 1,
               borderStyle: 'dashed',
               borderColor: c.border,
@@ -243,10 +257,10 @@ export function ComposerFields({
           editable={!busy}
           style={{
             flex: 1,
-            minHeight: 52,
+            minHeight: 44,
             color: c.text,
             fontSize: 17,
-            paddingVertical: 12,
+            paddingVertical: 8,
           }}
         />
         <Text style={{ color: c.secondaryText, fontSize: 12 }}>{title.length}/50</Text>
@@ -261,7 +275,7 @@ export function ComposerFields({
         textAlignVertical="top"
         editable={!busy}
         style={{
-          minHeight: 110,
+          minHeight: 88,
           backgroundColor: c.field,
           color: c.text,
           padding: 15,
@@ -281,8 +295,8 @@ export function ComposerFields({
             flexDirection: 'row',
             alignItems: 'center',
             gap: 12,
-            minHeight: 64,
-            paddingVertical: 10,
+            minHeight: 52,
+            paddingVertical: 8,
             borderTopWidth: 1,
             borderBottomWidth: 1,
             borderColor: c.border,
@@ -309,8 +323,8 @@ export function ComposerFields({
             flexDirection: 'row',
             gap: 12,
             alignItems: 'center',
-            minHeight: 62,
-            paddingVertical: 12,
+            minHeight: 52,
+            paddingVertical: 8,
             opacity: pressed ? 0.6 : 1,
           })}
         >
@@ -465,7 +479,7 @@ export function ComposerSubmit({
       style={({ pressed }) => ({
         backgroundColor: c.green,
         borderRadius: 32,
-        paddingVertical: 16,
+        paddingVertical: 12,
         alignItems: 'center',
         opacity: busy || pressed ? 0.6 : 1,
       })}
