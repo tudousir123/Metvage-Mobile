@@ -97,7 +97,10 @@ export function RecordPreviewCard({ record }: { record: PetRecord }) {
               uri={photo}
               size={24}
             />
-            <Text style={{ flex: 1, fontSize: m.caption, color: c.secondaryText }}>
+            <Text
+              numberOfLines={1}
+              style={{ flex: 1, fontSize: m.caption, color: c.secondaryText }}
+            >
               {record.pet.nickname}
             </Text>
           </Pressable>
