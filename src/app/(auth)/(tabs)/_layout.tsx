@@ -43,8 +43,9 @@ export default function AppLayout() {
       <Tabs.Screen
         name={TabName.Index}
         options={{
+          title: '首页',
           tabBarLabel: '首页',
-          headerShown: false,
+          headerShown: true,
           tabBarIcon: ({ color }) => <Feather name="home" size={26} color={color} />,
         }}
       />
@@ -61,6 +62,7 @@ export default function AppLayout() {
       <Tabs.Screen
         name={TabName.Camera}
         options={{
+          title: '发布',
           tabBarLabel: '发布',
           headerShown: true,
           tabBarIcon: ({ color }) => <Feather name="camera" size={28} color={color} />,
