@@ -4,7 +4,7 @@ import { Link } from 'expo-router'
 import { type ReactElement, useCallback } from 'react'
 import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native'
 import { getFollowingFeed, getPetFollows } from 'src/lib/follows'
-import { metvagePalette as c } from 'src/lib/metvage-colors'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import { useAuth } from 'src/state/AuthProvider'
 import { RecordPreviewCard } from './record-preview-card'
 
@@ -44,7 +44,7 @@ export function FollowingRecordFeed({ header }: { header?: ReactElement }) {
       style={{ backgroundColor: c.background }}
       contentContainerStyle={{ paddingBottom: 40 }}
       numColumns={2}
-      columnWrapperStyle={{ paddingHorizontal: 12, gap: 8, marginBottom: 10 }}
+      columnWrapperStyle={{ paddingHorizontal: m.edge, gap: m.gap, marginBottom: m.gap }}
       data={records}
       keyExtractor={(record) => String(record.id)}
       renderItem={({ item }) => (

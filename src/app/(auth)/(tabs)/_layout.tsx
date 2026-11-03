@@ -3,7 +3,7 @@ import { useAuth } from '@state/AuthProvider'
 import { Redirect, router, Tabs } from 'expo-router'
 import { View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { metvagePalette as c } from 'src/lib/metvage-colors'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 
 export default function AppLayout() {
   const { user } = useAuth()
@@ -17,13 +17,14 @@ export default function AppLayout() {
         headerShown: false,
         tabBarActiveTintColor: c.green,
         tabBarInactiveTintColor: c.secondaryText,
-        tabBarLabelStyle: { fontSize: 12, marginTop: 2 },
+        tabBarLabelStyle: { fontSize: m.caption, marginTop: 2 },
+        tabBarItemStyle: { minHeight: m.touch },
         tabBarStyle: {
           backgroundColor: c.background,
           borderTopColor: c.border,
-          height: 62 + insets.bottom,
-          paddingBottom: Math.max(insets.bottom, 8),
-          paddingTop: 7,
+          height: 58 + insets.bottom,
+          paddingBottom: insets.bottom,
+          paddingTop: 4,
         },
       }}
     >
@@ -31,14 +32,16 @@ export default function AppLayout() {
         name="index"
         options={{
           title: '首页',
-          tabBarIcon: ({ color }) => <Feather name="home" size={26} color={color} />,
+          tabBarIcon: ({ color }) => <Feather name="home" size={m.icon} color={color} />,
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
           title: '探索',
-          tabBarIcon: ({ color }) => <Feather name="compass" size={26} color={color} />,
+          tabBarIcon: ({ color }) => (
+            <Feather name="compass" size={m.icon} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
@@ -54,15 +57,15 @@ export default function AppLayout() {
           tabBarIcon: () => (
             <View
               style={{
-                width: 38,
-                height: 38,
-                borderRadius: 20,
+                width: 32,
+                height: 32,
+                borderRadius: 16,
                 backgroundColor: c.green,
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
-              <Feather name="plus" size={30} color={c.surface} />
+              <Feather name="plus" size={24} color={c.surface} />
             </View>
           ),
         }}
@@ -72,7 +75,7 @@ export default function AppLayout() {
         options={{
           title: '消息',
           tabBarIcon: ({ color }) => (
-            <Feather name="message-circle" size={26} color={color} />
+            <Feather name="message-circle" size={m.icon} color={color} />
           ),
         }}
       />
@@ -80,7 +83,7 @@ export default function AppLayout() {
         name="profile"
         options={{
           title: '我的',
-          tabBarIcon: ({ color }) => <Feather name="user" size={26} color={color} />,
+          tabBarIcon: ({ color }) => <Feather name="user" size={m.icon} color={color} />,
         }}
       />
     </Tabs>

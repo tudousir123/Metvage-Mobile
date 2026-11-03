@@ -2,7 +2,7 @@ import { useInfiniteQuery } from '@tanstack/react-query'
 import { router } from 'expo-router'
 import type { ReactElement } from 'react'
 import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native'
-import { metvagePalette as c } from 'src/lib/metvage-colors'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import { getPublicRecords } from 'src/lib/metvage-public'
 import { useAuth } from 'src/state/AuthProvider'
 import { PawMark } from './brand'
@@ -33,7 +33,7 @@ export function PublicRecordFeed({
     <FlatList
       style={{ flex: 1, backgroundColor: c.background }}
       contentContainerStyle={{ paddingBottom: 24 }}
-      columnWrapperStyle={{ paddingHorizontal: 12, gap: 8, marginBottom: 10 }}
+      columnWrapperStyle={{ paddingHorizontal: m.edge, gap: m.gap, marginBottom: m.gap }}
       numColumns={2}
       data={records}
       keyExtractor={(item) => String(item.id)}

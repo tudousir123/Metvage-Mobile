@@ -15,7 +15,7 @@ import {
 } from 'react-native'
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { PawMark, PetAvatar } from 'src/components/metvage/brand'
-import { metvagePalette as c } from 'src/lib/metvage-colors'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import type { PetProfile } from 'src/lib/pets'
 import type { RecordVisibility } from 'src/lib/records'
 
@@ -42,8 +42,8 @@ export function ComposerPage({
         style={{
           flexDirection: 'row',
           alignItems: 'center',
-          paddingHorizontal: 16,
-          minHeight: 48,
+          paddingHorizontal: m.edge,
+          minHeight: m.touch,
           gap: 8,
         }}
       >
@@ -52,19 +52,22 @@ export function ComposerPage({
           accessibilityLabel="取消编辑"
           onPress={onCancel}
           style={({ pressed }) => ({
-            paddingVertical: 12,
-            paddingRight: 10,
+            minHeight: m.touch,
+            minWidth: m.touch,
+            justifyContent: 'center',
+            paddingVertical: 8,
+            paddingRight: 8,
             opacity: pressed ? 0.6 : 1,
           })}
         >
-          <Text style={{ color: c.green, fontSize: 18 }}>取消</Text>
+          <Text style={{ color: c.green, fontSize: m.body }}>取消</Text>
         </Pressable>
         <Text
           accessibilityRole="header"
           style={{
             flex: 1,
             textAlign: 'center',
-            fontSize: 21,
+            fontSize: m.title,
             fontWeight: '700',
             color: c.text,
           }}
@@ -80,10 +83,10 @@ export function ComposerPage({
         <ScrollView
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{
-            padding: 16,
+            padding: m.edge,
             paddingTop: 4,
-            paddingBottom: 12,
-            gap: 12,
+            paddingBottom: m.gap,
+            gap: m.gap,
           }}
         >
           {children}
@@ -91,9 +94,9 @@ export function ComposerPage({
         {footer && (
           <View
             style={{
-              paddingHorizontal: 16,
-              paddingTop: 8,
-              paddingBottom: 8,
+              paddingHorizontal: m.edge,
+              paddingTop: 6,
+              paddingBottom: 6,
               backgroundColor: c.background,
             }}
           >
@@ -155,20 +158,25 @@ export function ComposerFields({
         onPress={choosePet}
         style={({ pressed }) => ({
           flexDirection: 'row',
-          gap: 12,
-          padding: 10,
+          gap: m.gap,
+          padding: m.gap,
           borderRadius: 14,
           backgroundColor: c.field,
           alignItems: 'center',
           opacity: pressed ? 0.65 : 1,
         })}
       >
-        <PetAvatar name={pet?.nickname ?? '选择宠物'} species={pet?.species} size={44} />
+        <PetAvatar name={pet?.nickname ?? '选择宠物'} species={pet?.species} size={36} />
         <View style={{ flex: 1, gap: 3 }}>
           <Text style={{ color: c.secondaryText, fontSize: 13 }}>以谁的身份发布</Text>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <Text
-              style={{ flexShrink: 1, fontSize: 22, fontWeight: '700', color: c.text }}
+              style={{
+                flexShrink: 1,
+                fontSize: m.petName,
+                fontWeight: '700',
+                color: c.text,
+              }}
             >
               {pet?.nickname ?? '选择宠物'}
             </Text>
@@ -193,6 +201,7 @@ export function ComposerFields({
             <Pressable
               accessibilityRole="button"
               accessibilityLabel={`移除第 ${index + 1} 张照片`}
+              hitSlop={{ left: 12, bottom: 12 }}
               disabled={busy}
               onPress={photo.onRemove}
               style={({ pressed }) => ({
@@ -231,9 +240,11 @@ export function ComposerFields({
               opacity: pressed ? 0.6 : 1,
             })}
           >
-            <Feather name="plus" size={32} color={c.text} />
-            <Text style={{ color: c.secondaryText, fontSize: 14 }}>添加照片</Text>
-            <Text style={{ color: c.secondaryText, fontSize: 12 }}>最多 9 张</Text>
+            <Feather name="plus" size={24} color={c.text} />
+            <Text style={{ color: c.secondaryText, fontSize: m.cardTitle }}>
+              添加照片
+            </Text>
+            <Text style={{ color: c.secondaryText, fontSize: m.caption }}>最多 9 张</Text>
           </Pressable>
         )}
       </ScrollView>
@@ -257,13 +268,15 @@ export function ComposerFields({
           editable={!busy}
           style={{
             flex: 1,
-            minHeight: 44,
+            minHeight: m.touch,
             color: c.text,
-            fontSize: 17,
+            fontSize: m.body,
             paddingVertical: 8,
           }}
         />
-        <Text style={{ color: c.secondaryText, fontSize: 12 }}>{title.length}/50</Text>
+        <Text style={{ color: c.secondaryText, fontSize: m.caption }}>
+          {title.length}/50
+        </Text>
       </View>
       <TextInput
         accessibilityLabel="记录内容"
@@ -278,10 +291,10 @@ export function ComposerFields({
           minHeight: 88,
           backgroundColor: c.field,
           color: c.text,
-          padding: 15,
+          padding: m.inset,
           borderRadius: 12,
-          fontSize: 17,
-          lineHeight: 26,
+          fontSize: m.body,
+          lineHeight: 24,
         }}
       />
 
@@ -294,8 +307,8 @@ export function ComposerFields({
           style={({ pressed }) => ({
             flexDirection: 'row',
             alignItems: 'center',
-            gap: 12,
-            minHeight: 52,
+            gap: m.gap,
+            minHeight: m.touch,
             paddingVertical: 8,
             borderTopWidth: 1,
             borderBottomWidth: 1,
@@ -303,12 +316,12 @@ export function ComposerFields({
             opacity: pressed ? 0.6 : 1,
           })}
         >
-          <PawMark size={25} color={c.text} />
-          <Text style={{ color: c.text, fontSize: 17, flex: 1 }}>关联宠物</Text>
-          <PetAvatar name={pet?.nickname ?? '宠物'} species={pet?.species} size={34} />
+          <PawMark size={m.icon} color={c.text} />
+          <Text style={{ color: c.text, fontSize: m.body, flex: 1 }}>关联宠物</Text>
+          <PetAvatar name={pet?.nickname ?? '宠物'} species={pet?.species} size={28} />
           <Text
             numberOfLines={2}
-            style={{ color: c.text, fontSize: 16, maxWidth: '35%' }}
+            style={{ color: c.text, fontSize: m.body, maxWidth: '35%' }}
           >
             {pet?.nickname ?? '请选择'}
           </Text>
@@ -321,25 +334,25 @@ export function ComposerFields({
           onPress={() => setPicker('visibility')}
           style={({ pressed }) => ({
             flexDirection: 'row',
-            gap: 12,
+            gap: m.gap,
             alignItems: 'center',
-            minHeight: 52,
+            minHeight: m.touch,
             paddingVertical: 8,
             opacity: pressed ? 0.6 : 1,
           })}
         >
           <Feather
             name={visibility === 'public' ? 'globe' : 'lock'}
-            size={25}
+            size={m.icon}
             color={c.text}
           />
-          <Text style={{ color: c.text, fontSize: 17, flex: 1 }}>可见范围</Text>
-          <Text style={{ color: c.secondaryText, fontSize: 16 }}>
+          <Text style={{ color: c.text, fontSize: m.body, flex: 1 }}>可见范围</Text>
+          <Text style={{ color: c.secondaryText, fontSize: m.body }}>
             {visibility === 'public' ? '公开' : '仅自己'}
           </Text>
           {onVisibilityChange && <Feather name="chevron-down" size={21} color={c.text} />}
         </Pressable>
-        <Text style={{ color: c.secondaryText, fontSize: 12 }}>
+        <Text style={{ color: c.secondaryText, fontSize: m.caption }}>
           {visibility === 'public'
             ? '公开笔记可供未登录访客浏览。'
             : '私人记录仅你自己可见。'}
@@ -384,7 +397,7 @@ export function ComposerFields({
                 justifyContent: 'space-between',
               }}
             >
-              <Text style={{ fontSize: 20, fontWeight: '700', color: c.text }}>
+              <Text style={{ fontSize: m.title, fontWeight: '700', color: c.text }}>
                 {picker === 'pet' ? '选择宠物身份' : '谁可以看到'}
               </Text>
               <Pressable
@@ -410,7 +423,7 @@ export function ComposerFields({
                       style={({ pressed }) => ({
                         flexDirection: 'row',
                         alignItems: 'center',
-                        gap: 12,
+                        gap: m.gap,
                         padding: 12,
                         borderRadius: 12,
                         backgroundColor: item.id === petId ? c.softGreen : c.field,
@@ -418,7 +431,7 @@ export function ComposerFields({
                       })}
                     >
                       <PetAvatar name={item.nickname} species={item.species} />
-                      <Text style={{ flex: 1, fontSize: 17, color: c.text }}>
+                      <Text style={{ flex: 1, fontSize: m.body, color: c.text }}>
                         {item.nickname}
                       </Text>
                       {item.id === petId && (
@@ -443,7 +456,7 @@ export function ComposerFields({
                         opacity: pressed ? 0.6 : 1,
                       })}
                     >
-                      <Text style={{ fontSize: 17, color: c.text }}>
+                      <Text style={{ fontSize: m.body, color: c.text }}>
                         {value === 'public' ? '公开' : '仅自己'}
                       </Text>
                       <Text style={{ fontSize: 13, color: c.secondaryText }}>
@@ -479,12 +492,17 @@ export function ComposerSubmit({
       style={({ pressed }) => ({
         backgroundColor: c.green,
         borderRadius: 32,
-        paddingVertical: 12,
+        minHeight: m.touch,
+        justifyContent: 'center',
+        paddingVertical: 10,
+        paddingHorizontal: m.inset,
         alignItems: 'center',
         opacity: busy || pressed ? 0.6 : 1,
       })}
     >
-      <Text style={{ color: c.surface, fontSize: 22, fontWeight: '700' }}>{title}</Text>
+      <Text style={{ color: c.surface, fontSize: m.body, fontWeight: '700' }}>
+        {title}
+      </Text>
     </Pressable>
   )
 }

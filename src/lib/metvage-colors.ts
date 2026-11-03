@@ -20,3 +20,19 @@ export function useMetvageColors() {
     link: metvagePalette.green,
   }
 }
+
+// Logical dimensions shared by the compact Metvage screens. Text keeps native
+// font scaling; controls use minimum sizes so larger labels can grow naturally.
+export const metvageMetrics = {
+  edge: 16,
+  gap: 8,
+  inset: 12,
+  body: 16,
+  cardTitle: 14,
+  caption: 12,
+  section: 16,
+  title: 18,
+  petName: 20,
+  icon: 22,
+  touch: 48,
+} as const

@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar'
 import { useState } from 'react'
 import { Pressable, Text, View } from 'react-native'
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
-import { metvagePalette as c } from 'src/lib/metvage-colors'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import { BrandHeader, IconButton } from './brand'
 import { FollowingRecordFeed } from './following-record-feed'
 import { PublicRecordFeed } from './public-record-feed'
@@ -35,11 +35,11 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
           onPress={() => (guest ? login() : router.push('/records/new?mode=public'))}
         />
       </BrandHeader>
-      <View style={{ paddingHorizontal: 16, gap: 10 }}>
+      <View style={{ paddingHorizontal: m.edge, paddingTop: 4, gap: m.gap }}>
         <Pressable
           accessibilityRole="button"
           accessibilityLabel="搜索宠物笔记"
-          hitSlop={{ top: 2, bottom: 2 }}
+          hitSlop={{ top: 4, bottom: 4 }}
           onPress={search}
           style={({ pressed }) => ({
             backgroundColor: c.field,
@@ -47,13 +47,13 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
             minHeight: 40,
             flexDirection: 'row',
             alignItems: 'center',
-            paddingHorizontal: 16,
-            gap: 12,
+            paddingHorizontal: m.edge,
+            gap: m.gap,
             opacity: pressed ? 0.6 : 1,
           })}
         >
-          <Feather name="search" size={25} color={c.text} />
-          <Text style={{ flex: 1, color: c.secondaryText, fontSize: 16 }}>
+          <Feather name="search" size={m.icon} color={c.text} />
+          <Text style={{ flex: 1, color: c.secondaryText, fontSize: m.body }}>
             搜索宠物笔记
           </Text>
           <Feather name="sliders" size={22} color={c.text} />
@@ -86,9 +86,9 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
                 flex: 1,
                 backgroundColor: item.background,
                 borderRadius: 17,
-                minHeight: 60,
-                padding: 10,
-                gap: 7,
+                minHeight: 52,
+                padding: m.gap,
+                gap: 6,
                 flexDirection: 'row',
                 alignItems: 'center',
                 opacity: pressed ? 0.6 : 1,
@@ -96,11 +96,11 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
             >
               <Feather
                 name={item.icon}
-                size={25}
+                size={m.icon}
                 color={item.key === 'shop' ? c.green : c.coral}
               />
-              <View style={{ flex: 1, gap: 4 }}>
-                <Text style={{ color: c.text, fontWeight: '600', fontSize: 15 }}>
+              <View style={{ flex: 1, gap: 2 }}>
+                <Text style={{ color: c.text, fontWeight: '600', fontSize: m.cardTitle }}>
                   {item.title}
                 </Text>
                 <Text style={{ color: c.secondaryText, fontSize: 10 }}>
@@ -116,8 +116,8 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
         style={{
           flexDirection: 'row',
           paddingHorizontal: 38,
-          marginTop: 4,
-          marginBottom: 4,
+          paddingTop: 4,
+          paddingBottom: 4,
         }}
       >
         {(
@@ -130,6 +130,7 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
           <Pressable
             key={tab.key}
             accessibilityRole="tab"
+            hitSlop={{ top: 4, bottom: 4 }}
             accessibilityState={{ selected: feed === tab.key }}
             onPress={() => {
               if (tab.key === 'nearby') planned('nearby')
@@ -139,15 +140,15 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
             style={{
               flex: 1,
               alignItems: 'center',
-              minHeight: 44,
-              paddingTop: 12,
-              gap: 6,
+              minHeight: 40,
+              paddingTop: 8,
+              gap: 4,
             }}
           >
             <Text
               style={{
                 color: feed === tab.key ? c.text : c.secondaryText,
-                fontSize: 18,
+                fontSize: m.section,
                 fontWeight: feed === tab.key ? '700' : '400',
               }}
             >
@@ -179,7 +180,7 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
         <View
           style={{
             flexDirection: 'row',
-            paddingTop: 7,
+            paddingTop: 4,
             paddingBottom: Math.max(insets.bottom, 8),
             borderTopWidth: 1,
             borderTopColor: c.border,
@@ -206,13 +207,13 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
                     ? planned('explore')
                     : login()
               }
-              style={{ flex: 1, alignItems: 'center', minHeight: 54, gap: 3 }}
+              style={{ flex: 1, alignItems: 'center', minHeight: m.touch, gap: 2 }}
             >
               <View
                 style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: 18,
+                  width: 30,
+                  height: 30,
+                  borderRadius: 15,
                   backgroundColor: index === 2 ? c.green : 'transparent',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -220,14 +221,17 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
               >
                 <Feather
                   name={tab.icon}
-                  size={index === 2 ? 28 : 25}
+                  size={index === 2 ? 24 : m.icon}
                   color={
                     index === 2 ? c.surface : index === 0 ? c.green : c.secondaryText
                   }
                 />
               </View>
               <Text
-                style={{ fontSize: 12, color: index === 0 ? c.green : c.secondaryText }}
+                style={{
+                  fontSize: m.caption,
+                  color: index === 0 ? c.green : c.secondaryText,
+                }}
               >
                 {tab.title}
               </Text>

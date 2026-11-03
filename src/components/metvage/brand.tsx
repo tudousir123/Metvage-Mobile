@@ -3,7 +3,7 @@ import { Image } from 'expo-image'
 import type { ComponentProps, ReactNode } from 'react'
 import { Platform, Pressable, Text, View } from 'react-native'
 import Svg, { Ellipse, Path } from 'react-native-svg'
-import { metvagePalette as c } from 'src/lib/metvage-colors'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 
 export function PawMark({
   size = 24,
@@ -43,7 +43,7 @@ export function BrandWordmark() {
       <Text
         style={{
           color: c.green,
-          fontSize: 28,
+          fontSize: 26,
           fontWeight: '700',
           letterSpacing: -1.4,
           fontFamily: Platform.OS === 'ios' ? 'Georgia' : 'serif',
@@ -65,14 +65,15 @@ export function BrandHeader({ children }: { children?: ReactNode }) {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingHorizontal: 16,
-        paddingVertical: 6,
-        minHeight: 56,
+        paddingHorizontal: m.edge,
+        paddingTop: 0,
+        paddingBottom: 4,
+        minHeight: 52,
         gap: 8,
       }}
     >
       <BrandWordmark />
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 0 }}>
         {children}
       </View>
     </View>
@@ -96,9 +97,9 @@ export function IconButton({
       accessibilityLabel={label}
       onPress={onPress}
       style={({ pressed }) => ({
-        width: 44,
-        height: 44,
-        borderRadius: 22,
+        width: m.touch,
+        height: m.touch,
+        borderRadius: 24,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'transparent',
@@ -107,9 +108,9 @@ export function IconButton({
     >
       <View
         style={{
-          width: 36,
-          height: 36,
-          borderRadius: 18,
+          width: 32,
+          height: 32,
+          borderRadius: 16,
           backgroundColor: tone === 'plain' ? 'transparent' : c[tone],
           alignItems: 'center',
           justifyContent: 'center',
@@ -117,7 +118,7 @@ export function IconButton({
       >
         <Feather
           name={name}
-          size={tone === 'plain' ? 23 : 25}
+          size={m.icon}
           color={tone === 'plain' ? c.text : c.surface}
         />
       </View>
@@ -129,7 +130,7 @@ export function PetAvatar({
   name,
   species,
   uri,
-  size = 40,
+  size = 32,
 }: {
   name: string
   species?: 'cat' | 'dog'

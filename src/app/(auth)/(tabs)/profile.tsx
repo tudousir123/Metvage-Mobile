@@ -14,7 +14,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { BrandHeader, IconButton, PetAvatar } from 'src/components/metvage/brand'
 import { PetTimeline } from 'src/components/metvage/pet-timeline'
-import { metvagePalette as c } from 'src/lib/metvage-colors'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import { getPets, selectCurrentPet } from 'src/lib/pets'
 import { getPetTimeline, recordPhotoUrl } from 'src/lib/records'
 import { useAuth } from 'src/state/AuthProvider'
@@ -103,7 +103,7 @@ export default function ProfileScreen() {
               })}
             >
               <Feather name="repeat" size={16} color={c.text} />
-              <Text style={{ color: c.text, fontSize: 12 }}>切换宠物</Text>
+              <Text style={{ color: c.text, fontSize: m.caption }}>切换宠物</Text>
             </Pressable>
           )}
           <IconButton
@@ -121,7 +121,7 @@ export default function ProfileScreen() {
           <ActivityIndicator color={c.green} accessibilityLabel="正在加载宠物档案" />
         )}
         {pets.error && (
-          <View style={{ padding: 24, gap: 12 }}>
+          <View style={{ padding: 24, gap: m.gap }}>
             <Text style={{ color: c.error }}>{pets.error.message}</Text>
             <Pressable accessibilityRole="button" onPress={() => pets.refetch()}>
               <Text style={{ color: c.green }}>重试加载</Text>
@@ -130,8 +130,8 @@ export default function ProfileScreen() {
         )}
         {pets.data && !current && (
           <View style={{ padding: 24, gap: 20, alignItems: 'center' }}>
-            <PetAvatar name="宠物" size={100} />
-            <Text style={{ color: c.text, fontWeight: '700', fontSize: 24 }}>
+            <PetAvatar name="宠物" size={72} />
+            <Text style={{ color: c.text, fontWeight: '700', fontSize: m.petName }}>
               让故事，从它开始
             </Text>
             <Text style={{ color: c.secondaryText, lineHeight: 24, textAlign: 'center' }}>
@@ -156,11 +156,13 @@ export default function ProfileScreen() {
         )}
         {current && (
           <>
-            <View style={{ paddingHorizontal: 16, gap: 12 }}>
-              <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 14 }}>
+            <View style={{ paddingHorizontal: m.edge, gap: m.gap }}>
+              <View
+                style={{ flexDirection: 'row', alignItems: 'flex-start', gap: m.gap }}
+              >
                 <View
                   style={{
-                    width: '45%',
+                    width: '42%',
                     aspectRatio: 1.05,
                     alignSelf: 'flex-start',
                     borderRadius: 20,
@@ -183,10 +185,14 @@ export default function ProfileScreen() {
                       <PetAvatar
                         name={current.nickname}
                         species={current.species}
-                        size={88}
+                        size={64}
                       />
                       <Text
-                        style={{ color: c.secondaryText, fontSize: 12, marginTop: 12 }}
+                        style={{
+                          color: c.secondaryText,
+                          fontSize: m.caption,
+                          marginTop: 12,
+                        }}
                       >
                         等一张它的照片
                       </Text>
@@ -198,7 +204,7 @@ export default function ProfileScreen() {
                     <Text
                       style={{
                         color: c.text,
-                        fontSize: 28,
+                        fontSize: m.petName,
                         fontWeight: '700',
                         flexShrink: 1,
                       }}
@@ -226,7 +232,11 @@ export default function ProfileScreen() {
                   </View>
                   <Text
                     numberOfLines={2}
-                    style={{ color: c.secondaryText, fontSize: 14, lineHeight: 20 }}
+                    style={{
+                      color: c.secondaryText,
+                      fontSize: m.cardTitle,
+                      lineHeight: 20,
+                    }}
                   >
                     {current.bio || '一起生活，一起留下温柔的日常。'}
                   </Text>
@@ -279,14 +289,14 @@ export default function ProfileScreen() {
                       style={({ pressed }) => ({
                         flexDirection: 'row',
                         alignItems: 'center',
-                        gap: 12,
+                        gap: m.gap,
                         padding: 10,
                         borderRadius: 12,
                         backgroundColor: current.id === pet.id ? c.softGreen : c.surface,
                         opacity: pressed ? 0.6 : 1,
                       })}
                     >
-                      <PetAvatar name={pet.nickname} species={pet.species} size={36} />
+                      <PetAvatar name={pet.nickname} species={pet.species} size={32} />
                       <Text style={{ color: c.text, flex: 1 }}>{pet.nickname}</Text>
                       {current.id === pet.id && (
                         <Feather name="check" size={18} color={c.green} />
@@ -313,14 +323,16 @@ export default function ProfileScreen() {
                   borderRadius: 18,
                   flexDirection: 'row',
                   padding: 12,
-                  gap: 14,
+                  gap: m.gap,
                   alignItems: 'center',
                 }}
               >
-                <Feather name="book-open" size={25} color={c.coral} />
+                <Feather name="book-open" size={m.icon} color={c.coral} />
                 <View style={{ flex: 1 }}>
-                  <Text style={{ color: c.secondaryText, fontSize: 12 }}>珍藏日常</Text>
-                  <Text style={{ color: c.text, fontWeight: '700', fontSize: 23 }}>
+                  <Text style={{ color: c.secondaryText, fontSize: m.caption }}>
+                    珍藏日常
+                  </Text>
+                  <Text style={{ color: c.text, fontWeight: '700', fontSize: m.title }}>
                     {records.isError || !records.data ? '—' : items.length}{' '}
                     <Text style={{ fontSize: 13, fontWeight: '400' }}>篇记录</Text>
                   </Text>
@@ -332,7 +344,9 @@ export default function ProfileScreen() {
                   style={{ flex: 1, alignItems: 'center', gap: 3 }}
                 >
                   <Text style={{ color: c.text, fontSize: 14 }}>成长等级</Text>
-                  <Text style={{ color: c.secondaryText, fontSize: 12 }}>未开放</Text>
+                  <Text style={{ color: c.secondaryText, fontSize: m.caption }}>
+                    未开放
+                  </Text>
                 </Pressable>
               </View>
               <View style={{ flexDirection: 'row', gap: 10 }}>
@@ -345,7 +359,8 @@ export default function ProfileScreen() {
                     borderColor: c.border,
                     borderWidth: 1,
                     borderRadius: 14,
-                    paddingVertical: 15,
+                    minHeight: m.touch,
+                    paddingVertical: 10,
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -354,7 +369,7 @@ export default function ProfileScreen() {
                   })}
                 >
                   <Feather name="file-text" size={20} color={c.text} />
-                  <Text style={{ color: c.text, fontSize: 16 }}>编辑档案</Text>
+                  <Text style={{ color: c.text, fontSize: m.body }}>编辑档案</Text>
                 </Pressable>
                 <Pressable
                   accessibilityRole="button"
@@ -363,7 +378,8 @@ export default function ProfileScreen() {
                     flex: 1,
                     backgroundColor: c.green,
                     borderRadius: 14,
-                    paddingVertical: 15,
+                    minHeight: m.touch,
+                    paddingVertical: 10,
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -372,7 +388,7 @@ export default function ProfileScreen() {
                   })}
                 >
                   <Feather name="plus-circle" size={20} color={c.surface} />
-                  <Text style={{ color: c.surface, fontSize: 16 }}>添加记录</Text>
+                  <Text style={{ color: c.surface, fontSize: m.body }}>添加记录</Text>
                 </Pressable>
               </View>
             </View>
@@ -381,8 +397,8 @@ export default function ProfileScreen() {
                 flexDirection: 'row',
                 borderBottomWidth: 1,
                 borderBottomColor: c.border,
-                marginTop: 10,
-                marginBottom: 12,
+                marginTop: 4,
+                marginBottom: m.gap,
               }}
             >
               {(['timeline', 'about', 'photos'] as const).map((value) => (
@@ -391,12 +407,19 @@ export default function ProfileScreen() {
                   accessibilityRole="tab"
                   accessibilityState={{ selected: tab === value }}
                   onPress={() => setTab(value)}
-                  style={{ flex: 1, alignItems: 'center', paddingTop: 14, gap: 10 }}
+                  style={{
+                    flex: 1,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    minHeight: m.touch,
+                    paddingTop: 8,
+                    gap: 6,
+                  }}
                 >
                   <Text
                     style={{
                       color: tab === value ? c.text : c.secondaryText,
-                      fontSize: 17,
+                      fontSize: m.section,
                       fontWeight: tab === value ? '700' : '400',
                     }}
                   >
@@ -419,10 +442,12 @@ export default function ProfileScreen() {
             </View>
             {tab === 'about' ? (
               <View style={{ padding: 24, gap: 18 }}>
-                <Text style={{ color: c.text, fontSize: 22, fontWeight: '700' }}>
+                <Text style={{ color: c.text, fontSize: m.title, fontWeight: '700' }}>
                   关于{current.nickname}
                 </Text>
-                <Text style={{ color: c.secondaryText, fontSize: 16, lineHeight: 26 }}>
+                <Text
+                  style={{ color: c.secondaryText, fontSize: m.body, lineHeight: 26 }}
+                >
                   {current.bio || '还没有填写介绍。写下它的性格，或你们的相遇吧。'}
                 </Text>
                 <Pressable accessibilityRole="button" onPress={editProfile}>
@@ -452,7 +477,7 @@ export default function ProfileScreen() {
                   />
                 )}
                 {records.error && (
-                  <View style={{ padding: 24, gap: 12 }}>
+                  <View style={{ padding: 24, gap: m.gap }}>
                     <Text style={{ color: c.error }}>{records.error.message}</Text>
                     <Pressable
                       accessibilityRole="button"
@@ -469,7 +494,7 @@ export default function ProfileScreen() {
                   ) : (
                     <View
                       style={{
-                        paddingHorizontal: 16,
+                        paddingHorizontal: m.edge,
                         flexDirection: 'row',
                         flexWrap: 'wrap',
                         gap: 8,

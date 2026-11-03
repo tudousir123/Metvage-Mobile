@@ -4,7 +4,7 @@ import { Image } from 'expo-image'
 import { router } from 'expo-router'
 import { Pressable, Text, View } from 'react-native'
 import { getRecordInteractions } from 'src/lib/interactions'
-import { metvagePalette as c } from 'src/lib/metvage-colors'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import { publicRecordPhotoUrl } from 'src/lib/metvage-public'
 import type { PetRecord } from 'src/lib/records'
 import { useAuth } from 'src/state/AuthProvider'
@@ -43,25 +43,35 @@ export function RecordPreviewCard({ record }: { record: PetRecord }) {
         <View
           style={{
             aspectRatio: 0.86,
-            padding: 18,
+            padding: m.inset,
             justifyContent: 'center',
-            gap: 18,
+            gap: m.gap,
             backgroundColor: c.softGreen,
           }}
         >
-          <PawMark size={32} color={c.green} />
+          <PawMark size={24} color={c.green} />
           <Text
             numberOfLines={5}
-            style={{ color: c.green, fontSize: 18, lineHeight: 29, fontWeight: '600' }}
+            style={{
+              color: c.green,
+              fontSize: m.body,
+              lineHeight: 24,
+              fontWeight: '600',
+            }}
           >
             {record.text || record.title || '记录此刻'}
           </Text>
         </View>
       )}
-      <View style={{ padding: 10, gap: 9 }}>
+      <View style={{ padding: m.gap, gap: 4 }}>
         <Text
           numberOfLines={2}
-          style={{ color: c.text, fontSize: 15, lineHeight: 21, fontWeight: '600' }}
+          style={{
+            color: c.text,
+            fontSize: m.cardTitle,
+            lineHeight: 20,
+            fontWeight: '600',
+          }}
         >
           {record.title || record.text || '这一刻，值得记录'}
         </Text>
@@ -78,19 +88,16 @@ export function RecordPreviewCard({ record }: { record: PetRecord }) {
               flexDirection: 'row',
               alignItems: 'center',
               gap: 6,
-              minHeight: 40,
+              minHeight: m.touch,
             }}
           >
             <PetAvatar
               name={record.pet.nickname}
               species={record.pet.species}
               uri={photo}
-              size={27}
+              size={24}
             />
-            <Text
-              numberOfLines={1}
-              style={{ flex: 1, fontSize: 12, color: c.secondaryText }}
-            >
+            <Text style={{ flex: 1, fontSize: m.caption, color: c.secondaryText }}>
               {record.pet.nickname}
             </Text>
           </Pressable>
@@ -101,11 +108,18 @@ export function RecordPreviewCard({ record }: { record: PetRecord }) {
               event.stopPropagation()
               open()
             }}
-            style={{ flexDirection: 'row', alignItems: 'center', gap: 3, minHeight: 40 }}
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 3,
+              minWidth: m.touch,
+              minHeight: m.touch,
+            }}
           >
             <Feather name="heart" size={20} color={c.coral} />
             {interactions.data && (
-              <Text style={{ color: c.text, fontSize: 12 }}>
+              <Text style={{ color: c.text, fontSize: m.caption }}>
                 {interactions.data.likes.length}
               </Text>
             )}

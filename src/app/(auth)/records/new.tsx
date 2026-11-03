@@ -9,7 +9,7 @@ import {
   ComposerPage,
   ComposerSubmit,
 } from 'src/components/records/record-composer'
-import { metvagePalette as c } from 'src/lib/metvage-colors'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import { getPets } from 'src/lib/pets'
 import {
   discardRecordDraft,
@@ -259,7 +259,8 @@ export default function NewRecordScreen() {
             borderColor: c.green,
             borderRadius: 22,
             paddingHorizontal: 10,
-            paddingVertical: 10,
+            minHeight: m.touch,
+            paddingVertical: 8,
             opacity: busy || pressed ? 0.6 : 1,
           })}
         >
@@ -300,7 +301,7 @@ export default function NewRecordScreen() {
         <View
           style={{ padding: 18, backgroundColor: c.softGreen, borderRadius: 16, gap: 12 }}
         >
-          <Text style={{ fontWeight: '700', fontSize: 18, color: c.text }}>
+          <Text style={{ fontWeight: '700', fontSize: m.title, color: c.text }}>
             还有一份未发布的回忆
           </Text>
           <Text style={{ color: c.secondaryText }}>
@@ -330,7 +331,7 @@ export default function NewRecordScreen() {
       )}
       {data?.pets.length === 0 && (
         <View style={{ gap: 16, paddingVertical: 30 }}>
-          <Text style={{ color: c.text, fontSize: 22, fontWeight: '700' }}>
+          <Text style={{ color: c.text, fontSize: m.petName, fontWeight: '700' }}>
             先认识一下你的宠物
           </Text>
           <Text style={{ color: c.secondaryText, lineHeight: 24 }}>

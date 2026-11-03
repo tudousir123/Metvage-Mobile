@@ -5,7 +5,7 @@ import { router } from 'expo-router'
 import { useState } from 'react'
 import { Alert, Pressable, ScrollView, Text, View } from 'react-native'
 import { RecordInteractions } from 'src/components/records/record-interactions'
-import { metvagePalette as c } from 'src/lib/metvage-colors'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import {
   type PetRecord,
   type RecordVisibility,
@@ -73,7 +73,7 @@ export function PetTimeline({
       {records.length === 0 && (
         <View style={{ alignItems: 'center', padding: 32, gap: 12 }}>
           <Feather name="book-open" size={32} color={c.green} />
-          <Text style={{ color: c.text, fontSize: 18, fontWeight: '600' }}>
+          <Text style={{ color: c.text, fontSize: m.title, fontWeight: '600' }}>
             每一天，都值得记下来
           </Text>
           <Text style={{ color: c.secondaryText, textAlign: 'center', lineHeight: 22 }}>
@@ -84,15 +84,18 @@ export function PetTimeline({
       {records.map((record) => {
         const date = new Date(record.created_at)
         return (
-          <View key={record.id} style={{ flexDirection: 'row', paddingHorizontal: 16 }}>
+          <View
+            key={record.id}
+            style={{ flexDirection: 'row', paddingHorizontal: m.edge }}
+          >
             <View style={{ width: 44, paddingTop: 13 }}>
               <Text style={{ color: c.secondaryText, fontSize: 13 }}>
                 {date.getMonth() + 1}月
               </Text>
-              <Text style={{ color: c.text, fontSize: 26, fontWeight: '700' }}>
+              <Text style={{ color: c.text, fontSize: m.petName, fontWeight: '700' }}>
                 {date.getDate()}
               </Text>
-              <Text style={{ color: c.secondaryText, fontSize: 12 }}>
+              <Text style={{ color: c.secondaryText, fontSize: m.caption }}>
                 {['周日', '周一', '周二', '周三', '周四', '周五', '周六'][date.getDay()]}
               </Text>
             </View>
@@ -121,9 +124,9 @@ export function PetTimeline({
                 flex: 1,
                 backgroundColor: c.surface,
                 borderRadius: 18,
-                padding: 14,
-                marginBottom: 14,
-                gap: 10,
+                padding: 10,
+                marginBottom: m.gap,
+                gap: m.gap,
               }}
             >
               <View
@@ -140,9 +143,9 @@ export function PetTimeline({
                     style={{
                       flex: 1,
                       color: c.text,
-                      fontSize: 17,
+                      fontSize: m.cardTitle,
                       fontWeight: '700',
-                      lineHeight: 23,
+                      lineHeight: 20,
                     }}
                   >
                     {record.title}
@@ -183,8 +186,8 @@ export function PetTimeline({
                     disabled={visibility.isPending}
                     onPress={() => openActions(record)}
                     style={({ pressed }) => ({
-                      minWidth: 44,
-                      minHeight: 44,
+                      minWidth: m.touch,
+                      minHeight: m.touch,
                       alignItems: 'center',
                       justifyContent: 'center',
                       opacity: pressed ? 0.5 : 1,
@@ -195,7 +198,13 @@ export function PetTimeline({
                 )}
               </View>
               {record.text && (
-                <Text style={{ color: c.secondaryText, fontSize: 15, lineHeight: 23 }}>
+                <Text
+                  style={{
+                    color: c.secondaryText,
+                    fontSize: m.cardTitle,
+                    lineHeight: 21,
+                  }}
+                >
                   {record.text}
                 </Text>
               )}
@@ -229,6 +238,7 @@ export function PetTimeline({
               <Pressable
                 accessibilityRole="button"
                 accessibilityState={{ expanded: expanded === record.id }}
+                hitSlop={{ top: 8, bottom: 8 }}
                 onPress={() => setExpanded(expanded === record.id ? null : record.id)}
                 style={({ pressed }) => ({
                   minHeight: 32,
@@ -236,7 +246,7 @@ export function PetTimeline({
                   opacity: pressed ? 0.5 : 1,
                 })}
               >
-                <Text style={{ color: c.green, fontSize: 12 }}>
+                <Text style={{ color: c.green, fontSize: m.caption }}>
                   {expanded === record.id
                     ? '收起互动'
                     : record.visibility === 'private'
