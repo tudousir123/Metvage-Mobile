@@ -1,14 +1,22 @@
-import { useTheme } from '@react-navigation/native'
+// The supplied Metvage designs deliberately use a warm, light brand surface.
+// Keep foreground/background pairs together even when the device uses dark mode.
+export const metvagePalette = {
+  background: '#FCFAF6',
+  surface: '#FFFFFF',
+  field: '#F2F0EC',
+  text: '#101820',
+  secondaryText: '#747C83',
+  green: '#0B503C',
+  coral: '#ED8966',
+  border: '#E5E3DE',
+  softGreen: '#EAF1E9',
+  softPeach: '#FFF0E3',
+  error: '#AE352B',
+} as const
 
-// Page-level colors follow the selected navigation theme. Light cards and controls
-// keep their explicit foreground/background pairs.
 export function useMetvageColors() {
-  const { dark, colors } = useTheme()
   return {
-    background: colors.background,
-    text: colors.text,
-    secondaryText: dark ? '#bacac5' : '#536a64',
-    link: dark ? '#8bdcc7' : '#075e52',
-    error: dark ? '#ffb4ab' : '#b42318',
+    ...metvagePalette,
+    link: metvagePalette.green,
   }
 }
