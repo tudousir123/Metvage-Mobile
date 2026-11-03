@@ -1,58 +1,33 @@
 import { Stack } from 'expo-router'
+import { ScrollView, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import {
-  GroupButtonContent,
-  type GroupButtonContentProps,
-} from 'src/components/common/GroupButtonContent'
-import { Storage } from 'src/state/cache'
-import { Button, Group, ScrollView, Separator, useTheme, YStack } from 'tamagui'
-import { openBrowserAsync } from '../../../../utils'
+import { InstancePageRow } from 'src/components/metvage/settings-row'
+import { metvagePalette as c } from 'src/lib/metvage-colors'
 
-export default function Screen() {
-  const instance = Storage.getString('app.instance')
-  const theme = useTheme()
-
-  const openLink = async (path: string) => {
-    await openBrowserAsync(`https://${instance}/${path}`)
-  }
-
-  const GroupButton = ({
-    icon,
-    title,
-    path,
-  }: Pick<GroupButtonContentProps, 'icon' | 'title'> & { path: string }) => (
-    <Group.Item>
-      <Button
-        onPress={() => openLink(path)}
-        bg={theme.background?.val.secondary.val}
-        justifyContent="flex-start"
-        size="$5"
-        px="$3"
-      >
-        <GroupButtonContent icon={icon} title={title} iconColor="#666" />
-      </Button>
-    </Group.Item>
-  )
-
+export default function LegalScreen() {
   return (
-    <SafeAreaView edges={['bottom']}>
+    <SafeAreaView edges={['bottom']} style={{ flex: 1, backgroundColor: c.background }}>
       <Stack.Screen
         options={{
-          title: 'Legal',
-          headerBackTitle: 'Back',
+          title: '法律与隐私',
+          headerTintColor: c.green,
+          headerStyle: { backgroundColor: c.background },
+          headerShadowVisible: false,
         }}
       />
-
-      <ScrollView flexShrink={1}>
-        <YStack p="$5" gap="$5">
-          <Group
-            orientation="vertical"
-            separator={<Separator borderColor={theme.borderColor?.val.default.val} />}
-          >
-            <GroupButton icon="align-left" title="Privacy Policy" path="e/privacy" />
-            <GroupButton icon="align-left" title="Terms of Service" path="e/terms" />
-          </Group>
-        </YStack>
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        contentContainerStyle={{ padding: 20, gap: 16 }}
+      >
+        <Text style={{ color: c.secondaryText, lineHeight: 23 }}>
+          查看当前服务提供的隐私政策与服务条款。
+        </Text>
+        <View
+          style={{ backgroundColor: c.surface, borderRadius: 18, overflow: 'hidden' }}
+        >
+          <InstancePageRow icon="shield" title="隐私政策" path="e/privacy" />
+          <InstancePageRow icon="file-text" title="服务条款" path="e/terms" />
+        </View>
       </ScrollView>
     </SafeAreaView>
   )
