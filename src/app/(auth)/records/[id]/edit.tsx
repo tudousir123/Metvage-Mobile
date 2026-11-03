@@ -108,8 +108,8 @@ export default function EditRecordScreen() {
     onSuccess: async ({ record: updated }) => {
       await queryClient.invalidateQueries()
       leaveAfterSave(() =>
-        router.replace(
-          `/pets/${updated.pet_id}/records` as Parameters<typeof router.replace>[0]
+        router.dismissTo(
+          `/pets/${updated.pet_id}/records` as Parameters<typeof router.dismissTo>[0]
         )
       )
     },
@@ -123,8 +123,8 @@ export default function EditRecordScreen() {
     onSuccess: async () => {
       await queryClient.invalidateQueries()
       leaveAfterSave(() =>
-        router.replace(
-          `/pets/${record?.pet_id}/records` as Parameters<typeof router.replace>[0]
+        router.dismissTo(
+          `/pets/${record?.pet_id}/records` as Parameters<typeof router.dismissTo>[0]
         )
       )
     },

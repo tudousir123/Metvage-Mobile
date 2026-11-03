@@ -13,20 +13,27 @@ import { Alert } from 'react-native'
 import EditRecordScreen from '../src/app/(auth)/records/[id]/edit'
 import NewRecordScreen from '../src/app/(auth)/records/new'
 import { loadRecordDraft, saveRecordDraft } from '../src/lib/record-drafts'
-import { createPetRecord, updatePetRecord } from '../src/lib/records'
+import { createPetRecord, deletePetRecord, updatePetRecord } from '../src/lib/records'
 
 let mockNavigation
 let mockFields
 let mockPage
 let mockSubmit
 let mockMode = 'new'
+function mockNavigateTo(type, href) {
+  const petId = /^\/pets\/(\d+)\/records$/.exec(href)?.[1]
+  mockNavigation.dispatch({
+    type,
+    payload: petId ? { name: 'Timeline', params: { petId } } : { name: 'Home' },
+  })
+}
 jest.mock('expo-router', () => ({
   useLocalSearchParams: () => ({ id: '12', mode: 'public' }),
   router: {
     canGoBack: () => mockNavigation.canGoBack(),
     back: () => mockNavigation.goBack(),
-    replace: () =>
-      mockNavigation.dispatch({ type: 'REPLACE', payload: { name: 'Home' } }),
+    replace: (href) => mockNavigateTo('REPLACE', href),
+    dismissTo: (href) => mockNavigateTo('POP_TO', href),
   },
 }))
 jest.mock('../src/state/AuthProvider', () => ({
@@ -90,7 +97,11 @@ jest.mock('../src/components/records/record-composer', () => ({
 jest.mock('react-native', () => ({
   Alert: { alert: jest.fn() },
   ActivityIndicator: () => null,
-  Pressable: ({ children }) => <div>{children}</div>,
+  Pressable: ({ children, onPress, disabled }) => (
+    <button type="button" onClick={onPress} disabled={disabled}>
+      {children}
+    </button>
+  ),
   Text: ({ children }) => <span>{children}</span>,
   View: ({ children }) => <div>{children}</div>,
   Platform: { OS: 'android', select: (options) => options.android ?? options.default },
@@ -107,28 +118,35 @@ function TestNavigator(props) {
 const Stack = createNavigatorFactory(TestNavigator)()
 const HomeScreen = () => <div>Home</div>
 let root
+let container
 let client
 const flush = async () => {
   await act(async () => {
     await new Promise((resolve) => setTimeout(resolve, 10))
   })
 }
-async function mount(mode = 'new') {
+async function mount(mode = 'new', routes = [{ name: 'Home' }, { name: 'Composer' }]) {
   mockMode = mode
   mockNavigation = createNavigationContainerRef()
   client = new QueryClient({
     defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
   })
-  root = createRoot(document.createElement('div'))
+  container = document.createElement('div')
+  root = createRoot(container)
   await act(async () => {
     root.render(
       <QueryClientProvider client={client}>
         <BaseNavigationContainer
           ref={mockNavigation}
-          initialState={{ index: 1, routes: [{ name: 'Home' }, { name: 'Composer' }] }}
+          initialState={{ index: routes.length - 1, routes }}
         >
           <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen
+              name="Timeline"
+              component={HomeScreen}
+              getId={({ params }) => params?.petId}
+            />
             <Stack.Screen
               name="Composer"
               component={mockMode === 'new' ? NewRecordScreen : EditRecordScreen}
@@ -256,7 +274,7 @@ test.each(['new', 'edit'])(
     Alert.alert.mockClear()
     await act(async () => mockSubmit.onPress())
     await flush()
-    expect(currentRoute()).toBe('Home')
+    expect(currentRoute()).toBe('Timeline')
     expect(Alert.alert).not.toHaveBeenCalled()
     if (mode === 'new') {
       expect(request.mock.calls[0][0].client_request_id).toBe(
@@ -334,4 +352,80 @@ test('saving a draft blocks back and publish until its files are durable', async
   await flush()
   await back()
   expect(currentRoute()).toBe('Home')
+})
+
+test.each(['save', 'delete'])(
+  '%s returns to the existing timeline without adding another copy',
+  async (operation) => {
+    await mount('edit', [
+      { name: 'Home' },
+      { name: 'Timeline', params: { petId: '3' } },
+      { name: 'Composer' },
+    ])
+    const timelineKey = mockNavigation.getRootState().routes[1].key
+    if (operation === 'save') {
+      updatePetRecord.mockResolvedValueOnce({ record: { id: 12, pet_id: 3 } })
+      await changeText('保留一次时间线')
+      await act(async () => mockSubmit.onPress())
+    } else {
+      deletePetRecord.mockResolvedValueOnce({})
+      await act(async () =>
+        [...container.querySelectorAll('button')]
+          .find((button) => button.textContent === '删除记录')
+          .click()
+      )
+      await choose('删除')
+    }
+    await flush()
+    const routes = mockNavigation.getRootState().routes
+    expect(routes.map((route) => route.name)).toEqual(['Home', 'Timeline'])
+    expect(routes[1].key).toBe(timelineKey)
+    await back()
+    expect(currentRoute()).toBe('Home')
+  }
+)
+
+test.each(['save', 'delete'])(
+  '%s from a directly opened editor falls back to its pet timeline',
+  async (operation) => {
+    await mount('edit', [{ name: 'Composer' }])
+    if (operation === 'save') {
+      updatePetRecord.mockResolvedValueOnce({ record: { id: 12, pet_id: 3 } })
+      await act(async () => mockSubmit.onPress())
+    } else {
+      deletePetRecord.mockResolvedValueOnce({})
+      await act(async () =>
+        [...container.querySelectorAll('button')]
+          .find((button) => button.textContent === '删除记录')
+          .click()
+      )
+      await choose('删除')
+    }
+    await flush()
+    const routes = mockNavigation.getRootState().routes
+    expect(routes).toHaveLength(1)
+    expect(routes[0]).toMatchObject({ name: 'Timeline', params: { petId: '3' } })
+    expect(mockNavigation.canGoBack()).toBe(false)
+  }
+)
+
+test('moving a record to another pet opens the updated pet timeline, not the old one', async () => {
+  await mount('edit', [
+    { name: 'Home' },
+    { name: 'Timeline', params: { petId: '3' } },
+    { name: 'Composer' },
+  ])
+  await act(async () => mockFields.onPetChange(4))
+  updatePetRecord.mockResolvedValueOnce({ record: { id: 12, pet_id: 4 } })
+  await act(async () => mockSubmit.onPress())
+  await flush()
+  expect(mockNavigation.getCurrentRoute()).toMatchObject({
+    name: 'Timeline',
+    params: { petId: '4' },
+  })
+  expect(
+    mockNavigation
+      .getRootState()
+      .routes.filter((route) => route.name === 'Timeline' && route.params.petId === '4')
+  ).toHaveLength(1)
 })
