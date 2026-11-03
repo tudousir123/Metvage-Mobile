@@ -35,15 +35,16 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
           onPress={() => (guest ? login() : router.push('/records/new?mode=public'))}
         />
       </BrandHeader>
-      <View style={{ paddingHorizontal: 16, gap: 12 }}>
+      <View style={{ paddingHorizontal: 16, gap: 10 }}>
         <Pressable
           accessibilityRole="button"
           accessibilityLabel="搜索宠物笔记"
+          hitSlop={{ top: 2, bottom: 2 }}
           onPress={search}
           style={({ pressed }) => ({
             backgroundColor: c.field,
             borderRadius: 28,
-            minHeight: 48,
+            minHeight: 40,
             flexDirection: 'row',
             alignItems: 'center',
             paddingHorizontal: 16,
@@ -63,14 +64,14 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
               {
                 key: 'shop',
                 title: '宠物商城',
-                subtitle: '精选好物陪伴成长',
+                subtitle: '好物陪伴 · 未开放',
                 icon: 'shopping-bag',
                 background: c.softGreen,
               },
               {
                 key: 'daily-inspiration',
                 title: '每日灵感',
-                subtitle: '发现更多养宠乐趣',
+                subtitle: '养宠乐趣 · 未开放',
                 icon: 'sun',
                 background: c.softPeach,
               },
@@ -85,8 +86,8 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
                 flex: 1,
                 backgroundColor: item.background,
                 borderRadius: 17,
-                minHeight: 72,
-                padding: 11,
+                minHeight: 60,
+                padding: 10,
                 gap: 7,
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -105,7 +106,6 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
                 <Text style={{ color: c.secondaryText, fontSize: 10 }}>
                   {item.subtitle}
                 </Text>
-                <Text style={{ color: c.secondaryText, fontSize: 9 }}>未开放</Text>
               </View>
               <Feather name="chevron-right" size={15} color={c.text} />
             </Pressable>
@@ -116,8 +116,8 @@ export function HomeScreen({ guest = false }: { guest?: boolean }) {
         style={{
           flexDirection: 'row',
           paddingHorizontal: 38,
-          marginTop: 7,
-          marginBottom: 8,
+          marginTop: 4,
+          marginBottom: 4,
         }}
       >
         {(

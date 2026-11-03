@@ -43,7 +43,7 @@ export function BrandWordmark() {
       <Text
         style={{
           color: c.green,
-          fontSize: 34,
+          fontSize: 28,
           fontWeight: '700',
           letterSpacing: -1.4,
           fontFamily: Platform.OS === 'ios' ? 'Georgia' : 'serif',
@@ -52,7 +52,7 @@ export function BrandWordmark() {
         Metvage
       </Text>
       <View style={{ marginLeft: -2, marginTop: 1 }}>
-        <PawMark size={19} />
+        <PawMark size={16} />
       </View>
     </View>
   )
@@ -66,8 +66,8 @@ export function BrandHeader({ children }: { children?: ReactNode }) {
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 16,
-        paddingTop: 8,
-        paddingBottom: 14,
+        paddingVertical: 6,
+        minHeight: 56,
         gap: 8,
       }}
     >
@@ -101,15 +101,26 @@ export function IconButton({
         borderRadius: 22,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: tone === 'plain' ? 'transparent' : c[tone],
+        backgroundColor: 'transparent',
         opacity: pressed ? 0.6 : 1,
       })}
     >
-      <Feather
-        name={name}
-        size={tone === 'plain' ? 25 : 28}
-        color={tone === 'plain' ? c.text : c.surface}
-      />
+      <View
+        style={{
+          width: 36,
+          height: 36,
+          borderRadius: 18,
+          backgroundColor: tone === 'plain' ? 'transparent' : c[tone],
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Feather
+          name={name}
+          size={tone === 'plain' ? 23 : 25}
+          color={tone === 'plain' ? c.text : c.surface}
+        />
+      </View>
     </Pressable>
   )
 }
