@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { router } from 'expo-router'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { ActivityIndicator, Pressable, Text, TextInput, View } from 'react-native'
 import {
   commentOnRecord,
@@ -19,13 +19,16 @@ const green = '#075e52'
 export function RecordInteractions({
   recordId,
   visibility,
+  onCommentActionLayout,
 }: {
   recordId: number
   visibility: RecordVisibility
+  onCommentActionLayout?: (height: number) => void
 }) {
   const { user } = useAuth()
   const queryClient = useQueryClient()
   const [text, setText] = useState('')
+  const commentLock = useRef(false)
   const [requestId, setRequestId] = useState(newCommentRequestId)
   const interactions = useQuery({
     queryKey: ['metvage-interactions', recordId, user?.server, user?.token],
@@ -60,6 +63,9 @@ export function RecordInteractions({
       setText('')
       setRequestId(newCommentRequestId())
     },
+    onSettled: () => {
+      commentLock.current = false
+    },
   })
   const removeComment = useMutation({
     mutationFn: deleteRecordComment,
@@ -81,7 +87,8 @@ export function RecordInteractions({
 
   function submitComment() {
     const content = text.trim()
-    if (!content || comment.isPending || !requirePet()) return
+    if (!content || commentLock.current || !requirePet()) return
+    commentLock.current = true
     comment.mutate({ content, key: requestId })
   }
 
@@ -144,6 +151,7 @@ export function RecordInteractions({
                     accessibilityLabel="写评论"
                     placeholder="写评论"
                     value={text}
+                    editable={!comment.isPending}
                     onChangeText={(value) => {
                       setText(value)
                       setRequestId(newCommentRequestId())
@@ -162,6 +170,10 @@ export function RecordInteractions({
                     accessibilityRole="button"
                     disabled={!text.trim() || comment.isPending || pets.isLoading}
                     onPress={submitComment}
+                    onLayout={(event) =>
+                      onCommentActionLayout?.(event.nativeEvent.layout.height)
+                    }
+                    style={{ minHeight: 48, justifyContent: 'center' }}
                   >
                     <Text style={{ color: green }}>
                       {comment.isPending ? '正在发送…' : '发送评论'}
