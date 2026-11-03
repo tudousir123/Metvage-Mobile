@@ -134,9 +134,25 @@ export function PetTimeline({
                   gap: 4,
                 }}
               >
+                {record.title ? (
+                  <Text
+                    numberOfLines={2}
+                    style={{
+                      flex: 1,
+                      color: c.text,
+                      fontSize: 17,
+                      fontWeight: '700',
+                      lineHeight: 23,
+                    }}
+                  >
+                    {record.title}
+                  </Text>
+                ) : (
+                  <View style={{ flex: 1 }} />
+                )}
                 <View
                   style={{
-                    paddingHorizontal: 9,
+                    paddingHorizontal: 7,
                     paddingVertical: 5,
                     borderRadius: 20,
                     backgroundColor:
@@ -154,7 +170,7 @@ export function PetTimeline({
                   <Text
                     style={{
                       color: record.visibility === 'public' ? c.green : c.secondaryText,
-                      fontSize: 12,
+                      fontSize: 11,
                     }}
                   >
                     {record.visibility === 'public' ? '公开' : '仅自己'}
@@ -168,28 +184,16 @@ export function PetTimeline({
                     onPress={() => openActions(record)}
                     style={({ pressed }) => ({
                       minWidth: 44,
-                      minHeight: 36,
-                      alignItems: 'flex-end',
+                      minHeight: 44,
+                      alignItems: 'center',
                       justifyContent: 'center',
                       opacity: pressed ? 0.5 : 1,
                     })}
                   >
-                    <Feather name="more-horizontal" size={22} color={c.secondaryText} />
+                    <Feather name="more-horizontal" size={18} color={c.secondaryText} />
                   </Pressable>
                 )}
               </View>
-              {record.title && (
-                <Text
-                  style={{
-                    color: c.text,
-                    fontSize: 19,
-                    fontWeight: '700',
-                    lineHeight: 26,
-                  }}
-                >
-                  {record.title}
-                </Text>
-              )}
               {record.text && (
                 <Text style={{ color: c.secondaryText, fontSize: 15, lineHeight: 23 }}>
                   {record.text}
