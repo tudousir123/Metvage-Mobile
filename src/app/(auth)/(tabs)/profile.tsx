@@ -83,12 +83,40 @@ export default function ProfileScreen() {
         }
       >
         <BrandHeader>
+          {current && (
+            <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ expanded: switching }}
+              onPress={() => setSwitching(!switching)}
+              style={({ pressed }) => ({
+                minHeight: 44,
+                flexDirection: 'row',
+                gap: 7,
+                alignItems: 'center',
+                borderWidth: 1,
+                borderColor: c.border,
+                backgroundColor: c.softPeach,
+                paddingHorizontal: 10,
+                paddingVertical: 8,
+                borderRadius: 22,
+                opacity: pressed ? 0.6 : 1,
+              })}
+            >
+              <Feather name="repeat" size={16} color={c.text} />
+              <Text style={{ color: c.text, fontSize: 12 }}>切换宠物</Text>
+            </Pressable>
+          )}
           <IconButton
             name="settings"
             label="设置"
             onPress={() => router.push('/settings')}
           />
         </BrandHeader>
+        {pets.fetchStatus === 'paused' && !pets.data && (
+          <Text accessibilityRole="alert" style={{ color: c.secondaryText, padding: 24 }}>
+            等待网络连接，恢复后会自动加载宠物档案。
+          </Text>
+        )}
         {pets.isLoading && (
           <ActivityIndicator color={c.green} accessibilityLabel="正在加载宠物档案" />
         )}
@@ -128,12 +156,13 @@ export default function ProfileScreen() {
         )}
         {current && (
           <>
-            <View style={{ paddingHorizontal: 16, gap: 14 }}>
-              <View style={{ flexDirection: 'row', alignItems: 'stretch', gap: 14 }}>
+            <View style={{ paddingHorizontal: 16, gap: 12 }}>
+              <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 14 }}>
                 <View
                   style={{
                     width: '45%',
-                    minHeight: 188,
+                    aspectRatio: 1.05,
+                    alignSelf: 'flex-start',
                     borderRadius: 20,
                     overflow: 'hidden',
                     backgroundColor: c.softPeach,
@@ -164,28 +193,7 @@ export default function ProfileScreen() {
                     </>
                   )}
                 </View>
-                <View style={{ flex: 1, gap: 11 }}>
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityState={{ expanded: switching }}
-                    onPress={() => setSwitching(!switching)}
-                    style={({ pressed }) => ({
-                      alignSelf: 'flex-end',
-                      flexDirection: 'row',
-                      gap: 7,
-                      alignItems: 'center',
-                      borderWidth: 1,
-                      borderColor: c.border,
-                      backgroundColor: c.softPeach,
-                      paddingHorizontal: 12,
-                      paddingVertical: 9,
-                      borderRadius: 22,
-                      opacity: pressed ? 0.6 : 1,
-                    })}
-                  >
-                    <Feather name="repeat" size={16} color={c.text} />
-                    <Text style={{ color: c.text, fontSize: 13 }}>切换宠物</Text>
-                  </Pressable>
+                <View style={{ flex: 1, gap: 6 }}>
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
                     <Text
                       style={{
@@ -216,7 +224,10 @@ export default function ProfileScreen() {
                       {current.species === 'cat' ? '猫咪' : '狗狗'}
                     </Text>
                   </View>
-                  <Text style={{ color: c.secondaryText, fontSize: 14, lineHeight: 22 }}>
+                  <Text
+                    numberOfLines={2}
+                    style={{ color: c.secondaryText, fontSize: 14, lineHeight: 20 }}
+                  >
                     {current.bio || '一起生活，一起留下温柔的日常。'}
                   </Text>
                   {other && (
@@ -231,7 +242,7 @@ export default function ProfileScreen() {
                         alignSelf: 'flex-start',
                         gap: 8,
                         backgroundColor: c.surface,
-                        padding: 8,
+                        padding: 5,
                         borderRadius: 14,
                         opacity: pressed ? 0.6 : 1,
                       })}
@@ -239,7 +250,7 @@ export default function ProfileScreen() {
                       <PetAvatar
                         name={other.nickname}
                         species={other.species}
-                        size={30}
+                        size={24}
                       />
                       <Text style={{ color: c.text, fontSize: 13, flexShrink: 1 }}>
                         {other.nickname}
@@ -301,7 +312,7 @@ export default function ProfileScreen() {
                   backgroundColor: c.softPeach,
                   borderRadius: 18,
                   flexDirection: 'row',
-                  padding: 17,
+                  padding: 12,
                   gap: 14,
                   alignItems: 'center',
                 }}
@@ -426,6 +437,14 @@ export default function ProfileScreen() {
               </View>
             ) : (
               <>
+                {records.fetchStatus === 'paused' && !records.data && (
+                  <Text
+                    accessibilityRole="alert"
+                    style={{ color: c.secondaryText, padding: 24 }}
+                  >
+                    等待网络连接，恢复后会自动加载记录。
+                  </Text>
+                )}
                 {records.isLoading && (
                   <ActivityIndicator
                     color={c.green}

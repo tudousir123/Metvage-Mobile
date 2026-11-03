@@ -61,6 +61,11 @@ export default function PetTimelineScreen() {
         </Text>
       </View>
       {!valid && <Text style={{ color: c.error, padding: 20 }}>宠物档案地址无效。</Text>}
+      {records.fetchStatus === 'paused' && !records.data && (
+        <Text accessibilityRole="alert" style={{ color: c.secondaryText, padding: 20 }}>
+          等待网络连接，恢复后会自动加载宠物时间线。
+        </Text>
+      )}
       {records.isLoading && (
         <ActivityIndicator accessibilityLabel="正在加载宠物时间线" color={c.green} />
       )}

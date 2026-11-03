@@ -204,6 +204,11 @@ export default function PetsPage() {
           </View>
         </View>
       )}
+      {pets.fetchStatus === 'paused' && !pets.data && (
+        <Text accessibilityRole="alert" style={{ color: c.secondaryText, padding: 20 }}>
+          等待网络连接，恢复后会自动加载宠物档案。
+        </Text>
+      )}
       {pets.isLoading && (
         <ActivityIndicator color={c.green} accessibilityLabel="正在加载宠物档案" />
       )}
