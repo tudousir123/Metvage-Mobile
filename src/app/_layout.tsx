@@ -23,6 +23,7 @@ import { useAppState } from 'src/hooks/useAppState'
 import { AlertProvider } from 'src/hooks/useCustomAlertProvider'
 import { useOnlineManager } from 'src/hooks/useOnlineManager'
 import { VideoProvider } from 'src/hooks/useVideoProvider'
+import { metvagePalette as brand } from 'src/lib/metvage-colors'
 import { Storage } from 'src/state/cache'
 import { TamaguiProvider, Theme } from 'tamagui'
 import { config } from '../../tamagui.config'
@@ -105,14 +106,6 @@ const honeyTheme = {
   },
 }
 
-const statusBarMap = {
-  light: 'dark',
-  dark: 'light',
-  slateDark: 'light',
-  hotPink: 'dark',
-  honey: 'dark',
-}
-
 const navigationThemeMap = {
   auto: customLightTheme,
   light: customLightTheme,
@@ -120,15 +113,6 @@ const navigationThemeMap = {
   slateDark: slateTheme,
   hotPink: hotPinkTheme,
   honey: honeyTheme,
-}
-
-const statusBarBackgroundColorMap = {
-  auto: '#fff',
-  light: '#fff',
-  dark: '#000',
-  slateDark: '#2F3542',
-  hotPink: '#FFFFFF',
-  honey: '#fff3e3',
 }
 
 function RootLayout() {
@@ -175,9 +159,6 @@ export default function RootLayoutWithContext() {
 function RootLayoutNav() {
   const deviceTheme = useColorScheme()
   const [currentTheme, setCurrentTheme] = useState(deviceTheme || 'light')
-  const [statusBarStyle, setStatusBarStyle] = useState(
-    statusBarMap[currentTheme] || 'auto'
-  )
 
   // Load the theme from storage on initial render
   useEffect(() => {
@@ -188,11 +169,9 @@ function RootLayoutNav() {
     ) {
       if (storedTheme === 'system') {
         setCurrentTheme(deviceTheme)
-        setStatusBarStyle(statusBarMap[deviceTheme])
         return
       }
       setCurrentTheme(storedTheme)
-      setStatusBarStyle(statusBarMap[storedTheme] || 'auto')
     }
   }, [])
 
@@ -205,11 +184,9 @@ function RootLayoutNav() {
         if (newTheme) {
           if (newTheme === 'system') {
             setCurrentTheme(deviceTheme)
-            setStatusBarStyle(statusBarMap[deviceTheme])
             return
           }
           setCurrentTheme(newTheme)
-          setStatusBarStyle(statusBarMap[newTheme] || 'auto')
         }
       }
     })
@@ -219,7 +196,6 @@ function RootLayoutNav() {
         const newTheme = Storage.getString('ui.theme')
         if (newTheme === 'system') {
           setCurrentTheme(newColorScheme)
-          setStatusBarStyle(statusBarMap[newColorScheme])
           return
         }
       }
@@ -233,9 +209,20 @@ function RootLayoutNav() {
   }, [])
 
   // Select the navigation theme based on current theme
-  const navigationTheme =
+  const selectedNavigationTheme =
     navigationThemeMap[currentTheme] ||
     (currentTheme === 'dark' ? customDarkTheme : customLightTheme)
+  const navigationTheme = {
+    ...selectedNavigationTheme,
+    colors: {
+      ...selectedNavigationTheme.colors,
+      background: brand.background,
+      card: brand.background,
+      text: brand.text,
+      primary: brand.green,
+      border: brand.border,
+    },
+  }
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -249,8 +236,8 @@ function RootLayoutNav() {
                     <VideoProvider>
                       <BottomSheetModalProvider>
                         <StatusBar
-                          style={statusBarStyle}
-                          backgroundColor={statusBarBackgroundColorMap[currentTheme]}
+                          style="dark"
+                          backgroundColor={brand.background}
                           animated
                         />
                         <ToastViewport padding="$6" bottom={0} left={0} right={0} />

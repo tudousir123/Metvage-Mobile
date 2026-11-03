@@ -1,11 +1,15 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { router, Stack, useFocusEffect } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
 import { useCallback } from 'react'
 import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { BrandHeader, PetAvatar } from 'src/components/metvage/brand'
+import { metvagePalette as c } from 'src/lib/metvage-colors'
 import { getPetNotifications, type PetNotification } from 'src/lib/petNotifications'
 import { useAuth } from 'src/state/AuthProvider'
 
-const green = '#075e52'
+const green = c.green
 
 function notificationText(notification: PetNotification): string {
   switch (notification.type) {
@@ -48,13 +52,15 @@ export default function NotificationsScreen() {
   }
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#f7faf8' }}>
-      <Stack.Screen options={{ title: '消息' }} />
+    <SafeAreaView edges={['top']} style={{ flex: 1, backgroundColor: c.background }}>
+      <StatusBar style="dark" backgroundColor={c.background} />
+      <BrandHeader />
+      <Stack.Screen options={{ title: '消息', headerShown: false }} />
       <FlatList
         contentInsetAdjustmentBehavior="automatic"
         data={notifications}
         keyExtractor={(notification) => String(notification.id)}
-        contentContainerStyle={{ padding: 20, paddingBottom: 40, gap: 12, flexGrow: 1 }}
+        contentContainerStyle={{ padding: 16, paddingBottom: 40, gap: 12, flexGrow: 1 }}
         refreshing={notificationsQuery.isRefetching}
         onRefresh={() => notificationsQuery.refetch()}
         onEndReached={() => {
@@ -64,14 +70,14 @@ export default function NotificationsScreen() {
         }}
         ListHeaderComponent={
           <View style={{ gap: 12 }}>
-            <Text style={{ fontSize: 22, fontWeight: '700', color: '#18332f' }}>
+            <Text style={{ fontSize: 22, fontWeight: '700', color: c.text }}>
               站内通知
             </Text>
-            <Text style={{ color: '#536a64' }}>关注、点赞和评论会显示在这里。</Text>
+            <Text style={{ color: c.secondaryText }}>关注、点赞和评论会显示在这里。</Text>
             <Pressable
               accessibilityRole="button"
               onPress={() => router.push('/unavailable/messages')}
-              style={{ padding: 14, borderRadius: 12, backgroundColor: '#e7f4ee' }}
+              style={{ padding: 14, borderRadius: 12, backgroundColor: c.softGreen }}
             >
               <Text style={{ color: green, fontWeight: '700' }}>私信 · 未开放</Text>
             </Pressable>
@@ -80,9 +86,7 @@ export default function NotificationsScreen() {
             )}
             {notificationsQuery.error && (
               <View style={{ gap: 8 }}>
-                <Text style={{ color: '#b42318' }}>
-                  {notificationsQuery.error.message}
-                </Text>
+                <Text style={{ color: c.error }}>{notificationsQuery.error.message}</Text>
                 <Pressable
                   accessibilityRole="button"
                   onPress={() => notificationsQuery.refetch()}
@@ -92,27 +96,41 @@ export default function NotificationsScreen() {
               </View>
             )}
             {notificationsQuery.isFetching && notifications.length > 0 && (
-              <Text style={{ color: '#536a64' }}>正在同步…</Text>
+              <Text style={{ color: c.secondaryText }}>正在同步…</Text>
             )}
           </View>
         }
         ListEmptyComponent={
           notificationsQuery.data && !notificationsQuery.error ? (
-            <Text style={{ color: '#536a64' }}>还没有站内通知。</Text>
+            <Text style={{ color: c.secondaryText }}>还没有站内通知。</Text>
           ) : null
         }
         renderItem={({ item }) => (
           <Pressable
             accessibilityRole="button"
             onPress={() => openNotification(item)}
-            style={{ padding: 16, borderRadius: 12, backgroundColor: '#fff', gap: 6 }}
+            style={{
+              padding: 16,
+              borderRadius: 18,
+              backgroundColor: c.surface,
+              gap: 12,
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}
           >
-            <Text style={{ color: '#18332f', fontWeight: '700' }}>
-              {item.actor_pet.nickname} {notificationText(item)}
-            </Text>
-            <Text style={{ color: '#536a64' }}>
-              {new Date(item.created_at).toLocaleString()}
-            </Text>
+            <PetAvatar
+              name={item.actor_pet.nickname}
+              species={item.actor_pet.species}
+              size={44}
+            />
+            <View style={{ flex: 1, gap: 8 }}>
+              <Text style={{ color: c.text, fontWeight: '700' }}>
+                {item.actor_pet.nickname} {notificationText(item)}
+              </Text>
+              <Text style={{ color: c.secondaryText }}>
+                {new Date(item.created_at).toLocaleString()}
+              </Text>
+            </View>
           </Pressable>
         )}
         ListFooterComponent={
@@ -121,6 +139,6 @@ export default function NotificationsScreen() {
           ) : null
         }
       />
-    </View>
+    </SafeAreaView>
   )
 }

@@ -1,88 +1,85 @@
-import { Feather } from '@expo/vector-icons'
+import Feather from '@expo/vector-icons/Feather'
 import { useAuth } from '@state/AuthProvider'
-import { Redirect, Tabs } from 'expo-router'
-import { Platform } from 'react-native'
+import { Redirect, router, Tabs } from 'expo-router'
+import { View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-
-// enum here to prevent typos in id when used in multiple places (typescript checkable)
-enum TabName {
-  Index = 'index',
-  Network = 'network',
-  Explore = 'explore',
-  Camera = 'camera',
-  Discover = 'discover',
-  Profile = 'profile',
-  Notifications = 'notifications',
-}
+import { metvagePalette as c } from 'src/lib/metvage-colors'
 
 export default function AppLayout() {
   const { user } = useAuth()
   const insets = useSafeAreaInsets()
-
-  // Only require authentication within the (app) group's layout as users
-  // need to be able to access the (auth) group and sign in again.
-  if (!user) {
-    return <Redirect href="/handleLogin" />
-  }
-
+  if (!user) return <Redirect href="/handleLogin" />
   return (
     <Tabs
-      initialRouteName={TabName.Index}
+      initialRouteName="index"
       backBehavior="history"
       screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: c.green,
+        tabBarInactiveTintColor: c.secondaryText,
+        tabBarLabelStyle: { fontSize: 12, marginTop: 2 },
         tabBarStyle: {
-          height: (Platform.OS === 'ios' ? 54 : 60) + insets.bottom,
-          paddingBottom: insets.bottom + 8,
-          paddingTop: 8,
-        },
-        tabBarIconStyle: {
-          marginTop: 0,
+          backgroundColor: c.background,
+          borderTopColor: c.border,
+          height: 62 + insets.bottom,
+          paddingBottom: Math.max(insets.bottom, 8),
+          paddingTop: 7,
         },
       }}
     >
       <Tabs.Screen
-        name={TabName.Index}
+        name="index"
         options={{
           title: '首页',
-          tabBarLabel: '首页',
-          headerShown: true,
           tabBarIcon: ({ color }) => <Feather name="home" size={26} color={color} />,
         }}
       />
-
       <Tabs.Screen
-        name={TabName.Explore}
+        name="explore"
         options={{
-          tabBarLabel: '探索',
-          headerShown: true,
+          title: '探索',
           tabBarIcon: ({ color }) => <Feather name="compass" size={26} color={color} />,
         }}
       />
-
       <Tabs.Screen
-        name={TabName.Camera}
+        name="camera"
+        listeners={{
+          tabPress: (event) => {
+            event.preventDefault()
+            router.push('/records/new?mode=public')
+          },
+        }}
         options={{
           title: '发布',
-          tabBarLabel: '发布',
-          headerShown: true,
-          tabBarIcon: ({ color }) => <Feather name="camera" size={28} color={color} />,
+          tabBarIcon: () => (
+            <View
+              style={{
+                width: 38,
+                height: 38,
+                borderRadius: 20,
+                backgroundColor: c.green,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Feather name="plus" size={30} color={c.surface} />
+            </View>
+          ),
         }}
       />
-
       <Tabs.Screen
-        name={TabName.Notifications}
+        name="notifications"
         options={{
-          tabBarLabel: '消息',
-          headerShown: true,
-          tabBarIcon: ({ color }) => <Feather name="bell" size={26} color={color} />,
+          title: '消息',
+          tabBarIcon: ({ color }) => (
+            <Feather name="message-circle" size={26} color={color} />
+          ),
         }}
       />
-
       <Tabs.Screen
-        name={TabName.Profile}
+        name="profile"
         options={{
-          tabBarLabel: '我的',
-          headerShown: false,
+          title: '我的',
           tabBarIcon: ({ color }) => <Feather name="user" size={26} color={color} />,
         }}
       />
