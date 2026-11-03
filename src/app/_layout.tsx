@@ -256,10 +256,7 @@ function RootLayoutNav() {
                         <ToastViewport padding="$6" bottom={0} left={0} right={0} />
                         <GlobalToast />
                         <Stack>
-                          <Stack.Screen
-                            name="(auth)/(tabs)"
-                            options={{ headerShown: false }}
-                          />
+                          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
                           <Stack.Screen
                             name="(public)/login"
                             options={{ headerShown: false }}
