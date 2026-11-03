@@ -9,9 +9,11 @@ import {
   TextInput,
   View,
 } from 'react-native'
+import { useMetvageColors } from 'src/lib/metvage-colors'
 import { metvageInstanceHost } from 'src/lib/metvage-public'
 
 export default function LoginScreen() {
+  const colors = useMetvageColors()
   const params = useLocalSearchParams<{ server?: string }>()
   const configuredHost = metvageInstanceHost()
   const [server, setServer] = useState(params.server || configuredHost || '')
@@ -43,17 +45,20 @@ export default function LoginScreen() {
 
   return (
     <ScrollView
+      style={{ backgroundColor: colors.background }}
       contentInsetAdjustmentBehavior="automatic"
       keyboardShouldPersistTaps="handled"
       contentContainerStyle={{ padding: 24, gap: 18 }}
     >
       <Stack.Screen options={{ title: '登录 Metvage' }} />
-      <Text style={{ fontSize: 26, fontWeight: '700', color: '#18332f' }}>欢迎回来</Text>
-      <Text style={{ color: '#536a64' }}>
+      <Text style={{ fontSize: 26, fontWeight: '700', color: colors.text }}>
+        欢迎回来
+      </Text>
+      <Text style={{ color: colors.secondaryText }}>
         登录后可以发布和互动；浏览公开笔记不需要账号。
       </Text>
       <View style={{ gap: 8 }}>
-        <Text style={{ color: '#18332f' }}>Metvage 服务地址</Text>
+        <Text style={{ color: colors.text }}>Metvage 服务地址</Text>
         <TextInput
           accessibilityLabel="Metvage 服务地址"
           autoCapitalize="none"
@@ -66,11 +71,11 @@ export default function LoginScreen() {
             borderColor: '#afc6be',
             borderRadius: 10,
             padding: 13,
-            color: '#18332f',
+            color: colors.text,
           }}
         />
       </View>
-      {!!error && <Text style={{ color: '#b42318' }}>{error}</Text>}
+      {!!error && <Text style={{ color: colors.error }}>{error}</Text>}
       <Pressable
         accessibilityRole="button"
         disabled={loading}
@@ -91,10 +96,14 @@ export default function LoginScreen() {
         )}
       </Pressable>
       <Pressable accessibilityRole="button" onPress={() => router.push('/handleSignup')}>
-        <Text style={{ color: '#075e52', textAlign: 'center' }}>有邀请码？注册试用</Text>
+        <Text style={{ color: colors.link, textAlign: 'center' }}>
+          有邀请码？注册试用
+        </Text>
       </Pressable>
       <Pressable accessibilityRole="button" onPress={() => router.push('/feed')}>
-        <Text style={{ color: '#075e52', textAlign: 'center' }}>继续以访客身份浏览</Text>
+        <Text style={{ color: colors.link, textAlign: 'center' }}>
+          继续以访客身份浏览
+        </Text>
       </Pressable>
     </ScrollView>
   )

@@ -2,9 +2,11 @@ import { router, Stack } from 'expo-router'
 import * as WebBrowser from 'expo-web-browser'
 import { useState } from 'react'
 import { ActivityIndicator, Pressable, ScrollView, Text, TextInput } from 'react-native'
+import { useMetvageColors } from 'src/lib/metvage-colors'
 import { invitationRegistrationUrl, verifyInvitation } from 'src/lib/metvage-public'
 
 export default function InvitationSignup() {
+  const colors = useMetvageColors()
   const [code, setCode] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -34,20 +36,22 @@ export default function InvitationSignup() {
 
   return (
     <ScrollView
+      style={{ backgroundColor: colors.background }}
       contentInsetAdjustmentBehavior="automatic"
       keyboardShouldPersistTaps="handled"
       contentContainerStyle={{ padding: 24, gap: 18 }}
     >
       <Stack.Screen options={{ title: '凭邀请注册' }} />
-      <Text style={{ fontSize: 26, fontWeight: '700', color: '#18332f' }}>
+      <Text style={{ fontSize: 26, fontWeight: '700', color: colors.text }}>
         加入 Metvage 试用
       </Text>
-      <Text style={{ color: '#536a64', lineHeight: 23 }}>
+      <Text style={{ color: colors.secondaryText, lineHeight: 23 }}>
         首版仅接受邀请注册。没有邀请码也可以浏览公开笔记；注册后无需立即建立宠物档案。
       </Text>
       <TextInput
         accessibilityLabel="邀请码"
         placeholder="输入邀请码"
+        placeholderTextColor={colors.secondaryText}
         autoCapitalize="none"
         autoCorrect={false}
         value={code}
@@ -57,10 +61,10 @@ export default function InvitationSignup() {
           borderColor: '#afc6be',
           borderRadius: 10,
           padding: 13,
-          color: '#18332f',
+          color: colors.text,
         }}
       />
-      {!!error && <Text style={{ color: '#b42318' }}>{error}</Text>}
+      {!!error && <Text style={{ color: colors.error }}>{error}</Text>}
       <Pressable
         accessibilityRole="button"
         disabled={loading}
@@ -81,13 +85,15 @@ export default function InvitationSignup() {
         )}
       </Pressable>
       {opened && (
-        <Text style={{ color: '#536a64' }}>注册页面已打开。完成注册后返回这里登录。</Text>
+        <Text style={{ color: colors.secondaryText }}>
+          注册页面已打开。完成注册后返回这里登录。
+        </Text>
       )}
       <Pressable accessibilityRole="button" onPress={() => router.push('/handleLogin')}>
-        <Text style={{ color: '#075e52', textAlign: 'center' }}>已有账号？登录</Text>
+        <Text style={{ color: colors.link, textAlign: 'center' }}>已有账号？登录</Text>
       </Pressable>
       <Pressable accessibilityRole="button" onPress={() => router.push('/feed')}>
-        <Text style={{ color: '#075e52', textAlign: 'center' }}>先浏览公开笔记</Text>
+        <Text style={{ color: colors.link, textAlign: 'center' }}>先浏览公开笔记</Text>
       </Pressable>
     </ScrollView>
   )

@@ -263,11 +263,11 @@ function RootLayoutNav() {
                           />
                           <Stack.Screen
                             name="(public)/handleLogin"
-                            options={{ headerShown: false }}
+                            options={{ headerShown: true }}
                           />
                           <Stack.Screen
                             name="(public)/handleSignup"
-                            options={{ headerShown: false }}
+                            options={{ headerShown: true }}
                           />
                           <Stack.Screen
                             name="(public)/verifyEmail"

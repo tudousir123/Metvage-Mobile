@@ -12,6 +12,7 @@ import {
   TextInput,
   View,
 } from 'react-native'
+import { useMetvageColors } from 'src/lib/metvage-colors'
 import { getPets } from 'src/lib/pets'
 import {
   deletePetRecord,
@@ -24,6 +25,7 @@ import { useAuth } from 'src/state/AuthProvider'
 const green = '#075e52'
 
 export default function EditRecordScreen() {
+  const colors = useMetvageColors()
   const { id } = useLocalSearchParams<{ id: string }>()
   const recordId = Number(id)
   const { user } = useAuth()
@@ -140,6 +142,7 @@ export default function EditRecordScreen() {
 
   return (
     <ScrollView
+      style={{ backgroundColor: colors.background }}
       contentInsetAdjustmentBehavior="automatic"
       keyboardShouldPersistTaps="handled"
       contentContainerStyle={{ padding: 20, paddingBottom: 40, gap: 18 }}
@@ -150,7 +153,7 @@ export default function EditRecordScreen() {
       )}
       {(recordQuery.error || petsQuery.error) && (
         <View style={{ gap: 8 }}>
-          <Text style={{ color: '#b42318' }}>
+          <Text style={{ color: colors.error }}>
             {recordQuery.error?.message || petsQuery.error?.message}
           </Text>
           <Pressable
@@ -160,16 +163,18 @@ export default function EditRecordScreen() {
               petsQuery.refetch()
             }}
           >
-            <Text style={{ color: green }}>重试加载</Text>
+            <Text style={{ color: colors.link }}>重试加载</Text>
           </Pressable>
         </View>
       )}
       {record && petsQuery.data && !isOwner && (
-        <Text style={{ color: '#b42318' }}>只有记录主人可以编辑或删除。</Text>
+        <Text style={{ color: colors.error }}>只有记录主人可以编辑或删除。</Text>
       )}
       {record && petsQuery.data && isOwner && (
         <>
-          <Text style={{ fontSize: 18, fontWeight: '700' }}>关联宠物</Text>
+          <Text style={{ color: colors.text, fontSize: 18, fontWeight: '700' }}>
+            关联宠物
+          </Text>
           {petsQuery.data.pets.map((pet) => (
             <Pressable
               key={pet.id}
@@ -182,7 +187,7 @@ export default function EditRecordScreen() {
                 backgroundColor: petId === pet.id ? '#e7f4ee' : '#f4f5f4',
               }}
             >
-              <Text>
+              <Text style={{ color: '#17352f' }}>
                 {pet.species === 'cat' ? '🐈' : '🐕'} {pet.nickname}
               </Text>
             </Pressable>
@@ -190,11 +195,14 @@ export default function EditRecordScreen() {
           <TextInput
             accessibilityLabel="记录标题（可选）"
             placeholder="标题（可选，最多 50 字）"
+            placeholderTextColor="#63746f"
             value={title}
             onChangeText={setTitle}
             maxLength={50}
             style={{
               padding: 14,
+              color: '#17352f',
+              backgroundColor: '#fff',
               borderWidth: 1,
               borderColor: '#ccd8d2',
               borderRadius: 10,
@@ -203,6 +211,7 @@ export default function EditRecordScreen() {
           <TextInput
             accessibilityLabel="记录内容"
             placeholder="写下这一刻…（可只留照片）"
+            placeholderTextColor="#63746f"
             value={text}
             onChangeText={setText}
             multiline
@@ -210,12 +219,14 @@ export default function EditRecordScreen() {
             style={{
               minHeight: 160,
               padding: 14,
+              color: '#17352f',
+              backgroundColor: '#fff',
               borderWidth: 1,
               borderColor: '#ccd8d2',
               borderRadius: 10,
             }}
           />
-          <Text style={{ fontSize: 18, fontWeight: '700' }}>
+          <Text style={{ color: colors.text, fontSize: 18, fontWeight: '700' }}>
             照片（{existingPhotos.length + newPhotos.length}/9）
           </Text>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
@@ -239,7 +250,7 @@ export default function EditRecordScreen() {
                     setKeptPhotoIds((ids) => ids.filter((id) => id !== photo.id))
                   }
                 >
-                  <Text style={{ color: '#b42318' }}>移除</Text>
+                  <Text style={{ color: colors.error }}>移除</Text>
                 </Pressable>
               </View>
             ))}
@@ -257,15 +268,15 @@ export default function EditRecordScreen() {
                     setNewPhotos((photos) => photos.filter((_, item) => item !== index))
                   }
                 >
-                  <Text style={{ color: '#b42318' }}>移除</Text>
+                  <Text style={{ color: colors.error }}>移除</Text>
                 </Pressable>
               </View>
             ))}
           </View>
           <Pressable accessibilityRole="button" onPress={pickPhotos}>
-            <Text style={{ color: green, fontWeight: '700' }}>添加照片</Text>
+            <Text style={{ color: colors.link, fontWeight: '700' }}>添加照片</Text>
           </Pressable>
-          {formError !== '' && <Text style={{ color: '#b42318' }}>{formError}</Text>}
+          {formError !== '' && <Text style={{ color: colors.error }}>{formError}</Text>}
           <Pressable
             accessibilityRole="button"
             disabled={busy}
@@ -286,7 +297,7 @@ export default function EditRecordScreen() {
             </Text>
           </Pressable>
           <Pressable accessibilityRole="button" disabled={busy} onPress={confirmDelete}>
-            <Text style={{ color: '#b42318', textAlign: 'center' }}>
+            <Text style={{ color: colors.error, textAlign: 'center' }}>
               {remove.isPending ? '正在删除…' : '删除记录'}
             </Text>
           </Pressable>

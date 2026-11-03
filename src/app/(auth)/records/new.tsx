@@ -11,6 +11,7 @@ import {
   TextInput,
   View,
 } from 'react-native'
+import { useMetvageColors } from 'src/lib/metvage-colors'
 import { getPets } from 'src/lib/pets'
 import { createPetRecord, type RecordVisibility } from 'src/lib/records'
 import { useAuth } from 'src/state/AuthProvider'
@@ -18,6 +19,7 @@ import { useAuth } from 'src/state/AuthProvider'
 const green = '#075e52'
 
 export default function NewRecordScreen() {
+  const colors = useMetvageColors()
   const { mode, pet_id } = useLocalSearchParams<{ mode?: string; pet_id?: string }>()
   const { user } = useAuth()
   const queryClient = useQueryClient()
@@ -104,6 +106,7 @@ export default function NewRecordScreen() {
 
   return (
     <ScrollView
+      style={{ backgroundColor: colors.background }}
       contentInsetAdjustmentBehavior="automatic"
       keyboardShouldPersistTaps="handled"
       contentContainerStyle={{ padding: 20, paddingBottom: 40, gap: 18 }}
@@ -114,27 +117,31 @@ export default function NewRecordScreen() {
       {isLoading && <ActivityIndicator accessibilityLabel="正在加载宠物档案" />}
       {error && (
         <View style={{ gap: 8 }}>
-          <Text style={{ color: '#b42318' }}>{error.message}</Text>
+          <Text style={{ color: colors.error }}>{error.message}</Text>
           <Pressable accessibilityRole="button" onPress={() => refetch()}>
-            <Text style={{ color: green }}>重试加载</Text>
+            <Text style={{ color: colors.link }}>重试加载</Text>
           </Pressable>
         </View>
       )}
       {data?.pets.length === 0 && (
         <View style={{ gap: 10 }}>
-          <Text>发布或添加私人记录前，请先建立一只猫或狗的宠物档案。</Text>
+          <Text style={{ color: colors.text }}>
+            发布或添加私人记录前，请先建立一只猫或狗的宠物档案。
+          </Text>
           <Pressable
             accessibilityRole="button"
             onPress={() => router.push('/settings/pets')}
           >
-            <Text style={{ color: green }}>去建立宠物档案</Text>
+            <Text style={{ color: colors.link }}>去建立宠物档案</Text>
           </Pressable>
         </View>
       )}
       {data && data.pets.length > 0 && (
         <>
           <View style={{ gap: 8 }}>
-            <Text style={{ fontSize: 18, fontWeight: '700' }}>选择宠物身份</Text>
+            <Text style={{ color: colors.text, fontSize: 18, fontWeight: '700' }}>
+              选择宠物身份
+            </Text>
             {data.pets.map((pet) => (
               <Pressable
                 key={pet.id}
@@ -147,7 +154,7 @@ export default function NewRecordScreen() {
                   backgroundColor: selectedPetId === pet.id ? '#e7f4ee' : '#f4f5f4',
                 }}
               >
-                <Text>
+                <Text style={{ color: '#17352f' }}>
                   {pet.species === 'cat' ? '🐈' : '🐕'} {pet.nickname}
                 </Text>
               </Pressable>
@@ -156,11 +163,14 @@ export default function NewRecordScreen() {
           <TextInput
             accessibilityLabel="记录标题（可选）"
             placeholder="标题（可选，最多 50 字）"
+            placeholderTextColor="#63746f"
             value={title}
             onChangeText={setTitle}
             maxLength={50}
             style={{
               padding: 14,
+              color: '#17352f',
+              backgroundColor: '#fff',
               borderWidth: 1,
               borderColor: '#ccd8d2',
               borderRadius: 10,
@@ -169,6 +179,7 @@ export default function NewRecordScreen() {
           <TextInput
             accessibilityLabel="记录内容"
             placeholder="写下这一刻…（可只发照片）"
+            placeholderTextColor="#63746f"
             value={text}
             onChangeText={setText}
             multiline
@@ -176,6 +187,8 @@ export default function NewRecordScreen() {
             style={{
               minHeight: 160,
               padding: 14,
+              color: '#17352f',
+              backgroundColor: '#fff',
               borderWidth: 1,
               borderColor: '#ccd8d2',
               borderRadius: 10,
@@ -183,7 +196,7 @@ export default function NewRecordScreen() {
           />
           <View style={{ gap: 10 }}>
             <Pressable accessibilityRole="button" onPress={pickPhotos}>
-              <Text style={{ color: green, fontWeight: '700' }}>
+              <Text style={{ color: colors.link, fontWeight: '700' }}>
                 添加照片（{photos.length}/9）
               </Text>
             </Pressable>
@@ -202,14 +215,16 @@ export default function NewRecordScreen() {
                       setPhotos((current) => current.filter((_, item) => item !== index))
                     }
                   >
-                    <Text style={{ color: '#b42318' }}>移除</Text>
+                    <Text style={{ color: colors.error }}>移除</Text>
                   </Pressable>
                 </View>
               ))}
             </View>
           </View>
           <View style={{ gap: 8 }}>
-            <Text style={{ fontSize: 18, fontWeight: '700' }}>谁能看到</Text>
+            <Text style={{ color: colors.text, fontSize: 18, fontWeight: '700' }}>
+              谁能看到
+            </Text>
             {(['public', 'private'] as const).map((value) => (
               <Pressable
                 key={value}
@@ -222,7 +237,7 @@ export default function NewRecordScreen() {
                   backgroundColor: visibility === value ? '#e7f4ee' : '#f4f5f4',
                 }}
               >
-                <Text>
+                <Text style={{ color: '#17352f' }}>
                   {value === 'public'
                     ? '公开笔记 · 访客也能看到'
                     : '私人记录 · 仅自己可见'}
@@ -230,7 +245,7 @@ export default function NewRecordScreen() {
               </Pressable>
             ))}
           </View>
-          {formError !== '' && <Text style={{ color: '#b42318' }}>{formError}</Text>}
+          {formError !== '' && <Text style={{ color: colors.error }}>{formError}</Text>}
           <Pressable
             accessibilityRole="button"
             disabled={save.isPending}

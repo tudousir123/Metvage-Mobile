@@ -4,6 +4,7 @@ import { router, Stack, useLocalSearchParams } from 'expo-router'
 import { useState } from 'react'
 import { ActivityIndicator, Alert, Pressable, ScrollView, Text, View } from 'react-native'
 import { RecordInteractions } from 'src/components/records/record-interactions'
+import { useMetvageColors } from 'src/lib/metvage-colors'
 import { getPets } from 'src/lib/pets'
 import {
   getPetTimeline,
@@ -16,6 +17,7 @@ import { useAuth } from 'src/state/AuthProvider'
 const green = '#075e52'
 
 export default function PetTimelineScreen() {
+  const colors = useMetvageColors()
   const { id } = useLocalSearchParams<{ id: string }>()
   const { user } = useAuth()
   const queryClient = useQueryClient()
@@ -65,6 +67,7 @@ export default function PetTimelineScreen() {
 
   return (
     <ScrollView
+      style={{ backgroundColor: colors.background }}
       contentInsetAdjustmentBehavior="automatic"
       contentContainerStyle={{ padding: 20, paddingBottom: 40, gap: 16 }}
     >
@@ -72,19 +75,21 @@ export default function PetTimelineScreen() {
       {isLoading && <ActivityIndicator accessibilityLabel="正在加载宠物时间线" />}
       {error && (
         <View style={{ gap: 8 }}>
-          <Text style={{ color: '#b42318' }}>{error.message}</Text>
+          <Text style={{ color: colors.error }}>{error.message}</Text>
           <Pressable accessibilityRole="button" onPress={() => refetch()}>
-            <Text style={{ color: green }}>重试加载</Text>
+            <Text style={{ color: colors.link }}>重试加载</Text>
           </Pressable>
         </View>
       )}
       {visibilityError !== '' && (
-        <Text style={{ color: '#b42318' }}>{visibilityError}</Text>
+        <Text style={{ color: colors.error }}>{visibilityError}</Text>
       )}
       {data && (
         <>
-          {isFetching && <Text style={{ color: '#63746f' }}>正在同步…</Text>}
-          {data.records.length === 0 && <Text>还没有记录。保存第一段日常吧。</Text>}
+          {isFetching && <Text style={{ color: colors.secondaryText }}>正在同步…</Text>}
+          {data.records.length === 0 && (
+            <Text style={{ color: colors.text }}>还没有记录。保存第一段日常吧。</Text>
+          )}
           {data.records.map((record) => (
             <View
               key={record.id}
@@ -94,9 +99,13 @@ export default function PetTimelineScreen() {
                 {record.visibility === 'public' ? '公开笔记' : '私人记录 · 仅自己可见'}
               </Text>
               {record.title && (
-                <Text style={{ fontSize: 18, fontWeight: '700' }}>{record.title}</Text>
+                <Text style={{ color: '#17352f', fontSize: 18, fontWeight: '700' }}>
+                  {record.title}
+                </Text>
               )}
-              {record.text && <Text style={{ fontSize: 16 }}>{record.text}</Text>}
+              {record.text && (
+                <Text style={{ color: '#17352f', fontSize: 16 }}>{record.text}</Text>
+              )}
               {record.photos.length > 0 && (
                 <ScrollView horizontal contentContainerStyle={{ gap: 8 }}>
                   {record.photos.map((photo) => (
@@ -166,7 +175,7 @@ export default function PetTimelineScreen() {
                 )
               }
             >
-              <Text style={{ color: green }}>发布笔记</Text>
+              <Text style={{ color: colors.link }}>发布笔记</Text>
             </Pressable>
           )}
           {isOwner && (
@@ -180,7 +189,7 @@ export default function PetTimelineScreen() {
                 )
               }
             >
-              <Text style={{ color: green }}>添加私人记录</Text>
+              <Text style={{ color: colors.link }}>添加私人记录</Text>
             </Pressable>
           )}
         </>

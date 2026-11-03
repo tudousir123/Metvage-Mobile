@@ -9,6 +9,7 @@ import {
   TextInput,
   View,
 } from 'react-native'
+import { useMetvageColors } from 'src/lib/metvage-colors'
 import {
   createPet,
   getPets,
@@ -23,6 +24,7 @@ const ink = '#17352f'
 const green = '#075e52'
 
 export default function PetsPage() {
+  const colors = useMetvageColors()
   const { user } = useAuth()
   const queryClient = useQueryClient()
   const queryKey = ['metvage-pets', user?.server, user?.token]
@@ -78,22 +80,23 @@ export default function PetsPage() {
 
   return (
     <ScrollView
+      style={{ backgroundColor: colors.background }}
       contentInsetAdjustmentBehavior="automatic"
       keyboardShouldPersistTaps="handled"
       contentContainerStyle={{ padding: 20, gap: 16, paddingBottom: 40 }}
     >
       <Stack.Screen options={{ title: '我的宠物' }} />
-      <Text style={{ color: ink, fontSize: 15 }}>
+      <Text style={{ color: colors.text, fontSize: 15 }}>
         登录后可先浏览。发布或互动前，请建立并选定一只猫或狗作为宠物身份。
       </Text>
       <Link href="/settings/species-request" asChild>
         <Pressable accessibilityRole="button">
-          <Text style={{ color: green }}>养其他宠物？申请支持其他物种</Text>
+          <Text style={{ color: colors.link }}>养其他宠物？申请支持其他物种</Text>
         </Pressable>
       </Link>
       <Link href="/following" asChild>
         <Pressable accessibilityRole="button">
-          <Text style={{ color: green }}>查看当前宠物的关注流</Text>
+          <Text style={{ color: colors.link }}>查看当前宠物的关注流</Text>
         </Pressable>
       </Link>
 
@@ -102,17 +105,19 @@ export default function PetsPage() {
       )}
       {error && (
         <View style={{ gap: 8 }}>
-          <Text style={{ color: '#b42318' }}>{error.message}</Text>
+          <Text style={{ color: colors.error }}>{error.message}</Text>
           <Pressable accessibilityRole="button" onPress={() => refetch()}>
-            <Text style={{ color: green }}>重试加载</Text>
+            <Text style={{ color: colors.link }}>重试加载</Text>
           </Pressable>
         </View>
       )}
       {data && (
         <>
-          {isFetching && <Text style={{ color: '#63746f' }}>正在同步…</Text>}
+          {isFetching && <Text style={{ color: colors.secondaryText }}>正在同步…</Text>}
           {data.pets.length === 0 && (
-            <Text style={{ color: '#63746f' }}>还没有宠物档案。只需昵称即可开始。</Text>
+            <Text style={{ color: colors.secondaryText }}>
+              还没有宠物档案。只需昵称即可开始。
+            </Text>
           )}
           {data.pets.map((pet) => {
             const current = data.current_pet_id === pet.id
@@ -134,7 +139,7 @@ export default function PetsPage() {
                   {pet.species === 'cat' ? '猫' : '狗'}
                   {pet.bio ? ` · ${pet.bio}` : ''}
                 </Text>
-                <View style={{ flexDirection: 'row', gap: 20 }}>
+                <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 20 }}>
                   <Pressable
                     accessibilityRole="button"
                     onPress={() =>
@@ -162,7 +167,7 @@ export default function PetsPage() {
             )
           })}
           {select.error && (
-            <Text style={{ color: '#b42318' }}>{select.error.message}</Text>
+            <Text style={{ color: colors.error }}>{select.error.message}</Text>
           )}
           <Pressable
             accessibilityRole="button"
@@ -187,17 +192,19 @@ export default function PetsPage() {
           <TextInput
             accessibilityLabel="宠物昵称"
             placeholder="宠物昵称"
+            placeholderTextColor="#63746f"
             value={nickname}
             onChangeText={setNickname}
             maxLength={50}
             style={{
+              color: ink,
               borderWidth: 1,
               borderColor: '#ccd8d2',
               borderRadius: 8,
               padding: 12,
             }}
           />
-          <View style={{ flexDirection: 'row', gap: 12 }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
             {(['cat', 'dog'] as const).map((value) => (
               <Pressable
                 key={value}
@@ -210,7 +217,7 @@ export default function PetsPage() {
                   backgroundColor: species === value ? '#e7f4ee' : '#f5f5f5',
                 }}
               >
-                <Text>{value === 'cat' ? '🐈 猫' : '🐕 狗'}</Text>
+                <Text style={{ color: ink }}>{value === 'cat' ? '🐈 猫' : '🐕 狗'}</Text>
               </Pressable>
             ))}
           </View>
@@ -218,11 +225,13 @@ export default function PetsPage() {
             <TextInput
               accessibilityLabel="公开介绍"
               placeholder="公开介绍（选填）"
+              placeholderTextColor="#63746f"
               value={bio}
               onChangeText={setBio}
               multiline
               maxLength={500}
               style={{
+                color: ink,
                 borderWidth: 1,
                 borderColor: '#ccd8d2',
                 borderRadius: 8,
@@ -232,7 +241,7 @@ export default function PetsPage() {
             />
           )}
           {formError !== '' && <Text style={{ color: '#b42318' }}>{formError}</Text>}
-          <View style={{ flexDirection: 'row', gap: 20 }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 20 }}>
             <Pressable accessibilityRole="button" onPress={() => setFormOpen(false)}>
               <Text style={{ color: '#63746f' }}>取消</Text>
             </Pressable>
