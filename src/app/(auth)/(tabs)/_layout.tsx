@@ -1,13 +1,16 @@
 import Feather from '@expo/vector-icons/Feather'
 import { useAuth } from '@state/AuthProvider'
 import { Redirect, router, Tabs } from 'expo-router'
-import { View } from 'react-native'
+import { useWindowDimensions, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 
 export default function AppLayout() {
   const { user } = useAuth()
   const insets = useSafeAreaInsets()
+  const { fontScale } = useWindowDimensions()
+  // Keep the compact default height while reserving extra space for scaled labels.
+  const labelGrowth = Math.ceil(20 * Math.max(0, fontScale - 1))
   if (!user) return <Redirect href="/handleLogin" />
   return (
     <Tabs
@@ -22,9 +25,9 @@ export default function AppLayout() {
         tabBarStyle: {
           backgroundColor: c.background,
           borderTopColor: c.border,
-          height: 58 + insets.bottom,
-          paddingBottom: insets.bottom,
-          paddingTop: 4,
+          height: 58 + labelGrowth + insets.bottom,
+          paddingBottom: 4 + insets.bottom,
+          paddingTop: 0,
         },
       }}
     >
