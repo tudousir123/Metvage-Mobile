@@ -1,4 +1,5 @@
 import { Alert } from 'react-native'
+import { expireSession, SessionExpiredError } from './lib/auth-session'
 import { instanceOrigin } from './lib/instanceOrigin'
 import { Storage } from './state/cache'
 import { compareSemver } from './utils'
@@ -194,6 +195,10 @@ export async function verifyCredentials(domain: string, token: string) {
     token
   )
 
+  if (resp.status === 401) {
+    expireSession(domain, token)
+    throw new SessionExpiredError()
+  }
   if (!resp.ok) {
     throw new Error(`Credential verification failed with status ${resp.status}`)
   }

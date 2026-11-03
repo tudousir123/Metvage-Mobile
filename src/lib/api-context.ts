@@ -1,17 +1,11 @@
 import { Storage } from 'src/state/cache'
+import { expireSession, SessionExpiredError } from './auth-session'
 import { instanceOrigin } from './instanceOrigin'
 import { randomKey } from './randomKey'
 
 type ApiRequestOptions = {
   idempotency?: true
   searchParams?: Record<string, string | number | boolean>
-}
-
-// Global logout function that can be set by AuthProvider
-let globalLogoutFunction: (() => void) | null = null
-
-export function setGlobalLogoutFunction(logoutFn: () => void) {
-  globalLogoutFunction = logoutFn
 }
 
 export class ApiContext {
@@ -24,17 +18,6 @@ export class ApiContext {
     }
     if (token.length === 0) {
       throw new Error('failed to create ApiContext: token missing')
-    }
-  }
-
-  private handleUnauthorized() {
-    // Clear credentials cache since we got unauthorized
-    Storage.delete('app.credentials_verified_at')
-
-    // Trigger logout if available
-    if (globalLogoutFunction) {
-      globalLogoutFunction()
-    } else {
     }
   }
 
@@ -63,10 +46,9 @@ export class ApiContext {
 
     let response = await fetch(url, fetch_options)
 
-    // Handle unauthorized responses (401 or 403)
-    if (response.status === 401 || response.status === 403) {
-      this.handleUnauthorized()
-      throw new Error('Authentication failed - user has been logged out')
+    if (response.status === 401) {
+      expireSession(this.instanceHostName, this.token)
+      throw new SessionExpiredError()
     }
 
     if (!response.ok) {

@@ -7,6 +7,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from 'rea
 import { Alert, Platform } from 'react-native'
 import { getAccountById } from 'src/lib/api'
 import type { Account, LoginUserResponse } from 'src/lib/api-types'
+import { onSessionExpired } from 'src/lib/auth-session'
 import { instanceOrigin } from 'src/lib/instanceOrigin'
 import { get, loginPreflightCheck, postForm, verifyCredentials } from 'src/requests'
 import { Storage } from './cache'
@@ -71,6 +72,12 @@ function useProtectedRoute(user: User | null, setUser: any, setIsLoading: any) {
           // Cache expired or doesn't exist, verify with server
           try {
             const userInfo = await verifyCredentials(server, token)
+            if (
+              Storage.getString('app.token') !== token ||
+              Storage.getString('app.instance') !== server
+            ) {
+              return
+            }
             if (userInfo) {
               markCredentialsAsVerified()
               setUser({
@@ -85,7 +92,11 @@ function useProtectedRoute(user: User | null, setUser: any, setIsLoading: any) {
           } catch (_error) {
             // Network error or server issues - use cached credentials if available
             const lastVerified = Storage.getNumber('app.credentials_verified_at')
-            if (lastVerified) {
+            if (
+              lastVerified &&
+              Storage.getString('app.token') === token &&
+              Storage.getString('app.instance') === server
+            ) {
               setUser({
                 server: server,
                 token: token,
@@ -111,7 +122,7 @@ function useProtectedRoute(user: User | null, setUser: any, setIsLoading: any) {
     }, 1000)
 
     if (!user && inAuthGroup) {
-      router.replace('/login')
+      router.replace('/handleLogin')
     } else if (
       user &&
       !inAuthGroup &&
@@ -153,6 +164,16 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [userCache, setUserCache] = useState<LoginUserResponse | null>(null)
+
+  useEffect(
+    () =>
+      onSessionExpired(() => {
+        setUser(null)
+        setUserCache(null)
+        setIsLoading(false)
+      }),
+    []
+  )
 
   const loadUserCacheFromStorage = useCallback(() => {
     let saved = Storage.getString('user.profile')

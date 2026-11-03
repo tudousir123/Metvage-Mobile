@@ -1,5 +1,6 @@
 import Constants from 'expo-constants'
 import { Storage } from 'src/state/cache'
+import { expireSession, SessionExpiredError } from './auth-session'
 import { instanceOrigin } from './instanceOrigin'
 
 export function metvageInstanceHost(): string | null {
@@ -46,7 +47,7 @@ export async function metvageFetch(
     throw new Error(options.loginMessage || '请先登录')
   }
   const body = options.body
-  return fetch(`${origin}${path}`, {
+  const response = await fetch(`${origin}${path}`, {
     method: options.method || 'GET',
     headers: {
       Accept: 'application/json',
@@ -57,6 +58,17 @@ export async function metvageFetch(
     },
     body: body instanceof FormData ? body : body ? JSON.stringify(body) : undefined,
   })
+  if (response.status === 401 && token && server && options.auth !== 'none') {
+    expireSession(server, token)
+    if (options.auth === 'optional' && (options.method ?? 'GET') === 'GET') {
+      return fetch(`${origin}${path}`, {
+        method: 'GET',
+        headers: { Accept: 'application/json' },
+      })
+    }
+    throw new SessionExpiredError()
+  }
+  return response
 }
 
 export async function metvageRequest<T>(
