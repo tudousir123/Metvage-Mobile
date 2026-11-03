@@ -5,6 +5,9 @@ import { createRoot } from 'react-dom/client'
 import { RecordInteractions } from '../src/components/records/record-interactions'
 import { commentOnRecord } from '../src/lib/interactions'
 
+jest.mock('@expo/vector-icons/Feather', () => () => null)
+jest.mock('../src/components/metvage/brand', () => ({ PetAvatar: () => null }))
+
 let mockInput
 let mockComments = []
 jest.mock('expo-router', () => ({ router: { push: jest.fn() } }))
