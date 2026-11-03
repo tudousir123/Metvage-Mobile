@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react'
 import { useState } from 'react'
 import { Pressable, Text, View } from 'react-native'
 import { instanceOrigin } from 'src/lib/instanceOrigin'
-import { metvagePalette as c } from 'src/lib/metvage-colors'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import { Storage } from 'src/state/cache'
 import { openBrowserAsync } from 'src/utils'
 
@@ -31,18 +31,31 @@ export function SettingsRow({
       disabled={disabled}
       onPress={onPress}
       style={({ pressed }) => ({
-        minHeight: 56,
-        padding: 16,
+        minHeight: m.touch,
+        paddingHorizontal: m.inset,
+        paddingVertical: m.inset,
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 12,
-        borderBottomWidth: 1,
+        gap: m.inset,
+        borderBottomWidth: 0.5,
         borderBottomColor: c.border,
-        opacity: pressed || disabled ? 0.6 : 1,
+        backgroundColor: pressed ? c.field : c.surface,
+        opacity: disabled ? 0.6 : 1,
       })}
     >
-      <Feather name={icon} size={20} color={destructive ? c.error : c.green} />
-      <Text style={{ flex: 1, color, fontSize: 16 }}>{title}</Text>
+      <View
+        style={{
+          width: 30,
+          height: 30,
+          borderRadius: 10,
+          backgroundColor: destructive ? c.softPeach : c.softGreen,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Feather name={icon} size={17} color={destructive ? c.error : c.green} />
+      </View>
+      <Text style={{ flex: 1, color, fontSize: m.cardTitle }}>{title}</Text>
       <Feather name="chevron-right" size={18} color={c.secondaryText} />
     </Pressable>
   )
@@ -88,7 +101,13 @@ export function InstancePageRow({
       {!!error && (
         <Text
           accessibilityRole="alert"
-          style={{ color: c.error, padding: 16, lineHeight: 22 }}
+          style={{
+            color: c.error,
+            paddingHorizontal: m.inset,
+            paddingVertical: m.inset,
+            fontSize: m.caption,
+            lineHeight: 18,
+          }}
         >
           {error}
         </Text>
