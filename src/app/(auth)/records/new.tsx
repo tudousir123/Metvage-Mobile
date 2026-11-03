@@ -203,27 +203,40 @@ export default function NewRecordScreen() {
     setSavedDraft(null)
   }
 
+  const canCompose = !!data && data.pets.length > 0 && draftReady && !savedDraft
+
   return (
     <ComposerPage
       title={visibility === 'private' ? '添加私人记录' : '发布笔记'}
       onCancel={cancel}
       footer={
-        data && data.pets.length > 0 && draftReady && !savedDraft ? (
-          <ComposerSubmit
-            title={
-              save.isPending
-                ? '正在保存…'
-                : visibility === 'public'
-                  ? '发布'
-                  : '保存私人记录'
-            }
-            busy={busy}
-            onPress={() => {
-              setFormError('')
-              setNotice('')
-              save.mutate()
-            }}
-          />
+        canCompose ? (
+          <View style={{ gap: 8 }}>
+            {formError !== '' && (
+              <Text
+                accessibilityRole="alert"
+                accessibilityLiveRegion="polite"
+                style={{ color: c.error, fontSize: 14, lineHeight: 20 }}
+              >
+                {formError}
+              </Text>
+            )}
+            <ComposerSubmit
+              title={
+                save.isPending
+                  ? '正在保存…'
+                  : visibility === 'public'
+                    ? '发布'
+                    : '保存私人记录'
+              }
+              busy={busy}
+              onPress={() => {
+                setFormError('')
+                setNotice('')
+                save.mutate()
+              }}
+            />
+          </View>
         ) : undefined
       }
       headerAction={
@@ -273,7 +286,7 @@ export default function NewRecordScreen() {
           </Pressable>
         </View>
       )}
-      {formError !== '' && (
+      {formError !== '' && !canCompose && (
         <Text accessibilityRole="alert" style={{ color: c.error }}>
           {formError}
         </Text>

@@ -162,14 +162,25 @@ export default function EditRecordScreen() {
       onCancel={cancel}
       footer={
         record && petsQuery.data && isOwner ? (
-          <ComposerSubmit
-            title={save.isPending ? '正在保存…' : '保存更改'}
-            busy={busy}
-            onPress={() => {
-              setFormError('')
-              save.mutate()
-            }}
-          />
+          <View style={{ gap: 8 }}>
+            {formError !== '' && (
+              <Text
+                accessibilityRole="alert"
+                accessibilityLiveRegion="polite"
+                style={{ color: c.error, fontSize: 14, lineHeight: 20 }}
+              >
+                {formError}
+              </Text>
+            )}
+            <ComposerSubmit
+              title={save.isPending ? '正在保存…' : '保存更改'}
+              busy={busy}
+              onPress={() => {
+                setFormError('')
+                save.mutate()
+              }}
+            />
+          </View>
         ) : undefined
       }
     >
@@ -232,11 +243,6 @@ export default function EditRecordScreen() {
             visibility={record.visibility}
             busy={busy}
           />
-          {formError !== '' && (
-            <Text accessibilityRole="alert" style={{ color: c.error }}>
-              {formError}
-            </Text>
-          )}
 
           <Pressable
             accessibilityRole="button"
