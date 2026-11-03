@@ -82,7 +82,11 @@ export function FollowingRecordFeed({ header }: { header?: ReactElement }) {
         </View>
       }
       ListEmptyComponent={
-        feed.isLoading ? (
+        feed.isPending && feed.fetchStatus === 'paused' ? (
+          <Text accessibilityRole="alert" style={{ color: c.secondaryText, padding: 24 }}>
+            等待网络连接，恢复后会自动加载关注的笔记。
+          </Text>
+        ) : feed.isPending ? (
           <ActivityIndicator accessibilityLabel="正在加载关注流" />
         ) : !error ? (
           <Text style={{ color: c.secondaryText }}>

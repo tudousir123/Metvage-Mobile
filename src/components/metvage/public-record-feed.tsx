@@ -44,7 +44,14 @@ export function PublicRecordFeed({
       )}
       ListHeaderComponent={header}
       ListEmptyComponent={
-        feed.isLoading ? (
+        feed.isPending && feed.fetchStatus === 'paused' ? (
+          <Text
+            accessibilityRole="alert"
+            style={{ color: c.secondaryText, textAlign: 'center', padding: 32 }}
+          >
+            等待网络连接，恢复后会自动加载笔记。
+          </Text>
+        ) : feed.isPending ? (
           <ActivityIndicator
             accessibilityLabel="正在加载公开笔记"
             color={c.green}
