@@ -1,0 +1,16 @@
+{
+  "steps": [
+    {"action":"open","path":"/notifications","expect":{"label":"互动通知"}},
+    {"action":"capture","name":"notifications"},
+    {"action":"tap","label":"私信 · 未开放","expect":{"label":"未开放"}},
+    {"action":"back","expect":{"label":"互动通知"}},
+    {"action":"open","path":"/settings","expect":{"label":"屏蔽关系"}},
+    {"action":"capture","name":"settings"},
+    {"action":"tap","label":"屏蔽关系","expect":{"label":"当前没有屏蔽关系"}},
+    {"action":"capture","name":"blocked-empty"},
+    {"action":"back","expect":{"label":"法律与隐私"}},
+    {"action":"tap","label":"法律与隐私","expect":{"label":"隐私政策"}},
+    {"action":"capture","name":"legal"},
+    {"action":"open","path":"/","expect":{"label":"搜索宠物笔记"}}
+  ]
+}

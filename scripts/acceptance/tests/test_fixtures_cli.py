@@ -177,6 +177,33 @@ class FixtureCliTest(unittest.TestCase):
         self.assertEqual(self.command("cleanup", "--run-id", "foo-bar").returncode, 0)
         self.assertEqual(set(json.loads(self.state.read_text())["records"]), original)
 
+    def test_replay_failure_cleans_fixtures_and_keeps_existing_data(self):
+        from test_device_cli import FAKE_ADB
+        device = self.root / 'device.json'
+        device.write_text(json.dumps({'settings':{'system.font_scale':'1.45','global.stay_on_while_plugged_in':'2'},'reverse':{},'focus':'com.metvage.acceptance.phone'}))
+        adb = self.root / 'adb'; adb.write_text(FAKE_ADB); adb.chmod(0o700)
+        config=json.loads(self.config.read_text());config.update({'driverOnly':True,'adb':str(adb),'serial':'phone','package':'com.metvage.acceptance.phone'})
+        self.config.write_text(json.dumps(config));self.env['FAKE_ADB_STATE']=str(device)
+        plan=self.root/'plan.json';plan.write_text('{"steps":[{"action":"assert","label":"ready"}]}')
+        result=self.command('replay','--run-id','replay-failure','--plan',str(plan),'--fail-after-step','1')
+        self.assertEqual(result.returncode,1,result.stdout+result.stderr)
+        self.assertIn('Injected failure',result.stdout)
+        state=json.loads(self.state.read_text())
+        self.assertEqual(list(state['pets']),['900'])
+        self.assertEqual(state['records'],{})
+        self.assertFalse(state['token_active'])
+
+    def test_cleanup_retries_a_peer_token_without_touching_existing_data(self):
+        config=json.loads(self.config.read_text());config['peerProfileUsername']='test-peer';self.config.write_text(json.dumps(config))
+        folder=self.root/'runs/peer-recovery/peer';folder.mkdir(parents=True)
+        (folder/'fixtures.json').write_text(json.dumps({'run_id':'peer-recovery-token','profile_username':'test-peer','api_origin':config['apiOrigin'],'pets':[],'records':[],'token_cleanup_pending':True,'cleaned':False}))
+        state=json.loads(self.state.read_text());state['token_active']=True;self.state.write_text(json.dumps(state))
+        result=self.command('cleanup','--run-id','peer-recovery')
+        self.assertEqual(result.returncode,0,result.stdout)
+        self.assertFalse(json.loads(self.state.read_text())['token_active'])
+        self.assertFalse(json.loads((folder/'fixtures.json').read_text())['token_cleanup_pending'])
+        self.assertEqual(list(json.loads(self.state.read_text())['pets']),['900'])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,11 @@
+{
+  "steps": [
+    {"action":"open","path":"/pet/{peerPetId}","expect":{"label":"屏蔽此宠物的主人账号"}},
+    {"action":"touch","label":"{followLabel}"},
+    {"action":"touch","label":"屏蔽此宠物的主人账号"},
+    {"action":"tap","label":"屏蔽此宠物的主人账号","expect":{"label":"屏蔽这个宠物身份？"}},
+    {"action":"capture","name":"block-confirmation"},
+    {"action":"tap","label":"取消","expect":{"label":"{followLabel}"}},
+    {"action":"open","path":"/","expect":{"label":"搜索宠物笔记"}}
+  ]
+}

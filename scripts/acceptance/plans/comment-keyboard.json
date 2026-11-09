@@ -1,9 +1,37 @@
-{"steps": [
-  {"action": "tap", "label": "首页"},
-  {"action": "tap", "label": "阅读{publicPetNickname}的公开笔记"},
-  {"action": "tap", "label": "写评论"},
-  {"action": "keyboard", "label": "发送评论"},
-  {"action": "capture", "name": "comment-keyboard"},
-  {"action": "back"},
-  {"action": "back"}
-]}
+{
+  "steps": [
+    {
+      "action": "tap",
+      "label": "首页"
+    },
+    {
+      "action": "tap",
+      "label": "阅读{publicPetNickname}的公开笔记"
+    },
+    {
+      "action": "tap",
+      "label": "写评论"
+    },
+    {
+      "action": "keyboard",
+      "label": "发送评论"
+    },
+    {
+      "action": "capture",
+      "name": "comment-keyboard"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "label": "发送评论",
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "back",
+      "expect": {
+        "label": "搜索宠物笔记"
+      }
+    }
+  ]
+}

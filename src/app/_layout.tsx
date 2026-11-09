@@ -23,6 +23,7 @@ import { useAppState } from 'src/hooks/useAppState'
 import { AlertProvider } from 'src/hooks/useCustomAlertProvider'
 import { useOnlineManager } from 'src/hooks/useOnlineManager'
 import { VideoProvider } from 'src/hooks/useVideoProvider'
+import { reportAcceptanceRuntime } from 'src/lib/acceptance-runtime'
 import { metvagePalette as brand } from 'src/lib/metvage-colors'
 import { Storage } from 'src/state/cache'
 import { TamaguiProvider, Theme } from 'tamagui'
@@ -130,6 +131,7 @@ function RootLayout() {
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync()
+      reportAcceptanceRuntime()
     }
   }, [loaded])
 

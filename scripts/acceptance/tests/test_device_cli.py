@@ -34,6 +34,8 @@ elif a[:2]==['shell','getprop']: print('TestPhone')
 elif a[:3]==['shell','am','start']:
  s['focus']='com.metvage.acceptance.phone';save()
 elif a==['shell','dumpsys','window']:
+ if s.get('null_focus_reads',0):
+  s['null_focus_reads']-=1;save();print('mCurrentFocus=null');sys.exit()
  print('mCurrentFocus=Window{a u0 '+s['focus']+'/MainActivity}')
  print('mDreamingLockscreen='+str(s.get('locked',False)).lower())
 elif a[:3]==['shell','uiautomator','dump']:
@@ -41,6 +43,9 @@ elif a[:3]==['shell','uiautomator','dump']:
  time.sleep(s.get('delay',0)); print('UI hierarchy dumped')
 elif a[:2]==['shell','cat']:
  package=s['focus']; label='ready' if package=='com.metvage.acceptance.phone' else 'private'
+ if s.get('pending_reads',0): s['pending_reads']-=1;save()
+ if s.get('xml'):
+  print(s['after_xml'] if s.get('after_xml') and not s.get('pending_reads',0) else s['xml']);sys.exit()
  print('<hierarchy><node package="'+package+'" text="'+label+'" bounds="[0,0][1440,3200]" enabled="true" clickable="true"/></hierarchy>')
 elif a==['exec-out','screencap','-p']:
  if s.get('lose_focus_on_capture'): s['focus']='other.app';save()
@@ -48,6 +53,10 @@ elif a==['exec-out','screencap','-p']:
 elif a[:2]==['shell','rm']:
  s['xml_files']=[p for p in s.get('xml_files',[]) if p!=a[-1]];save()
 elif a[:2]==['shell','input']:
+ s.setdefault('inputs',[]).append(a[2:]);save()
+ if s.get('null_on_input'):s['null_focus_reads']=2;save()
+ if a[2:]==['keyevent','KEYCODE_BACK'] and s.get('transition_reads'): s['pending_reads']=s['transition_reads'];save()
+ if a[2:3]==['text'] and s.get('pending_reads',0):sys.exit(2)
  if s.get('disconnect_on_input'): s['connected']=False;save()
 else: print('Unsupported fake adb operation: '+str(a),file=sys.stderr); sys.exit(2)
 '''
@@ -69,7 +78,7 @@ class DeviceCliTest(unittest.TestCase):
         adb.chmod(0o700)
         self.config = self.root / "config.json"
         self.config.write_text(json.dumps({
-            "adb": str(adb), "serial": "phone", "package": "com.metvage.acceptance.phone",
+            "driverOnly": True, "adb": str(adb), "serial": "phone", "package": "com.metvage.acceptance.phone",
             "runRoot": str(self.root / "runs"), "reversePorts": {"8081": 8081, "18080": 18080},
         }))
         self.plan = self.root / "plan.json"
@@ -151,7 +160,7 @@ class DeviceCliTest(unittest.TestCase):
 
     def test_disconnect_keeps_a_recoverable_journal(self):
         self.state.write_text(json.dumps({**self.initial, "disconnect_on_input": True}))
-        self.plan.write_text(json.dumps({"steps": [{"action": "back"}]}))
+        self.plan.write_text(json.dumps({"steps": [{"action": "back", "expect": {"label": "ready"}}]}))
         result = self.run_cli("run", "--plan", str(self.plan), "--run-id", "offline", "--font-scale", "1.3")
         self.assertEqual(result.returncode, 1)
         journal = self.root / "runs/offline/device.json"
@@ -163,6 +172,90 @@ class DeviceCliTest(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout)
         self.assertFalse(json.loads(journal.read_text())["restoration_pending"])
         self.assertEqual(json.loads(self.state.read_text())["settings"], self.initial["settings"])
+
+    def test_label_on_button_and_child_resolves_to_one_clickable_target(self):
+        xml = '<hierarchy><node package="com.metvage.acceptance.phone" content-desc="Choose" clickable="true" enabled="true" bounds="[0,0][300,200]"><node package="com.metvage.acceptance.phone" text="Choose" clickable="false" enabled="true" bounds="[10,10][100,60]"/></node></hierarchy>'
+        self.state.write_text(json.dumps({**self.initial, "xml": xml}))
+        self.plan.write_text(json.dumps({"steps": [{"action": "tap", "label": "Choose"}]}))
+        result = self.run_cli("run", "--plan", str(self.plan), "--run-id", "parent-child")
+        self.assertEqual(result.returncode, 0, result.stdout)
+        self.assertEqual(json.loads(self.state.read_text())["inputs"], [["tap", "150", "100"]])
+        events = list((self.root / "runs/parent-child").glob("invocations/*/events.json"))
+        step = next(e for e in json.loads(events[0].read_text()) if e["action"] == "step")
+        self.assertEqual(step["ui_reads"], 2)
+
+    def test_distinct_same_label_controls_require_explicit_selection(self):
+        xml = '<hierarchy><node package="com.metvage.acceptance.phone" text="Choose" clickable="true" enabled="true" bounds="[0,0][300,200]"/><node package="com.metvage.acceptance.phone" text="Choose" clickable="true" enabled="true" bounds="[0,220][300,420]"/></hierarchy>'
+        self.state.write_text(json.dumps({**self.initial, "xml": xml}))
+        self.plan.write_text(json.dumps({"steps": [{"action": "tap", "label": "Choose"}]}))
+        result = self.run_cli("run", "--plan", str(self.plan), "--run-id", "ambiguous")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("2 clickable", json.loads(result.stdout)["error"])
+        self.assertNotIn("inputs", json.loads(self.state.read_text()))
+
+    def test_back_requires_a_postcondition_before_touching_device(self):
+        self.plan.write_text(json.dumps({"steps": [{"action": "back"}]}))
+        result = self.run_cli("run", "--plan", str(self.plan), "--run-id", "unbounded-back")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("postcondition", json.loads(result.stdout)["error"])
+        self.assertNotIn("inputs", json.loads(self.state.read_text()))
+        self.assertEqual(json.loads(self.state.read_text())["settings"], self.initial["settings"])
+
+    def test_next_input_waits_for_back_destination(self):
+        xml = '<hierarchy><node package="com.metvage.acceptance.phone" text="before" bounds="[0,0][300,200]"/></hierarchy>'
+        after = xml.replace('before','destination')
+        self.state.write_text(json.dumps({**self.initial, "xml": xml, "after_xml": after, "transition_reads": 3}))
+        self.plan.write_text(json.dumps({"steps": [{"action": "back", "expect": {"label": "destination"}}, {"action": "type", "text": "next"}]}))
+        result = self.run_cli("run", "--plan", str(self.plan), "--run-id", "transition")
+        self.assertEqual(result.returncode, 0, result.stdout)
+        self.assertEqual(json.loads(self.state.read_text())["inputs"][-1], ["text", "next"])
+
+    def test_included_plans_are_validated_before_device_mutation(self):
+        child=self.root/'child.json';child.write_text('{"steps":[{"action":"back"}]}')
+        self.plan.write_text('{"include":["child.json"],"steps":[]}')
+        result=self.run_cli('run','--run-id','invalid-included','--plan',str(self.plan))
+        self.assertEqual(result.returncode,1,result.stdout)
+        self.assertIn('postcondition',result.stdout)
+        self.assertNotIn('inputs',json.loads(self.state.read_text()))
+
+    def test_api_disconnection_is_restored_after_injected_failure(self):
+        config=json.loads(self.config.read_text());config['apiOrigin']='http://127.0.0.1:18080'
+        self.config.write_text(json.dumps(config))
+        self.plan.write_text('{"steps":[{"action":"api_connection","state":"off"}]}')
+        result=self.run_cli('run','--run-id','api-restore','--plan',str(self.plan),'--fail-after-step','1')
+        self.assertEqual(result.returncode,1,result.stdout)
+        self.assertEqual(json.loads(self.state.read_text())['reverse'],self.initial['reverse'])
+
+    def test_inspect_returns_only_requested_target_metadata(self):
+        xml='<hierarchy><node package="com.metvage.acceptance.phone" text="Choose" clickable="true" enabled="true" bounds="[0,0][300,200]"/><node package="com.metvage.acceptance.phone" text="private-sentinel" bounds="[0,220][300,420]"/></hierarchy>'
+        self.state.write_text(json.dumps({**self.initial,'xml':xml}))
+        result=self.run_cli('inspect','--label','Choose','--run-id','inspect')
+        self.assertEqual(result.returncode,0,result.stdout)
+        self.assertEqual(json.loads(result.stdout)['count'],1)
+        self.assertNotIn('private-sentinel',result.stdout)
+
+    def test_mixed_accessibility_and_text_matches_still_detect_two_buttons(self):
+        xml='<hierarchy><node package="com.metvage.acceptance.phone" content-desc="Choose" clickable="true" enabled="true" bounds="[0,0][300,200]"/><node package="com.metvage.acceptance.phone" text="Choose" clickable="true" enabled="true" bounds="[0,220][300,420]"/></hierarchy>'
+        self.state.write_text(json.dumps({**self.initial,'xml':xml}))
+        self.plan.write_text('{"steps":[{"action":"tap","label":"Choose"}]}')
+        result=self.run_cli('run','--run-id','mixed','--plan',str(self.plan))
+        self.assertEqual(result.returncode,1,result.stdout)
+        self.assertIn('2 clickable',result.stdout)
+        self.assertNotIn('inputs',json.loads(self.state.read_text()))
+
+    def test_transient_null_focus_waits_without_reading_another_app(self):
+        self.state.write_text(json.dumps({**self.initial,'null_on_input':True}))
+        self.plan.write_text('{"steps":[{"action":"type","text":"next"},{"action":"assert","label":"ready"}]}')
+        result=self.run_cli('run','--run-id','transient-focus','--plan',str(self.plan))
+        self.assertEqual(result.returncode,0,result.stdout)
+        self.assertEqual(json.loads(self.state.read_text())['null_focus_reads'],0)
+
+    def test_normal_run_without_source_configuration_is_rejected(self):
+        config=json.loads(self.config.read_text());config.pop('driverOnly');self.config.write_text(json.dumps(config))
+        result=self.run_cli('run','--run-id','missing-source','--plan',str(self.plan))
+        self.assertEqual(result.returncode,1,result.stdout)
+        self.assertIn('mobileRoot',result.stdout)
+        self.assertNotIn('inputs',json.loads(self.state.read_text()))
 
 
 if __name__ == "__main__":
