@@ -67,3 +67,5 @@ npm run --silent acceptance -- --config .acceptance/probe/config.json probe-phot
 - 目前需要异常时的快照/请求负载，或一个新的自然失败，才能继续缩小触发条件并提出可证伪假设。现有通过不取消原失败，未修改照片删除产品代码，未解除[严格真机缺口](continuation.md)。
 
 [运行协议快照](diagnostics/photo-removal-20261110/protocols/README.md)仅供审计已执行调用；旧夹具已经清理，不可直接重放旧 ID。
+
+[本轮两轴评审](diagnostics/photo-removal-20261110/review.md)：规范轴无未解决发现；规格轴恢复缺口已解决，原始问题的稳定自然复现与根因定位仍未完成。
