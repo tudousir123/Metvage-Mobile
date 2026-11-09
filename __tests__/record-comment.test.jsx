@@ -106,6 +106,8 @@ test('one send action is in flight even if the still-enabled button receives rap
     '键盘打开时也要发送',
     expect.any(String)
   )
+  // React Query notifies observers on the next task, after the synchronous lock.
+  await flush()
   expect(mockInput.editable).toBe(false)
   await act(async () => pending.resolve({}))
   await flush()
