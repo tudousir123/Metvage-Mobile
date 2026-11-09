@@ -1,0 +1,8 @@
+PASS: owner timeline retains private records; other account and guest receive public notes only
+PASS: repeated record submission persists exactly one record
+PASS: private record, direct link, public search, and cross-account edit enforce visibility and ownership
+PASS: edits survive a fresh HTTP read
+PASS: comment retry creates one comment under selected pet identity; conflicting key reuse is rejected
+PASS: other-account comment produces a real owner notification
+PASS: public/private round trip immediately protects old links and preserves prior interaction
+PASS: only this run's temporary record and comment were removed; original fixtures preserved
