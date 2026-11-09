@@ -54,4 +54,4 @@ Mobile 基点 `273ece5055dfd3613097c431eb88d85cc33c1f0f`；Server `b7d0dadf89962
 - [数据清理](simulator/data-cleanup.json)、[详细断言](simulator/runs/http-issue17-finalize.json)：仅清理本轮夹具及相关数据；原 U1 记录哈希、清理前后原照片字节一致；U1 另外两个会话保留，U2 测试令牌撤销，技术角色降权。邀请注册账号作为空测试身份保留。
 - [环境清理](simulator/environment-cleanup.json)：模拟器测试包卸载、字体与端口恢复、本轮两个 AVD 删除，任务 Metro 停止；原有 AVD 保留。
 
-[续验清单](continuation.md)列出严格真机要求下的剩余项。本阶段不将模拟器补验改写为真机，PR 保持 Draft、未合并；签收人与真人社区维护人员仍待指定。
+[两轴复核](review.md)未发现规范问题，保留严格真机覆盖阻断；[续验清单](continuation.md)列出剩余项。本阶段不将模拟器补验改写为真机，PR 保持 Draft、未合并；签收人与真人社区维护人员仍待指定。
