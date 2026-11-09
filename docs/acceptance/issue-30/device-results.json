@@ -1,0 +1,125 @@
+[
+  {
+    "run": "issue30-before",
+    "restoration_pending": false,
+    "original_font": "1.45",
+    "original_awake": "2",
+    "status": "fail",
+    "error": "Tap target missing or ambiguous; use an exact accessibility label or explicit index",
+    "seconds": 43.77
+  },
+  {
+    "run": "issue30-before-search",
+    "restoration_pending": false,
+    "original_font": "1.45",
+    "original_awake": "2",
+    "status": "pass",
+    "seconds": 46.38
+  },
+  {
+    "run": "issue30-before-pudding",
+    "restoration_pending": false,
+    "original_font": "1.45",
+    "original_awake": "2",
+    "status": "pass",
+    "seconds": 54.89
+  },
+  {
+    "run": "issue30-after-search",
+    "restoration_pending": false,
+    "original_font": "1.45",
+    "original_awake": "2",
+    "status": "fail",
+    "error": "Expected test control not visible: 首页",
+    "seconds": 17.03
+  },
+  {
+    "run": "issue30-after-search-retry",
+    "restoration_pending": false,
+    "original_font": "1.45",
+    "original_awake": "2",
+    "status": "pass",
+    "seconds": 103.61
+  },
+  {
+    "run": "issue30-comment",
+    "restoration_pending": false,
+    "original_font": "1.45",
+    "original_awake": "2",
+    "status": "pass",
+    "seconds": 79.51,
+    "observations": [
+      {
+        "action": "keyboard_clearance",
+        "button_bottom": 1889,
+        "keyboard_top": 1971
+      }
+    ]
+  },
+  {
+    "run": "issue30-settings",
+    "restoration_pending": false,
+    "original_font": "1.45",
+    "original_awake": "2",
+    "status": "fail",
+    "error": "Foreground changed: device operation stopped before reading/capturing another app",
+    "seconds": 1.97
+  },
+  {
+    "run": "issue30-settings-retry",
+    "restoration_pending": false,
+    "original_font": "1.45",
+    "original_awake": "2",
+    "status": "fail",
+    "error": "Tap target missing or ambiguous; use an exact accessibility label or explicit index",
+    "seconds": 88.03
+  },
+  {
+    "run": "issue30-settings-rest",
+    "restoration_pending": false,
+    "original_font": "1.45",
+    "original_awake": "2",
+    "status": "pass",
+    "seconds": 85.63
+  },
+  {
+    "run": "issue30-search-failure",
+    "restoration_pending": false,
+    "original_font": "1.45",
+    "original_awake": "2",
+    "status": "pass",
+    "seconds": 82.27
+  },
+  {
+    "run": "issue30-generated-search",
+    "restoration_pending": false,
+    "original_font": "1.45",
+    "original_awake": "2",
+    "status": "pass",
+    "seconds": 89.87
+  },
+  {
+    "run": "issue30-relations",
+    "restoration_pending": false,
+    "original_font": "1.45",
+    "original_awake": "2",
+    "status": "pass",
+    "seconds": 93.41,
+    "observations": [
+      {
+        "action": "touch_target",
+        "label": "关注宠物",
+        "width_px": 1328,
+        "height_px": 168,
+        "minimum_logical_points": 48
+      },
+      {
+        "action": "touch_target",
+        "label": "屏蔽此宠物的主人账号",
+        "width_px": 1328,
+        "height_px": 168,
+        "minimum_logical_points": 48
+      }
+    ]
+  }
+]

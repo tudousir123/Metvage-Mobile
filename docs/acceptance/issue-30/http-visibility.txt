@@ -1,0 +1,4 @@
+PASS owner timeline retains private records; guest and other account cannot read their direct links
+PASS public pet timeline and public search preserve visibility for owner, other account and guest
+PASS generated public photo note and selected pet remain intact; no records or relations changed
+PASS both temporary API tokens revoked; existing app login unchanged

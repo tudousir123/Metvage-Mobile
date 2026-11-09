@@ -1,0 +1,4 @@
+PASS generated dog record remains private in owner API; other account and guest cannot read it; public search only returns cat photo note
+PASS original block relations unchanged; temporary UI comment already removed
+PASS removed only fixture pets and records for issue30visual; original 布丁/栗子 and selected pet1 preserved
+PASS both verification tokens revoked; original app login remains valid
