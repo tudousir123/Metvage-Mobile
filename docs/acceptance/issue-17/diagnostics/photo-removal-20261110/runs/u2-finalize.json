@@ -1,0 +1,201 @@
+{
+  "environment": "local Android emulator",
+  "role": "u2",
+  "invocations": [
+    {
+      "id": "87b9bcc55fde468fbec5c68cf9278f75",
+      "summary": {
+        "status": "pass",
+        "command": "photo-debug-cleanup",
+        "seconds": 25.53,
+        "invocation": "87b9bcc55fde468fbec5c68cf9278f75",
+        "metrics": {
+          "adb_calls": 1,
+          "adb_seconds": 0.072,
+          "ui_reads": 0
+        },
+        "artifacts": ".acceptance/photo-debug/runs/finalize"
+      },
+      "events": [
+        {
+          "action": "assertion",
+          "name": "One owned actual App OAuth token",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "App subject matches dedicated generated fixture owner",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Only this run generated pets exist in dedicated account",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 34
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 35
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 36
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 37
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 38
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 39
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 40
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 41
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 42
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 43
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 44
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 45
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 46
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 47
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 48
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 49
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 50
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 51
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 52
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 53
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 54
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 55
+        },
+        {
+          "action": "assertion",
+          "name": "Reassociated generated record remains in owned fixture pet set",
+          "result": "pass",
+          "record_id": 56
+        },
+        {
+          "action": "assertion",
+          "name": "Every eligible record has exact run request marker",
+          "result": "pass",
+          "count": 23
+        },
+        {
+          "action": "fixtures_cleaned",
+          "run_id": "photo-debug-20261110"
+        },
+        {
+          "action": "assertion",
+          "name": "Dedicated account restored to empty original pet state",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "All other users and their pets/records/photo metadata unchanged by cleanup",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Only this simulator OAuth session revoked; other token states preserved",
+          "result": "pass"
+        }
+      ]
+    }
+  ]
+}

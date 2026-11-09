@@ -1,0 +1,9 @@
+{
+  "server_commit": "b7d0dadf8996289b3492a9b24c5a7bfaf4f5647f",
+  "versioned_files_equal": 1480,
+  "database": "SQLite online backup after U2 cleanup",
+  "cache": "fresh isolated Redis 8",
+  "runtime_uid_gid": "1000:1000 matches original",
+  "loopback_port": 18084,
+  "original_server_mount_unchanged": true
+}

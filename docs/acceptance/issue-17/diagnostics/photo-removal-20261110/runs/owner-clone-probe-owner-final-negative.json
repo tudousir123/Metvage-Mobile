@@ -1,0 +1,307 @@
+{
+  "environment": "local Android emulator",
+  "role": "owner-clone",
+  "invocations": [
+    {
+      "id": "114c36f971174a6d9ccb192e5f58669d",
+      "summary": {
+        "status": "pass",
+        "command": "cleanup",
+        "seconds": 3.48,
+        "invocation": "114c36f971174a6d9ccb192e5f58669d",
+        "artifacts": "<mobileRoot>/.acceptance/photo-debug-owner/runs/probe-owner-final-negative"
+      },
+      "events": []
+    },
+    {
+      "id": "220bb81ec7b645df8a3b81fb27d62f13",
+      "summary": {
+        "status": "fail",
+        "command": "probe-photo-edit",
+        "seconds": 68.2,
+        "invocation": "220bb81ec7b645df8a3b81fb27d62f13",
+        "metrics": {
+          "adb_calls": 142,
+          "adb_seconds": 56.104,
+          "ui_reads": 19
+        },
+        "error": "Negative control detected: removal intentionally omitted; not a bug reproduction",
+        "artifacts": "<mobileRoot>/.acceptance/photo-debug-owner/runs/probe-owner-final-negative"
+      },
+      "events": [
+        {
+          "action": "doctor",
+          "mobile": {
+            "root": "<mobileRoot>",
+            "repository": "tudousir123/Metvage-Mobile",
+            "branch": "codex/issue-17-acceptance",
+            "sha": "8a4297ca4eb2291e0955ef627c0b84e6b5e6670e",
+            "dirty": true,
+            "node": "v24.22.0",
+            "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+          },
+          "metro": {
+            "port": 8081,
+            "root": "<mobileRoot>"
+          },
+          "server": {
+            "container": "metvage-photo-debug-owner-api",
+            "root": "<isolatedServerRoot>"
+          },
+          "api": {
+            "origin": "http://127.0.0.1:18084",
+            "status": 200
+          },
+          "device": {
+            "serial": "<owned-emulator>",
+            "model": "sdk_gphone64_x86_64"
+          }
+        },
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "17155",
+          "metro_pid": 1415574,
+          "environment": "emulator"
+        },
+        {
+          "action": "probe_protocol",
+          "sha256": "95d95bb0daaf623b54fe1730501200254f83a509a456ec60b090bf0f5aa4361c",
+          "save_observation_seconds": 5,
+          "intentional_negative_control": true
+        },
+        {
+          "action": "fixtures_ready",
+          "pets": [
+            33,
+            34
+          ],
+          "records": [
+            70,
+            71
+          ]
+        },
+        {
+          "action": "probe_seed",
+          "record_id": 72,
+          "source_pet_id": 33,
+          "target_pet_id": 34,
+          "photo_ids": [
+            67
+          ]
+        },
+        {
+          "action": "plan",
+          "sources": [
+            {
+              "file": "photo-edit-probe.json",
+              "sha256": "090448d1cd113f19428399a20f2dbda6564bfaa73977720e5988756e7ce0e36c"
+            }
+          ],
+          "iteration": 1,
+          "record_id": 72,
+          "intentional_negative_control": true
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 4.046,
+          "adb_calls": 8,
+          "adb_seconds": 4.042,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 8.095,
+          "adb_calls": 17,
+          "adb_seconds": 8.085,
+          "ui_reads": 3
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 0.774,
+          "adb_calls": 6,
+          "adb_seconds": 0.773,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.781,
+          "adb_calls": 8,
+          "adb_seconds": 2.777,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 8.206,
+          "adb_calls": 17,
+          "adb_seconds": 8.198,
+          "ui_reads": 3
+        },
+        {
+          "action": "step",
+          "number": 6,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 0.834,
+          "adb_calls": 6,
+          "adb_seconds": 0.833,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 7,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.803,
+          "adb_calls": 8,
+          "adb_seconds": 2.799,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 8,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.258,
+          "adb_calls": 11,
+          "adb_seconds": 5.252,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 9,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.287,
+          "adb_calls": 11,
+          "adb_seconds": 5.283,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 10,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 17.0,
+          "adb_calls": 31,
+          "adb_seconds": 16.983,
+          "ui_reads": 6
+        },
+        {
+          "action": "save_readback",
+          "record_id": 72,
+          "other_changes_confirmed": true,
+          "photo_count": 1
+        },
+        {
+          "action": "save_readback",
+          "record_id": 72,
+          "other_changes_confirmed": true,
+          "photo_count": 1
+        },
+        {
+          "action": "save_readback",
+          "record_id": 72,
+          "other_changes_confirmed": true,
+          "photo_count": 1
+        },
+        {
+          "action": "save_readback",
+          "record_id": 72,
+          "other_changes_confirmed": true,
+          "photo_count": 1
+        },
+        {
+          "action": "save_readback",
+          "record_id": 72,
+          "other_changes_confirmed": true,
+          "photo_count": 1
+        },
+        {
+          "action": "save_readback",
+          "record_id": 72,
+          "other_changes_confirmed": true,
+          "photo_count": 1
+        },
+        {
+          "action": "save_readback",
+          "record_id": 72,
+          "other_changes_confirmed": true,
+          "photo_count": 1
+        },
+        {
+          "action": "save_readback",
+          "record_id": 72,
+          "other_changes_confirmed": true,
+          "photo_count": 1
+        },
+        {
+          "action": "save_readback",
+          "record_id": 72,
+          "other_changes_confirmed": true,
+          "photo_count": 1
+        },
+        {
+          "action": "save_readback",
+          "record_id": 72,
+          "other_changes_confirmed": true,
+          "photo_count": 1
+        },
+        {
+          "action": "save_readback",
+          "record_id": 72,
+          "other_changes_confirmed": true,
+          "photo_count": 1
+        },
+        {
+          "action": "photo_verdict",
+          "verdict": "retained",
+          "record_id": 72,
+          "intentional_negative_control": true
+        },
+        {
+          "action": "fixtures_cleaned",
+          "run_id": "probe-owner-final-negative"
+        }
+      ]
+    },
+    {
+      "id": "39d3f78291214d91b45f9f116f9450db",
+      "summary": {
+        "status": "pass",
+        "command": "cleanup",
+        "seconds": 2.78,
+        "invocation": "39d3f78291214d91b45f9f116f9450db",
+        "metrics": {
+          "adb_calls": 1,
+          "adb_seconds": 0.044,
+          "ui_reads": 0
+        },
+        "run_id": "probe-owner-final-negative",
+        "artifacts": "<mobileRoot>/.acceptance/photo-debug-owner/runs/probe-owner-final-negative"
+      },
+      "events": [
+        {
+          "action": "fixtures_cleaned",
+          "run_id": "probe-owner-final-negative"
+        }
+      ]
+    }
+  ]
+}

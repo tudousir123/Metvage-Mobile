@@ -1,0 +1,40 @@
+{
+  "environment": "local Android emulator",
+  "role": "owner-clone",
+  "invocations": [
+    {
+      "id": "b0d29836add1475eb2c332169ba28521",
+      "summary": {
+        "status": "pass",
+        "command": "owner-clone-fixtures",
+        "seconds": 2.46,
+        "invocation": "b0d29836add1475eb2c332169ba28521",
+        "metrics": {
+          "adb_calls": 1,
+          "adb_seconds": 0.068,
+          "ui_reads": 0
+        },
+        "original_pet_count": 2,
+        "original_current_pet_id": 1,
+        "generated_pets": [
+          25,
+          26
+        ],
+        "artifacts": ".acceptance/photo-debug-owner/runs/setup"
+      },
+      "events": [
+        {
+          "action": "fixtures_ready",
+          "pets": [
+            25,
+            26
+          ],
+          "records": [
+            57,
+            58
+          ]
+        }
+      ]
+    }
+  ]
+}

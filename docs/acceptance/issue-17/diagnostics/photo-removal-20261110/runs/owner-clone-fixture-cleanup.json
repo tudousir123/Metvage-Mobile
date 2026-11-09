@@ -1,0 +1,29 @@
+{
+  "environment": "local Android emulator",
+  "role": "owner-clone",
+  "invocations": [
+    {
+      "id": "3ffe2a7f37d94566bcd9ef2506e30767",
+      "summary": {
+        "status": "pass",
+        "command": "owner-clone-fixture-cleanup",
+        "seconds": 3.49,
+        "invocation": "3ffe2a7f37d94566bcd9ef2506e30767",
+        "metrics": {
+          "adb_calls": 1,
+          "adb_seconds": 0.068,
+          "ui_reads": 0
+        },
+        "only_original_two_pets_remain": true,
+        "original_selected_pet_restored": true,
+        "artifacts": ".acceptance/photo-debug-owner/runs/fixture-cleanup"
+      },
+      "events": [
+        {
+          "action": "fixtures_cleaned",
+          "run_id": "photo-debug-owner-20261110"
+        }
+      ]
+    }
+  ]
+}

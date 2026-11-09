@@ -1,0 +1,186 @@
+{
+  "environment": "local Android emulator",
+  "role": "u2",
+  "invocations": [
+    {
+      "id": "8aceefb16dd24e73b1d574b95d107e5b",
+      "summary": {
+        "status": "fail",
+        "command": "photo-edit-loop",
+        "seconds": 69.12,
+        "invocation": "8aceefb16dd24e73b1d574b95d107e5b",
+        "metrics": {
+          "adb_calls": 169,
+          "adb_seconds": 68.413,
+          "ui_reads": 23
+        },
+        "error": "Navigation postcondition not reached; subsequent actions stopped",
+        "artifacts": ".acceptance/photo-debug/runs/loop-race"
+      },
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "2697",
+          "metro_pid": 1380750,
+          "environment": "emulator"
+        },
+        {
+          "action": "protocol",
+          "script_sha256": "ffbd34bc63cf9d7c6af2a27e1f3c12944d8f9aebd4aaf553982f522353d6e6c3",
+          "mode": "race",
+          "iterations": 3,
+          "api_proxy_port": 18081
+        },
+        {
+          "action": "assertion",
+          "name": "One real App OAuth token",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 52
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 4.081,
+          "adb_calls": 8,
+          "adb_seconds": 4.077,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 4.051,
+          "adb_calls": 8,
+          "adb_seconds": 4.048,
+          "ui_reads": 1
+        },
+        {
+          "action": "response_latency",
+          "seconds": 32,
+          "captured_before_delay": true,
+          "generated_record_id": 52
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 4.005,
+          "adb_calls": 8,
+          "adb_seconds": 4.001,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.271,
+          "adb_calls": 11,
+          "adb_seconds": 5.265,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.0,
+          "adb_calls": 6,
+          "adb_seconds": 1.0,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.818,
+          "adb_calls": 8,
+          "adb_seconds": 2.814,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.319,
+          "adb_calls": 11,
+          "adb_seconds": 5.313,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 6,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.071,
+          "adb_calls": 6,
+          "adb_seconds": 1.07,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 7,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.79,
+          "adb_calls": 8,
+          "adb_seconds": 2.787,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 8,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.347,
+          "adb_calls": 11,
+          "adb_seconds": 5.341,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 9,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.417,
+          "adb_calls": 11,
+          "adb_seconds": 5.413,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 10,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.413,
+          "adb_calls": 11,
+          "adb_seconds": 5.407,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 11,
+          "operation": "tap",
+          "status": "fail",
+          "seconds": 20.911,
+          "adb_calls": 41,
+          "adb_seconds": 20.888,
+          "ui_reads": 8
+        }
+      ]
+    }
+  ]
+}

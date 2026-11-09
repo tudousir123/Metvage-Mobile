@@ -73,6 +73,23 @@ npm run --silent acceptance -- verify-api --run-id api-001
 
 `run` / `replay` 始终要求 `mobileRoot` 和有效的 App 回执，没有跳过验证的配置开关。模拟 ADB 的低层契约测试通过 `tests/device_harness.py` 专用入口执行，和常规 App 验收隔离。
 
+## 模拟器照片移除诊断
+
+`probe-photo-edit` 只接受 Android 模拟器、`testAccount: true` 和有效的 App 回执。配置须包含 `cat`、`dog` 两项生成素材，昵称与已有宠物不同；先在测试 App 真实 OAuth 登录与 `profileUsername` 对应的账号。
+
+```sh
+npm run --silent acceptance -- --config .acceptance/probe/config.json probe-photo-edit --run-id photo-probe-001 --iterations 3
+npm run --silent acceptance -- --config .acceptance/probe/config.json probe-photo-edit --run-id photo-control-001 --negative-control
+```
+
+命令创建本轮两个宠物及私人照片夹具，在 App 中组合修改正文、标题、关联宠物并移除照片，然后通过真实 HTTP 确认。其他修改未落库时标为保存未确认；确认其他修改后，照片仍保留才作为目标失败。读回会等待保存收敛，避免把一次过早读取判为照片未删除。
+
+负向对照故意跳过移除，预期退出码为 1，且日志标明不是产品问题复现。它证明检测器能报出照片残留，不能证明未经改动的 App 有稳定触发器。正常操作通过也不证明历史偶发问题已修复。
+
+每次使用新 run-id。命令沿用当前 App 的实际令牌，只清理本轮生成夹具；照片重新关联后按实际关联更新清单，并用请求标记校验删除范围。成功、失败及对照退出均恢复设备设置和端口。`cleanup-summary.json` 独立记录清理结果，不覆盖验收结论；中断后先查看该文件和 `device.json`，存在待恢复项时沿用既有 `cleanup` 流程。
+
+此命令的清单带有 App OAuth 来源标记；恢复时 `cleanup` 从同一模拟器 App 验证当前账号后借用令牌，不注销 App 会话。App 令牌已失效时先在模拟器重新登录对应账号，再重试清理。其他素材清单继续使用原有临时令牌流程。
+
 每次运行保存展开计划所有源文件的哈希；凭据及实际设备参数仍只在本地配置。中断后沿用 `cleanup --run-id <原值>`，也会重试撤销补充账号的临时令牌。
 
 ## 生成素材与重复执行

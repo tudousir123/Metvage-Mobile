@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "original_pets_records_photo_bytes_equal_to_protected_server": true,
+  "original_selected_pet_restored": true,
+  "only_original_two_pets_remain_in_clone": true
+}

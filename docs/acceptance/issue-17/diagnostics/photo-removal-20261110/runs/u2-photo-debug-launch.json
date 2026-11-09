@@ -1,0 +1,59 @@
+{
+  "environment": "local Android emulator",
+  "role": "u2",
+  "invocations": [
+    {
+      "id": "1b9ade05353644b98fca0ce22864331a",
+      "summary": {
+        "status": "pass",
+        "command": "launch",
+        "seconds": 58.46,
+        "invocation": "1b9ade05353644b98fca0ce22864331a",
+        "metrics": {
+          "adb_calls": 30,
+          "adb_seconds": 8.488,
+          "ui_reads": 1
+        },
+        "runtime": {
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "2697",
+          "metro_pid": 1380750
+        },
+        "artifacts": "<mobileRoot>/.acceptance/photo-debug/runs/photo-debug-launch"
+      },
+      "events": [
+        {
+          "action": "doctor",
+          "mobile": {
+            "root": "<mobileRoot>",
+            "repository": "tudousir123/Metvage-Mobile",
+            "branch": "codex/issue-17-acceptance",
+            "sha": "8a4297ca4eb2291e0955ef627c0b84e6b5e6670e",
+            "dirty": false,
+            "node": "v24.22.0",
+            "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+          },
+          "server": {
+            "container": "metvage-issue17-phone-api",
+            "root": "<protectedServerRoot>"
+          },
+          "api": {
+            "origin": "http://127.0.0.1:18080",
+            "status": 200
+          },
+          "device": {
+            "serial": "<owned-emulator>",
+            "model": "sdk_gphone64_x86_64"
+          }
+        },
+        {
+          "action": "runtime_verified",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "metro_pid": 1380750
+        }
+      ]
+    }
+  ]
+}

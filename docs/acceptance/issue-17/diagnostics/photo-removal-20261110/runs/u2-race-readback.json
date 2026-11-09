@@ -1,0 +1,35 @@
+{
+  "environment": "local Android emulator",
+  "role": "u2",
+  "invocations": [
+    {
+      "id": "4c761ffd37474af09202777a2608edda",
+      "summary": {
+        "status": "pass",
+        "command": "race-readback",
+        "seconds": 12.6,
+        "invocation": "4c761ffd37474af09202777a2608edda",
+        "metrics": {
+          "adb_calls": 22,
+          "adb_seconds": 12.211,
+          "ui_reads": 4
+        },
+        "artifacts": ".acceptance/photo-debug/runs/race-readback"
+      },
+      "events": [
+        {
+          "action": "readback",
+          "record_id": 52,
+          "pet_id": 22,
+          "photo_count": 0,
+          "text_matches": true,
+          "title_matches": true
+        },
+        {
+          "action": "screenshot",
+          "path": ".acceptance/photo-debug/race-result.png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "method": "GET",
+    "record_id": 52,
+    "status": 200,
+    "delivery_delay": 0,
+    "captured_at": 1794242006.0391204
+  },
+  {
+    "method": "GET",
+    "record_id": 52,
+    "status": 200,
+    "delivery_delay": 32,
+    "captured_at": 1794242017.8901718
+  },
+  {
+    "method": "GET",
+    "record_id": 52,
+    "status": 200,
+    "delivery_delay": 32,
+    "captured_at": 1794242063.0240998
+  },
+  {
+    "method": "GET",
+    "record_id": 53,
+    "status": 200,
+    "delivery_delay": 0,
+    "captured_at": 1794242129.0042427
+  },
+  {
+    "method": "GET",
+    "record_id": 54,
+    "status": 200,
+    "delivery_delay": 0,
+    "captured_at": 1794242202.9596195
+  },
+  {
+    "method": "GET",
+    "record_id": 53,
+    "status": 200,
+    "delivery_delay": 0,
+    "captured_at": 1794242211.4065533
+  },
+  {
+    "method": "GET",
+    "record_id": 54,
+    "status": 200,
+    "delivery_delay": 40,
+    "captured_at": 1794242216.7239628
+  },
+  {
+    "method": "GET",
+    "record_id": 53,
+    "status": 200,
+    "delivery_delay": 40,
+    "captured_at": 1794242221.1236498
+  },
+  {
+    "method": "GET",
+    "record_id": 55,
+    "status": 200,
+    "delivery_delay": 0,
+    "captured_at": 1794242381.496786
+  },
+  {
+    "method": "GET",
+    "record_id": 55,
+    "status": 200,
+    "delivery_delay": 0,
+    "captured_at": 1794242425.806062
+  },
+  {
+    "method": "GET",
+    "record_id": 56,
+    "status": 200,
+    "delivery_delay": 0,
+    "captured_at": 1794242469.0708377
+  },
+  {
+    "method": "GET",
+    "record_id": 56,
+    "status": 200,
+    "delivery_delay": 0,
+    "captured_at": 1794242518.41331
+  }
+]

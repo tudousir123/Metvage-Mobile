@@ -1,0 +1,15 @@
+{
+  "steps": [
+    {"action": "open", "path": "/records/{probeRecordId}/edit", "expect": {"label": "记录内容"}},
+    {"action": "tap", "label": "记录内容", "expect": {"keyboard": "visible"}},
+    {"action": "type", "text": "{probeText}", "replace": true},
+    {"action": "back", "expect": {"keyboard": "hidden"}},
+    {"action": "tap", "label": "记录标题（可选）", "expect": {"keyboard": "visible"}},
+    {"action": "type", "text": "{probeTitle}", "replace": true},
+    {"action": "back", "expect": {"keyboard": "hidden"}},
+    {"action": "tap", "label": "更改关联宠物"},
+    {"action": "tap", "label": "{dogNickname}"},
+    {"action": "tap", "label": "移除第 1 张照片"},
+    {"action": "tap", "label": "保存更改", "expect": {"label": "把陪伴，写成故事"}}
+  ]
+}

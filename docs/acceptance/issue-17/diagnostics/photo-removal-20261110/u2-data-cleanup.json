@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "generated_pets_removed": 4,
+  "generated_records_removed": 23,
+  "dedicated_account_empty": true,
+  "other_users_data_unchanged": true,
+  "owned_app_token_revoked": true,
+  "all_other_token_states_unchanged": true
+}

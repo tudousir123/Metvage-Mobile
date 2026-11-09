@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "owned_avd_deleted": true,
+  "owned_app_uninstalled": true,
+  "emulator_font_restored": true,
+  "emulator_reverse_mappings_restored": true,
+  "owned_metro_stopped": true,
+  "owned_proxy_stopped": true,
+  "isolated_containers_network_and_files_removed": true,
+  "physical_device_used": false
+}

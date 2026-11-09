@@ -1,0 +1,63 @@
+{
+  "environment": "local Android emulator",
+  "role": "owner-clone",
+  "invocations": [
+    {
+      "id": "133457aacb774316a1cbd08674acbe03",
+      "summary": {
+        "status": "fail",
+        "command": "owner-oauth-readonly-resume",
+        "seconds": 16.07,
+        "invocation": "133457aacb774316a1cbd08674acbe03",
+        "metrics": {
+          "adb_calls": 48,
+          "adb_seconds": 15.923,
+          "ui_reads": 6
+        },
+        "error": "Navigation postcondition not reached; subsequent actions stopped",
+        "artifacts": ".acceptance/photo-debug-owner/runs/oauth-resume"
+      },
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "17155",
+          "metro_pid": 1415574,
+          "environment": "emulator"
+        }
+      ]
+    },
+    {
+      "id": "e9fccb8d980e4cfc81016dbba1dae664",
+      "summary": {
+        "status": "pass",
+        "command": "owner-oauth-readonly-resume",
+        "seconds": 4.04,
+        "invocation": "e9fccb8d980e4cfc81016dbba1dae664",
+        "metrics": {
+          "adb_calls": 20,
+          "adb_seconds": 3.493,
+          "ui_reads": 1
+        },
+        "artifacts": ".acceptance/photo-debug-owner/runs/oauth-resume"
+      },
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "17155",
+          "metro_pid": 1415574,
+          "environment": "emulator"
+        },
+        {
+          "action": "identity",
+          "actual_app_oauth": true,
+          "role": "U1",
+          "isolated_server": true
+        }
+      ]
+    }
+  ]
+}

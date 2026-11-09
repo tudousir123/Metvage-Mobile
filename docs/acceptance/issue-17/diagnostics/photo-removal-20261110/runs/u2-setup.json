@@ -1,0 +1,116 @@
+{
+  "environment": "local Android emulator",
+  "role": "u2",
+  "invocations": [
+    {
+      "id": "00262caf76554e4f8a0f1dfe898423a6",
+      "summary": {
+        "status": "fail",
+        "command": "photo-debug-fixtures",
+        "seconds": 1.05,
+        "invocation": "00262caf76554e4f8a0f1dfe898423a6",
+        "error": "Local API GET /pets: HTTP 401; expected (200,)",
+        "artifacts": ".acceptance/photo-debug/runs/setup"
+      },
+      "events": []
+    },
+    {
+      "id": "6b3a3391ae2347949336975541d6bb3a",
+      "summary": {
+        "status": "fail",
+        "command": "photo-debug-fixtures",
+        "seconds": 2.43,
+        "invocation": "6b3a3391ae2347949336975541d6bb3a",
+        "error": "Local API GET /pets: HTTP 401; expected (200,)",
+        "artifacts": ".acceptance/photo-debug/runs/setup"
+      },
+      "events": []
+    },
+    {
+      "id": "8738ea4677554eabbed8aa9a514110da",
+      "summary": {
+        "status": "pass",
+        "command": "photo-debug-fixtures",
+        "seconds": 3.49,
+        "invocation": "8738ea4677554eabbed8aa9a514110da",
+        "metrics": {
+          "adb_calls": 1,
+          "adb_seconds": 0.053,
+          "ui_reads": 0
+        },
+        "pets": [
+          21,
+          22
+        ],
+        "records": [
+          34,
+          35
+        ],
+        "artifacts": ".acceptance/photo-debug/runs/setup"
+      },
+      "events": [
+        {
+          "action": "fixtures_ready",
+          "pets": [
+            21,
+            22
+          ],
+          "records": [
+            34,
+            35
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceaa1da76775469b87831455f4a8261b",
+      "summary": {
+        "status": "pass",
+        "command": "photo-debug-fixtures",
+        "seconds": 3.56,
+        "invocation": "ceaa1da76775469b87831455f4a8261b",
+        "metrics": {
+          "adb_calls": 1,
+          "adb_seconds": 0.072,
+          "ui_reads": 0
+        },
+        "pets": [
+          21,
+          22,
+          23,
+          24
+        ],
+        "records": [
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "artifacts": ".acceptance/photo-debug/runs/setup"
+      },
+      "events": [
+        {
+          "action": "fixtures_ready",
+          "pets": [
+            21,
+            22,
+            23,
+            24
+          ],
+          "records": [
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40
+          ]
+        }
+      ]
+    }
+  ]
+}
