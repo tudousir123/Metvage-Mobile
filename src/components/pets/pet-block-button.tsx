@@ -1,6 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { router } from 'expo-router'
-import { ActivityIndicator, Alert, Pressable, Text, View } from 'react-native'
+import { ActivityIndicator, Alert, Text, View } from 'react-native'
+import { ActionButton } from 'src/components/metvage/secondary-ui'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import { blockPetAccount, getPetBlockStatus, unblockPetAccount } from 'src/lib/pet-blocks'
 import { getPets } from 'src/lib/pets'
 import { useAuth } from 'src/state/AuthProvider'
@@ -45,49 +47,52 @@ export function PetSocialControls({ targetPetId }: { targetPetId: number }) {
 
   if (!user) {
     return (
-      <View style={{ gap: 8 }}>
+      <View style={{ gap: m.gap }}>
         <PetFollowButton targetPetId={targetPetId} />
-        <Pressable accessibilityRole="button" onPress={() => router.push('/handleLogin')}>
-          <Text style={{ color: '#075e52', fontWeight: '700' }}>登录后屏蔽</Text>
-        </Pressable>
+        <ActionButton
+          title="登录后屏蔽"
+          icon="slash"
+          tone="secondary"
+          onPress={() => router.push('/handleLogin')}
+        />
       </View>
     )
   }
   if (pets.isLoading || status.isLoading) {
-    return <ActivityIndicator accessibilityLabel="正在加载屏蔽状态" />
+    return <ActivityIndicator color={c.green} accessibilityLabel="正在加载屏蔽状态" />
   }
   if (pets.data?.pets.some((pet) => pet.id === targetPetId)) {
     return <PetFollowButton targetPetId={targetPetId} />
   }
 
   return (
-    <View style={{ gap: 8 }}>
+    <View style={{ gap: m.gap }}>
       {!status.data?.blocked && <PetFollowButton targetPetId={targetPetId} />}
-      <Pressable
-        accessibilityRole="button"
-        disabled={mutation.isPending}
+      <ActionButton
+        title={
+          mutation.isPending
+            ? '正在保存…'
+            : status.data?.blocked
+              ? '取消屏蔽'
+              : '屏蔽此宠物的主人账号'
+        }
+        icon="slash"
+        tone="destructive"
+        busy={mutation.isPending}
         onPress={() => {
-          if (status.data?.blocked) {
-            mutation.mutate()
-          } else {
+          if (status.data?.blocked) mutation.mutate()
+          else
             Alert.alert('屏蔽这个宠物身份？', notice, [
               { text: '取消', style: 'cancel' },
               { text: '屏蔽', style: 'destructive', onPress: () => mutation.mutate() },
             ])
-          }
         }}
-      >
-        <Text style={{ color: '#9f2c25', fontWeight: '700' }}>
-          {mutation.isPending
-            ? '正在保存…'
-            : status.data?.blocked
-              ? '取消屏蔽'
-              : '屏蔽此宠物的主人账号'}
-        </Text>
-      </Pressable>
-      <Text style={{ color: '#536a64', fontSize: 13 }}>{notice}</Text>
+      />
+      <Text style={{ color: c.secondaryText, fontSize: m.caption, lineHeight: 20 }}>
+        {notice}
+      </Text>
       {(pets.error || status.error || mutation.error) && (
-        <Text style={{ color: '#b42318' }}>
+        <Text accessibilityRole="alert" style={{ color: c.error, fontSize: m.cardTitle }}>
           {(pets.error || status.error || mutation.error)?.message}
         </Text>
       )}

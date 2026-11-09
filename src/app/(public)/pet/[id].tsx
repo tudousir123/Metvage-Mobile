@@ -1,8 +1,16 @@
+import Feather from '@expo/vector-icons/Feather'
 import { useQuery } from '@tanstack/react-query'
-import { Image } from 'expo-image'
 import { router, Stack, useLocalSearchParams } from 'expo-router'
-import { ActivityIndicator, Pressable, ScrollView, Text, View } from 'react-native'
+import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native'
+import { PetAvatar } from 'src/components/metvage/brand'
+import { RecordPreviewCard } from 'src/components/metvage/record-preview-card'
+import {
+  ActionButton,
+  ScreenMessage,
+  secondaryScreenOptions,
+} from 'src/components/metvage/secondary-ui'
 import { PetSocialControls } from 'src/components/pets/pet-block-button'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import {
   getPublicPet,
   getPublicPetRecords,
@@ -24,85 +32,155 @@ export default function PublicPet() {
     queryFn: () => getPublicPetRecords(petId),
     enabled: Number.isInteger(petId) && petId > 0,
   })
+  const failed = profile.isError || timeline.isError
+  const records = failed ? [] : (timeline.data?.records ?? [])
+  const photo = records.flatMap((record) => record.photos)[0]
+  const refresh = () => {
+    profile.refetch()
+    timeline.refetch()
+  }
 
   return (
-    <ScrollView
-      contentInsetAdjustmentBehavior="automatic"
-      contentContainerStyle={{ padding: 20, gap: 14 }}
-    >
-      <Stack.Screen options={{ title: '宠物公开档案' }} />
-      {(profile.isLoading || timeline.isLoading) && (
-        <ActivityIndicator accessibilityLabel="正在加载宠物档案" />
-      )}
-      {(profile.isError || timeline.isError) && (
-        <View style={{ gap: 8 }}>
-          <Text style={{ color: '#b42318' }}>暂时无法查看宠物档案。</Text>
-          <Pressable
-            accessibilityRole="button"
-            onPress={() => {
-              profile.refetch()
-              timeline.refetch()
-            }}
-          >
-            <Text style={{ color: '#075e52' }}>重试</Text>
-          </Pressable>
-        </View>
-      )}
-      {!profile.isError && profile.data && (
-        <>
-          <Text style={{ fontSize: 26, fontWeight: '700', color: '#18332f' }}>
-            {profile.data.nickname}
-          </Text>
-          <Text style={{ color: '#536a64' }}>
-            {profile.data.species === 'cat' ? '猫咪' : '狗狗'}
-          </Text>
-          {!!profile.data.bio && (
-            <Text style={{ color: '#18332f' }}>{profile.data.bio}</Text>
-          )}
-          <PetSocialControls targetPetId={petId} />
-          <Pressable
-            accessibilityRole="button"
-            onPress={() =>
-              router.push(
-                user
-                  ? (`/reports/new?target_type=pet&target_id=${petId}` as Parameters<
-                      typeof router.push
-                    >[0])
-                  : '/handleLogin'
+    <View style={{ flex: 1, backgroundColor: c.background }}>
+      <Stack.Screen options={{ ...secondaryScreenOptions, title: '宠物公开档案' }} />
+      <FlatList
+        data={records}
+        numColumns={2}
+        keyExtractor={(record) => String(record.id)}
+        contentInsetAdjustmentBehavior="automatic"
+        contentContainerStyle={{
+          padding: m.edge,
+          paddingBottom: 32,
+          gap: m.inset,
+          flexGrow: 1,
+        }}
+        columnWrapperStyle={{ gap: m.gap }}
+        refreshing={profile.isRefetching || timeline.isRefetching}
+        onRefresh={refresh}
+        ListHeaderComponent={
+          <View style={{ gap: m.edge }}>
+            {(profile.isLoading || timeline.isLoading) && (
+              <ActivityIndicator color={c.green} accessibilityLabel="正在加载宠物档案" />
+            )}
+            {failed ? (
+              <ScreenMessage icon="wifi-off" title="暂时无法查看宠物档案">
+                <ActionButton title="重试" icon="rotate-cw" onPress={refresh} />
+              </ScreenMessage>
+            ) : (
+              profile.data && (
+                <>
+                  <View
+                    style={{ flexDirection: 'row', alignItems: 'center', gap: m.edge }}
+                  >
+                    <PetAvatar
+                      name={profile.data.nickname}
+                      species={profile.data.species}
+                      uri={photo ? publicRecordPhotoUrl(photo.url) : undefined}
+                      size={88}
+                    />
+                    <View style={{ flex: 1, gap: m.gap }}>
+                      <Text
+                        style={{ color: c.text, fontSize: m.petName, fontWeight: '700' }}
+                      >
+                        {profile.data.nickname}
+                      </Text>
+                      <View
+                        style={{
+                          alignSelf: 'flex-start',
+                          paddingHorizontal: m.inset,
+                          paddingVertical: 4,
+                          borderRadius: 16,
+                          backgroundColor: c.softPeach,
+                        }}
+                      >
+                        <Text style={{ color: c.green, fontSize: m.caption }}>
+                          {profile.data.species === 'cat' ? '猫咪' : '狗狗'}
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                  {!!profile.data.bio && (
+                    <Text
+                      style={{ color: c.text, fontSize: m.cardTitle, lineHeight: 23 }}
+                    >
+                      {profile.data.bio}
+                    </Text>
+                  )}
+                  <PetSocialControls targetPetId={petId} />
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: m.gap,
+                      borderBottomWidth: 1,
+                      borderBottomColor: c.border,
+                    }}
+                  >
+                    <Text
+                      style={{
+                        color: c.text,
+                        fontSize: m.section,
+                        fontWeight: '700',
+                        flexShrink: 1,
+                      }}
+                    >
+                      公开笔记
+                    </Text>
+                    <Pressable
+                      accessibilityRole="button"
+                      accessibilityLabel="举报这个宠物身份"
+                      onPress={() =>
+                        router.push(
+                          user
+                            ? (`/reports/new?target_type=pet&target_id=${petId}` as Parameters<
+                                typeof router.push
+                              >[0])
+                            : '/handleLogin'
+                        )
+                      }
+                      style={({ pressed }) => ({
+                        minHeight: m.touch,
+                        minWidth: m.touch,
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: m.gap,
+                        opacity: pressed ? 0.6 : 1,
+                      })}
+                    >
+                      <Feather name="flag" size={16} color={c.secondaryText} />
+                      <Text style={{ color: c.secondaryText, fontSize: m.caption }}>
+                        举报
+                      </Text>
+                    </Pressable>
+                  </View>
+                </>
               )
-            }
-          >
-            <Text style={{ color: '#b42318' }}>举报这个宠物身份</Text>
-          </Pressable>
-        </>
-      )}
-      {!timeline.isError && timeline.data?.records.length === 0 && (
-        <Text style={{ color: '#536a64' }}>还没有公开笔记。</Text>
-      )}
-      {!timeline.isError &&
-        timeline.data?.records.map((record) => (
-          <Pressable
-            key={record.id}
-            accessibilityRole="button"
-            onPress={() =>
-              router.push(`/note/${record.id}` as Parameters<typeof router.push>[0])
-            }
-            style={{ padding: 16, borderRadius: 14, backgroundColor: '#f5f8f6' }}
-          >
-            {record.title && (
-              <Text style={{ color: '#18332f', fontWeight: '700' }}>{record.title}</Text>
             )}
-            {record.text && <Text style={{ color: '#18332f' }}>{record.text}</Text>}
-            {record.photos[0] && (
-              <Image
-                source={{ uri: publicRecordPhotoUrl(record.photos[0].url) }}
-                cachePolicy="none"
-                contentFit="cover"
-                style={{ width: '100%', height: 180, borderRadius: 8 }}
-              />
-            )}
-          </Pressable>
-        ))}
-    </ScrollView>
+          </View>
+        }
+        ListEmptyComponent={
+          !failed && !profile.isLoading && !timeline.isLoading ? (
+            <ScreenMessage icon="book-open" title="还没有公开笔记">
+              <Text
+                style={{
+                  color: c.secondaryText,
+                  fontSize: m.caption,
+                  textAlign: 'center',
+                }}
+              >
+                这里仅展示主人选择公开的宠物记录。
+              </Text>
+            </ScreenMessage>
+          ) : null
+        }
+        renderItem={({ item }) => (
+          <View style={{ flex: 1, maxWidth: '50%' }}>
+            <RecordPreviewCard record={item} />
+          </View>
+        )}
+      />
+    </View>
   )
 }
