@@ -1,0 +1,297 @@
+
+> pixelfed@1.0.0 check
+> npm run check:ts && npm run check:lint
+
+
+> pixelfed@1.0.0 check:ts
+> node scripts/typecheck-baseline.cjs
+
+TypeScript 5.3.3; 83 route files; 2269 diagnostics
+By code: {"1016":1,"2304":9,"2322":1642,"2339":125,"2345":56,"2353":24,"2362":1,"2363":1,"2367":2,"2554":5,"2559":1,"2571":1,"2698":2,"2740":1,"2741":3,"2746":14,"2747":46,"2769":22,"2774":1,"7006":114,"7008":4,"7016":2,"7031":84,"7053":19,"18046":17,"18047":1,"18048":71}
+By area: {"src/app":1450,"src/components":689,"src/hooks":62,"src/lib":43,"tamagui.config.ts":21,"src/state":2,"src/utils.ts":2}
+No new diagnostics (baseline 2269, current 2269)
+
+> pixelfed@1.0.0 check:lint
+> biome check ./src ./__tests__ ./test-utils
+
+src/app/(auth)/admin/users/show/[id].tsx:69:48 lint/correctness/noUnusedFunctionParameters ━━━━━━━━━━
+
+  ! This parameter is unused.
+  
+    67 │   )
+    68 │ 
+  > 69 │   const RenderListItemCheck = ({ title, value, checked, onPressValue }) => (
+       │                                                ^^^^^^^
+    70 │     <Group.Item>
+    71 │       <XStack flexGrow={1} p="$3" justifyContent="space-between" alignItems="center">
+  
+  i Unused parameters might be the result of an incomplete refactoring.
+  
+
+src/app/(auth)/collections/index.tsx:84:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This variable isFetching is unused.
+  
+    82 │     fetchNextPage,
+    83 │     hasNextPage,
+  > 84 │     isFetching,
+       │     ^^^^^^^^^^
+    85 │     isFetchingNextPage,
+    86 │     status,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/feeds/network.tsx:171:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This variable fetchPreviousPage is unused.
+  
+    169 │     data,
+    170 │     fetchNextPage,
+  > 171 │     fetchPreviousPage,
+        │     ^^^^^^^^^^^^^^^^^
+    172 │     hasNextPage,
+    173 │     hasPreviousPage,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/feeds/network.tsx:173:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This variable hasPreviousPage is unused.
+  
+    171 │     fetchPreviousPage,
+    172 │     hasNextPage,
+  > 173 │     hasPreviousPage,
+        │     ^^^^^^^^^^^^^^^
+    174 │     isFetchingNextPage,
+    175 │     isRefetching,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/post/likes/[id].tsx:47:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This variable fetchStatus is unused.
+  
+    46 │   const {
+  > 47 │     fetchStatus,
+       │     ^^^^^^^^^^^
+    48 │     data: feed,
+    49 │     fetchNextPage,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/post/likes/[id].tsx:49:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This variable fetchNextPage is unused.
+  
+    47 │     fetchStatus,
+    48 │     data: feed,
+  > 49 │     fetchNextPage,
+       │     ^^^^^^^^^^^^^
+    50 │     fetchPreviousPage,
+    51 │     hasNextPage,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/post/likes/[id].tsx:51:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This variable hasNextPage is unused.
+  
+    49 │     fetchNextPage,
+    50 │     fetchPreviousPage,
+  > 51 │     hasNextPage,
+       │     ^^^^^^^^^^^
+    52 │     hasPreviousPage,
+    53 │     isFetchingNextPage,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/post/likes/[id].tsx:53:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This variable isFetchingNextPage is unused.
+  
+    51 │     hasNextPage,
+    52 │     hasPreviousPage,
+  > 53 │     isFetchingNextPage,
+       │     ^^^^^^^^^^^^^^^^^^
+    54 │     isFetchingPreviousPage,
+    55 │     isFetching,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/post/likes/[id].tsx:56:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ! This variable isError is unused.
+  
+    54 │     isFetchingPreviousPage,
+    55 │     isFetching,
+  > 56 │     isError,
+       │     ^^^^^^^
+    57 │     error,
+    58 │   } = useInfiniteQuery({
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/profile/followers/[id].tsx:62:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━
+
+  ! This variable status is unused.
+  
+    61 │   const {
+  > 62 │     status,
+       │     ^^^^^^
+    63 │     fetchStatus,
+    64 │     data: feed,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/profile/followers/[id].tsx:63:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━
+
+  ! This variable fetchStatus is unused.
+  
+    61 │   const {
+    62 │     status,
+  > 63 │     fetchStatus,
+       │     ^^^^^^^^^^^
+    64 │     data: feed,
+    65 │     fetchNextPage,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/profile/followers/[id].tsx:65:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━
+
+  ! This variable fetchNextPage is unused.
+  
+    63 │     fetchStatus,
+    64 │     data: feed,
+  > 65 │     fetchNextPage,
+       │     ^^^^^^^^^^^^^
+    66 │     fetchPreviousPage,
+    67 │     hasNextPage,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/profile/followers/[id].tsx:67:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━
+
+  ! This variable hasNextPage is unused.
+  
+    65 │     fetchNextPage,
+    66 │     fetchPreviousPage,
+  > 67 │     hasNextPage,
+       │     ^^^^^^^^^^^
+    68 │     hasPreviousPage,
+    69 │     isFetchingNextPage,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/profile/followers/[id].tsx:69:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━
+
+  ! This variable isFetchingNextPage is unused.
+  
+    67 │     hasNextPage,
+    68 │     hasPreviousPage,
+  > 69 │     isFetchingNextPage,
+       │     ^^^^^^^^^^^^^^^^^^
+    70 │     isFetchingPreviousPage,
+    71 │     isFetching,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/profile/following/[id].tsx:63:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━
+
+  ! This variable status is unused.
+  
+    62 │   const {
+  > 63 │     status,
+       │     ^^^^^^
+    64 │     fetchStatus,
+    65 │     data: feed,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/profile/following/[id].tsx:64:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━
+
+  ! This variable fetchStatus is unused.
+  
+    62 │   const {
+    63 │     status,
+  > 64 │     fetchStatus,
+       │     ^^^^^^^^^^^
+    65 │     data: feed,
+    66 │     fetchNextPage,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/profile/following/[id].tsx:66:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━
+
+  ! This variable fetchNextPage is unused.
+  
+    64 │     fetchStatus,
+    65 │     data: feed,
+  > 66 │     fetchNextPage,
+       │     ^^^^^^^^^^^^^
+    67 │     fetchPreviousPage,
+    68 │     hasNextPage,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/profile/following/[id].tsx:68:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━
+
+  ! This variable hasNextPage is unused.
+  
+    66 │     fetchNextPage,
+    67 │     fetchPreviousPage,
+  > 68 │     hasNextPage,
+       │     ^^^^^^^^^^^
+    69 │     hasPreviousPage,
+    70 │     isFetchingNextPage,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/profile/following/[id].tsx:70:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━
+
+  ! This variable isFetchingNextPage is unused.
+  
+    68 │     hasNextPage,
+    69 │     hasPreviousPage,
+  > 70 │     isFetchingNextPage,
+       │     ^^^^^^^^^^^^^^^^^^
+    71 │     isFetchingPreviousPage,
+    72 │     isFetching,
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+src/app/(auth)/profile/following/[id].tsx:73:5 lint/correctness/noUnusedVariables ━━━━━━━━━━━━━━━━━━
+
+  ! This variable isError is unused.
+  
+    71 │     isFetchingPreviousPage,
+    72 │     isFetching,
+  > 73 │     isError,
+       │     ^^^^^^^
+    74 │     error,
+    75 │   } = useInfiniteQuery({
+  
+  i Unused variables are often the result of an incomplete refactoring, typos, or other sources of bugs.
+  
+
+The number of diagnostics exceeds the limit allowed. Use --max-diagnostics to increase it.
+Diagnostics not shown: 69.
+Checked 175 files in 75ms. No fixes applied.
+Found 89 warnings.

@@ -1,0 +1,14 @@
+{
+  "back_plan": {
+    "status": "pass",
+    "command": "run",
+    "seconds": 66.7,
+    "run_id": "retro-back-live",
+    "artifacts": "<local-run>"
+  },
+  "restored": {
+    "font": "1.45",
+    "awake": "2",
+    "restoration_pending": false
+  }
+}

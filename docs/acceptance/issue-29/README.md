@@ -22,7 +22,7 @@
 - **After:** [Android 导出输出](android-export.txt)，`METVAGE_LOCAL_TEST=1 CI=1 npx expo export --platform android --max-workers 2 --output-dir <android-export>` 成功生成 Hermes bundle。
 - **关联 Server 验证:** [真实 HTTP 核验输出](api-check.txt)覆盖非主人/访客读取、私人搜索边界、越权编辑、记录与评论防重、编辑持久化、真实通知及可见范围往返。相关 `PetRecordApiTest.php`、`PetInteractionApiTest.php`、`PetSearchApiTest.php`、`PetNotificationApiTest.php` 共 12 项测试、268 个断言通过；显式使用 `APP_ENV=testing DB_CONNECTION=sqlite DB_DATABASE=:memory:`，未刷新真机使用的数据。这些 Server 测试是关联验证，本 PR 不改 Server 代码。
 
-现有 GitHub Actions 的 PR 触发条件只覆盖 `main`。本 PR 的目标为 `codex/metvage-v1`，因此上述结果为已执行的本地证据，不能表述为 GitHub CI 已通过。
+初次送审时 GitHub Actions 的 PR 触发条件只覆盖 `main`，上述为该阶段的本地执行证据。后续按复盘要求将轻量检查扩展为全部 PR，并增加版本化验收工具；新的 73 项 Jest、11 项工具用例和类型/格式检查结果见 [retro-validation.md](retro-validation.md)。原始 72 项日志保留，未替换为不同版本的执行结果。
 
 ## 真机证据
 

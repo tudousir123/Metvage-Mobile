@@ -1,0 +1,26 @@
+[
+  {
+    "status": "pass",
+    "command": "fixtures",
+    "seconds": 2.61,
+    "invocation": "c73121ebe18a4852a1c7424331a78ac6",
+    "run_id": "retro-reviewed-materials",
+    "artifacts": "<local-run>"
+  },
+  {
+    "status": "pass",
+    "command": "cleanup",
+    "seconds": 2.82,
+    "invocation": "9bfca512d0da4f6a88c8282ef3a36589",
+    "run_id": "retro-reviewed-materials",
+    "artifacts": "<local-run>"
+  },
+  {
+    "status": "pass",
+    "command": "fixtures",
+    "seconds": 2.16,
+    "invocation": "1c0b5358991d420fae46f0b23b6ed3ed",
+    "run_id": "retro-reviewed-materials",
+    "artifacts": "<local-run>"
+  }
+]
