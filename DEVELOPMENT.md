@@ -13,6 +13,10 @@ The pixelfed mobile app is written in [react native](https://reactnative.dev) an
 
 https://docs.expo.dev/get-started/set-up-your-environment/ helps you to install most of the dependencies except for `git-lfs`.
 
+## Metvage device acceptance
+
+For Android device acceptance and local test-instance setup, follow [Local acceptance](docs/local-acceptance.md). It covers workspace discovery, verified bundle launch, replayable plans and cleanup.
+
 ## First time setup
 
 ```sh

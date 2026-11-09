@@ -1,0 +1,92 @@
+{
+  "requiresFixtures": [
+    "cat",
+    "dog"
+  ],
+  "publicFixtures": [
+    "cat"
+  ],
+  "commentFixture": "cat",
+  "steps": [
+    {
+      "action": "open",
+      "path": "/search?initialQuery={fixture_run}",
+      "expect": {
+        "label": "{catRecordTitle}"
+      }
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden",
+        "label": "{catRecordTitle}"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "search-photos"
+    },
+    {
+      "action": "tap",
+      "label": "查看{catNickname}的宠物档案",
+      "expect": {
+        "label": "宠物公开档案"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "public-cat"
+    },
+    {
+      "action": "open",
+      "path": "/pet/{dogId}",
+      "expect": {
+        "label": "还没有公开笔记"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "private-only-profile"
+    },
+    {
+      "action": "open",
+      "path": "/note/{catRecordId}",
+      "expect": {
+        "label": "查看{catNickname}的主页"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "写评论"
+    },
+    {
+      "action": "type",
+      "text": "{run_id}"
+    },
+    {
+      "action": "keyboard",
+      "label": "发送评论"
+    },
+    {
+      "action": "capture",
+      "name": "comment-keyboard"
+    },
+    {
+      "action": "tap",
+      "label": "发送评论"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "open",
+      "path": "/",
+      "expect": {
+        "label": "搜索宠物笔记"
+      }
+    }
+  ]
+}

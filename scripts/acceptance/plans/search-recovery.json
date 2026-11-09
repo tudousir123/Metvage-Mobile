@@ -1,0 +1,16 @@
+{
+  "steps": [
+    {"action":"open","path":"/","expect":{"label":"搜索宠物笔记"}},
+    {"action":"tap","label":"搜索宠物笔记","expect":{"label":"搜索公开笔记和宠物档案"}},
+    {"action":"tap","label":"搜索公开笔记和宠物档案"},
+    {"action":"api_connection","state":"off"},
+    {"action":"type","text":"offline-{run_id}"},
+    {"action":"back","expect":{"keyboard":"hidden"}},
+    {"action":"assert","label":"暂时无法搜索","timeout":45},
+    {"action":"capture","name":"search-failure"},
+    {"action":"api_connection","state":"on"},
+    {"action":"tap","label":"重试","expect":{"label":"没有找到公开结果"}},
+    {"action":"capture","name":"search-recovered"},
+    {"action":"open","path":"/","expect":{"label":"搜索宠物笔记"}}
+  ]
+}

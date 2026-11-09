@@ -1,11 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { router } from 'expo-router'
-import { ActivityIndicator, Pressable, Text, View } from 'react-native'
+import { ActivityIndicator, Text, View } from 'react-native'
+import { ActionButton } from 'src/components/metvage/secondary-ui'
 import { followPet, getPetFollows, unfollowPet } from 'src/lib/follows'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import { getPets } from 'src/lib/pets'
 import { useAuth } from 'src/state/AuthProvider'
-
-const green = '#075e52'
 
 export function PetFollowButton({ targetPetId }: { targetPetId: number }) {
   const { user } = useAuth()
@@ -40,56 +40,66 @@ export function PetFollowButton({ targetPetId }: { targetPetId: number }) {
 
   if (!user) {
     return (
-      <Pressable accessibilityRole="button" onPress={() => router.push('/handleLogin')}>
-        <Text style={{ color: green, fontWeight: '700' }}>登录后关注</Text>
-      </Pressable>
+      <ActionButton
+        title="登录后关注"
+        icon="user-plus"
+        onPress={() => router.push('/handleLogin')}
+      />
     )
   }
-  if (pets.isLoading) return <ActivityIndicator accessibilityLabel="正在加载宠物身份" />
+  if (pets.isLoading)
+    return <ActivityIndicator color={c.green} accessibilityLabel="正在加载宠物身份" />
   if (pets.error && !pets.data) {
     return (
-      <Pressable accessibilityRole="button" onPress={() => pets.refetch()}>
-        <Text style={{ color: '#b42318' }}>宠物身份加载失败，点此重试</Text>
-      </Pressable>
+      <ActionButton
+        title="宠物身份加载失败，点此重试"
+        tone="secondary"
+        onPress={() => pets.refetch()}
+      />
     )
   }
-  if (ownPet) return <Text style={{ color: '#63746f' }}>这是你自己的宠物</Text>
+  if (ownPet)
+    return (
+      <Text style={{ color: c.secondaryText, fontSize: m.caption }}>
+        这是你自己的宠物
+      </Text>
+    )
   if (hasCurrentPet && follows.isLoading) {
-    return <ActivityIndicator accessibilityLabel="正在加载关注状态" />
+    return <ActivityIndicator color={c.green} accessibilityLabel="正在加载关注状态" />
   }
   if (hasCurrentPet && follows.error && !follows.data) {
     return (
-      <Pressable accessibilityRole="button" onPress={() => follows.refetch()}>
-        <Text style={{ color: '#b42318' }}>关注状态加载失败，点此重试</Text>
-      </Pressable>
+      <ActionButton
+        title="关注状态加载失败，点此重试"
+        tone="secondary"
+        onPress={() => follows.refetch()}
+      />
     )
   }
 
   return (
-    <View style={{ gap: 8 }}>
-      <Pressable
-        accessibilityRole="button"
-        disabled={mutation.isPending || (hasCurrentPet && follows.isLoading)}
-        onPress={() => {
-          if (!hasCurrentPet) {
-            router.push('/settings/pets')
-          } else {
-            mutation.mutate()
-          }
-        }}
-      >
-        <Text style={{ color: green, fontWeight: '700' }}>
-          {!hasCurrentPet
+    <View style={{ gap: m.gap }}>
+      <ActionButton
+        title={
+          !hasCurrentPet
             ? '建立宠物后关注'
             : mutation.isPending
               ? '正在保存…'
               : followed
                 ? '取消关注'
-                : '关注宠物'}
-        </Text>
-      </Pressable>
+                : '关注宠物'
+        }
+        icon={followed ? 'user-check' : 'user-plus'}
+        tone={followed ? 'secondary' : 'primary'}
+        busy={mutation.isPending}
+        disabled={hasCurrentPet && follows.isLoading}
+        onPress={() => {
+          if (!hasCurrentPet) router.push('/settings/pets')
+          else mutation.mutate()
+        }}
+      />
       {(pets.error || follows.error || mutation.error) && (
-        <Text style={{ color: '#b42318' }}>
+        <Text accessibilityRole="alert" style={{ color: c.error, fontSize: m.cardTitle }}>
           {(pets.error || follows.error || mutation.error)?.message}
         </Text>
       )}

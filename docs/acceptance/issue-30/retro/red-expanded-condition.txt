@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_empty_expanded_navigation_label_is_rejected_before_input (test_device_cli.DeviceCliTest.test_empty_expanded_navigation_label_is_rejected_before_input)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 273, in test_empty_expanded_navigation_label_is_rejected_before_input
+    self.assertEqual(result.returncode,1,result.stdout)
+AssertionError: 0 != 1 : {"status": "pass", "command": "run", "seconds": 1.0, "invocation": "d9f6e850eb4044a3835c923c34475de4", "metrics": {"adb_calls": 27, "adb_seconds": 0.944, "ui_reads": 1}, "run_id": "empty-expanded", "runtime_mode": "driver-only", "artifacts": "/tmp/tmppmw6zswv/runs/empty-expanded"}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 1.098s
+
+FAILED (failures=1)

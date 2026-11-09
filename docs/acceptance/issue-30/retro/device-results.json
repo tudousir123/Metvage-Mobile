@@ -1,0 +1,1025 @@
+[
+  {
+    "run": "retro-launch",
+    "summary": {
+      "status": "pass",
+      "command": "launch",
+      "seconds": 46.52,
+      "invocation": "149badbc60174c19a269f8082335c4f6",
+      "metrics": {
+        "adb_calls": 26,
+        "adb_seconds": 7.991,
+        "ui_reads": 1
+      },
+      "runtime": {
+        "source": "2dbb8b41dc554f45e877ce55f8ae960aff87445dbe8ec4a4b9157a564d8a0856",
+        "scheme": "metvagephone",
+        "app_pid": "12152",
+        "metro_pid": 1091665
+      },
+      "artifacts": "<mobile-worktree>/.acceptance/runs/retro-launch"
+    },
+    "device": {
+      "restoration_pending": false
+    },
+    "events": [
+      {
+        "action": "runtime_verified",
+        "source": "2dbb8b41dc554f45e877ce55f8ae960aff87445dbe8ec4a4b9157a564d8a0856",
+        "scheme": "metvagephone",
+        "metro_pid": 1091665
+      }
+    ]
+  },
+  {
+    "run": "retro-device",
+    "summary": {
+      "status": "fail",
+      "command": "replay",
+      "seconds": 107.41,
+      "invocation": "3039068cfa154321afeb1b30767d418c",
+      "metrics": {
+        "adb_calls": 222,
+        "adb_seconds": 101.341,
+        "ui_reads": 36
+      },
+      "error": "Navigation postcondition not reached; subsequent actions stopped",
+      "artifacts": "<mobile-worktree>/.acceptance/runs/retro-device"
+    },
+    "device": {
+      "restoration_pending": false
+    },
+    "fixtures": {
+      "cleaned": true,
+      "token_cleanup_pending": false,
+      "original_current_pet_id": 1
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "secondary-ui.json",
+            "sha256": "b695ec9c0879f07da0447e7dd4cd48a6408e1cb3351fc7a4ebe067474c921156"
+          },
+          {
+            "file": "search-recovery.json",
+            "sha256": "b6099833a8f3ec4ccfd61fa5aa58567dee6d84ac5fa09df483f48b7a4c148a29"
+          },
+          {
+            "file": "settings.json",
+            "sha256": "2e55a6fded00075964a5e20022697bf9f825d258c8286ba45b0e1ff6232e362e"
+          },
+          {
+            "file": "social-controls.json",
+            "sha256": "00675bdbed9e1d470f859f3b4bcc8bce75ba2a6acaa162cf85c13e14ef2befed"
+          },
+          {
+            "file": "secondary-acceptance.json",
+            "sha256": "61660f71079691f0f384257e7a7a54a1854928b0233e9cb433292a29a4668530"
+          }
+        ]
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 5.351,
+        "adb_calls": 13,
+        "adb_seconds": 5.345,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "back",
+        "status": "pass",
+        "seconds": 2.698,
+        "adb_calls": 8,
+        "adb_seconds": 2.694,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.681,
+        "adb_calls": 21,
+        "adb_seconds": 10.664,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 4,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 9.653,
+        "adb_calls": 16,
+        "adb_seconds": 9.645,
+        "ui_reads": 3
+      },
+      {
+        "action": "step",
+        "number": 5,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.758,
+        "adb_calls": 21,
+        "adb_seconds": 10.742,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 6,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.194,
+        "adb_calls": 8,
+        "adb_seconds": 3.192,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 7,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.669,
+        "adb_calls": 21,
+        "adb_seconds": 10.658,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 8,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.355,
+        "adb_calls": 8,
+        "adb_seconds": 3.353,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 9,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 5.219,
+        "adb_calls": 11,
+        "adb_seconds": 5.214,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 10,
+        "operation": "type",
+        "status": "pass",
+        "seconds": 0.971,
+        "adb_calls": 2,
+        "adb_seconds": 0.97,
+        "ui_reads": 0
+      },
+      {
+        "action": "keyboard_clearance",
+        "button_bottom": 1889,
+        "keyboard_top": 1971
+      },
+      {
+        "action": "step",
+        "number": 11,
+        "operation": "keyboard",
+        "status": "pass",
+        "seconds": 5.209,
+        "adb_calls": 11,
+        "adb_seconds": 5.198,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 12,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 11.234,
+        "adb_calls": 21,
+        "adb_seconds": 11.218,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 13,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 5.287,
+        "adb_calls": 11,
+        "adb_seconds": 5.283,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 14,
+        "operation": "back",
+        "status": "fail",
+        "seconds": 15.881,
+        "adb_calls": 32,
+        "adb_seconds": 15.867,
+        "ui_reads": 6
+      },
+      {
+        "action": "fixtures_cleaned",
+        "run_id": "retro-device"
+      }
+    ]
+  },
+  {
+    "run": "retro-device2",
+    "summary": {
+      "status": "fail",
+      "command": "replay",
+      "seconds": 69.71,
+      "invocation": "8056ae4a388541a0b68181ead15cc713",
+      "metrics": {
+        "adb_calls": 134,
+        "adb_seconds": 63.302,
+        "ui_reads": 19
+      },
+      "error": "Foreground changed: device operation stopped before reading/capturing another app",
+      "artifacts": "<mobile-worktree>/.acceptance/runs/retro-device2"
+    },
+    "device": {
+      "restoration_pending": false
+    },
+    "fixtures": {
+      "cleaned": true,
+      "token_cleanup_pending": false,
+      "original_current_pet_id": 1
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "secondary-ui.json",
+            "sha256": "900473cfc8c9055b36d1f47f9098fc3780927a1ad99474e0e0a513b3ca7f6b67"
+          },
+          {
+            "file": "search-recovery.json",
+            "sha256": "b6099833a8f3ec4ccfd61fa5aa58567dee6d84ac5fa09df483f48b7a4c148a29"
+          },
+          {
+            "file": "settings.json",
+            "sha256": "2e55a6fded00075964a5e20022697bf9f825d258c8286ba45b0e1ff6232e362e"
+          },
+          {
+            "file": "social-controls.json",
+            "sha256": "00675bdbed9e1d470f859f3b4bcc8bce75ba2a6acaa162cf85c13e14ef2befed"
+          },
+          {
+            "file": "secondary-acceptance.json",
+            "sha256": "61660f71079691f0f384257e7a7a54a1854928b0233e9cb433292a29a4668530"
+          }
+        ]
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.01,
+        "adb_calls": 8,
+        "adb_seconds": 3.006,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "back",
+        "status": "pass",
+        "seconds": 3.334,
+        "adb_calls": 8,
+        "adb_seconds": 3.329,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 12.234,
+        "adb_calls": 21,
+        "adb_seconds": 12.207,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 4,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 9.585,
+        "adb_calls": 16,
+        "adb_seconds": 9.574,
+        "ui_reads": 3
+      },
+      {
+        "action": "step",
+        "number": 5,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.825,
+        "adb_calls": 21,
+        "adb_seconds": 10.811,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 6,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.209,
+        "adb_calls": 8,
+        "adb_seconds": 3.206,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 7,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.797,
+        "adb_calls": 21,
+        "adb_seconds": 10.781,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 8,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 6.822,
+        "adb_calls": 8,
+        "adb_seconds": 6.819,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 9,
+        "operation": "tap",
+        "status": "fail",
+        "seconds": 2.482,
+        "adb_calls": 5,
+        "adb_seconds": 2.482,
+        "ui_reads": 0
+      },
+      {
+        "action": "fixtures_cleaned",
+        "run_id": "retro-device2"
+      }
+    ]
+  },
+  {
+    "run": "retro-device3",
+    "summary": {
+      "status": "pass",
+      "command": "replay",
+      "seconds": 301.34,
+      "invocation": "5758e558a7b74856a429e4518562168f",
+      "metrics": {
+        "adb_calls": 591,
+        "adb_seconds": 293.879,
+        "ui_reads": 99
+      },
+      "run_id": "retro-device3",
+      "artifacts": "<mobile-worktree>/.acceptance/runs/retro-device3"
+    },
+    "device": {
+      "restoration_pending": false
+    },
+    "fixtures": {
+      "cleaned": true,
+      "token_cleanup_pending": false,
+      "original_current_pet_id": 1
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "secondary-ui.json",
+            "sha256": "900473cfc8c9055b36d1f47f9098fc3780927a1ad99474e0e0a513b3ca7f6b67"
+          },
+          {
+            "file": "search-recovery.json",
+            "sha256": "b6099833a8f3ec4ccfd61fa5aa58567dee6d84ac5fa09df483f48b7a4c148a29"
+          },
+          {
+            "file": "settings.json",
+            "sha256": "2e55a6fded00075964a5e20022697bf9f825d258c8286ba45b0e1ff6232e362e"
+          },
+          {
+            "file": "social-controls.json",
+            "sha256": "00675bdbed9e1d470f859f3b4bcc8bce75ba2a6acaa162cf85c13e14ef2befed"
+          },
+          {
+            "file": "secondary-acceptance.json",
+            "sha256": "61660f71079691f0f384257e7a7a54a1854928b0233e9cb433292a29a4668530"
+          }
+        ]
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 5.86,
+        "adb_calls": 13,
+        "adb_seconds": 5.854,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "back",
+        "status": "pass",
+        "seconds": 3.987,
+        "adb_calls": 8,
+        "adb_seconds": 3.983,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.878,
+        "adb_calls": 21,
+        "adb_seconds": 10.861,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 4,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 9.219,
+        "adb_calls": 16,
+        "adb_seconds": 9.21,
+        "ui_reads": 3
+      },
+      {
+        "action": "step",
+        "number": 5,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 11.021,
+        "adb_calls": 21,
+        "adb_seconds": 11.006,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 6,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.273,
+        "adb_calls": 8,
+        "adb_seconds": 3.27,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 7,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.785,
+        "adb_calls": 21,
+        "adb_seconds": 10.771,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 8,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.35,
+        "adb_calls": 8,
+        "adb_seconds": 3.348,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 9,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 5.483,
+        "adb_calls": 11,
+        "adb_seconds": 5.478,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 10,
+        "operation": "type",
+        "status": "pass",
+        "seconds": 0.791,
+        "adb_calls": 2,
+        "adb_seconds": 0.79,
+        "ui_reads": 0
+      },
+      {
+        "action": "keyboard_clearance",
+        "button_bottom": 1889,
+        "keyboard_top": 1971
+      },
+      {
+        "action": "step",
+        "number": 11,
+        "operation": "keyboard",
+        "status": "pass",
+        "seconds": 5.298,
+        "adb_calls": 11,
+        "adb_seconds": 5.286,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 12,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 11.885,
+        "adb_calls": 21,
+        "adb_seconds": 11.869,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 13,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 6.627,
+        "adb_calls": 11,
+        "adb_seconds": 6.622,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 14,
+        "operation": "back",
+        "status": "pass",
+        "seconds": 3.223,
+        "adb_calls": 8,
+        "adb_seconds": 3.22,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 15,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 4.152,
+        "adb_calls": 8,
+        "adb_seconds": 4.147,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 16,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.701,
+        "adb_calls": 8,
+        "adb_seconds": 3.697,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 17,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 8.755,
+        "adb_calls": 16,
+        "adb_seconds": 8.745,
+        "ui_reads": 3
+      },
+      {
+        "action": "step",
+        "number": 18,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 5.114,
+        "adb_calls": 11,
+        "adb_seconds": 5.111,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 19,
+        "operation": "api_connection",
+        "status": "pass",
+        "seconds": 0.01,
+        "adb_calls": 1,
+        "adb_seconds": 0.008,
+        "ui_reads": 0
+      },
+      {
+        "action": "step",
+        "number": 20,
+        "operation": "type",
+        "status": "pass",
+        "seconds": 0.35,
+        "adb_calls": 2,
+        "adb_seconds": 0.35,
+        "ui_reads": 0
+      },
+      {
+        "action": "step",
+        "number": 21,
+        "operation": "back",
+        "status": "pass",
+        "seconds": 2.723,
+        "adb_calls": 8,
+        "adb_seconds": 2.721,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 22,
+        "operation": "assert",
+        "status": "pass",
+        "seconds": 2.952,
+        "adb_calls": 5,
+        "adb_seconds": 2.95,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 23,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.887,
+        "adb_calls": 21,
+        "adb_seconds": 10.872,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 24,
+        "operation": "api_connection",
+        "status": "pass",
+        "seconds": 0.006,
+        "adb_calls": 1,
+        "adb_seconds": 0.005,
+        "ui_reads": 0
+      },
+      {
+        "action": "step",
+        "number": 25,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 9.96,
+        "adb_calls": 16,
+        "adb_seconds": 9.954,
+        "ui_reads": 3
+      },
+      {
+        "action": "step",
+        "number": 26,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 11.13,
+        "adb_calls": 21,
+        "adb_seconds": 11.115,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 27,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.624,
+        "adb_calls": 8,
+        "adb_seconds": 3.62,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 28,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.037,
+        "adb_calls": 8,
+        "adb_seconds": 3.034,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 29,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 11.187,
+        "adb_calls": 21,
+        "adb_seconds": 11.167,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 30,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 8.173,
+        "adb_calls": 16,
+        "adb_seconds": 8.164,
+        "ui_reads": 3
+      },
+      {
+        "action": "step",
+        "number": 31,
+        "operation": "back",
+        "status": "pass",
+        "seconds": 3.055,
+        "adb_calls": 7,
+        "adb_seconds": 3.052,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 32,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.257,
+        "adb_calls": 8,
+        "adb_seconds": 3.253,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 33,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 12.927,
+        "adb_calls": 21,
+        "adb_seconds": 12.908,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 34,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 9.164,
+        "adb_calls": 16,
+        "adb_seconds": 9.157,
+        "ui_reads": 3
+      },
+      {
+        "action": "step",
+        "number": 35,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.789,
+        "adb_calls": 21,
+        "adb_seconds": 10.774,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 36,
+        "operation": "back",
+        "status": "pass",
+        "seconds": 2.694,
+        "adb_calls": 7,
+        "adb_seconds": 2.691,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 37,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 7.783,
+        "adb_calls": 16,
+        "adb_seconds": 7.775,
+        "ui_reads": 3
+      },
+      {
+        "action": "step",
+        "number": 38,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 12.527,
+        "adb_calls": 21,
+        "adb_seconds": 12.512,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 39,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 5.3,
+        "adb_calls": 8,
+        "adb_seconds": 5.296,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 40,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 7.164,
+        "adb_calls": 13,
+        "adb_seconds": 7.158,
+        "ui_reads": 2
+      },
+      {
+        "action": "touch_target",
+        "width": 379.42857142857144,
+        "height": 48.0
+      },
+      {
+        "action": "step",
+        "number": 41,
+        "operation": "touch",
+        "status": "pass",
+        "seconds": 5.14,
+        "adb_calls": 11,
+        "adb_seconds": 5.128,
+        "ui_reads": 2
+      },
+      {
+        "action": "touch_target",
+        "width": 379.42857142857144,
+        "height": 48.0
+      },
+      {
+        "action": "step",
+        "number": 42,
+        "operation": "touch",
+        "status": "pass",
+        "seconds": 5.357,
+        "adb_calls": 11,
+        "adb_seconds": 5.347,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 43,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 8.472,
+        "adb_calls": 16,
+        "adb_seconds": 8.465,
+        "ui_reads": 3
+      },
+      {
+        "action": "step",
+        "number": 44,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.796,
+        "adb_calls": 21,
+        "adb_seconds": 10.781,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 45,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 7.685,
+        "adb_calls": 16,
+        "adb_seconds": 7.679,
+        "ui_reads": 3
+      },
+      {
+        "action": "step",
+        "number": 46,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.598,
+        "adb_calls": 8,
+        "adb_seconds": 3.594,
+        "ui_reads": 1
+      },
+      {
+        "action": "comment_persisted",
+        "count": 1
+      },
+      {
+        "action": "fixtures_cleaned",
+        "run_id": "retro-device3"
+      }
+    ]
+  },
+  {
+    "run": "retro-launch-final",
+    "summary": {
+      "status": "pass",
+      "command": "launch",
+      "seconds": 48.27,
+      "invocation": "3c7a35cdfe874e5db3fbfe754923e2c9",
+      "metrics": {
+        "adb_calls": 26,
+        "adb_seconds": 7.763,
+        "ui_reads": 1
+      },
+      "runtime": {
+        "source": "166fb69f844143cbe8af8526415f5093c2bd220e3a1338780eb9872effbfadb6",
+        "scheme": "metvagephone",
+        "app_pid": "28747",
+        "metro_pid": 1110610
+      },
+      "artifacts": "<mobile-worktree>/.acceptance/runs/retro-launch-final"
+    },
+    "device": {
+      "restoration_pending": false
+    },
+    "events": [
+      {
+        "action": "runtime_verified",
+        "source": "166fb69f844143cbe8af8526415f5093c2bd220e3a1338780eb9872effbfadb6",
+        "scheme": "metvagephone",
+        "metro_pid": 1110610
+      }
+    ]
+  },
+  {
+    "run": "retro-final-smoke",
+    "summary": {
+      "status": "fail",
+      "command": "run",
+      "seconds": 8.5,
+      "invocation": "67a374e49a49418a85f6a1ce7a719974",
+      "metrics": {
+        "adb_calls": 24,
+        "adb_seconds": 7.785,
+        "ui_reads": 0
+      },
+      "error": "Foreground changed: device operation stopped before reading/capturing another app",
+      "artifacts": "<mobile-worktree>/.acceptance/runs/retro-final-smoke"
+    },
+    "device": {
+      "restoration_pending": false
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "smoke.json",
+            "sha256": "ff7341c378c2ebf6a1250842ba1da12fb2252a2f5cd18f511c2e669edc2e6796"
+          }
+        ]
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "tap",
+        "status": "fail",
+        "seconds": 6.768,
+        "adb_calls": 5,
+        "adb_seconds": 6.767,
+        "ui_reads": 0
+      }
+    ]
+  },
+  {
+    "run": "retro-smoke-corrected",
+    "summary": {
+      "status": "fail",
+      "command": "run",
+      "seconds": 7.31,
+      "invocation": "05e43dea70da491bb36512adc6a68a89",
+      "metrics": {
+        "adb_calls": 27,
+        "adb_seconds": 6.767,
+        "ui_reads": 0
+      },
+      "error": "Foreground changed to <other-app>: stopped before reading/capturing another app",
+      "artifacts": "<mobile-worktree>/.acceptance/runs/retro-smoke-corrected"
+    },
+    "device": {
+      "restoration_pending": false
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "smoke.json",
+            "sha256": "ff7341c378c2ebf6a1250842ba1da12fb2252a2f5cd18f511c2e669edc2e6796"
+          }
+        ]
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "tap",
+        "status": "fail",
+        "seconds": 5.616,
+        "adb_calls": 5,
+        "adb_seconds": 5.615,
+        "ui_reads": 0
+      }
+    ]
+  }
+]

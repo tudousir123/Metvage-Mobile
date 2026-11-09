@@ -84,6 +84,7 @@ class Report:
         self.command = command
         self.started = time.monotonic()
         self.events = []
+        self.metrics = {}
         self.secrets = []
         self.invocation = uuid.uuid4().hex
         self.history = directory / "invocations" / self.invocation if directory else None
@@ -105,7 +106,7 @@ class Report:
         result = self.redact({"status": status, "command": self.command,
                               "seconds": round(time.monotonic() - self.started, 2),
                               "invocation": self.invocation,
-                              **fields})
+                              **({"metrics":self.metrics} if self.metrics else {}), **fields})
         if self.directory:
             result["artifacts"] = str(self.directory)
             write_json(self.history / "summary.json", result)

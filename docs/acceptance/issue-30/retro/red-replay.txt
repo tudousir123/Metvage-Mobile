@@ -1,0 +1,17 @@
+.F...
+======================================================================
+FAIL: test_replay_failure_cleans_fixtures_and_keeps_existing_data (test_fixtures_cli.FixtureCliTest.test_replay_failure_cleans_fixtures_and_keeps_existing_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_fixtures_cli.py", line 189, in test_replay_failure_cleans_fixtures_and_keeps_existing_data
+    self.assertEqual(result.returncode,1,result.stdout+result.stderr)
+AssertionError: 2 != 1 : usage: acceptance.py [-h] [--config CONFIG]
+                     {doctor,discover,inspect,launch,pr-status,summary,fixtures,run,cleanup}
+                     ...
+acceptance.py: error: argument command: invalid choice: 'replay' (choose from 'doctor', 'discover', 'inspect', 'launch', 'pr-status', 'summary', 'fixtures', 'run', 'cleanup')
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 4.639s
+
+FAILED (failures=1)

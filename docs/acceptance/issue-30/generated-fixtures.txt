@@ -1,0 +1,2 @@
+PASS isolated generated-image fixtures prepared; cat public, dog private; selection unchanged
+Temporary resource IDs: [(9, 'cat'), (10, 'dog')] [(18, 'cat'), (19, 'dog')]

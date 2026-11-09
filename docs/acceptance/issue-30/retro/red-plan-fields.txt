@@ -1,0 +1,46 @@
+FFFFF
+======================================================================
+FAIL: test_all_action_fields_are_checked_before_any_input (test_device_cli.DeviceCliTest.test_all_action_fields_are_checked_before_any_input) (bad={'action': 'swipe'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 267, in test_all_action_fields_are_checked_before_any_input
+    self.assertNotIn('inputs',json.loads(self.state.read_text()))
+AssertionError: 'inputs' unexpectedly found in {'settings': {'system.font_scale': '1.45', 'global.stay_on_while_plugged_in': '2'}, 'reverse': {'tcp:8081': 'tcp:9000', 'tcp:7777': 'tcp:7777'}, 'focus': 'com.metvage.acceptance.phone', 'inputs': [['text', 'must-not-run']], 'xml_files': []}
+
+======================================================================
+FAIL: test_all_action_fields_are_checked_before_any_input (test_device_cli.DeviceCliTest.test_all_action_fields_are_checked_before_any_input) (bad={'action': 'swipe', 'fractions': [0, 0, 1, 2]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 267, in test_all_action_fields_are_checked_before_any_input
+    self.assertNotIn('inputs',json.loads(self.state.read_text()))
+AssertionError: 'inputs' unexpectedly found in {'settings': {'system.font_scale': '1.45', 'global.stay_on_while_plugged_in': '2'}, 'reverse': {'tcp:8081': 'tcp:9000', 'tcp:7777': 'tcp:7777'}, 'focus': 'com.metvage.acceptance.phone', 'inputs': [['text', 'must-not-run']], 'xml_files': []}
+
+======================================================================
+FAIL: test_all_action_fields_are_checked_before_any_input (test_device_cli.DeviceCliTest.test_all_action_fields_are_checked_before_any_input) (bad={'action': 'capture', 'name': '../outside'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 267, in test_all_action_fields_are_checked_before_any_input
+    self.assertNotIn('inputs',json.loads(self.state.read_text()))
+AssertionError: 'inputs' unexpectedly found in {'settings': {'system.font_scale': '1.45', 'global.stay_on_while_plugged_in': '2'}, 'reverse': {'tcp:8081': 'tcp:9000', 'tcp:7777': 'tcp:7777'}, 'focus': 'com.metvage.acceptance.phone', 'inputs': [['text', 'must-not-run']], 'xml_files': []}
+
+======================================================================
+FAIL: test_all_action_fields_are_checked_before_any_input (test_device_cli.DeviceCliTest.test_all_action_fields_are_checked_before_any_input) (bad={'action': 'open', 'path': 'https://outside.test', 'expect': {'label': 'ready'}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 267, in test_all_action_fields_are_checked_before_any_input
+    self.assertNotIn('inputs',json.loads(self.state.read_text()))
+AssertionError: 'inputs' unexpectedly found in {'settings': {'system.font_scale': '1.45', 'global.stay_on_while_plugged_in': '2'}, 'reverse': {'tcp:8081': 'tcp:9000', 'tcp:7777': 'tcp:7777'}, 'focus': 'com.metvage.acceptance.phone', 'inputs': [['text', 'must-not-run']], 'xml_files': []}
+
+======================================================================
+FAIL: test_all_action_fields_are_checked_before_any_input (test_device_cli.DeviceCliTest.test_all_action_fields_are_checked_before_any_input) (bad={'action': 'back', 'expect': {'label': ''}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 266, in test_all_action_fields_are_checked_before_any_input
+    self.assertEqual(result.returncode,1,result.stdout)
+AssertionError: 0 != 1 : {"status": "pass", "command": "run", "seconds": 1.08, "invocation": "65257c0ac6ef419194ae2ef004839241", "metrics": {"adb_calls": 27, "adb_seconds": 1.022, "ui_reads": 1}, "run_id": "invalid-fields", "runtime_mode": "driver-only", "artifacts": "/tmp/tmp6q4vvl6w/runs/invalid-fields"}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 4.826s
+
+FAILED (failures=5)

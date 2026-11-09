@@ -1,0 +1,8 @@
+
+> pixelfed@1.0.0 check:ts
+> node scripts/typecheck-baseline.cjs
+
+TypeScript 5.3.3; 83 route files; 2269 diagnostics
+By code: {"1016":1,"2304":9,"2322":1642,"2339":125,"2345":56,"2353":24,"2362":1,"2363":1,"2367":2,"2554":5,"2559":1,"2571":1,"2698":2,"2740":1,"2741":3,"2746":14,"2747":46,"2769":22,"2774":1,"7006":114,"7008":4,"7016":2,"7031":84,"7053":19,"18046":17,"18047":1,"18048":71}
+By area: {"src/app":1450,"src/components":689,"src/hooks":62,"src/lib":43,"tamagui.config.ts":21,"src/state":2,"src/utils.ts":2}
+No new diagnostics (baseline 2269, current 2269)

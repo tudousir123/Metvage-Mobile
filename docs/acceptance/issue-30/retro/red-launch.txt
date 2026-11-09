@@ -1,0 +1,49 @@
+FFFF
+======================================================================
+FAIL: test_app_restart_invalidates_previous_proof (test_launch_cli.LaunchCliTest.test_app_restart_invalidates_previous_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_launch_cli.py", line 107, in test_app_restart_invalidates_previous_proof
+    self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+AssertionError: 2 != 0 : usage: acceptance.py [-h] [--config CONFIG]
+                     {doctor,pr-status,summary,fixtures,run,cleanup} ...
+acceptance.py: error: argument command: invalid choice: 'launch' (choose from 'doctor', 'pr-status', 'summary', 'fixtures', 'run', 'cleanup')
+
+
+======================================================================
+FAIL: test_installed_scheme_and_matching_app_acknowledgement_unlock_run (test_launch_cli.LaunchCliTest.test_installed_scheme_and_matching_app_acknowledgement_unlock_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_launch_cli.py", line 80, in test_installed_scheme_and_matching_app_acknowledgement_unlock_run
+    self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+AssertionError: 2 != 0 : usage: acceptance.py [-h] [--config CONFIG]
+                     {doctor,pr-status,summary,fixtures,run,cleanup} ...
+acceptance.py: error: argument command: invalid choice: 'launch' (choose from 'doctor', 'pr-status', 'summary', 'fixtures', 'run', 'cleanup')
+
+
+======================================================================
+FAIL: test_old_bundle_acknowledgement_cannot_unlock_capture (test_launch_cli.LaunchCliTest.test_old_bundle_acknowledgement_cannot_unlock_capture)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_launch_cli.py", line 91, in test_old_bundle_acknowledgement_cannot_unlock_capture
+    self.assertEqual(result.returncode,1,result.stdout+result.stderr)
+AssertionError: 2 != 1 : usage: acceptance.py [-h] [--config CONFIG]
+                     {doctor,pr-status,summary,fixtures,run,cleanup} ...
+acceptance.py: error: argument command: invalid choice: 'launch' (choose from 'doctor', 'pr-status', 'summary', 'fixtures', 'run', 'cleanup')
+
+
+======================================================================
+FAIL: test_source_edits_invalidate_previous_proof (test_launch_cli.LaunchCliTest.test_source_edits_invalidate_previous_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_launch_cli.py", line 98, in test_source_edits_invalidate_previous_proof
+    self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+AssertionError: 2 != 0 : usage: acceptance.py [-h] [--config CONFIG]
+                     {doctor,pr-status,summary,fixtures,run,cleanup} ...
+acceptance.py: error: argument command: invalid choice: 'launch' (choose from 'doctor', 'pr-status', 'summary', 'fixtures', 'run', 'cleanup')
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.383s
+
+FAILED (failures=4)

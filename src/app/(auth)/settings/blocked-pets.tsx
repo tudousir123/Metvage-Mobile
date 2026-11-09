@@ -1,6 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Stack } from 'expo-router'
-import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native'
+import { ActivityIndicator, FlatList, Text, View } from 'react-native'
+import {
+  ActionButton,
+  ScreenMessage,
+  secondaryScreenOptions,
+} from 'src/components/metvage/secondary-ui'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import {
   getPetAccountBlocks,
   type PetAccountBlock,
@@ -29,22 +35,31 @@ function BlockedPetRow({ block }: { block: PetAccountBlock }) {
   })
 
   return (
-    <View style={{ padding: 16, backgroundColor: '#fff', gap: 8 }}>
-      <Text style={{ color: '#18332f', fontSize: 17, fontWeight: '700' }}>
+    <View
+      style={{
+        padding: m.edge,
+        backgroundColor: c.surface,
+        gap: m.inset,
+        borderRadius: 16,
+      }}
+    >
+      <Text style={{ color: c.text, fontSize: m.body, fontWeight: '600' }}>
         {block.pet?.nickname ?? '已屏蔽的账号'}
       </Text>
-      <Text style={{ color: '#536a64' }}>屏蔽范围包括此账号管理的所有宠物。</Text>
-      <Pressable
-        accessibilityRole="button"
-        disabled={mutation.isPending}
+      <Text style={{ color: c.secondaryText, fontSize: m.caption, lineHeight: 20 }}>
+        屏蔽范围包括此账号管理的所有宠物。
+      </Text>
+      <ActionButton
+        title={mutation.isPending ? '正在取消…' : '取消屏蔽'}
+        tone="secondary"
+        icon="unlock"
+        busy={mutation.isPending}
         onPress={() => mutation.mutate()}
-      >
-        <Text style={{ color: '#075e52', fontWeight: '700' }}>
-          {mutation.isPending ? '正在取消…' : '取消屏蔽'}
-        </Text>
-      </Pressable>
+      />
       {mutation.error && (
-        <Text style={{ color: '#b42318' }}>{mutation.error.message}</Text>
+        <Text accessibilityRole="alert" style={{ color: c.error, fontSize: m.cardTitle }}>
+          {mutation.error.message}
+        </Text>
       )}
     </View>
   )
@@ -59,33 +74,59 @@ export default function BlockedPetsScreen() {
   })
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#f5f8f6' }}>
-      <Stack.Screen options={{ title: '屏蔽关系' }} />
+    <View style={{ flex: 1, backgroundColor: c.background }}>
+      <Stack.Screen options={{ ...secondaryScreenOptions, title: '屏蔽关系' }} />
       <FlatList
         data={blocks.data?.blocks ?? []}
         keyExtractor={(item) => String(item.id)}
+        contentContainerStyle={{
+          padding: m.edge,
+          paddingBottom: 32,
+          gap: m.inset,
+          flexGrow: 1,
+        }}
+        contentInsetAdjustmentBehavior="automatic"
         renderItem={({ item }) => <BlockedPetRow block={item} />}
-        ItemSeparatorComponent={() => (
-          <View style={{ height: 1, backgroundColor: '#e1ebe6' }} />
-        )}
         ListHeaderComponent={
-          <Text style={{ padding: 16, color: '#536a64' }}>
-            登录后，双方账号及所有宠物身份不能继续接触。未登录访客仍可能浏览公开内容。
-          </Text>
+          <View style={{ gap: m.inset }}>
+            <Text
+              style={{ color: c.secondaryText, fontSize: m.cardTitle, lineHeight: 23 }}
+            >
+              登录后，双方账号及所有宠物身份不能继续接触。未登录访客仍可能浏览公开内容。
+            </Text>
+            {blocks.isError && (
+              <ScreenMessage icon="wifi-off" title="暂时无法加载屏蔽关系">
+                <Text
+                  accessibilityRole="alert"
+                  style={{ color: c.error, fontSize: m.cardTitle }}
+                >
+                  {blocks.error.message}
+                </Text>
+                <ActionButton
+                  title="重试"
+                  icon="rotate-cw"
+                  onPress={() => blocks.refetch()}
+                />
+              </ScreenMessage>
+            )}
+          </View>
         }
         ListEmptyComponent={
           blocks.isLoading ? (
-            <ActivityIndicator accessibilityLabel="正在加载屏蔽关系" />
-          ) : blocks.isError ? (
-            <View style={{ padding: 16, gap: 8 }}>
-              <Text style={{ color: '#b42318' }}>{blocks.error.message}</Text>
-              <Pressable accessibilityRole="button" onPress={() => blocks.refetch()}>
-                <Text style={{ color: '#075e52' }}>重试</Text>
-              </Pressable>
-            </View>
-          ) : (
-            <Text style={{ padding: 16, color: '#536a64' }}>当前没有屏蔽关系。</Text>
-          )
+            <ActivityIndicator color={c.green} accessibilityLabel="正在加载屏蔽关系" />
+          ) : !blocks.isError ? (
+            <ScreenMessage icon="shield" title="当前没有屏蔽关系">
+              <Text
+                style={{
+                  color: c.secondaryText,
+                  fontSize: m.caption,
+                  textAlign: 'center',
+                }}
+              >
+                可从宠物公开档案中管理屏蔽。
+              </Text>
+            </ScreenMessage>
+          ) : null
         }
         refreshing={blocks.isRefetching}
         onRefresh={() => blocks.refetch()}

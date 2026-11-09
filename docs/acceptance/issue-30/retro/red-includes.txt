@@ -1,0 +1,14 @@
+.......F....
+======================================================================
+FAIL: test_included_plans_are_validated_before_device_mutation (test_device_cli.DeviceCliTest.test_included_plans_are_validated_before_device_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 214, in test_included_plans_are_validated_before_device_mutation
+    self.assertEqual(result.returncode,1,result.stdout)
+AssertionError: 0 != 1 : {"status": "pass", "command": "run", "seconds": 0.67, "invocation": "09e1c5126f7a4c42a671f318c776afae", "metrics": {"adb_calls": 18, "adb_seconds": 0.624, "ui_reads": 0}, "run_id": "invalid-included", "artifacts": "/tmp/tmposy0cbl6/runs/invalid-included"}
+
+
+----------------------------------------------------------------------
+Ran 12 tests in 10.974s
+
+FAILED (failures=1)

@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_transient_null_focus_waits_without_reading_another_app (test_device_cli.DeviceCliTest.test_transient_null_focus_waits_without_reading_another_app)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/metvage-focus-regression-rou7bd84/acceptance/tests/test_device_cli.py", line 250, in test_transient_null_focus_waits_without_reading_another_app
+    self.assertEqual(result.returncode,0,result.stdout)
+AssertionError: 1 != 0 : {"status": "fail", "command": "run", "seconds": 0.85, "invocation": "b149b8af895d4fd782d01fe1a23fc5ba", "metrics": {"adb_calls": 21, "adb_seconds": 0.793, "ui_reads": 0}, "error": "Foreground changed: device operation stopped before reading/capturing another app", "artifacts": "/tmp/tmpvn5dui4n/runs/transient-focus"}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.981s
+
+FAILED (failures=1)

@@ -1,0 +1,2 @@
+PASS one comment persisted after actual keyboard send; displayed pet identity is 布丁
+PASS removed only this run comment; prior likes/comments preserved; temporary token revoked on exit
