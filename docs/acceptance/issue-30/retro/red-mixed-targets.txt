@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_mixed_accessibility_and_text_matches_still_detect_two_buttons (test_device_cli.DeviceCliTest.test_mixed_accessibility_and_text_matches_still_detect_two_buttons)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 239, in test_mixed_accessibility_and_text_matches_still_detect_two_buttons
+    self.assertEqual(result.returncode,1,result.stdout)
+AssertionError: 0 != 1 : {"status": "pass", "command": "run", "seconds": 1.06, "invocation": "10aed3959dab433e981f59c044187625", "metrics": {"adb_calls": 29, "adb_seconds": 1.004, "ui_reads": 2}, "run_id": "mixed", "artifacts": "/tmp/tmpklsre3bj/runs/mixed"}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 1.162s
+
+FAILED (failures=1)

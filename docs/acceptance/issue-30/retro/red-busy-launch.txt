@@ -1,0 +1,13 @@
+F
+======================================================================
+FAIL: test_busy_launch_preserves_the_active_metro_and_runtime_proof (test_launch_cli.LaunchCliTest.test_busy_launch_preserves_the_active_metro_and_runtime_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_launch_cli.py", line 130, in test_busy_launch_preserves_the_active_metro_and_runtime_proof
+    self.assertTrue(proof_path.exists(),'busy launch deleted the active runtime proof')
+AssertionError: False is not true : busy launch deleted the active runtime proof
+
+----------------------------------------------------------------------
+Ran 1 test in 3.815s
+
+FAILED (failures=1)

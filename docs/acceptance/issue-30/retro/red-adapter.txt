@@ -1,0 +1,24 @@
+F
+======================================================================
+FAIL: test_harness_rejects_an_unrecognised_adapter_before_device_commands (test_device_cli.DeviceCliTest.test_harness_rejects_an_unrecognised_adapter_before_device_commands)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 286, in test_harness_rejects_an_unrecognised_adapter_before_device_commands
+    self.assertEqual(json.loads(log.read_text()),['--acceptance-synthetic-adapter'])
+AssertionError: Lists differ: ['devices', '-l'] != ['--acceptance-synthetic-adapter']
+
+First differing element 0:
+'devices'
+'--acceptance-synthetic-adapter'
+
+First list contains 1 additional elements.
+First extra element 1:
+'-l'
+
+- ['devices', '-l']
++ ['--acceptance-synthetic-adapter']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.114s
+
+FAILED (failures=1)

@@ -1,0 +1,39 @@
+F..F..FF.
+======================================================================
+FAIL: test_back_requires_a_postcondition_before_touching_device (test_device_cli.DeviceCliTest.test_back_requires_a_postcondition_before_touching_device)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 196, in test_back_requires_a_postcondition_before_touching_device
+    self.assertEqual(result.returncode, 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_distinct_same_label_controls_require_explicit_selection (test_device_cli.DeviceCliTest.test_distinct_same_label_controls_require_explicit_selection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 190, in test_distinct_same_label_controls_require_explicit_selection
+    self.assertIn("2 clickable", json.loads(result.stdout)["error"])
+AssertionError: '2 clickable' not found in 'Tap target missing or ambiguous; use an exact accessibility label or explicit index'
+
+======================================================================
+FAIL: test_label_on_button_and_child_resolves_to_one_clickable_target (test_device_cli.DeviceCliTest.test_label_on_button_and_child_resolves_to_one_clickable_target)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 178, in test_label_on_button_and_child_resolves_to_one_clickable_target
+    self.assertEqual(result.returncode, 0, result.stdout)
+AssertionError: 1 != 0 : {"status": "fail", "command": "run", "seconds": 1.22, "invocation": "763158537975461abb063353abb53e57", "error": "Tap target missing or ambiguous; use an exact accessibility label or explicit index", "artifacts": "/tmp/tmplmh6i465/runs/parent-child"}
+
+
+======================================================================
+FAIL: test_next_input_waits_for_back_destination (test_device_cli.DeviceCliTest.test_next_input_waits_for_back_destination)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobile-worktree>/scripts/acceptance/tests/test_device_cli.py", line 207, in test_next_input_waits_for_back_destination
+    self.assertEqual(result.returncode, 0, result.stdout)
+AssertionError: 1 != 0 : {"status": "fail", "command": "run", "seconds": 0.84, "invocation": "0e8d4720f0bf41ec926802a2236b22c1", "error": "adb exited 2", "artifacts": "/tmp/tmpch33hk4r/runs/transition"}
+
+
+----------------------------------------------------------------------
+Ran 9 tests in 8.969s
+
+FAILED (failures=4)

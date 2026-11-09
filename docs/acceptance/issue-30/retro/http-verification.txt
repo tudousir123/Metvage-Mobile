@@ -1,0 +1,22 @@
+{"status": "pass", "command": "verify-api", "seconds": 3.6, "invocation": "2497cb73b331493ea0766d96928627e7", "run_id": "retro-api-complete", "artifacts": "<mobile-worktree>/.acceptance/runs/retro-api-complete"}
+{
+  "events": [
+    {
+      "action": "api_visibility",
+      "private_records_checked": 1,
+      "viewers": [
+        "owner",
+        "peer",
+        "guest"
+      ]
+    }
+  ],
+  "cleanup": {
+    "owner": {
+      "token_cleanup_pending": false
+    },
+    "peer": {
+      "token_cleanup_pending": false
+    }
+  }
+}

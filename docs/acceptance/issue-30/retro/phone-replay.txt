@@ -1,0 +1,1 @@
+{"status": "pass", "command": "replay", "seconds": 301.34, "invocation": "5758e558a7b74856a429e4518562168f", "metrics": {"adb_calls": 591, "adb_seconds": 293.879, "ui_reads": 99}, "run_id": "retro-device3", "artifacts": "<mobile-worktree>/.acceptance/runs/retro-device3"}
