@@ -1,23 +1,13 @@
 import { Feather } from '@expo/vector-icons'
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { Link, Stack, useLocalSearchParams, useNavigation, useRouter } from 'expo-router'
+import { Stack, useLocalSearchParams, useNavigation, useRouter } from 'expo-router'
 import type React from 'react'
 import { useLayoutEffect, useMemo } from 'react'
-import { ActivityIndicator, Alert, FlatList, Pressable } from 'react-native'
+import { ActivityIndicator, FlatList, Pressable } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { getStoryViewers, postStorySelfExpire } from 'src/lib/api'
+import { getStoryViewers } from 'src/lib/api'
 import { _timeAgo } from 'src/utils'
-import {
-  Avatar,
-  Button,
-  Group,
-  ScrollView,
-  Separator,
-  Text,
-  useTheme,
-  XStack,
-  YStack,
-} from 'tamagui'
+import { Avatar, Button, Separator, Text, useTheme, XStack, YStack } from 'tamagui'
 
 interface Viewer {
   id: string

@@ -2,16 +2,16 @@ name: Jest (unit tests)
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, codex/metvage-v1 ]
   pull_request:
-    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   unit_test:
     runs-on: ubuntu-latest
     steps:
       - name: 🏗 Setup repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           lfs: true
 
@@ -19,12 +19,16 @@ jobs:
         run: corepack enable
 
       - name: 🏗 Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 20
+          cache: npm
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: npm ci --no-audit --no-fund
 
       - name: Run jest unit tests
-        run: npx jest
+        run: npm run test:ci
+
+      - name: Run acceptance tooling contracts
+        run: npm run test:acceptance

@@ -3,14 +3,9 @@ import Constants from 'expo-constants'
 import * as Device from 'expo-device'
 import * as Notifications from 'expo-notifications'
 import { useCallback, useEffect, useState } from 'react'
-import { ActivityIndicator, Platform, Alert } from 'react-native'
+import { ActivityIndicator, Alert, Platform } from 'react-native'
 import { Switch } from 'src/components/form/Switch'
-import {
-  pushState,
-  pushStateCompare,
-  pushStateDisable,
-  pushStateUpdate,
-} from 'src/lib/api'
+import { pushState, pushStateDisable, pushStateUpdate } from 'src/lib/api'
 import { ScrollView, Separator, Text, useTheme, View, XStack, YStack } from 'tamagui'
 
 function handleRegistrationError(errorMessage: string) {
@@ -74,7 +69,14 @@ export default function Page() {
   }, [])
 
   const mutation = useMutation({
-    mutationFn: async ({ type, value, optimisticKey }) => {
+    mutationFn: async ({
+      type,
+      value,
+    }: {
+      type: string
+      value: boolean
+      optimisticKey: string
+    }) => {
       if (type === 'disable') {
         return await pushStateDisable()
       }
@@ -84,69 +86,75 @@ export default function Page() {
           token: expoPushToken,
         })
       }
-      
+
       const updatePayload = {
         notify_enabled: true,
         token: expoPushToken,
         [type]: value,
       }
-      
+
       return await pushStateUpdate(updatePayload)
     },
     onMutate: async ({ type, value, optimisticKey }) => {
       await queryClient.cancelQueries({ queryKey: ['pushState'] })
-      
+
       const previousState = queryClient.getQueryData(['pushState'])
-      
+
       queryClient.setQueryData(['pushState'], (old) => ({
         ...old,
-        [type]: value
+        [type]: value,
       }))
-      
-      setUpdatingKeys(prev => new Set([...prev, optimisticKey]))
-      
+
+      setUpdatingKeys((prev) => new Set([...prev, optimisticKey]))
+
       return { previousState, optimisticKey }
     },
     onError: (err, { optimisticKey }, context) => {
       if (context?.previousState) {
         queryClient.setQueryData(['pushState'], context.previousState)
       }
-      
+
       Alert.alert(
-        'Update Failed', 
+        'Update Failed',
         'Unable to update notification setting. Please try again.',
         [{ text: 'OK' }]
       )
     },
     onSettled: (_, __, { optimisticKey }) => {
-      setUpdatingKeys(prev => {
+      setUpdatingKeys((prev) => {
         const newSet = new Set(prev)
         newSet.delete(optimisticKey)
         return newSet
       })
-      
+
       queryClient.invalidateQueries({ queryKey: ['pushState'] })
     },
   })
 
-  const toggleMainState = useCallback((val) => {
-    const type = val ? 'enable' : 'disable'
-    const optimisticKey = 'notify_enabled'
-    
-    mutation.mutate({
-      type: val ? 'notify_enabled' : 'disable',
-      value: val,
-      optimisticKey
-    })
-  }, [mutation])
+  const toggleMainState = useCallback(
+    (val: boolean) => {
+      const type = val ? 'enable' : 'disable'
+      const optimisticKey = 'notify_enabled'
 
-  const toggleNotificationSetting = useCallback((settingType, value) => {
-    mutation.mutate({
-      type: settingType,
-      value,
-      optimisticKey: settingType
-    })
-  }, [mutation])
+      mutation.mutate({
+        type: val ? 'notify_enabled' : 'disable',
+        value: val,
+        optimisticKey,
+      })
+    },
+    [mutation]
+  )
+
+  const toggleNotificationSetting = useCallback(
+    (settingType: string, value: boolean) => {
+      mutation.mutate({
+        type: settingType,
+        value,
+        optimisticKey: settingType,
+      })
+    },
+    [mutation]
+  )
 
   const {
     data: pushStateRes,
@@ -179,23 +187,23 @@ export default function Page() {
     {
       key: 'notify_follow',
       title: 'New Follower',
-      description: 'jappleseed started following you'
+      description: 'jappleseed started following you',
     },
     {
       key: 'notify_like',
-      title: 'Likes', 
-      description: 'jappleseed liked your post'
+      title: 'Likes',
+      description: 'jappleseed liked your post',
     },
     {
       key: 'notify_comment',
       title: 'Comments',
-      description: 'jappleseed commented on your post'
+      description: 'jappleseed commented on your post',
     },
     {
       key: 'notify_mention',
       title: 'Mentions',
-      description: 'jappleseed mentioned you in a post'
-    }
+      description: 'jappleseed mentioned you in a post',
+    },
   ]
 
   const RenderActivePanel = () => {
@@ -223,7 +231,7 @@ export default function Page() {
               <Switch.Thumb animation="quicker" />
             </Switch>
             {updatingKeys.has('notify_enabled') && (
-              <View 
+              <View
                 position="absolute"
                 top={-2}
                 left={-2}
@@ -254,7 +262,9 @@ export default function Page() {
                 px="$4"
                 bg={theme.background?.val.tertiary.val}
                 justifyContent="space-between"
-                opacity={(!pushStateRes.notify_enabled || !pushStateRes.has_token) ? 0.5 : 1}
+                opacity={
+                  !pushStateRes.notify_enabled || !pushStateRes.has_token ? 0.5 : 1
+                }
               >
                 <YStack maxWidth="75%" gap="$2">
                   <Text
@@ -268,13 +278,13 @@ export default function Page() {
                     {setting.description}
                   </Text>
                 </YStack>
-                
+
                 <View position="relative">
                   <Switch
                     size="$3"
                     disabled={
-                      !pushStateRes.notify_enabled || 
-                      !pushStateRes.has_token || 
+                      !pushStateRes.notify_enabled ||
+                      !pushStateRes.has_token ||
                       updatingKeys.has(setting.key)
                     }
                     checked={pushStateRes[setting.key]}
@@ -282,9 +292,9 @@ export default function Page() {
                   >
                     <Switch.Thumb animation="quicker" />
                   </Switch>
-                  
+
                   {updatingKeys.has(setting.key) && (
-                    <View 
+                    <View
                       position="absolute"
                       top={-2}
                       left={-2}
@@ -300,7 +310,7 @@ export default function Page() {
                   )}
                 </View>
               </XStack>
-              
+
               {index < notificationSettings.length - 1 && (
                 <Separator borderColor={theme.borderColor?.val.default.val} />
               )}

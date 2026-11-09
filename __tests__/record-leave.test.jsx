@@ -14,6 +14,7 @@ import EditRecordScreen from '../src/app/(auth)/records/[id]/edit'
 import NewRecordScreen from '../src/app/(auth)/records/new'
 import { loadRecordDraft, saveRecordDraft } from '../src/lib/record-drafts'
 import { createPetRecord, deletePetRecord, updatePetRecord } from '../src/lib/records'
+import { waitForState } from '../test-utils/react-state'
 
 let mockNavigation
 let mockFields
@@ -120,11 +121,6 @@ const HomeScreen = () => <div>Home</div>
 let root
 let container
 let client
-const flush = async () => {
-  await act(async () => {
-    await new Promise((resolve) => setTimeout(resolve, 10))
-  })
-}
 async function mount(mode = 'new', routes = [{ name: 'Home' }, { name: 'Composer' }]) {
   mockMode = mode
   mockNavigation = createNavigationContainerRef()
@@ -156,8 +152,10 @@ async function mount(mode = 'new', routes = [{ name: 'Home' }, { name: 'Composer
       </QueryClientProvider>
     )
   })
-  await flush()
-  expect(mockFields).toBeDefined()
+  await waitForState(() => {
+    expect(mockFields).toBeDefined()
+    expect(mockFields.text).toBe(mode === 'edit' ? '原记录' : '')
+  })
 }
 const currentRoute = () => mockNavigation.getCurrentRoute().name
 const back = async () => {
@@ -225,7 +223,7 @@ test('a successful explicit draft save is safe to leave, but later changes need 
   await mount()
   await changeText('已经保存的文字')
   await act(async () => mockPage.headerAction.props.onPress())
-  await flush()
+  await waitForState(() => expect(mockSubmit.busy).toBe(false))
   await changeText('保存之后的修改')
   await back()
   expect(currentRoute()).toBe('Composer')
@@ -265,7 +263,7 @@ test.each(['new', 'edit'])(
     expect(Alert.alert).not.toHaveBeenCalled()
     expect(request).toHaveBeenCalledTimes(1)
     await act(async () => pending.reject(new Error('网络暂不可用')))
-    await flush()
+    await waitForState(() => expect(mockSubmit.busy).toBe(false))
     expect(mockFields.text).toBe('不能丢失的回忆')
     await back()
     expect(currentRoute()).toBe('Composer')
@@ -273,7 +271,7 @@ test.each(['new', 'edit'])(
     request.mockResolvedValueOnce({ record: { id: 12, pet_id: 3 } })
     Alert.alert.mockClear()
     await act(async () => mockSubmit.onPress())
-    await flush()
+    await waitForState(() => expect(currentRoute()).toBe('Timeline'))
     expect(currentRoute()).toBe('Timeline')
     expect(Alert.alert).not.toHaveBeenCalled()
     if (mode === 'new') {
@@ -325,7 +323,7 @@ test('failed draft persistence retains the form and exit protection; successful 
   saveRecordDraft.mockRejectedValueOnce(new Error('草稿保存失败'))
   await back()
   await choose('存草稿并离开')
-  await flush()
+  await waitForState(() => expect(container.textContent).toContain('草稿保存失败'))
   expect(currentRoute()).toBe('Composer')
   expect(mockFields.text).toBe('本机草稿必须保存成功')
   await back()
@@ -349,7 +347,7 @@ test('saving a draft blocks back and publish until its files are durable', async
   expect(Alert.alert).not.toHaveBeenCalled()
   expect(createPetRecord).not.toHaveBeenCalled()
   await act(async () => pending.resolve(saveRecordDraft.mock.calls.at(-1)[1]))
-  await flush()
+  await waitForState(() => expect(mockSubmit.busy).toBe(false))
   await back()
   expect(currentRoute()).toBe('Home')
 })
@@ -376,7 +374,7 @@ test.each(['save', 'delete'])(
       )
       await choose('删除')
     }
-    await flush()
+    await waitForState(() => expect(currentRoute()).toBe('Timeline'))
     const routes = mockNavigation.getRootState().routes
     expect(routes.map((route) => route.name)).toEqual(['Home', 'Timeline'])
     expect(routes[1].key).toBe(timelineKey)
@@ -401,7 +399,7 @@ test.each(['save', 'delete'])(
       )
       await choose('删除')
     }
-    await flush()
+    await waitForState(() => expect(currentRoute()).toBe('Timeline'))
     const routes = mockNavigation.getRootState().routes
     expect(routes).toHaveLength(1)
     expect(routes[0]).toMatchObject({ name: 'Timeline', params: { petId: '3' } })
@@ -418,7 +416,7 @@ test('moving a record to another pet opens the updated pet timeline, not the old
   await act(async () => mockFields.onPetChange(4))
   updatePetRecord.mockResolvedValueOnce({ record: { id: 12, pet_id: 4 } })
   await act(async () => mockSubmit.onPress())
-  await flush()
+  await waitForState(() => expect(currentRoute()).toBe('Timeline'))
   expect(mockNavigation.getCurrentRoute()).toMatchObject({
     name: 'Timeline',
     params: { petId: '4' },

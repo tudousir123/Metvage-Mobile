@@ -1,20 +1,14 @@
 import { Feather } from '@expo/vector-icons'
-import {
-  useInfiniteQuery,
-  useMutation,
-  useQuery,
-  useQueryClient,
-} from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { Image } from 'expo-image'
 import { useRouter } from 'expo-router'
 import React, { useEffect, useState } from 'react'
-import { Alert, Dimensions, FlatList, Platform, Pressable } from 'react-native'
+import { Alert, Dimensions, Platform, Pressable } from 'react-native'
 import { useCustomAlert } from 'src/hooks/useCustomAlertProvider'
-import { getStoryViewers, postStorySelfExpire } from 'src/lib/api'
+import { postStorySelfExpire } from 'src/lib/api'
 import { Storage } from 'src/state/cache'
 import { _timeAgo } from 'src/utils'
 import {
-  Avatar,
   Button,
   Circle,
   H2,
@@ -409,7 +403,7 @@ export const SelfAvatarModal: React.FC<SelfAvatarModalProps> = ({
   }
 
   const handleDeleteStory = async (storyId: string) => {
-    if(Platform.OS === 'android') {
+    if (Platform.OS === 'android') {
       Alert.alert(
         'Delete Story',
         'Are you sure you want to delete this story? This action cannot be undone.',
@@ -420,16 +414,16 @@ export const SelfAvatarModal: React.FC<SelfAvatarModalProps> = ({
           },
           {
             text: 'Delete',
-            style: "destructive",
+            style: 'destructive',
             onPress: () => {
               setShowStoryList(false)
               deleteStoryMutation.mutate(storyId)
               onClose()
-            }
-          }
+            },
+          },
         ]
       )
-      return;
+      return
     }
     await alert.show(
       'Delete Story',

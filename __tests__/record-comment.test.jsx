@@ -1,9 +1,10 @@
 /** @jest-environment jsdom */
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { notifyManager, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RecordInteractions } from '../src/components/records/record-interactions'
 import { commentOnRecord } from '../src/lib/interactions'
+import { waitForState } from '../test-utils/react-state'
 
 jest.mock('@expo/vector-icons/Feather', () => () => null)
 jest.mock('../src/components/metvage/brand', () => ({ PetAvatar: () => null }))
@@ -50,11 +51,6 @@ jest.mock('react-native', () => ({
 let container
 let root
 let client
-const flush = async () => {
-  await act(async () => {
-    await new Promise((resolve) => setTimeout(resolve, 10))
-  })
-}
 const send = () =>
   [...container.querySelectorAll('button')].find(
     (button) => button.textContent === '发送评论'
@@ -84,7 +80,7 @@ beforeEach(async () => {
       </QueryClientProvider>
     )
   )
-  await flush()
+  await waitForState(() => expect(container.textContent).toContain('豆包'))
 })
 afterEach(async () => {
   await act(async () => root.unmount())
@@ -106,20 +102,16 @@ test('one send action is in flight even if the still-enabled button receives rap
     '键盘打开时也要发送',
     expect.any(String)
   )
-  // React Query notifies observers on the next task, after the synchronous lock.
-  await flush()
-  expect(mockInput.editable).toBe(false)
+  await waitForState(() => expect(mockInput.editable).toBe(false))
   await act(async () => pending.resolve({}))
-  await flush()
-  expect(mockInput.value).toBe('')
+  await waitForState(() => expect(mockInput.value).toBe(''))
 })
 
 test('one tap retries a failed comment without changing its key or losing the text', async () => {
   commentOnRecord.mockRejectedValueOnce(new Error('网络暂不可用'))
   await act(async () => mockInput.onChangeText('保留失败后的评论'))
   await act(async () => send().click())
-  await flush()
-  expect(container.textContent).toContain('网络暂不可用')
+  await waitForState(() => expect(container.textContent).toContain('网络暂不可用'))
   expect(mockInput.value).toBe('保留失败后的评论')
   expect(mockInput.editable).toBe(true)
   commentOnRecord.mockImplementationOnce(async (_, text) => {
@@ -129,7 +121,7 @@ test('one tap retries a failed comment without changing its key or losing the te
     return { comment: mockComments[0] }
   })
   await act(async () => send().click())
-  await flush()
+  await waitForState(() => expect(mockInput.value).toBe(''))
   expect(commentOnRecord).toHaveBeenCalledTimes(2)
   expect(commentOnRecord.mock.calls[0]).toEqual(commentOnRecord.mock.calls[1])
   expect(mockInput.value).toBe('')
@@ -142,4 +134,24 @@ test('empty and whitespace-only comments do not send a request', async () => {
   await act(async () => mockInput.onChangeText('   '))
   await act(async () => send().click())
   expect(commentOnRecord).not.toHaveBeenCalled()
+})
+
+test('delayed observer notifications still disable the pending form without a duplicate send', async () => {
+  notifyManager.setScheduler((notify) => setTimeout(notify, 50))
+  const pending = deferred()
+  commentOnRecord.mockReturnValueOnce(pending.promise)
+  try {
+    await act(async () => mockInput.onChangeText('等待界面实际更新'))
+    const button = send()
+    await act(async () => {
+      button.click()
+      button.click()
+    })
+    expect(commentOnRecord).toHaveBeenCalledTimes(1)
+    await waitForState(() => expect(mockInput.editable).toBe(false))
+    await act(async () => pending.resolve({}))
+    await waitForState(() => expect(mockInput.value).toBe(''))
+  } finally {
+    notifyManager.setScheduler((notify) => setTimeout(notify, 0))
+  }
 })

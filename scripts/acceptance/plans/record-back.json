@@ -1,0 +1,14 @@
+{"steps": [
+  {"action": "tap", "label": "首页"},
+  {"action": "tap", "label": "发布笔记"},
+  {"action": "tap", "label": "记录内容"},
+  {"action": "type", "text": "{run_id}"},
+  {"action": "assert", "label": "{run_id}"},
+  {"action": "back"},
+  {"action": "assert", "label": "{run_id}"},
+  {"action": "back"},
+  {"action": "assert", "label": "保留这份回忆？"},
+  {"action": "capture", "name": "back-confirmation"},
+  {"action": "tap", "label": "不保存离开"},
+  {"action": "assert", "label": "搜索宠物笔记"}
+]}

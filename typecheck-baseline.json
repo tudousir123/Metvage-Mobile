@@ -1,7 +1,7 @@
 {
   "version": 1,
   "typescript": "5.3.3",
-  "total": 2282,
+  "total": 2269,
   "diagnostics": [
     {
       "fingerprint": "00091802970e42f7f7b4b52f231380689eabb2df319febb555520b7341d709c9",
@@ -66,12 +66,6 @@
     {
       "fingerprint": "011bdcda04288545408886f3b1ed02b9fcbd777e6cc7fb3d8d051b2e8a4c7409",
       "file": "src/components/post/FeedPost.tsx",
-      "code": 2339,
-      "count": 1
-    },
-    {
-      "fingerprint": "0132cb0c5bff7bbc9328a064db77aefde15f2baa4a083f03389f06a14b688edb",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
       "code": 2339,
       "count": 1
     },
@@ -199,12 +193,6 @@
       "fingerprint": "03f63cb690f4d5647779aae0fcbb579fe6f9c0098d1713e5f3a5ddf74cb5c383",
       "file": "src/app/(auth)/settings/contributors/index.tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "04070085b17ea2ddb1b9849ac20e56fc6a4219bb0cbe1c07d8ba4861cd8c9fb0",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
-      "code": 2339,
       "count": 1
     },
     {
@@ -589,7 +577,7 @@
       "fingerprint": "0d8e362d7d7c7b7cb6f96018380e3ee0360e831af8d0ad78e092fd9eef2f3537",
       "file": "src/hooks/useCustomAlertProvider.tsx",
       "code": 2322,
-      "count": 2
+      "count": 1
     },
     {
       "fingerprint": "0db758fecad0989998721676554d494f979815d337b9121738b4e993fa63a452",
@@ -1177,12 +1165,6 @@
       "fingerprint": "1b001fd8bccd4abb72760bc42be6e4bf97c0d7c97c569962c58b45ddabfd3a10",
       "file": "src/app/(auth)/profile/bookmarks/index.tsx",
       "code": 2304,
-      "count": 1
-    },
-    {
-      "fingerprint": "1b027d649e9976c5b0799265b4fca921294d0c1debe0091503ce78c38dcc5f55",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
-      "code": 2339,
       "count": 1
     },
     {
@@ -2980,12 +2962,6 @@
       "count": 2
     },
     {
-      "fingerprint": "43a1575a6537e36a0e8877233caf1d18061326e4d293cf7dbf57be5769e83e36",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
-      "code": 2339,
-      "count": 1
-    },
-    {
       "fingerprint": "43aa0b2f79270339594cd8151cefa456b2a80f9f3556443d74919adc3352dc35",
       "file": "src/components/post/CommentFeed.tsx",
       "code": 2322,
@@ -3544,12 +3520,6 @@
       "count": 1
     },
     {
-      "fingerprint": "50b6fcf6f962bf4c77feccbd93a9ebf545677eaffd86e96576ce1aa5fbb84ef8",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
-      "code": 7006,
-      "count": 1
-    },
-    {
       "fingerprint": "50f71d72204571150e9aa9ffcbff9a1d8c44818ffd737c97863294a7305b3ef6",
       "file": "src/app/(auth)/admin/users/index.tsx",
       "code": 2322,
@@ -3718,12 +3688,6 @@
       "count": 11
     },
     {
-      "fingerprint": "5326d49c19e5c27a34f54a7bc8d86c8697c0a4697214f74e03a1f2c75500a316",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
-      "code": 2339,
-      "count": 1
-    },
-    {
       "fingerprint": "5369bfc052bb56f589af5c0795600fe400f01538b6afcbe10b0fa95cda78e472",
       "file": "src/app/(public)/verifyEmail.tsx",
       "code": 2322,
@@ -3817,12 +3781,6 @@
       "fingerprint": "55a29e9f4db23f86f013e466a87cf41aabb23562b82302497c3f285359d1d9e0",
       "file": "src/app/(auth)/profile/about/[id].tsx",
       "code": 2322,
-      "count": 1
-    },
-    {
-      "fingerprint": "55b19d0658ddff30004b183c743ee640c428f45cf57839a7437a0dcbe2d77f77",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
-      "code": 2339,
       "count": 1
     },
     {
@@ -4822,12 +4780,6 @@
       "count": 1
     },
     {
-      "fingerprint": "6b8456ba3c9ab486235ff46e3a7f801d75222cb34eb6253d06578baae2b95619",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
-      "code": 7006,
-      "count": 1
-    },
-    {
       "fingerprint": "6be23afe992a5f16840d49f172c451cc8543b2b932a5f89b8bb74e192415cb46",
       "file": "src/app/(auth)/settings/updateWebsite.tsx",
       "code": 2747,
@@ -5626,12 +5578,6 @@
       "count": 1
     },
     {
-      "fingerprint": "7d9f083341c200e8e62cb6a03d24aceb983597a0eaf9f4896085598a6d779756",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
-      "code": 2345,
-      "count": 1
-    },
-    {
       "fingerprint": "7dba83ff446974e7b963cad4a5b389d96938185b81ee37e660d55d052c9c78a9",
       "file": "src/components/post/FeedPost.tsx",
       "code": 2322,
@@ -6316,12 +6262,6 @@
       "count": 1
     },
     {
-      "fingerprint": "90b4b76c8ad944e2ef3486f2ceaf339122f4c53e6053b4214ec2e43649d02bc5",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
-      "code": 7006,
-      "count": 1
-    },
-    {
       "fingerprint": "90c7f2bd63ea2b59710fc1b06fa476d50c4931ad26863b339b88f648bc5a5bf7",
       "file": "src/app/(auth)/profile/about/[id].tsx",
       "code": 2322,
@@ -6698,12 +6638,6 @@
       "file": "src/app/(auth)/notifications/index.tsx",
       "code": 2322,
       "count": 4
-    },
-    {
-      "fingerprint": "9a52bbb6ddf82b51db8cb07ef63212701ec82a133e377483a1368228ab00930d",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
-      "code": 2339,
-      "count": 1
     },
     {
       "fingerprint": "9a5ff2d862e0e92dfaed34d954f4a9b9ac8034cbe7b6e03d27387998d0d8456a",
@@ -7918,12 +7852,6 @@
       "count": 4
     },
     {
-      "fingerprint": "b42e0068e76af20f49e967dee4cbe77751f8507a86fa4a34e6271d27a97e1266",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
-      "code": 2345,
-      "count": 1
-    },
-    {
       "fingerprint": "b46a14314a063adc1dff1e9ea1c971c147798e4b5a87840d3807f774c1e6de61",
       "file": "src/components/post/CommentFeed.tsx",
       "code": 2554,
@@ -8028,6 +7956,12 @@
     {
       "fingerprint": "b6d162d9b66bf34010ed8d461a2ca53ff1cc73a52cfe17ebf7132880d0f2bae8",
       "file": "src/app/(auth)/admin/config/index.tsx",
+      "code": 2322,
+      "count": 1
+    },
+    {
+      "fingerprint": "b6edfdbddcd5f0e10a8529b9f697eb9df2633507cdee77c261aa3cdf1e7a1ed2",
+      "file": "src/hooks/useCustomAlertProvider.tsx",
       "code": 2322,
       "count": 1
     },
@@ -9253,12 +9187,6 @@
       "fingerprint": "d3a6a88e6ce7579392d24e303e9e5a3cca93fed4129920fa03b20036a7315de9",
       "file": "src/app/(auth)/settings/updateName.tsx",
       "code": 18048,
-      "count": 1
-    },
-    {
-      "fingerprint": "d3fb1e62092ce4b682e7fffd26a2a739bb9ab66507b5e71b5393fdc7bb130eee",
-      "file": "src/components/notifications/PushNotificationSettings.tsx",
-      "code": 2339,
       "count": 1
     },
     {
