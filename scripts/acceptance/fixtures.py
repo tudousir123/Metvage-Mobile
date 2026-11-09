@@ -149,16 +149,17 @@ class FixtureRun:
             self.request("PATCH", f'/pets/{entry["id"]}', {"nickname": spec["nickname"], "bio": entry["marker"]})
             record = next((r for r in self.state["records"] if r["key"] == key), None)
             if record is None:
-                record = {"key": key, "pet_id": entry["id"], "id": None, "request_id": self.run_id + "-" + key}
+                request_hash = hashlib.sha256((self.run_id + "\0" + key).encode()).hexdigest()[:24]
+                record = {"key": key, "pet_id": entry["id"], "id": None, "request_id": self.run_id + "-" + request_hash}
                 self.state["records"].append(record)
                 self.save()
             # Always replay the same request ID, including after an uncertain HTTP response.
             saved = self.request("POST", "/records", {"pet_id": entry["id"], "visibility": "private",
                                   "title": spec["nickname"] + "的测试照片", "text": entry["marker"],
                                   "client_request_id": record["request_id"]}, image=image, expected=(200, 201))["record"]
-            record["id"] = positive_id(saved["id"])
             if positive_id(saved["pet_id"]) != entry["id"] or saved["visibility"] != "private":
                 raise AcceptanceError("API fixture response has unexpected ownership/visibility")
+            record["id"] = positive_id(saved["id"])
             self.save()
         self.report.event("fixtures_ready", pets=[p["id"] for p in self.state["pets"]], records=[r["id"] for r in self.state["records"]])
 
@@ -169,12 +170,12 @@ class FixtureRun:
         for entry in self.state["records"]:
             try:
                 if entry.get("id") is None:
-                    value = self.admin("find_record", request_id=entry["request_id"])
+                    value = self.admin("find_record", request_id=entry["request_id"], pet_id=entry["pet_id"])
                     if value["id"] is None:
                         continue
                     entry["id"] = positive_id(value["id"])
                     self.save()
-                allowed = self.admin("owned_records", ids=[entry["id"]])["ids"]
+                allowed = self.admin("owned_records", records=[entry])["ids"]
                 value = self.request("GET", f'/records/{entry["id"]}', expected=(200, 404))
                 if value is not None:
                     if entry["id"] not in [positive_id(i) for i in allowed]:

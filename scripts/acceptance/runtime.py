@@ -10,6 +10,7 @@ import signal
 import subprocess
 import tempfile
 import time
+import uuid
 
 
 class AcceptanceError(Exception):
@@ -84,6 +85,8 @@ class Report:
         self.started = time.monotonic()
         self.events = []
         self.secrets = []
+        self.invocation = uuid.uuid4().hex
+        self.history = directory / "invocations" / self.invocation if directory else None
 
     def redact(self, value):
         text = json.dumps(value, ensure_ascii=False)
@@ -96,15 +99,18 @@ class Report:
     def event(self, action, **fields):
         self.events.append(self.redact({"action": action, **fields}))
         if self.directory:
-            write_json(self.directory / "events.json", self.events)
+            write_json(self.history / "events.json", self.events)
 
     def finish(self, status, **fields):
         result = self.redact({"status": status, "command": self.command,
                               "seconds": round(time.monotonic() - self.started, 2),
+                              "invocation": self.invocation,
                               **fields})
         if self.directory:
             result["artifacts"] = str(self.directory)
-            write_json(self.directory / "summary.json", result)
+            write_json(self.history / "summary.json", result)
+            latest = "cleanup-summary.json" if self.command == "cleanup" else "summary.json"
+            write_json(self.directory / latest, result)
         print(json.dumps(result, ensure_ascii=False))
 
 

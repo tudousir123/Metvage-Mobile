@@ -20,8 +20,8 @@ if q['operation']=='issue':
 elif q['operation']=='revoke':
  if s.get('fail_revoke'): sys.exit(1)
  s['token_active']=False; result={'revoked':True}
-elif q['operation']=='owned_records': result={'ids':[int(k) for k in s['records']]}
-elif q['operation']=='find_record': result={'id':next((r['id'] for r in s['records'].values() if r['client_request_id']==q['request_id']),None)}
+elif q['operation']=='owned_records': result={'ids':[e['id'] for e in q['records'] if str(e['id']) in s['records'] and s['records'][str(e['id'])]['pet_id']==e['pet_id'] and s['records'][str(e['id'])]['client_request_id']==e['request_id']]}
+elif q['operation']=='find_record': result={'id':next((r['id'] for r in s['records'].values() if r['client_request_id']==q['request_id'] and r['pet_id']==q['pet_id']),None)}
 elif q['operation']=='purge':
  for pet in q['pets']:
   current=s['pets'].get(str(pet['id']))
@@ -161,6 +161,21 @@ class FixtureCliTest(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout)
         self.assertFalse(json.loads(journal.read_text())["token_cleanup_pending"])
         self.assertFalse(json.loads(self.state.read_text())["token_active"])
+
+    def test_similar_run_and_fixture_names_cannot_share_or_delete_each_others_record(self):
+        config = json.loads(self.config.read_text())
+        config["fixtures"][0]["key"] = "bar-cat"
+        self.config.write_text(json.dumps(config))
+        first = self.command("fixtures", "--run-id", "foo", "--keep")
+        self.assertEqual(first.returncode, 0, first.stdout)
+        original = set(json.loads(self.state.read_text())["records"])
+        config["fixtures"][0]["key"] = "cat"
+        self.config.write_text(json.dumps(config))
+        second = self.command("fixtures", "--run-id", "foo-bar", "--keep")
+        self.assertEqual(second.returncode, 0, second.stdout)
+        self.assertEqual(len(json.loads(self.state.read_text())["records"]), 2)
+        self.assertEqual(self.command("cleanup", "--run-id", "foo-bar").returncode, 0)
+        self.assertEqual(set(json.loads(self.state.read_text())["records"]), original)
 
 
 if __name__ == "__main__":

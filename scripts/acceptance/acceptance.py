@@ -51,8 +51,17 @@ def main():
             spec["image"] = str((config_root / Path(spec["image"]).expanduser()).resolve())
         directory = run_directory(config, args.run_id)
         if args.command == "summary":
-            value = read_json(directory / "summary.json")
-            report.finish("pass", run=value, event_count=len(read_json(directory / "events.json")))
+            primary = directory / "summary.json"
+            value = read_json(primary) if primary.exists() else None
+            cleanup = directory / "cleanup-summary.json"
+            event_files = list(directory.glob("invocations/*/events.json"))
+            legacy = directory / "events.json"
+            if legacy.exists():
+                event_files.append(legacy)
+            report.finish("pass", run=value,
+                          cleanup=read_json(cleanup) if cleanup.exists() else None,
+                          event_count=sum(len(read_json(path)) for path in event_files),
+                          invocation_count=len(list(directory.glob("invocations/*/summary.json"))))
             return 0
         report = Report(directory, args.command)
         device = Device(config, report) if args.command == "run" or (args.command == "doctor" and not args.without_device) else None

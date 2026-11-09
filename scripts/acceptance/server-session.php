@@ -20,10 +20,17 @@ try {
             $result = ['revoked' => true];
             break;
         case 'owned_records':
-            $result = ['ids' => $user->petRecords()->whereIn('id', $input['ids'])->get()->filter(fn ($record) => str_starts_with($record->client_request_id ?? '', $input['run_id'].'-'))->pluck('id')->values()->all()];
+            $ids = [];
+            foreach ($input['records'] as $entry) {
+                $expected = $input['run_id'].'-'.substr(hash('sha256', $input['run_id']."\0".$entry['key']), 0, 24);
+                if ($entry['request_id'] !== $expected) throw new RuntimeException();
+                $record = $user->petRecords()->whereKey($entry['id'])->where('pet_profile_id', $entry['pet_id'])->where('client_request_id', $expected)->first();
+                if ($record) $ids[] = $record->id;
+            }
+            $result = ['ids' => $ids];
             break;
         case 'find_record':
-            $result = ['id' => $user->petRecords()->where('client_request_id', $input['request_id'])->value('id')];
+            $result = ['id' => $user->petRecords()->where('pet_profile_id', $input['pet_id'])->where('client_request_id', $input['request_id'])->value('id')];
             break;
         case 'purge':
             foreach ($input['pets'] as $entry) {

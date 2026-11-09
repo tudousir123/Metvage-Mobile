@@ -37,6 +37,7 @@ elif a==['shell','dumpsys','window']:
  print('mCurrentFocus=Window{a u0 '+s['focus']+'/MainActivity}')
  print('mDreamingLockscreen='+str(s.get('locked',False)).lower())
 elif a[:3]==['shell','uiautomator','dump']:
+ s.setdefault('xml_files',[]).append(a[3]);save()
  time.sleep(s.get('delay',0)); print('UI hierarchy dumped')
 elif a[:2]==['shell','cat']:
  package=s['focus']; label='ready' if package=='com.metvage.acceptance.phone' else 'private'
@@ -44,7 +45,8 @@ elif a[:2]==['shell','cat']:
 elif a==['exec-out','screencap','-p']:
  if s.get('lose_focus_on_capture'): s['focus']='other.app';save()
  sys.stdout.buffer.write(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aKb8AAAAASUVORK5CYII='))
-elif a[:2]==['shell','rm']: pass
+elif a[:2]==['shell','rm']:
+ s['xml_files']=[p for p in s.get('xml_files',[]) if p!=a[-1]];save()
 elif a[:2]==['shell','input']:
  if s.get('disconnect_on_input'): s['connected']=False;save()
 else: print('Unsupported fake adb operation: '+str(a),file=sys.stderr); sys.exit(2)
@@ -92,6 +94,26 @@ class DeviceCliTest(unittest.TestCase):
         self.assertEqual(current["reverse"], self.initial["reverse"])
         journal = json.loads((self.root / "runs/failure/device.json").read_text())
         self.assertFalse(journal["restoration_pending"])
+        self.assertEqual(self.run_cli("cleanup", "--run-id", "failure").returncode, 0)
+        history = json.loads(self.run_cli("summary", "--run-id", "failure").stdout)
+        self.assertEqual(history["run"]["status"], "fail")
+        self.assertEqual(history["cleanup"]["status"], "pass")
+
+    def test_resumed_cleanup_removes_the_prior_process_xml(self):
+        run = self.root / "runs/recovered"
+        run.mkdir(parents=True)
+        old_path = "/sdcard/metvage-acceptance-424242.xml"
+        self.state.write_text(json.dumps({**self.initial, "xml_files": [old_path]}))
+        (run / "device.json").write_text(json.dumps({"serial": "phone", "package": "com.metvage.acceptance.phone",
+            "font": "1.45", "awake": "2", "reverse": {}, "changed_ports": [], "restoration_pending": True, "xml_path": old_path}))
+        result = self.run_cli("cleanup", "--run-id", "recovered")
+        self.assertEqual(result.returncode, 0, result.stdout)
+        self.assertEqual(json.loads(self.state.read_text())["xml_files"], [])
+        result = self.run_cli("summary", "--run-id", "recovered")
+        self.assertEqual(result.returncode, 0, result.stdout)
+        summary = json.loads(result.stdout)
+        self.assertIsNone(summary["run"])
+        self.assertEqual(summary["cleanup"]["status"], "pass")
 
     def test_focus_loss_during_capture_never_publishes_the_image(self):
         state = {**self.initial, "lose_focus_on_capture": True}

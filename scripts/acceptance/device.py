@@ -49,7 +49,10 @@ class Device:
     def tree(self):
         self.foreground()
         self.call("shell", "uiautomator", "dump", self.xml_path)
-        raw = self.call("shell", "cat", self.xml_path)
+        try:
+            raw = self.call("shell", "cat", self.xml_path)
+        finally:
+            self.call("shell", "rm", "-f", self.xml_path)
         self.foreground()
         nodes = [node for node in ET.fromstring(raw).iter("node") if node.get("package") == self.package]
         meaningful = [node for node in nodes if (node.get("text") or node.get("content-desc")) not in [None, "", "Notifications (F8)"]]
@@ -121,7 +124,7 @@ class Device:
         return {"serial": self.serial, "package": self.package,
                 "font": self.call("shell", "settings", "get", "system", "font_scale"),
                 "awake": self.call("shell", "settings", "get", "global", "stay_on_while_plugged_in"),
-                "reverse": ports, "changed_ports": [], "restoration_pending": True}
+                "reverse": ports, "changed_ports": [], "restoration_pending": True, "xml_path": self.xml_path}
 
     def restore(self, path):
         state = read_json(path)
@@ -147,9 +150,12 @@ class Device:
             except AcceptanceError as error:
                 errors.append(str(error))
         try:
-            self.call("shell", "rm", "-f", self.xml_path)
-        except AcceptanceError:
-            pass
+            xml_path = state.get("xml_path", self.xml_path)
+            if not re.fullmatch(r"/sdcard/metvage-acceptance-[1-9][0-9]*\.xml", xml_path):
+                raise AcceptanceError("Restoration journal contains an invalid owned XML path")
+            self.call("shell", "rm", "-f", xml_path)
+        except AcceptanceError as error:
+            errors.append(str(error))
         state["restoration_pending"] = bool(errors)
         state["restoration_errors"] = errors
         write_json(path, state)
@@ -187,6 +193,15 @@ class Device:
 
     def run_plan(self, plan, directory, run_id, fail_after=None):
         self.call("shell", "am", "start", "-n", self.package + "/.MainActivity")
+        deadline = time.monotonic() + 10
+        while True:
+            try:
+                self.foreground()
+                break
+            except AcceptanceError:
+                if time.monotonic() >= deadline:
+                    raise AcceptanceError("Test app did not reach the foreground after launch")
+                time.sleep(0.1)
         for index, step in enumerate(plan["steps"], 1):
             action = step["action"]
             def expand(value):
