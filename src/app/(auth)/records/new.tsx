@@ -9,6 +9,7 @@ import {
   ComposerPage,
   ComposerSubmit,
 } from 'src/components/records/record-composer'
+import { useRecordLeaveGuard } from 'src/hooks/use-record-leave-guard'
 import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 import { getPets } from 'src/lib/pets'
 import {
@@ -23,6 +24,16 @@ import {
   type RecordVisibility,
 } from 'src/lib/records'
 import { useAuth } from 'src/state/AuthProvider'
+
+function draftSnapshot({
+  text,
+  title,
+  photos,
+  petId,
+  visibility,
+}: Omit<RecordDraft, 'clientRequestId'>) {
+  return JSON.stringify({ text, title, photos, petId, visibility })
+}
 
 export default function NewRecordScreen() {
   const { mode, pet_id } = useLocalSearchParams<{ mode?: string; pet_id?: string }>()
@@ -47,7 +58,9 @@ export default function NewRecordScreen() {
   >(null)
   const [savingDraft, setSavingDraft] = useState(false)
   const draftLock = useRef(false)
+  const publishLock = useRef(false)
   const [notice, setNotice] = useState('')
+  const [savedSnapshot, setSavedSnapshot] = useState<string | null>(null)
 
   useEffect(() => {
     if (!user || !accountId) return
@@ -76,18 +89,18 @@ export default function NewRecordScreen() {
     enabled: !!user,
   })
   const requestedPetId = Number(pet_id)
-  const selectedPetId =
-    chosenPetId ??
+  const defaultPetId =
     (data?.pets.some((pet) => pet.id === requestedPetId) ? requestedPetId : null) ??
     data?.current_pet_id ??
     null
+  const selectedPetId = chosenPetId ?? defaultPetId
 
   const leave = () => {
     if (router.canGoBack()) router.back()
     else router.replace('/(auth)/(tabs)')
   }
-  const persistDraft = async (exitAfter = false) => {
-    if (!owner || draftLock.current) return
+  const persistDraft = async () => {
+    if (!owner || draftLock.current || publishLock.current) return false
     draftLock.current = true
     setSavingDraft(true)
     setFormError('')
@@ -102,35 +115,16 @@ export default function NewRecordScreen() {
         clientRequestId: requestId.current,
       })
       setPhotos(saved.photos)
+      setSavedSnapshot(draftSnapshot(saved))
       setNotice('草稿已保存在本机，下次发布时可继续编辑。')
-      if (exitAfter) leave()
+      return true
     } catch (failure) {
       setFormError(failure instanceof Error ? failure.message : '草稿保存失败，请重试。')
+      return false
     } finally {
       draftLock.current = false
       setSavingDraft(false)
     }
-  }
-  const cancel = () => {
-    if (save.isPending || savingDraft) return
-    if (!text && !title && photos.length === 0) {
-      leave()
-      return
-    }
-    Alert.alert('保留这份回忆？', '可以存为本机草稿，稍后继续编辑。', [
-      { text: '继续编辑', style: 'cancel' },
-      { text: '不保存离开', style: 'destructive', onPress: leave },
-      ...(owner
-        ? [
-            {
-              text: '存草稿并离开',
-              onPress: () => {
-                void persistDraft(true)
-              },
-            },
-          ]
-        : []),
-    ])
   }
   const pickPhotos = async () => {
     setFormError('')
@@ -180,13 +174,31 @@ export default function NewRecordScreen() {
     onSuccess: async ({ record }) => {
       if (owner) await discardRecordDraft(owner)
       await queryClient.invalidateQueries()
-      router.replace(
-        `/pets/${record.pet_id}/records` as Parameters<typeof router.replace>[0]
+      leaveAfterSave(() =>
+        router.replace(
+          `/pets/${record.pet_id}/records` as Parameters<typeof router.replace>[0]
+        )
       )
     },
     onError: (failure) => setFormError(failure.message),
+    onSettled: () => {
+      publishLock.current = false
+    },
   })
   const busy = save.isPending || savingDraft
+  const leaveAfterSave = useRecordLeaveGuard({
+    dirty:
+      savedSnapshot !== null
+        ? draftSnapshot({ text, title, photos, petId: selectedPetId, visibility }) !==
+          savedSnapshot
+        : !!text ||
+          !!title ||
+          photos.length > 0 ||
+          selectedPetId !== defaultPetId ||
+          visibility !== (mode === 'private' ? 'private' : 'public'),
+    busy,
+    saveDraft: owner ? persistDraft : undefined,
+  })
   const restore = () => {
     if (!savedDraft) return
     setText(savedDraft.text)
@@ -195,6 +207,7 @@ export default function NewRecordScreen() {
     setChosenPetId(savedDraft.petId)
     setVisibility(savedDraft.visibility)
     requestId.current = savedDraft.clientRequestId
+    setSavedSnapshot(draftSnapshot(savedDraft))
     setNotice(
       savedDraft.missingPhotos
         ? `${savedDraft.missingPhotos} 张草稿照片已不可用，请重新添加。文字已恢复。`
@@ -208,7 +221,7 @@ export default function NewRecordScreen() {
   return (
     <ComposerPage
       title={visibility === 'private' ? '添加私人记录' : '发布笔记'}
-      onCancel={cancel}
+      onCancel={leave}
       footer={
         canCompose ? (
           <View style={{ gap: 8 }}>
@@ -231,6 +244,8 @@ export default function NewRecordScreen() {
               }
               busy={busy}
               onPress={() => {
+                if (publishLock.current || draftLock.current) return
+                publishLock.current = true
                 setFormError('')
                 setNotice('')
                 save.mutate()

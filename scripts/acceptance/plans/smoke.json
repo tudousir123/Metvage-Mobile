@@ -1,0 +1,5 @@
+{"steps": [
+  {"action": "tap", "label": "首页"},
+  {"action": "assert", "label": "搜索宠物笔记"},
+  {"action": "capture", "name": "home"}
+]}

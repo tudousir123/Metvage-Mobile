@@ -8,6 +8,7 @@ import {
   ComposerPage,
   ComposerSubmit,
 } from 'src/components/records/record-composer'
+import { useRecordLeaveGuard } from 'src/hooks/use-record-leave-guard'
 import { metvagePalette as c } from 'src/lib/metvage-colors'
 import { getPets } from 'src/lib/pets'
 import {
@@ -30,6 +31,7 @@ export default function EditRecordScreen() {
   const [newPhotos, setNewPhotos] = useState<ImagePicker.ImagePickerAsset[]>([])
   const [formError, setFormError] = useState('')
   const initializedRecordKey = useRef<string | null>(null)
+  const mutationLock = useRef(false)
 
   const recordQuery = useQuery({
     queryKey: ['metvage-record', recordId, user?.server, user?.token],
@@ -105,27 +107,45 @@ export default function EditRecordScreen() {
     },
     onSuccess: async ({ record: updated }) => {
       await queryClient.invalidateQueries()
-      router.replace(
-        `/pets/${updated.pet_id}/records` as Parameters<typeof router.replace>[0]
+      leaveAfterSave(() =>
+        router.dismissTo(
+          `/pets/${updated.pet_id}/records` as Parameters<typeof router.dismissTo>[0]
+        )
       )
     },
     onError: (failure) => setFormError(failure.message),
+    onSettled: () => {
+      mutationLock.current = false
+    },
   })
   const remove = useMutation({
     mutationFn: () => deletePetRecord(recordId),
     onSuccess: async () => {
       await queryClient.invalidateQueries()
-      router.replace(
-        `/pets/${record?.pet_id}/records` as Parameters<typeof router.replace>[0]
+      leaveAfterSave(() =>
+        router.dismissTo(
+          `/pets/${record?.pet_id}/records` as Parameters<typeof router.dismissTo>[0]
+        )
       )
     },
     onError: (failure) => setFormError(failure.message),
+    onSettled: () => {
+      mutationLock.current = false
+    },
   })
 
   const confirmDelete = () => {
     Alert.alert('删除这条记录？', '删除后无法通过列表或旧链接找回。', [
       { text: '取消', style: 'cancel' },
-      { text: '删除', style: 'destructive', onPress: () => remove.mutate() },
+      {
+        text: '删除',
+        style: 'destructive',
+        onPress: () => {
+          if (mutationLock.current) return
+          mutationLock.current = true
+          remove.mutate()
+        },
+      },
     ])
   }
 
@@ -137,29 +157,19 @@ export default function EditRecordScreen() {
     if (router.canGoBack()) router.back()
     else router.replace('/(auth)/(tabs)/profile')
   }
-  const cancel = () => {
-    if (busy) return
-    const changed =
-      record &&
-      (text !== (record.text ?? '') ||
-        title !== (record.title ?? '') ||
-        petId !== record.pet_id ||
-        newPhotos.length > 0 ||
-        keptPhotoIds.length !== record.photos.length)
-    if (!changed) {
-      leave()
-      return
-    }
-    Alert.alert('放弃这次更改？', '已保存的原记录不会改变。', [
-      { text: '继续编辑', style: 'cancel' },
-      { text: '放弃更改', style: 'destructive', onPress: leave },
-    ])
-  }
+  const changed =
+    !!record &&
+    (text !== (record.text ?? '') ||
+      title !== (record.title ?? '') ||
+      petId !== record.pet_id ||
+      newPhotos.length > 0 ||
+      keptPhotoIds.length !== record.photos.length)
+  const leaveAfterSave = useRecordLeaveGuard({ dirty: changed, busy, editing: true })
 
   return (
     <ComposerPage
       title="编辑记录"
-      onCancel={cancel}
+      onCancel={leave}
       footer={
         record && petsQuery.data && isOwner ? (
           <View style={{ gap: 8 }}>
@@ -176,6 +186,8 @@ export default function EditRecordScreen() {
               title={save.isPending ? '正在保存…' : '保存更改'}
               busy={busy}
               onPress={() => {
+                if (mutationLock.current) return
+                mutationLock.current = true
                 setFormError('')
                 save.mutate()
               }}

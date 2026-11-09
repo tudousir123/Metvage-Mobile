@@ -25,8 +25,17 @@ export const getPublicRecord = (id: number) =>
 export const getPublicPet = (id: number) =>
   publicRequest<PetProfile>(`/api/v1/metvage/pets/${id}`)
 
-export const getPublicPetRecords = (id: number) =>
-  publicRequest<{ records: PetRecord[] }>(`/api/v1/metvage/pets/${id}/records`)
+export async function getPublicPetRecords(id: number): Promise<{ records: PetRecord[] }> {
+  const timeline = await publicRequest<{ records: PetRecord[] }>(
+    `/api/v1/metvage/pets/${id}/records`
+  )
+  // This endpoint also returns private records to their owner. Public profiles
+  // must still show only public notes without dropping authenticated block rules.
+  return {
+    ...timeline,
+    records: timeline.records.filter((record) => record.visibility === 'public'),
+  }
+}
 
 export const searchPublicPetsAndRecords = (query: string) =>
   publicRequest<{ records: PetRecord[]; pets: PetProfile[] }>(

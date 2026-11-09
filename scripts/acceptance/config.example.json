@@ -1,0 +1,20 @@
+{
+  "mobileRoot": "..",
+  "expectedRepo": "tudousir123/Metvage-Mobile",
+  "expectedBranch": "codex/issue-29-ux-fixes",
+  "serverContainer": "local-test-api",
+  "serverRoot": "/path/to/running-test-server",
+  "apiOrigin": "http://127.0.0.1:18080",
+  "metroPort": 8081,
+  "serial": "your-device-serial",
+  "package": "com.metvage.acceptance.phone",
+  "reversePorts": {"8081": 8081, "18080": 18080},
+  "runRoot": "runs",
+  "testAccount": false,
+  "profileUsername": "isolated-test-owner",
+  "variables": {"publicPetNickname": "布丁"},
+  "fixtures": [
+    {"key": "cat", "nickname": "布丁", "species": "cat", "image": "assets/pudding-cat.png", "generated": true},
+    {"key": "dog", "nickname": "栗子", "species": "dog", "image": "assets/chestnut-dog.png", "generated": true}
+  ]
+}

@@ -1,0 +1,421 @@
+FAIL __tests__/record-leave.test.jsx
+  ● system navigation back keeps a typed new record until the owner explicitly discards it
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Composer"
+    Received: "Home"
+
+      192 |   await changeText('UXaudit-back-1103')
+      193 |   await back()
+    > 194 |   expect(currentRoute()).toBe('Composer')
+          |                          ^
+      195 |   expect(Alert.alert).toHaveBeenCalledWith(
+      196 |     '保留这份回忆？',
+      197 |     expect.any(String),
+
+      at Object.toBe (__tests__/record-leave.test.jsx:194:26)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● both cancel and navigation back protect changed new records
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Composer"
+    Received: "Home"
+
+      215 |     await choose('继续编辑')
+      216 |     await back()
+    > 217 |     expect(currentRoute()).toBe('Composer')
+          |                            ^
+      218 |     expect(mockFields.text).toBe('更改后的回忆')
+      219 |     await choose(mode === 'edit' ? '放弃更改' : '不保存离开')
+      220 |     expect(currentRoute()).toBe('Home')
+
+      at toBe (__tests__/record-leave.test.jsx:217:28)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● both cancel and navigation back protect changed edit records
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Composer"
+    Received: "Home"
+
+      215 |     await choose('继续编辑')
+      216 |     await back()
+    > 217 |     expect(currentRoute()).toBe('Composer')
+          |                            ^
+      218 |     expect(mockFields.text).toBe('更改后的回忆')
+      219 |     await choose(mode === 'edit' ? '放弃更改' : '不保存离开')
+      220 |     expect(currentRoute()).toBe('Home')
+
+      at toBe (__tests__/record-leave.test.jsx:217:28)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● a successful explicit draft save is safe to leave, but later changes need confirmation
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Composer"
+    Received: "Home"
+
+      229 |   await changeText('保存之后的修改')
+      230 |   await back()
+    > 231 |   expect(currentRoute()).toBe('Composer')
+          |                          ^
+      232 |   await choose('继续编辑')
+      233 |   await changeText('已经保存的文字')
+      234 |   Alert.alert.mockClear()
+
+      at Object.toBe (__tests__/record-leave.test.jsx:231:26)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● pending new submission blocks back and duplicate presses; failure retains edits for retry
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Composer"
+    Received: "Home"
+
+      262 |     })
+      263 |     await back()
+    > 264 |     expect(currentRoute()).toBe('Composer')
+          |                            ^
+      265 |     expect(Alert.alert).not.toHaveBeenCalled()
+      266 |     expect(request).toHaveBeenCalledTimes(1)
+      267 |     await act(async () => pending.reject(new Error('网络暂不可用')))
+
+      at toBe (__tests__/record-leave.test.jsx:264:28)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● pending edit submission blocks back and duplicate presses; failure retains edits for retry
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Composer"
+    Received: "Home"
+
+      262 |     })
+      263 |     await back()
+    > 264 |     expect(currentRoute()).toBe('Composer')
+          |                            ^
+      265 |     expect(Alert.alert).not.toHaveBeenCalled()
+      266 |     expect(request).toHaveBeenCalledTimes(1)
+      267 |     await act(async () => pending.reject(new Error('网络暂不可用')))
+
+      at toBe (__tests__/record-leave.test.jsx:264:28)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● new record pet changes are not silently lost
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Composer"
+    Received: "Home"
+
+      304 |     })
+      305 |     await back()
+    > 306 |     expect(currentRoute()).toBe('Composer')
+          |                            ^
+      307 |     expect(Alert.alert).toHaveBeenCalled()
+      308 |   }
+      309 | )
+
+      at toBe (__tests__/record-leave.test.jsx:306:28)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● new record privacy changes are not silently lost
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Composer"
+    Received: "Home"
+
+      304 |     })
+      305 |     await back()
+    > 306 |     expect(currentRoute()).toBe('Composer')
+          |                            ^
+      307 |     expect(Alert.alert).toHaveBeenCalled()
+      308 |   }
+      309 | )
+
+      at toBe (__tests__/record-leave.test.jsx:306:28)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● removing an existing photo from an edit is protected on stack replacement
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Composer"
+    Received: "Home"
+
+      315 |     mockNavigation.dispatch({ type: 'REPLACE', payload: { name: 'Home' } })
+      316 |   )
+    > 317 |   expect(currentRoute()).toBe('Composer')
+          |                          ^
+      318 |   await choose('继续编辑')
+      319 |   expect(mockFields.photos).toHaveLength(0)
+      320 | })
+
+      at Object.toBe (__tests__/record-leave.test.jsx:317:26)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● failed draft persistence retains the form and exit protection; successful retry exits to the requested destination
+
+    TypeError: Cannot read properties of undefined (reading '2')
+
+      168 | }
+      169 | const choose = async (label) => {
+    > 170 |   const buttons = Alert.alert.mock.calls.at(-1)[2]
+          |                                                ^
+      171 |   await act(async () => {
+      172 |     await buttons.find((button) => button.text === label).onPress?.()
+      173 |   })
+
+      at __tests__/record-leave.test.jsx:170:48
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at ../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at ../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (__tests__/record-leave.test.jsx:169:13)
+      at Object.choose (__tests__/record-leave.test.jsx:327:9)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● saving a draft blocks back and publish until its files are durable
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Composer"
+    Received: "Home"
+
+      346 |   await back()
+      347 |   await act(async () => mockSubmit.onPress())
+    > 348 |   expect(currentRoute()).toBe('Composer')
+          |                          ^
+      349 |   expect(Alert.alert).not.toHaveBeenCalled()
+      350 |   expect(createPetRecord).not.toHaveBeenCalled()
+      351 |   await act(async () => pending.resolve(saveRecordDraft.mock.calls.at(-1)[1]))
+
+      at Object.toBe (__tests__/record-leave.test.jsx:348:26)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● save returns to the existing timeline without adding another copy
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 0
+    + Received  + 1
+
+      Array [
+        "Home",
+        "Timeline",
+    +   "Timeline",
+      ]
+
+      379 |     await flush()
+      380 |     const routes = mockNavigation.getRootState().routes
+    > 381 |     expect(routes.map((route) => route.name)).toEqual(['Home', 'Timeline'])
+          |                                               ^
+      382 |     expect(routes[1].key).toBe(timelineKey)
+      383 |     await back()
+      384 |     expect(currentRoute()).toBe('Home')
+
+      at toEqual (__tests__/record-leave.test.jsx:381:47)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● delete returns to the existing timeline without adding another copy
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 0
+    + Received  + 1
+
+      Array [
+        "Home",
+        "Timeline",
+    +   "Timeline",
+      ]
+
+      379 |     await flush()
+      380 |     const routes = mockNavigation.getRootState().routes
+    > 381 |     expect(routes.map((route) => route.name)).toEqual(['Home', 'Timeline'])
+          |                                               ^
+      382 |     expect(routes[1].key).toBe(timelineKey)
+      383 |     await back()
+      384 |     expect(currentRoute()).toBe('Home')
+
+      at toEqual (__tests__/record-leave.test.jsx:381:47)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL __tests__/metvage-settings.test.jsx
+  ● Test suite failed to run
+
+    TypeError: window.matchMedia is not a function
+
+      1 | import { Feather } from '@expo/vector-icons'
+    > 2 | import { Text, useTheme, XStack } from 'tamagui'
+        | ^
+      3 |
+      4 | export interface GroupButtonContentProps {
+      5 |   icon: React.ComponentProps<typeof Feather>['name']
+
+      at Object.<anonymous> (../..<mobile-workspace>/node_modules/@tamagui/select/dist/cjs/SelectTrigger.cjs:44:72)
+      at Object.<anonymous> (../..<mobile-workspace>/node_modules/@tamagui/select/dist/cjs/Select.cjs:61:26)
+      at Object.<anonymous> (../..<mobile-workspace>/node_modules/@tamagui/select/dist/cjs/index.cjs:18:27)
+      at Object.<anonymous> (../..<mobile-workspace>/node_modules/tamagui/dist/cjs/index.cjs:112:27)
+      at Object.require (src/components/common/GroupButtonContent.tsx:2:1)
+      at Object.require (<baseline-workspace>/src/app/(auth)../../settings/index.tsx:7:1)
+      at Object.require (__tests__/metvage-settings.test.jsx:8:1)
+
+FAIL __tests__/record-comment.test.jsx
+  ● one send action is in flight even if the still-enabled button receives rapid taps
+
+    expect(jest.fn()).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 1
+    Received number of calls: 2
+
+      101 |     button.click()
+      102 |   })
+    > 103 |   expect(commentOnRecord).toHaveBeenCalledTimes(1)
+          |                           ^
+      104 |   expect(commentOnRecord).toHaveBeenCalledWith(
+      105 |     12,
+      106 |     '键盘打开时也要发送',
+
+      at Object.toHaveBeenCalledTimes (__tests__/record-comment.test.jsx:103:27)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● one tap retries a failed comment without changing its key or losing the text
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: undefined
+
+      120 |   expect(container.textContent).toContain('网络暂不可用')
+      121 |   expect(mockInput.value).toBe('保留失败后的评论')
+    > 122 |   expect(mockInput.editable).toBe(true)
+          |                              ^
+      123 |   commentOnRecord.mockImplementationOnce(async (_, text) => {
+      124 |     mockComments = [
+      125 |       { id: 7, text, actor_pet: { id: 3, nickname: '豆包' }, can_delete: true },
+
+      at Object.toBe (__tests__/record-comment.test.jsx:122:30)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL __tests__/public-pet-records.test.ts
+  ● the owner sees only public notes on a public pet profile but keeps private notes in their own timeline
+
+    expect(received).resolves.toEqual(expected) // deep equality
+
+    - Expected  -  0
+    + Received  + 16
+
+    @@ -1,9 +1,25 @@
+      Object {
+        "records": Array [
+          Object {
+            "created_at": "2026-11-03T10:00:00Z",
+    +       "id": 12,
+    +       "pet": Object {
+    +         "bio": null,
+    +         "id": 7,
+    +         "nickname": "U1Cat",
+    +         "species": "cat",
+    +       },
+    +       "pet_id": 7,
+    +       "photos": Array [],
+    +       "published_at": null,
+    +       "text": "U1 cat private record",
+    +       "title": null,
+    +       "visibility": "private",
+    +     },
+    +     Object {
+    +       "created_at": "2026-11-03T10:00:00Z",
+            "id": 11,
+            "pet": Object {
+              "bio": null,
+              "id": 7,
+              "nickname": "U1Cat",
+
+      38 |   ownerRequest.mockResolvedValueOnce(ownerTimeline)
+      39 |
+    > 40 |   await expect(getPublicPetRecords(pet.id)).resolves.toEqual({ records: [publicRecord] })
+         |                                                      ^
+      41 |   await expect(getPetTimeline(pet.id)).resolves.toEqual(ownerTimeline)
+      42 |   // Public views remain authenticated when possible, preserving account block rules.
+      43 |   expect(publicRequest).toHaveBeenCalledWith('/api/v1/metvage/pets/7/records', {
+
+      at Object.toEqual (../..<mobile-workspace>/node_modules/@jest/expect/node_modules/expect/build/index.js:174:22)
+      at Object.toEqual (__tests__/public-pet-records.test.ts:40:54)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at ../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+  ● a private-only owner timeline produces an empty public profile
+
+    expect(received).resolves.toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 18
+
+      Object {
+    -   "records": Array [],
+    +   "records": Array [
+    +     Object {
+    +       "created_at": "2026-11-03T10:00:00Z",
+    +       "id": 12,
+    +       "pet": Object {
+    +         "bio": null,
+    +         "id": 7,
+    +         "nickname": "U1Cat",
+    +         "species": "cat",
+    +       },
+    +       "pet_id": 7,
+    +       "photos": Array [],
+    +       "published_at": null,
+    +       "text": "U1 cat private record",
+    +       "title": null,
+    +       "visibility": "private",
+    +     },
+    +   ],
+      }
+
+      50 |   publicRequest.mockResolvedValueOnce({ records: [privateRecord] })
+      51 |
+    > 52 |   await expect(getPublicPetRecords(pet.id)).resolves.toEqual({ records: [] })
+         |                                                      ^
+      53 | })
+      54 |
+      55 | test('a rejected public-profile read stays rejected instead of falling back to a guest read', async () => {
+
+      at Object.toEqual (../..<mobile-workspace>/node_modules/@jest/expect/node_modules/expect/build/index.js:174:22)
+      at Object.toEqual (__tests__/public-pet-records.test.ts:52:54)
+      at asyncGeneratorStep (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at ../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at Object.<anonymous> (../..<mobile-workspace>/node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12)
+
+Test Suites: 4 failed, 4 total
+Tests:       17 failed, 7 passed, 24 total
+Snapshots:   0 total
+Time:        8.352 s
+Ran all test suites matching /__tests__\/record-leave.test.jsx|__tests__\/record-comment.test.jsx|__tests__\/public-pet-records.test.ts|__tests__\/metvage-settings.test.jsx/i.

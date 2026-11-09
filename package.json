@@ -10,12 +10,15 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
+    "test:ci": "jest --runInBand --watch=false",
+    "test:acceptance": "python3 -m unittest discover -s scripts/acceptance/tests -v",
+    "acceptance": "python3 scripts/acceptance/acceptance.py",
     "lint": "biome check --write ./src",
     "check": "npm run check:ts && npm run check:lint",
     "check:ts": "node scripts/typecheck-baseline.cjs",
     "check:ts:full": "node scripts/typecheck-baseline.cjs --full",
     "check:ts:update": "node scripts/typecheck-baseline.cjs --update",
-    "check:lint": "biome check ./src",
+    "check:lint": "biome check ./src ./__tests__ ./test-utils",
     "postinstall": "patch-package"
   },
   "jest": {

@@ -1,209 +1,146 @@
+import Feather from '@expo/vector-icons/Feather'
 import { useAuth, useUserCache } from '@state/AuthProvider'
 import * as Application from 'expo-application'
-import { Link, Stack, useNavigation } from 'expo-router'
-import { useLayoutEffect } from 'react'
-import { Alert } from 'react-native'
+import { router, Stack } from 'expo-router'
+import { Alert, Pressable, ScrollView, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import {
-  GroupButtonContent,
-  type GroupButtonContentProps,
-} from 'src/components/common/GroupButtonContent'
-import { Storage } from 'src/state/cache'
-import { openBrowserAsync } from 'src/utils'
-import {
-  Button,
-  Group,
-  ScrollView,
-  Separator,
-  Text,
-  useTheme,
-  XStack,
-  YStack,
-} from 'tamagui'
+import { InstancePageRow, SettingsRow } from 'src/components/metvage/settings-row'
+import { metvagePalette as c, metvageMetrics as m } from 'src/lib/metvage-colors'
 
-export default function Page() {
-  const navigation = useNavigation()
-  const theme = useTheme()
-  useLayoutEffect(() => {
-    navigation.setOptions({ title: 'Settings' })
-  }, [navigation])
-  const { username, locked } = useUserCache()
-  const instance = Storage.getString('app.instance')
-  const buildVersion = 1
-  const version = Application.nativeApplicationVersion + '.' + buildVersion
-
+export default function SettingsScreen() {
+  const { username } = useUserCache()
   const { logout } = useAuth()
-
-  const cacheClear = () => {
-    logout()
-  }
-
-  const openLink = async (path: string) => {
-    openBrowserAsync('https://' + instance + '/' + path)
-  }
-
-  const GroupButton = ({
-    icon,
-    title,
-    path,
-  }: GroupButtonContentProps & { path: string }) => (
-    <Group.Item>
-      <Link href={path} asChild>
-        <Button
-          bg={theme.background?.val.secondary.val}
-          justifyContent="flex-start"
-          size="$5"
-          px="$3"
-        >
-          <GroupButtonContent icon={icon} title={title} iconColor="#666" />
-        </Button>
-      </Link>
-    </Group.Item>
-  )
-
-  const GroupUrlButton = ({
-    icon,
-    title,
-    path,
-  }: GroupButtonContentProps & { path: string }) => (
-    <Group.Item>
-      <Button
-        bg={theme.background?.val.secondary.val}
-        justifyContent="flex-start"
-        size="$5"
-        px="$3"
-        onPress={() => openLink(path)}
-      >
-        <GroupButtonContent icon={icon} title={title} iconColor="red" />
-      </Button>
-    </Group.Item>
-  )
-
-  const handleLogOut = () => {
-    Alert.alert('Confirm', 'Are you sure you want to log out of this account?', [
-      {
-        text: 'Cancel',
-      },
-      {
-        text: 'Log out',
-        style: 'destructive',
-        onPress: () => cacheClear(),
-      },
+  const confirmLogout = () =>
+    Alert.alert('退出登录？', '退出后仍可作为访客浏览公开笔记。', [
+      { text: '取消', style: 'cancel' },
+      { text: '退出登录', style: 'destructive', onPress: logout },
     ])
-  }
   return (
-    <SafeAreaView
-      style={{ flex: 1, backgroundColor: theme.background?.val.default.val }}
-      edges={['bottom']}
-    >
+    <SafeAreaView edges={['bottom']} style={{ flex: 1, backgroundColor: c.background }}>
       <Stack.Screen
         options={{
-          title: 'Settings',
-          headerBackTitle: 'Back',
+          title: '设置',
+          headerTintColor: c.green,
+          headerStyle: { backgroundColor: c.background },
+          headerShadowVisible: false,
         }}
       />
-      <ScrollView flexShrink={1} showsVerticalScrollIndicator={false}>
-        <YStack p="$5" gap="$5">
-          <Group
-            orientation="vertical"
-            borderWidth={1}
-            borderColor={theme.borderColor?.val.default.val}
-            separator={<Separator borderColor={theme.borderColor?.val.default.val} />}
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        contentContainerStyle={{ padding: m.edge, gap: 24, paddingBottom: 32 }}
+      >
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: m.inset }}>
+          <View
+            style={{
+              width: 48,
+              height: 48,
+              borderRadius: 24,
+              backgroundColor: c.softGreen,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
           >
-            <GroupButton icon="heart" title="我的宠物" path="/settings/pets" />
-            <GroupButton icon="slash" title="屏蔽关系" path="/settings/blocked-pets" />
-            <GroupButton
-              icon="user"
-              title="Avatar, Bio and Display Name"
-              path="/settings/profile"
-            />
-            {locked ? (
-              <GroupButton
-                icon="user-plus"
-                title="Follow Requests"
-                path="/profile/follow-requests/"
-              />
-            ) : null}
-            <GroupButton
-              icon="tag"
-              title="Followed Hashtags"
-              path="/hashtag/followedTags"
-            />
-            <GroupButton
-              icon="lock"
-              title="Privacy & Relationships"
-              path="/settings/privacy"
-            />
-          </Group>
-
-          <Group
-            orientation="vertical"
-            borderWidth={1}
-            borderColor={theme.borderColor?.val.default.val}
-            separator={<Separator borderColor={theme.borderColor?.val.default.val} />}
+            <Feather name="user" size={22} color={c.green} />
+          </View>
+          <View style={{ flex: 1, gap: 4 }}>
+            <Text style={{ color: c.text, fontSize: m.title, fontWeight: '700' }}>
+              我的账号
+            </Text>
+            <Text style={{ color: c.secondaryText, fontSize: m.caption }}>
+              @{username}
+            </Text>
+          </View>
+        </View>
+        <View style={{ gap: m.gap }}>
+          <Text style={{ color: c.secondaryText, fontSize: m.caption }}>宠物与记录</Text>
+          <View
+            style={{ backgroundColor: c.surface, borderRadius: 16, overflow: 'hidden' }}
           >
-            <GroupButton
-              icon="life-buoy"
-              title="Accessibility"
-              path="/settings/accessibility/"
-            />
-            <GroupButton icon="droplet" title="Appearance" path="/settings/appearance/" />
-            <GroupButton
-              icon="alert-triangle"
-              title="Push Notifications"
-              path="/settings/notifications/"
-            />
-          </Group>
-
-          <Group
-            orientation="vertical"
-            borderWidth={1}
-            borderColor={theme.borderColor?.val.default.val}
-            separator={<Separator borderColor={theme.borderColor?.val.default.val} />}
-          >
-            <GroupButton
+            <SettingsRow
               icon="heart"
-              title="Contributors"
-              path="/settings/contributors/"
+              title="我的宠物"
+              onPress={() => router.push('/settings/pets')}
             />
-            <GroupButton icon="align-left" title="Legal" path="/settings/legal/" />
-            <GroupUrlButton
-              icon="trash"
-              title="Delete Account"
+            <SettingsRow
+              icon="slash"
+              title="屏蔽关系"
+              onPress={() => router.push('/settings/blocked-pets')}
+            />
+          </View>
+        </View>
+        <View style={{ gap: m.gap }}>
+          <Text style={{ color: c.secondaryText, fontSize: m.caption }}>账号与安全</Text>
+          <View
+            style={{ backgroundColor: c.surface, borderRadius: 16, overflow: 'hidden' }}
+          >
+            <InstancePageRow icon="shield" title="安全设置" path="settings/security" />
+            <InstancePageRow icon="key" title="修改密码" path="settings/password" />
+            <SettingsRow
+              icon="file-text"
+              title="法律与隐私"
+              onPress={() => router.push('/settings/legal')}
+            />
+          </View>
+        </View>
+        <View style={{ gap: m.inset, paddingHorizontal: 4 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: m.gap }}>
+            <Feather name="lock" size={16} color={c.green} />
+            <Text style={{ color: c.green, fontSize: m.cardTitle, fontWeight: '600' }}>
+              谁能看到我的记录？
+            </Text>
+          </View>
+          <Text style={{ color: c.secondaryText, fontSize: m.caption, lineHeight: 18 }}>
+            每条记录单独设置可见范围：公开笔记可被未登录访客浏览；私人记录仅账号持有人可见。可在发布时选择，或在宠物时间线中修改。
+          </Text>
+          <Text style={{ color: c.secondaryText, fontSize: m.caption, lineHeight: 18 }}>
+            屏蔽按用户账号生效，覆盖双方管理的所有宠物身份。屏蔽无法阻止对方退出登录后浏览你主动公开的内容。
+          </Text>
+        </View>
+        <View style={{ gap: m.gap }}>
+          <View
+            style={{ backgroundColor: c.surface, borderRadius: 16, overflow: 'hidden' }}
+          >
+            <InstancePageRow
+              icon="trash-2"
+              title="删除账号"
               path="settings/remove/request/permanent"
+              destructive
             />
-          </Group>
-
-          <Button
-            bg={theme.background?.val.secondary.val}
-            borderWidth={1}
-            borderColor={theme.borderColor?.val.default.val}
-            justifyContent="flex-start"
-            size="$5"
-            px="$3"
+          </View>
+          <Text
+            style={{
+              color: c.secondaryText,
+              fontSize: m.caption,
+              lineHeight: 18,
+              paddingHorizontal: 4,
+            }}
           >
-            <XStack flexGrow={1} justifyContent="space-between" alignItems="center">
-              <XStack alignItems="center" ml="$1" gap="$3">
-                <Text fontSize="$6" color={theme.color?.val.tertiary.val}>
-                  Version
-                </Text>
-              </XStack>
-              <Text fontSize="$6" color={theme.color?.val.tertiary.val}>
-                {version}
-              </Text>
-            </XStack>
-          </Button>
-
-          <Button
-            variant="outline"
-            backgroundColor={theme.background?.val.default.val}
-            borderColor={theme.borderColor?.val.strong.val}
-            mt="$2"
-            onPress={() => handleLogOut()}
-          >
-            <Text color={theme.color?.val.default.val}>Log out {'@' + username}</Text>
-          </Button>
-        </YStack>
+            安全设置、修改密码和删除账号将在当前服务的网页中继续操作，可能需要重新登录。打开页面不会直接删除账号。
+          </Text>
+        </View>
+        <Pressable
+          accessibilityRole="button"
+          onPress={confirmLogout}
+          style={({ pressed }) => ({
+            borderWidth: 1,
+            borderColor: c.border,
+            borderRadius: 24,
+            minHeight: m.touch,
+            padding: m.inset,
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: pressed ? c.field : c.surface,
+          })}
+        >
+          <Text style={{ color: c.green, fontSize: m.cardTitle, fontWeight: '600' }}>
+            退出登录
+          </Text>
+        </Pressable>
+        <Text
+          style={{ color: c.secondaryText, fontSize: m.caption, textAlign: 'center' }}
+        >
+          Metvage · {Application.nativeApplicationVersion || '开发版'}
+        </Text>
       </ScrollView>
     </SafeAreaView>
   )

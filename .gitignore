@@ -80,5 +80,7 @@ expo-env.d.ts
 # @end expo-cli
 # @end expo-cli
 credentials.json
+.acceptance/
+__pycache__/
 google-services.json
 app.json

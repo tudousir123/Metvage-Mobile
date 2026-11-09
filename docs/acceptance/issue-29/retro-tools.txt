@@ -1,0 +1,20 @@
+
+> pixelfed@1.0.0 test:acceptance
+> python3 -m unittest discover -s scripts/acceptance/tests -v
+
+test_lightweight_checks_cover_every_pr_and_use_locked_tools (test_ci_contract.CiContractTest.test_lightweight_checks_cover_every_pr_and_use_locked_tools) ... ok
+test_device_is_exclusively_owned_and_sigterm_restores_settings (test_device_cli.DeviceCliTest.test_device_is_exclusively_owned_and_sigterm_restores_settings) ... ok
+test_disconnect_keeps_a_recoverable_journal (test_device_cli.DeviceCliTest.test_disconnect_keeps_a_recoverable_journal) ... ok
+test_failed_plan_restores_settings_and_prior_port_mappings (test_device_cli.DeviceCliTest.test_failed_plan_restores_settings_and_prior_port_mappings) ... ok
+test_focus_loss_during_capture_never_publishes_the_image (test_device_cli.DeviceCliTest.test_focus_loss_during_capture_never_publishes_the_image) ... ok
+test_resumed_cleanup_removes_the_prior_process_xml (test_device_cli.DeviceCliTest.test_resumed_cleanup_removes_the_prior_process_xml) ... ok
+test_external_dependency_symlink_is_rejected_before_starting_metro (test_doctor_cli.DoctorCliTest.test_external_dependency_symlink_is_rejected_before_starting_metro) ... ok
+test_failed_token_revocation_is_journaled_and_retried (test_fixtures_cli.FixtureCliTest.test_failed_token_revocation_is_journaled_and_retried) ... ok
+test_rerun_reuses_ids_and_cleanup_handles_204_without_deleting_existing_data (test_fixtures_cli.FixtureCliTest.test_rerun_reuses_ids_and_cleanup_handles_204_without_deleting_existing_data) ... ok
+test_similar_run_and_fixture_names_cannot_share_or_delete_each_others_record (test_fixtures_cli.FixtureCliTest.test_similar_run_and_fixture_names_cannot_share_or_delete_each_others_record) ... ok
+test_upload_failure_cleans_created_pets_and_revokes_the_token (test_fixtures_cli.FixtureCliTest.test_upload_failure_cleans_created_pets_and_revokes_the_token) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 8.656s
+
+OK
