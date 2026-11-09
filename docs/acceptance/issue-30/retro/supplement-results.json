@@ -1,0 +1,284 @@
+[
+  {
+    "run": "retro-supplement-launch",
+    "summary": {
+      "status": "pass",
+      "command": "launch",
+      "seconds": 43.63,
+      "invocation": "9b2bd7d63c5c47859a0580895441f729",
+      "metrics": {
+        "adb_calls": 26,
+        "adb_seconds": 7.152,
+        "ui_reads": 1
+      },
+      "runtime": {
+        "source": "166fb69f844143cbe8af8526415f5093c2bd220e3a1338780eb9872effbfadb6",
+        "scheme": "metvagephone",
+        "app_pid": "10479",
+        "metro_pid": 1149050
+      },
+      "artifacts": "<mobile-worktree>/.acceptance/runs/retro-supplement-launch"
+    },
+    "device": {
+      "font": "1.45",
+      "awake": "2",
+      "reverse": {
+        "tcp:8081": "tcp:8081",
+        "tcp:18080": "tcp:18080"
+      },
+      "changed_ports": [
+        "tcp:18082"
+      ],
+      "restoration_pending": false,
+      "restoration_errors": []
+    },
+    "events": [
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobile-worktree>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-30-secondary-ui",
+          "sha": "beaad8a22ee5719ab039718d6cc33fda15a88dda",
+          "dirty": false,
+          "node": "v24.22.0",
+          "entry": "<mobile-worktree>/node_modules/expo-router/entry.js"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<local-server>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<test-device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime_verified",
+        "source": "166fb69f844143cbe8af8526415f5093c2bd220e3a1338780eb9872effbfadb6",
+        "scheme": "metvagephone",
+        "metro_pid": 1149050
+      }
+    ]
+  },
+  {
+    "run": "retro-supplement-smoke-1",
+    "summary": {
+      "status": "pass",
+      "command": "run",
+      "seconds": 22.86,
+      "invocation": "0ce41aefc9a2488a9159597c7736d2ae",
+      "metrics": {
+        "adb_calls": 55,
+        "adb_seconds": 22.008,
+        "ui_reads": 7
+      },
+      "run_id": "retro-supplement-smoke-1",
+      "runtime_mode": "verified",
+      "artifacts": "<mobile-worktree>/.acceptance/runs/retro-supplement-smoke-1"
+    },
+    "device": {
+      "font": "1.45",
+      "awake": "2",
+      "reverse": {
+        "tcp:8081": "tcp:8081",
+        "tcp:18080": "tcp:18080"
+      },
+      "changed_ports": [],
+      "restoration_pending": false,
+      "restoration_errors": []
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "smoke.json",
+            "sha256": "ff7341c378c2ebf6a1250842ba1da12fb2252a2f5cd18f511c2e669edc2e6796"
+          }
+        ]
+      },
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobile-worktree>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-30-secondary-ui",
+          "sha": "beaad8a22ee5719ab039718d6cc33fda15a88dda",
+          "dirty": false,
+          "node": "v24.22.0",
+          "entry": "<mobile-worktree>/node_modules/expo-router/entry.js"
+        },
+        "metro": {
+          "port": 8081,
+          "root": "<mobile-worktree>"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<local-server>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<test-device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime",
+        "source": "166fb69f844143cbe8af8526415f5093c2bd220e3a1338780eb9872effbfadb6",
+        "scheme": "metvagephone",
+        "app_pid": "10479",
+        "metro_pid": 1149050
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 5.587,
+        "adb_calls": 11,
+        "adb_seconds": 5.578,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "assert",
+        "status": "pass",
+        "seconds": 2.652,
+        "adb_calls": 5,
+        "adb_seconds": 2.647,
+        "ui_reads": 1
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobile-worktree>/.acceptance/runs/retro-supplement-smoke-1/home.png"
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 12.635,
+        "adb_calls": 21,
+        "adb_seconds": 12.608,
+        "ui_reads": 4
+      }
+    ]
+  },
+  {
+    "run": "retro-supplement-smoke-2",
+    "summary": {
+      "status": "pass",
+      "command": "run",
+      "seconds": 22.23,
+      "invocation": "83fbcdf738f241ea9de1ad35d2e8dc4b",
+      "metrics": {
+        "adb_calls": 55,
+        "adb_seconds": 21.415,
+        "ui_reads": 7
+      },
+      "run_id": "retro-supplement-smoke-2",
+      "runtime_mode": "verified",
+      "artifacts": "<mobile-worktree>/.acceptance/runs/retro-supplement-smoke-2"
+    },
+    "device": {
+      "font": "1.45",
+      "awake": "2",
+      "reverse": {
+        "tcp:8081": "tcp:8081",
+        "tcp:18080": "tcp:18080"
+      },
+      "changed_ports": [],
+      "restoration_pending": false,
+      "restoration_errors": []
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "smoke.json",
+            "sha256": "ff7341c378c2ebf6a1250842ba1da12fb2252a2f5cd18f511c2e669edc2e6796"
+          }
+        ]
+      },
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobile-worktree>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-30-secondary-ui",
+          "sha": "beaad8a22ee5719ab039718d6cc33fda15a88dda",
+          "dirty": false,
+          "node": "v24.22.0",
+          "entry": "<mobile-worktree>/node_modules/expo-router/entry.js"
+        },
+        "metro": {
+          "port": 8081,
+          "root": "<mobile-worktree>"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<local-server>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<test-device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime",
+        "source": "166fb69f844143cbe8af8526415f5093c2bd220e3a1338780eb9872effbfadb6",
+        "scheme": "metvagephone",
+        "app_pid": "10479",
+        "metro_pid": 1149050
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 5.363,
+        "adb_calls": 11,
+        "adb_seconds": 5.354,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "assert",
+        "status": "pass",
+        "seconds": 2.644,
+        "adb_calls": 5,
+        "adb_seconds": 2.64,
+        "ui_reads": 1
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobile-worktree>/.acceptance/runs/retro-supplement-smoke-2/home.png"
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 12.241,
+        "adb_calls": 21,
+        "adb_seconds": 12.216,
+        "ui_reads": 4
+      }
+    ]
+  }
+]
