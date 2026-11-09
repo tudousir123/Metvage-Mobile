@@ -64,6 +64,20 @@ def app_fixture_session(fixture, device):
         fixture.token = None
 
 
+def cleanup_app_fixtures(fixture):
+    # The process can stop after save but before journaling a changed association.
+    for entry in fixture.state['records']:
+        if entry.get('id'):
+            value = fixture.request('GET', f'/records/{entry["id"]}', expected=(200, 404))
+            if value:
+                if positive_id(value['record']['id']) != positive_id(entry['id']):
+                    raise AcceptanceError('Recovery readback returned a different record')
+                entry['pet_id'] = positive_id(value['record']['pet_id'])
+    fixture.save()
+    # Keep the existing account/request-marker checks before any deletion.
+    fixture.cleanup()
+
+
 def probe_photos(config, device, directory, run_id, report, iterations=1, font_scale=1.45,
                  negative_control=False):
     validate_probe_config(config, iterations)
@@ -138,14 +152,7 @@ def probe_photos(config, device, directory, run_id, report, iterations=1, font_s
                 primary_error = sys.exc_info()[1]
                 cleanup = Report(directory, 'cleanup')
                 try:
-                    # A failed UI postcondition can still follow a successful reassociation.
-                    for entry in fixture.state['records']:
-                        if entry.get('id'):
-                            saved = fixture.request('GET', f'/records/{entry["id"]}', expected=(200, 404))
-                            if saved:
-                                entry['pet_id'] = positive_id(saved['record']['pet_id'])
-                    fixture.save()
-                    fixture.cleanup()
+                    cleanup_app_fixtures(fixture)
                     with contextlib.redirect_stdout(io.StringIO()):
                         cleanup.finish('pass')
                 except (AcceptanceError, OSError, ValueError) as error:

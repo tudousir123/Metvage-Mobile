@@ -1,0 +1,27 @@
+test_app_identity_mismatch_rejected_before_cleanup (test_photo_probe.PhotoOracleTests.test_app_identity_mismatch_rejected_before_cleanup) ... ok
+test_borrowed_app_token_cleared_when_cleanup_is_interrupted (test_photo_probe.PhotoOracleTests.test_borrowed_app_token_cleared_when_cleanup_is_interrupted) ... ok
+test_completed_other_changes_with_retained_photo_is_red (test_photo_probe.PhotoOracleTests.test_completed_other_changes_with_retained_photo_is_red) ... ok
+test_interrupted_reassociation_recovery_uses_actual_pet_before_ownership_check (test_photo_probe.PhotoOracleTests.test_interrupted_reassociation_recovery_uses_actual_pet_before_ownership_check) ... ERROR
+test_no_photos_without_confirmed_edits_is_inconclusive (test_photo_probe.PhotoOracleTests.test_no_photos_without_confirmed_edits_is_inconclusive) ... ok
+test_pending_old_record_then_completed_save_is_green (test_photo_probe.PhotoOracleTests.test_pending_old_record_then_completed_save_is_green) ... ok
+test_reassociation_recovery_keeps_exact_request_marker_guard (test_photo_probe.PhotoOracleTests.test_reassociation_recovery_keeps_exact_request_marker_guard) ... ok
+test_app_recovery_rejects_physical_device_before_reading_storage (test_photo_probe.ProbeGuardTests.test_app_recovery_rejects_physical_device_before_reading_storage) ... ok
+test_invalid_iterations_rejected_before_adb_or_api (test_photo_probe.ProbeGuardTests.test_invalid_iterations_rejected_before_adb_or_api) ... ok
+test_physical_device_rejected_before_adb_or_api (test_photo_probe.ProbeGuardTests.test_physical_device_rejected_before_adb_or_api) ... ok
+
+======================================================================
+ERROR: test_interrupted_reassociation_recovery_uses_actual_pet_before_ownership_check (test_photo_probe.PhotoOracleTests.test_interrupted_reassociation_recovery_uses_actual_pet_before_ownership_check)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobileRoot>/scripts/acceptance/tests/test_photo_probe.py", line 153, in test_interrupted_reassociation_recovery_uses_actual_pet_before_ownership_check
+    cleanup_app_fixtures(self.fixture)
+  File "<mobileRoot>/scripts/acceptance/photo_probe.py", line 68, in cleanup_app_fixtures
+    fixture.cleanup()
+  File "<mobileRoot>/scripts/acceptance/fixtures.py", line 195, in cleanup
+    raise AcceptanceError("Fixture cleanup incomplete; retry cleanup with this run-id")
+runtime.AcceptanceError: Fixture cleanup incomplete; retry cleanup with this run-id
+
+----------------------------------------------------------------------
+Ran 10 tests in 4.230s
+
+FAILED (errors=1)

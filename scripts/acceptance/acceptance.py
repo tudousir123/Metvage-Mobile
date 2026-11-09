@@ -14,7 +14,7 @@ from replay import replay, verify_api
 from doctor import diagnose
 from fixtures import FixtureRun
 from runtime import AcceptanceError, Report, exclusive_lock, execute, interruptible, read_json, run_directory
-from photo_probe import app_fixture_session, probe_photos, validate_probe_config
+from photo_probe import app_fixture_session, cleanup_app_fixtures, probe_photos, validate_probe_config
 
 
 def main():
@@ -180,7 +180,7 @@ def main():
                             if fixture.state.get('authentication') == 'app-oauth':
                                 device = Device(config, report)
                                 with exclusive_lock('device:' + device.serial), app_fixture_session(fixture, device):
-                                    fixture.cleanup()
+                                    cleanup_app_fixtures(fixture)
                             else:
                                 with fixture.authenticated():
                                     fixture.cleanup()

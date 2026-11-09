@@ -31,6 +31,12 @@
     "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
   },
   {
+    "file": "photo-probe-v2.py",
+    "original_sha256": "95d95bb0daaf623b54fe1730501200254f83a509a456ec60b090bf0f5aa4361c",
+    "published_sha256": "95d95bb0daaf623b54fe1730501200254f83a509a456ec60b090bf0f5aa4361c",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  },
+  {
     "file": "latency-proxy.py",
     "original_sha256": "b43844476172b700303e6508b6ae67277268c9b037b40f5223c52a3148c6c887",
     "published_sha256": "b43844476172b700303e6508b6ae67277268c9b037b40f5223c52a3148c6c887",
