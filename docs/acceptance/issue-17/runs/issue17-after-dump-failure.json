@@ -1,0 +1,17 @@
+[
+  {
+    "summary": {
+      "status": "fail",
+      "command": "inspect",
+      "seconds": 0.43,
+      "invocation": "ec497490912f4aa3b463f1a0c122922c",
+      "metrics": {
+        "adb_calls": 4,
+        "adb_seconds": 0.429,
+        "ui_reads": 0
+      },
+      "error": "Foreground changed to <another-app>: stopped before reading/capturing another app",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-after-dump-failure"
+    }
+  }
+]

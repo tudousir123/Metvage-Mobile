@@ -334,7 +334,13 @@ class Device:
                     value = step["text"]
                     if not value.isascii():
                         raise AcceptanceError("adb text input supports ASCII here; use the API for Unicode fixture names")
-                    self.call("shell", "input", "text", shlex.quote(value.replace(" ", "%s")))
+                    if step.get('replace'):
+                        self.call('shell', 'input', 'keycombination', '113', '29')
+                        self.foreground()
+                        self.call('shell', 'input', 'keyevent', 'KEYCODE_DEL')
+                        self.foreground()
+                    if value or not step.get('replace'):
+                        self.call("shell", "input", "text", shlex.quote(value.replace(" ", "%s")))
                 elif action == "back":
                     self.foreground()
                     self.call("shell", "input", "keyevent", "KEYCODE_BACK")

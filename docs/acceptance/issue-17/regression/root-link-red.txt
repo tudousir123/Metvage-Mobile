@@ -1,0 +1,71 @@
+FAIL __tests__/native-intent.test.ts
+  ✕ warm Android business link pushes a fresh screen: / (19 ms)
+  ✕ warm Android business link pushes a fresh screen: /feed (1 ms)
+  ✕ warm Android business link pushes a fresh screen: /unavailable/shop (1 ms)
+  ✓ warm Android business link pushes a fresh screen: /pets/20/records (2 ms)
+  ✓ warm Android business link pushes a fresh screen: /settings/pets?edit=19 (1 ms)
+  ✓ warm Android business link pushes a fresh screen: /pet/17 (1 ms)
+  ✓ warm Android business link pushes a fresh screen: /note/26 (1 ms)
+  ✓ warm Android business link pushes a fresh screen: /records/26/edit (1 ms)
+  ✓ warm Android business link pushes a fresh screen: /reports/new?target_type=record&target_id=26 (1 ms)
+  ✓ warm Android business link pushes a fresh screen: /following
+  ✓ cold launch and OAuth callback retain normal Router handling
+  ✓ iOS and share intents retain their existing handling
+  ✓ normalizes a business link without discarding its host path: pixelfed://note/26
+  ✓ normalizes a business link without discarding its host path: metvagephone://note/26
+  ✓ normalizes a business link without discarding its host path: /note/26 (1 ms)
+  ✓ web links keep the default Router handling (1 ms)
+
+  ● warm Android business link pushes a fresh screen: /
+
+    expect(received).toBeNull()
+
+    Received: "pixelfed:///"
+
+      21 |   '/following',
+      22 | ])('warm Android business link pushes a fresh screen: %s', (path) => {
+    > 23 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+         |                                                                              ^
+      24 |   expect(router.push).toHaveBeenCalledWith(path)
+      25 | })
+      26 |
+
+      at toBeNull (__tests__/native-intent.test.ts:23:78)
+
+  ● warm Android business link pushes a fresh screen: /feed
+
+    expect(received).toBeNull()
+
+    Received: "pixelfed:///feed"
+
+      21 |   '/following',
+      22 | ])('warm Android business link pushes a fresh screen: %s', (path) => {
+    > 23 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+         |                                                                              ^
+      24 |   expect(router.push).toHaveBeenCalledWith(path)
+      25 | })
+      26 |
+
+      at toBeNull (__tests__/native-intent.test.ts:23:78)
+
+  ● warm Android business link pushes a fresh screen: /unavailable/shop
+
+    expect(received).toBeNull()
+
+    Received: "pixelfed:///unavailable/shop"
+
+      21 |   '/following',
+      22 | ])('warm Android business link pushes a fresh screen: %s', (path) => {
+    > 23 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+         |                                                                              ^
+      24 |   expect(router.push).toHaveBeenCalledWith(path)
+      25 | })
+      26 |
+
+      at toBeNull (__tests__/native-intent.test.ts:23:78)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 13 passed, 16 total
+Snapshots:   0 total
+Time:        1.063 s
+Ran all test suites matching /__tests__\/native-intent.test.ts/i.

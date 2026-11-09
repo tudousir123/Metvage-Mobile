@@ -1,0 +1,31 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/notifications",
+      "expect": {
+        "label": "互动通知"
+      }
+    },
+    {
+      "action": "assert",
+      "label": "17Dog"
+    },
+    {
+      "action": "capture",
+      "name": "owner-notifications"
+    },
+    {
+      "action": "tap",
+      "label": "评论了你的公开笔记",
+      "index": 0,
+      "expect": {
+        "label": "查看棉花的主页"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "notification-opens-actual-note"
+    }
+  ]
+}

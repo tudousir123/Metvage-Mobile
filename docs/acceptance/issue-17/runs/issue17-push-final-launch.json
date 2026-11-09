@@ -1,0 +1,12 @@
+[
+  {
+    "summary": {
+      "status": "fail",
+      "command": "launch",
+      "seconds": 0.42,
+      "invocation": "1ea51092654b4deead3ae0ec9d2490d3",
+      "error": "Device unavailable: check USB connection, debugging authorization and host USB permissions",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-push-final-launch"
+    }
+  }
+]

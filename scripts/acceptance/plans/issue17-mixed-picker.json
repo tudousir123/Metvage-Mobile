@@ -1,0 +1,29 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/records/new?mode={mode}&pet_id={publishPetId}",
+      "expect": {
+        "label": "添加照片，已选 0 张，最多 9 张"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "记录内容"
+    },
+    {
+      "action": "type",
+      "text": "issue17-mixed-{mode}"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "添加照片，已选 0 张，最多 9 张"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "fixtures",
+      "seconds": 3.36,
+      "invocation": "8257245376de4e42b705a6c69dde9502",
+      "run_id": "issue17-u1",
+      "artifacts": "<mobileRoot>/.acceptance/runs/issue17-u1"
+    },
+    "events": [
+      {
+        "action": "fixtures_ready",
+        "pets": [
+          17,
+          18
+        ],
+        "records": [
+          26,
+          27
+        ]
+      }
+    ]
+  }
+]

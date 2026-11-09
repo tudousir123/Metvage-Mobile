@@ -1,0 +1,12 @@
+[
+  {
+    "summary": {
+      "status": "fail",
+      "command": "run",
+      "seconds": 0.0,
+      "invocation": "7bf00d0c5136457d9b68e4191666f495",
+      "error": "Unknown plan variable: peerCatId",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-text-records"
+    }
+  }
+]

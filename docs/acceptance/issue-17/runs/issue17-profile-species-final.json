@@ -1,0 +1,212 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "run",
+      "seconds": 68.28,
+      "invocation": "76a9290bc8f0432cbef03eb75b79d4cf",
+      "metrics": {
+        "adb_calls": 167,
+        "adb_seconds": 67.384,
+        "ui_reads": 24
+      },
+      "run_id": "issue17-profile-species-final",
+      "runtime_mode": "verified",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-profile-species-final"
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "issue17-profile-species.json",
+            "sha256": "7441a970818fd338803ab2309e18b365453b21d8bca74929a6097864b0494443"
+          }
+        ]
+      },
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "273ece5055dfd3613097c431eb88d85cc33c1f0f",
+          "dirty": true,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "metro": {
+          "port": 8081,
+          "root": "<mobileRoot>"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime",
+        "source": "23824653169fac89614817e4de7cb1ffb41bef39eef7f6f49d2f6e0e9fa2c444",
+        "scheme": "pixelfed",
+        "app_pid": "29843",
+        "metro_pid": 1260419
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 2.848,
+        "adb_calls": 8,
+        "adb_seconds": 2.844,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 5.276,
+        "adb_calls": 11,
+        "adb_seconds": 5.27,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "type",
+        "status": "pass",
+        "seconds": 0.461,
+        "adb_calls": 2,
+        "adb_seconds": 0.461,
+        "ui_reads": 0
+      },
+      {
+        "action": "step",
+        "number": 4,
+        "operation": "back",
+        "status": "pass",
+        "seconds": 2.801,
+        "adb_calls": 8,
+        "adb_seconds": 2.797,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 5,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 8.339,
+        "adb_calls": 16,
+        "adb_seconds": 8.33,
+        "ui_reads": 3
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-profile-species-final/edited-cat-profile.png"
+      },
+      {
+        "action": "step",
+        "number": 6,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.93,
+        "adb_calls": 21,
+        "adb_seconds": 10.915,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 7,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 2.882,
+        "adb_calls": 8,
+        "adb_seconds": 2.88,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 8,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 5.183,
+        "adb_calls": 11,
+        "adb_seconds": 5.179,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 9,
+        "operation": "type",
+        "status": "pass",
+        "seconds": 0.317,
+        "adb_calls": 2,
+        "adb_seconds": 0.317,
+        "ui_reads": 0
+      },
+      {
+        "action": "step",
+        "number": 10,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 5.078,
+        "adb_calls": 11,
+        "adb_seconds": 5.074,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 11,
+        "operation": "type",
+        "status": "pass",
+        "seconds": 0.456,
+        "adb_calls": 2,
+        "adb_seconds": 0.456,
+        "ui_reads": 0
+      },
+      {
+        "action": "step",
+        "number": 12,
+        "operation": "back",
+        "status": "pass",
+        "seconds": 3.188,
+        "adb_calls": 8,
+        "adb_seconds": 3.185,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 13,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 7.9,
+        "adb_calls": 16,
+        "adb_seconds": 7.894,
+        "ui_reads": 3
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-profile-species-final/species-request-received.png"
+      },
+      {
+        "action": "step",
+        "number": 14,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.602,
+        "adb_calls": 21,
+        "adb_seconds": 10.588,
+        "ui_reads": 4
+      }
+    ]
+  }
+]

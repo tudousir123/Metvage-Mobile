@@ -1,0 +1,167 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/",
+      "expect": {
+        "label": "搜索宠物笔记"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "宠物商城，未开放",
+      "expect": {
+        "label": "未开放"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "unavailable-shop"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "label": "搜索宠物笔记"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "每日灵感，未开放",
+      "expect": {
+        "label": "未开放"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "unavailable-daily-inspiration"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "label": "搜索宠物笔记"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "附近",
+      "expect": {
+        "label": "未开放"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "unavailable-nearby"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "label": "搜索宠物笔记"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "探索"
+    },
+    {
+      "action": "assert",
+      "label": "一起发现，更多好去处"
+    },
+    {
+      "action": "capture",
+      "name": "explore-no-fake-places"
+    },
+    {
+      "action": "swipe",
+      "fractions": [
+        0.5,
+        0.82,
+        0.5,
+        0.35
+      ]
+    },
+    {
+      "action": "tap",
+      "label": "任务，未开放",
+      "expect": {
+        "label": "未开放"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "unavailable-tasks"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "label": "探索"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "成长，未开放",
+      "expect": {
+        "label": "未开放"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "unavailable-growth"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "label": "探索"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "私信，未开放",
+      "expect": {
+        "label": "未开放"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "unavailable-messages"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "label": "探索"
+      }
+    },
+    {
+      "action": "swipe",
+      "fractions": [
+        0.5,
+        0.78,
+        0.5,
+        0.42
+      ]
+    },
+    {
+      "action": "tap",
+      "label": "自动成册，未开放",
+      "expect": {
+        "label": "未开放"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "unavailable-auto-book"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "label": "探索"
+      }
+    },
+    {
+      "action": "open",
+      "path": "/",
+      "expect": {
+        "label": "搜索宠物笔记"
+      }
+    }
+  ]
+}

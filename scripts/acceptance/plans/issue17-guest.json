@@ -1,0 +1,101 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/feed",
+      "expect": {
+        "label": "搜索宠物笔记"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "guest-public-feed"
+    },
+    {
+      "action": "open",
+      "path": "/note/{publicRecordId}",
+      "expect": {
+        "label": "登录后点赞或评论"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "guest-public-note"
+    },
+    {
+      "action": "tap",
+      "label": "查看{publicPetNickname}的主页"
+    },
+    {
+      "action": "assert",
+      "label": "公开笔记"
+    },
+    {
+      "action": "capture",
+      "name": "guest-public-pet"
+    },
+    {
+      "action": "open",
+      "path": "/note/{privateRecordId}",
+      "expect": {
+        "label": "此笔记暂时无法查看。"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "guest-private-denied"
+    },
+    {
+      "action": "open",
+      "path": "/note/{publicRecordId}",
+      "expect": {
+        "label": "登录后点赞或评论"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "点赞"
+    },
+    {
+      "action": "assert",
+      "label": "以访客身份浏览"
+    },
+    {
+      "action": "capture",
+      "name": "guest-interaction-login"
+    },
+    {
+      "action": "open",
+      "path": "/handleSignup",
+      "expect": {
+        "label": "加入 Metvage 试用"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "邀请码"
+    },
+    {
+      "action": "type",
+      "text": "not-an-invitation"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "核验邀请码并继续"
+    },
+    {
+      "action": "assert",
+      "label": "邀请码无效，请核对后重试。"
+    },
+    {
+      "action": "capture",
+      "name": "invalid-invitation"
+    }
+  ]
+}

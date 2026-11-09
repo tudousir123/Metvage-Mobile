@@ -1,0 +1,176 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "run",
+      "seconds": 65.74,
+      "invocation": "9a1e3202423f4120ab4bfcfd3bd2795f",
+      "metrics": {
+        "adb_calls": 139,
+        "adb_seconds": 64.825,
+        "ui_reads": 22
+      },
+      "run_id": "issue17-photo-public-retry",
+      "runtime_mode": "verified",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-photo-public-retry"
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "issue17-photo-retry.json",
+            "sha256": "7d0bd87854c3d24fc6797e2a5cfbdfaaf2174ca2c910f7cc63f480ae5805fed4"
+          }
+        ]
+      },
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "273ece5055dfd3613097c431eb88d85cc33c1f0f",
+          "dirty": true,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "metro": {
+          "port": 8081,
+          "root": "<mobileRoot>"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime",
+        "source": "166fb69f844143cbe8af8526415f5093c2bd220e3a1338780eb9872effbfadb6",
+        "scheme": "pixelfed",
+        "app_pid": "3547",
+        "metro_pid": 1184594
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "assert",
+        "status": "pass",
+        "seconds": 2.566,
+        "adb_calls": 5,
+        "adb_seconds": 2.562,
+        "ui_reads": 1
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-photo-public-retry/selected-generated-photo.png"
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.882,
+        "adb_calls": 21,
+        "adb_seconds": 10.865,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "api_connection",
+        "status": "pass",
+        "seconds": 0.006,
+        "adb_calls": 1,
+        "adb_seconds": 0.006,
+        "ui_reads": 0
+      },
+      {
+        "action": "step",
+        "number": 4,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 8.405,
+        "adb_calls": 11,
+        "adb_seconds": 8.398,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 5,
+        "operation": "assert",
+        "status": "pass",
+        "seconds": 2.625,
+        "adb_calls": 5,
+        "adb_seconds": 2.622,
+        "ui_reads": 1
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-photo-public-retry/photo-upload-failure-retained.png"
+      },
+      {
+        "action": "step",
+        "number": 6,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.602,
+        "adb_calls": 21,
+        "adb_seconds": 10.583,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 7,
+        "operation": "assert",
+        "status": "pass",
+        "seconds": 2.531,
+        "adb_calls": 5,
+        "adb_seconds": 2.528,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 8,
+        "operation": "api_connection",
+        "status": "pass",
+        "seconds": 0.008,
+        "adb_calls": 1,
+        "adb_seconds": 0.007,
+        "ui_reads": 0
+      },
+      {
+        "action": "step",
+        "number": 9,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 15.58,
+        "adb_calls": 26,
+        "adb_seconds": 15.564,
+        "ui_reads": 5
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-photo-public-retry/saved-photo-record.png"
+      },
+      {
+        "action": "step",
+        "number": 10,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.469,
+        "adb_calls": 21,
+        "adb_seconds": 10.45,
+        "ui_reads": 4
+      }
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "steps": [
+    {
+      "action": "assert",
+      "label": "移除第 1 张照片"
+    },
+    {
+      "action": "capture",
+      "name": "selected-generated-photo"
+    },
+    {
+      "action": "api_connection",
+      "state": "off"
+    },
+    {
+      "action": "tap",
+      "label": "{submitLabel}"
+    },
+    {
+      "action": "assert",
+      "label": "照片或记录上传失败，请检查网络后重试。内容已保留。"
+    },
+    {
+      "action": "capture",
+      "name": "photo-upload-failure-retained"
+    },
+    {
+      "action": "assert",
+      "label": "移除第 1 张照片"
+    },
+    {
+      "action": "api_connection",
+      "state": "on"
+    },
+    {
+      "action": "tap",
+      "label": "{submitLabel}",
+      "expect": {
+        "label": "把陪伴，写成故事"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "saved-photo-record"
+    }
+  ]
+}

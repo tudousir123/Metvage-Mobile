@@ -1,0 +1,140 @@
+[
+  {
+    "file": "guest-2-guest-public-feed.png",
+    "sha256": "fae259958fe37550eee92887e5d38ec2abd44512073718109f8775a055300446",
+    "run": "issue17-guest-2",
+    "raw_copy": true
+  },
+  {
+    "file": "guest-2-guest-public-note.png",
+    "sha256": "c71622fd9f1b1cdfb759e5663d64aae9786c1bb85d3161dcea2585b3ddd16591",
+    "run": "issue17-guest-2",
+    "raw_copy": true
+  },
+  {
+    "file": "guest-2-guest-public-pet.png",
+    "sha256": "57d02a28896e4dccbe62a4ef26ab192f006587e65c98bcb1266665646d57d91d",
+    "run": "issue17-guest-2",
+    "raw_copy": true
+  },
+  {
+    "file": "guest-2-guest-private-denied.png",
+    "sha256": "0870fe36cdddea2ad4596069db44a3cdd2bf34c63aaee41f508b4921e15cd059",
+    "run": "issue17-guest-2",
+    "raw_copy": true
+  },
+  {
+    "file": "guest-2-guest-interaction-login.png",
+    "sha256": "d9e63703e0ce2fa8ad12a1609d6745809ac365d8a5e2a82ab99bd20588a51e35",
+    "run": "issue17-guest-2",
+    "raw_copy": true
+  },
+  {
+    "file": "guest-2-invalid-invitation.png",
+    "sha256": "4b48dc531ec6f3bbe49e914a7856f6051f7255ef7979c9af0144b7d10d2c3b2a",
+    "run": "issue17-guest-2",
+    "raw_copy": true
+  },
+  {
+    "file": "no-pet-final-signed-in-without-pet.png",
+    "sha256": "b150d61878f420875906c95b364674a8e8df8b30d44e65ed2ff0d3af22078422",
+    "run": "issue17-no-pet-final",
+    "raw_copy": true
+  },
+  {
+    "file": "no-pet-final-like-requires-pet.png",
+    "sha256": "e39859773ee86288f1f8018ac15ea67aaf59d0de842db7fc59d73553ba4203e9",
+    "run": "issue17-no-pet-final",
+    "raw_copy": true
+  },
+  {
+    "file": "no-pet-final-publish-requires-pet.png",
+    "sha256": "7269a0ebd4e12c0099a7092e5a8073015c05cf00fcf6f7da1a967e59242f2cc3",
+    "run": "issue17-no-pet-final",
+    "raw_copy": true
+  },
+  {
+    "file": "create-profiles-nickname-only-cat-and-dog.png",
+    "sha256": "cb74a34f17ec597eb3018c7c86693d613ba577172e83a4fc563d02b91f0a7246",
+    "run": "issue17-create-profiles",
+    "raw_copy": true
+  },
+  {
+    "file": "create-profiles-current-cat.png",
+    "sha256": "d647f9dd6032411840b197ddefe454321db6c891292158fb5b38549bcd5306b7",
+    "run": "issue17-create-profiles",
+    "raw_copy": true
+  },
+  {
+    "file": "text-records-final-text-public.png",
+    "sha256": "1626b223bd617fd08f2eecef7ee4771f9015679f92d552aaabf9444b8dc0fae1",
+    "run": "issue17-text-records-final",
+    "raw_copy": true
+  },
+  {
+    "file": "text-records-final-text-private.png",
+    "sha256": "543f27a9aac5e53b6b94f26145bfe297581bf908738c734d5eabf611eff857bc",
+    "run": "issue17-text-records-final",
+    "raw_copy": true
+  },
+  {
+    "file": "photo-public-retry-selected-generated-photo.png",
+    "sha256": "72da5762e8725cf507ffd6e25f7d2bd6ba6ab45c3373b5627e9fd8c53ca03076",
+    "run": "issue17-photo-public-retry",
+    "raw_copy": true
+  },
+  {
+    "file": "photo-public-retry-photo-upload-failure-retained.png",
+    "sha256": "b24e525fa3e8d9dda449d5fe160044451adfcf70ecf51c8a0d598e1085ecdc28",
+    "run": "issue17-photo-public-retry",
+    "raw_copy": true
+  },
+  {
+    "file": "photo-public-retry-saved-photo-record.png",
+    "sha256": "fa5624128d8d20ea54562ca465b0609c26d8026f8b774c88398e4e94fb6a9386",
+    "run": "issue17-photo-public-retry",
+    "raw_copy": true
+  },
+  {
+    "file": "photo-private-save-saved-photo-record.png",
+    "sha256": "7fd5464315c2ab30f16cb9e1f058fc61b59e4fa97c6843b64e15e834c1c83a81",
+    "run": "issue17-photo-private-save",
+    "raw_copy": true
+  },
+  {
+    "file": "mixed-public-save-saved-photo-record.png",
+    "sha256": "c8db08c11426571294eb2dcecff78a5d269c0b60b7527c23f1403b6448d7d419",
+    "run": "issue17-mixed-public-save",
+    "raw_copy": true
+  },
+  {
+    "file": "mixed-private-save-saved-photo-record.png",
+    "sha256": "596e85992dfd57c929e2436256f8f385be6853336e755703ed951b8181eeebb3",
+    "run": "issue17-mixed-private-save",
+    "raw_copy": true
+  },
+  {
+    "file": "navigation-error-native-navigation-error.png",
+    "sha256": "00dd804821580c0496bf8810befd591720771748f94bfe5351f55b10cfe67654",
+    "run": "issue17-navigation-error",
+    "raw_copy": true
+  },
+  {
+    "file": "profile-species-final-edited-cat-profile.png",
+    "sha256": "9f09889d28e95761fabe0a40fba56c311364ace374352cb9e9a61bb66241e493",
+    "run": "issue17-profile-species-final",
+    "raw_copy": true
+  },
+  {
+    "file": "profile-species-final-species-request-received.png",
+    "sha256": "abe6da741877e0f0aa5d61d550a39bd2c2ff95c4623bbd44923732ce26af5630",
+    "run": "issue17-profile-species-final",
+    "raw_copy": true
+  },
+  {
+    "file": "social-following-feed.png",
+    "sha256": "aa541cbab2dddbdf451e2539ea3401e9048b49892424c242d288448b5625aa40",
+    "run": "issue17-social",
+    "raw_copy": true
+  }
+]

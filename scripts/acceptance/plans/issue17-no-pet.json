@@ -1,0 +1,72 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/",
+      "expect": {
+        "label": "搜索宠物笔记"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "我的"
+    },
+    {
+      "action": "assert",
+      "label": "让故事，从它开始"
+    },
+    {
+      "action": "capture",
+      "name": "signed-in-without-pet"
+    },
+    {
+      "action": "open",
+      "path": "/note/{publicRecordId}",
+      "expect": {
+        "label": "查看{publicPetNickname}的主页"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "点赞"
+    },
+    {
+      "action": "assert",
+      "label": "还没有宠物档案。一起留下第一份回忆吧。"
+    },
+    {
+      "action": "capture",
+      "name": "like-requires-pet"
+    },
+    {
+      "action": "open",
+      "path": "/pet/{publicPetId}",
+      "expect": {
+        "label": "宠物公开档案"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "建立宠物后关注"
+    },
+    {
+      "action": "assert",
+      "label": "还没有宠物档案。一起留下第一份回忆吧。"
+    },
+    {
+      "action": "open",
+      "path": "/records/new?mode=public",
+      "expect": {
+        "label": "先认识一下你的宠物"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "publish-requires-pet"
+    },
+    {
+      "action": "tap",
+      "label": "去建立宠物档案"
+    }
+  ]
+}

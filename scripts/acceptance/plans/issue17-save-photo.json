@@ -1,0 +1,23 @@
+{
+  "steps": [
+    {
+      "action": "assert",
+      "label": "移除第 1 张照片"
+    },
+    {
+      "action": "capture",
+      "name": "selected-generated-photo"
+    },
+    {
+      "action": "tap",
+      "label": "{submitLabel}",
+      "expect": {
+        "label": "把陪伴，写成故事"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "saved-photo-record"
+    }
+  ]
+}

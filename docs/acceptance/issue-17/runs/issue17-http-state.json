@@ -1,0 +1,48 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "issue17-http-state",
+      "seconds": 1.73,
+      "invocation": "2600bd8f62274bc3aa44896394869be2",
+      "artifacts": ".acceptance/runs/issue17-http-state"
+    },
+    "events": [
+      {
+        "action": "assertion",
+        "name": "One access token in isolated U2 test App",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "U2 created exactly one cat and one dog through App",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Nickname-only profiles preserve species",
+        "result": "pass"
+      }
+    ]
+  },
+  {
+    "summary": {
+      "status": "fail",
+      "command": "issue17-http-state",
+      "seconds": 2.13,
+      "invocation": "2f6aeab4d0c54b23806e70bd147a6f18",
+      "error": "Local API GET /pets: HTTP 401; expected (200,)",
+      "artifacts": ".acceptance/runs/issue17-http-state"
+    }
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "steps": [
+    {"action":"open","path":"/note/{publicRecordId}","expect":{"label":"查看{publicPetNickname}的主页"}},
+    {"action":"tap","label":"点赞","expect":{"label":"我的宠物"}},
+    {"action":"open","path":"/pet/{publicPetId}","expect":{"label":"宠物公开档案"}}
+  ]
+}

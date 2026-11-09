@@ -1,0 +1,59 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "issue17-http-species",
+      "seconds": 3.79,
+      "invocation": "17913a2dea724ad38e46a8d5d247b0b9",
+      "artifacts": ".acceptance/runs/issue17-http-species"
+    },
+    "events": [
+      {
+        "action": "assertion",
+        "name": "One access token in isolated U2 test App",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "App species request persists once",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Other account cannot list applicant request",
+        "result": "pass"
+      },
+      {
+        "action": "technical_team",
+        "account_id": 4,
+        "human_maintainer": "not-designated"
+      },
+      {
+        "action": "team_http",
+        "method": "GET",
+        "path": "/admin/species-requests",
+        "status": 200
+      },
+      {
+        "action": "assertion",
+        "name": "Technical team can read actual App application",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Species application does not create an unsupported pet",
+        "result": "pass"
+      }
+    ]
+  }
+]

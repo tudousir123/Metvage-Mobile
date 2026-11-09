@@ -1,0 +1,702 @@
+[
+  {
+    "run": "issue17-http-identity",
+    "invocations": [
+      {
+        "id": "8f9ee476e23548c4ad00e286af8b2192",
+        "status": "pass",
+        "command": "issue17-http-identity",
+        "seconds": 1.77
+      }
+    ]
+  },
+  {
+    "run": "issue17-http-pixels",
+    "invocations": [
+      {
+        "id": "8647568cc0004049ab4653d4489fd0a9",
+        "status": "pass",
+        "command": "issue17-http-pixels",
+        "seconds": 4.13
+      }
+    ]
+  },
+  {
+    "run": "issue17-http-records",
+    "invocations": [
+      {
+        "id": "458f8c5ad33543c0a65078f29c1174b5",
+        "status": "pass",
+        "command": "issue17-http-records",
+        "seconds": 8.34
+      }
+    ]
+  },
+  {
+    "run": "issue17-http-snapshot",
+    "invocations": [
+      {
+        "id": "04055dcbec4940c584d3544b8644225e",
+        "status": "pass",
+        "command": "issue17-http-snapshot",
+        "seconds": 2.61
+      }
+    ]
+  },
+  {
+    "run": "issue17-http-social",
+    "invocations": [
+      {
+        "id": "742cd288a0e94c8bbb4c25f291ea2e61",
+        "status": "pass",
+        "command": "issue17-http-social",
+        "seconds": 2.33
+      }
+    ]
+  },
+  {
+    "run": "issue17-http-species",
+    "invocations": [
+      {
+        "id": "17913a2dea724ad38e46a8d5d247b0b9",
+        "status": "pass",
+        "command": "issue17-http-species",
+        "seconds": 3.79
+      }
+    ]
+  },
+  {
+    "run": "issue17-http-state",
+    "invocations": [
+      {
+        "id": "2600bd8f62274bc3aa44896394869be2",
+        "status": "pass",
+        "command": "issue17-http-state",
+        "seconds": 1.73
+      },
+      {
+        "id": "2f6aeab4d0c54b23806e70bd147a6f18",
+        "status": "fail",
+        "command": "issue17-http-state",
+        "seconds": 2.13
+      }
+    ]
+  },
+  {
+    "run": "issue17-inventory",
+    "invocations": [
+      {
+        "id": "e2c4690f252643a5bf75f12330ac926d",
+        "status": "pass",
+        "command": "doctor",
+        "seconds": 0.88
+      }
+    ]
+  },
+  {
+    "run": "issue17-u1",
+    "invocations": [
+      {
+        "id": "8257245376de4e42b705a6c69dde9502",
+        "status": "pass",
+        "command": "fixtures",
+        "seconds": 3.36
+      }
+    ]
+  },
+  {
+    "run": "issue17-after-dump-failure",
+    "invocations": [
+      {
+        "id": "ec497490912f4aa3b463f1a0c122922c",
+        "status": "fail",
+        "command": "inspect",
+        "seconds": 0.43
+      }
+    ]
+  },
+  {
+    "run": "issue17-browser-register",
+    "invocations": [
+      {
+        "id": "4cf16d2865ce4deba929848c4ad09c39",
+        "status": "pass",
+        "command": "android-browser-registration",
+        "seconds": 119.16
+      }
+    ]
+  },
+  {
+    "run": "issue17-create-profiles",
+    "invocations": [
+      {
+        "id": "1438140daa2d4ad287f260f97aff12f7",
+        "status": "pass",
+        "command": "run",
+        "seconds": 92.39
+      }
+    ]
+  },
+  {
+    "run": "issue17-final-verified-launch",
+    "invocations": [
+      {
+        "id": "17ee4094f6154874950c68376b03e8a3",
+        "status": "pass",
+        "command": "launch",
+        "seconds": 44.61
+      }
+    ]
+  },
+  {
+    "run": "issue17-guest-2",
+    "invocations": [
+      {
+        "id": "d006c90185e741b3966312573f989807",
+        "status": "pass",
+        "command": "run",
+        "seconds": 120.97
+      }
+    ]
+  },
+  {
+    "run": "issue17-guest-launch",
+    "invocations": [
+      {
+        "id": "2088033bcddd4eaf9e1e829038cea10c",
+        "status": "interrupted",
+        "command": "launch",
+        "seconds": 115.58
+      }
+    ]
+  },
+  {
+    "run": "issue17-guest-ready",
+    "invocations": [
+      {
+        "id": "b19c384868a64482935fc929031a453b",
+        "status": "pass",
+        "command": "launch",
+        "seconds": 40.52
+      }
+    ]
+  },
+  {
+    "run": "issue17-invitation-handoff",
+    "invocations": [
+      {
+        "id": "1140ed42b15b4256838667d51164e4e8",
+        "status": "pass",
+        "command": "run",
+        "seconds": 10.57
+      }
+    ]
+  },
+  {
+    "run": "issue17-mixed-private-pick",
+    "invocations": [
+      {
+        "id": "330efd057197449ebee471fb82c6601e",
+        "status": "pass",
+        "command": "run",
+        "seconds": 20.1
+      }
+    ]
+  },
+  {
+    "run": "issue17-mixed-private-save",
+    "invocations": [
+      {
+        "id": "9ee558ffef85486eb3aa4d978ad35d9e",
+        "status": "pass",
+        "command": "run",
+        "seconds": 39.33
+      }
+    ]
+  },
+  {
+    "run": "issue17-mixed-private-system",
+    "invocations": [
+      {
+        "id": "2bfe173fc7334432a58eed1c85143664",
+        "status": "pass",
+        "command": "android-test-file-picker",
+        "seconds": 16.55
+      }
+    ]
+  },
+  {
+    "run": "issue17-mixed-public-pick",
+    "invocations": [
+      {
+        "id": "4b7fbe5d21c246f59f43e159136c2a4c",
+        "status": "pass",
+        "command": "run",
+        "seconds": 18.53
+      }
+    ]
+  },
+  {
+    "run": "issue17-mixed-public-save",
+    "invocations": [
+      {
+        "id": "db380625cfe34439b95101b59e9bc1af",
+        "status": "pass",
+        "command": "run",
+        "seconds": 40.09
+      }
+    ]
+  },
+  {
+    "run": "issue17-mixed-public-system",
+    "invocations": [
+      {
+        "id": "a4e8827106314ac09f313bf606798c91",
+        "status": "pass",
+        "command": "android-test-file-picker",
+        "seconds": 18.41
+      }
+    ]
+  },
+  {
+    "run": "issue17-navigation-bridge-check",
+    "invocations": [
+      {
+        "id": "9698ca8857594b48bd1809f3bd5b6990",
+        "status": "fail",
+        "command": "run",
+        "seconds": 17.71
+      }
+    ]
+  },
+  {
+    "run": "issue17-navigation-bridge-launch",
+    "invocations": [
+      {
+        "id": "74a6950f12a9455688e5d3c2b9f20ba9",
+        "status": "pass",
+        "command": "launch",
+        "seconds": 42.98
+      }
+    ]
+  },
+  {
+    "run": "issue17-navigation-error",
+    "invocations": [
+      {
+        "id": "5e2684df6ebd427bba49b2802da73a9a",
+        "status": "pass",
+        "command": "capture-error",
+        "seconds": 10.25
+      }
+    ]
+  },
+  {
+    "run": "issue17-navigation-final-launch",
+    "invocations": [
+      {
+        "id": "968a738446624cf588d746bcbe99f569",
+        "status": "pass",
+        "command": "launch",
+        "seconds": 45.57
+      }
+    ]
+  },
+  {
+    "run": "issue17-navigation-final-loop",
+    "invocations": [
+      {
+        "id": "2ba91da0e9ea46a7b9655ac2dcba7e00",
+        "status": "pass",
+        "command": "run",
+        "seconds": 18.6
+      },
+      {
+        "id": "5824d51872df4341bc937f9e3d497359",
+        "status": "fail",
+        "command": "run",
+        "seconds": 13.29
+      }
+    ]
+  },
+  {
+    "run": "issue17-navigation-loop-before",
+    "invocations": [
+      {
+        "id": "6503caae5ec14606a0323846b3cb701c",
+        "status": "fail",
+        "command": "run",
+        "seconds": 18.89
+      }
+    ]
+  },
+  {
+    "run": "issue17-navigation-pop-to",
+    "invocations": [
+      {
+        "id": "1e7035c430b8489cadbf58855358fbe2",
+        "status": "pass",
+        "command": "run",
+        "seconds": 18.58
+      }
+    ]
+  },
+  {
+    "run": "issue17-navigation-repro",
+    "invocations": [
+      {
+        "id": "7ff7ee9d6d554a66a2b317a675ccc168",
+        "status": "pass",
+        "command": "run",
+        "seconds": 18.3
+      }
+    ]
+  },
+  {
+    "run": "issue17-navigation-reset",
+    "invocations": [
+      {
+        "id": "cb6dd378b5b84a889cf2abc8cc8e56b2",
+        "status": "pass",
+        "command": "launch",
+        "seconds": 43.82
+      }
+    ]
+  },
+  {
+    "run": "issue17-navigation-unique",
+    "invocations": [
+      {
+        "id": "1d9fd48fe584449d85627d49a78a8455",
+        "status": "fail",
+        "command": "run",
+        "seconds": 17.23
+      }
+    ]
+  },
+  {
+    "run": "issue17-navigation-unique-reset",
+    "invocations": [
+      {
+        "id": "0cd884dc69da42949e04715d4b311553",
+        "status": "pass",
+        "command": "launch",
+        "seconds": 44.3
+      }
+    ]
+  },
+  {
+    "run": "issue17-new-owner",
+    "invocations": [
+      {
+        "id": "cc21a6bd712b462480d0ed2246e079d5",
+        "status": "fail",
+        "command": "run",
+        "seconds": 56.76
+      }
+    ]
+  },
+  {
+    "run": "issue17-new-owner-2",
+    "invocations": [
+      {
+        "id": "49fedd0f67ef447f98f7364c739fa551",
+        "status": "fail",
+        "command": "run",
+        "seconds": 70.46
+      }
+    ]
+  },
+  {
+    "run": "issue17-no-pet-final",
+    "invocations": [
+      {
+        "id": "520a5950343b440fb57127f2d1a163fc",
+        "status": "pass",
+        "command": "run",
+        "seconds": 78.28
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-private-pick",
+    "invocations": [
+      {
+        "id": "5c2d07246a5149cb86c222ff217c6e77",
+        "status": "pass",
+        "command": "run",
+        "seconds": 10.75
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-private-save",
+    "invocations": [
+      {
+        "id": "aa41fc746e894bc9930d13d95e547b8a",
+        "status": "pass",
+        "command": "run",
+        "seconds": 38.74
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-private-system",
+    "invocations": [
+      {
+        "id": "d8c32a68b03244108cade935e641a67c",
+        "status": "pass",
+        "command": "android-test-file-picker",
+        "seconds": 16.78
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-public-pick",
+    "invocations": [
+      {
+        "id": "cac5233e5cdc43bf97e9bd52771e9a18",
+        "status": "pass",
+        "command": "run",
+        "seconds": 10.38
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-public-pick-2",
+    "invocations": [
+      {
+        "id": "5c9d1b1b392141f59a3c211f826ca97f",
+        "status": "pass",
+        "command": "run",
+        "seconds": 9.42
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-public-retry",
+    "invocations": [
+      {
+        "id": "9a1e3202423f4120ab4bfcfd3bd2795f",
+        "status": "pass",
+        "command": "run",
+        "seconds": 65.74
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-public-system",
+    "invocations": [
+      {
+        "id": "3c5b0738cab14efb8105e77eebd55ff5",
+        "status": "fail",
+        "command": "android-test-file-picker",
+        "seconds": 1.06
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-public-system-2",
+    "invocations": [
+      {
+        "id": "44635ee202c644e3822d4d209cfedeea",
+        "status": "fail",
+        "command": "android-test-file-picker",
+        "seconds": 3.37
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-public-system-3",
+    "invocations": [
+      {
+        "id": "9e70d2880156495799800998a7f75f44",
+        "status": "fail",
+        "command": "android-test-file-picker",
+        "seconds": 32.59
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-public-system-4",
+    "invocations": [
+      {
+        "id": "0a8b7ddcde6c4a31a620d21a4a2adbf8",
+        "status": "fail",
+        "command": "android-test-file-picker",
+        "seconds": 44.55
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-public-system-5",
+    "invocations": [
+      {
+        "id": "395b9c774fc944638b2ddb189ff548e4",
+        "status": "fail",
+        "command": "android-test-file-picker",
+        "seconds": 5.75
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-public-system-6",
+    "invocations": [
+      {
+        "id": "dcb712c88e93455bbfa36271a1e94f1e",
+        "status": "fail",
+        "command": "android-test-file-picker",
+        "seconds": 62.35
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-public-system-7",
+    "invocations": [
+      {
+        "id": "c3346f46fb69408997354857f9b92d43",
+        "status": "fail",
+        "command": "android-test-file-picker",
+        "seconds": 5.64
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-public-system-8",
+    "invocations": [
+      {
+        "id": "37c99f9037cd4686983757234d91a8f4",
+        "status": "fail",
+        "command": "android-test-file-picker",
+        "seconds": 10.63
+      }
+    ]
+  },
+  {
+    "run": "issue17-photo-public-system-confirmed",
+    "invocations": [
+      {
+        "id": "37d9d2d3c6504409bb27d39120c8ea38",
+        "status": "pass",
+        "command": "android-test-file-picker",
+        "seconds": 5.86
+      }
+    ]
+  },
+  {
+    "run": "issue17-profile-species",
+    "invocations": [
+      {
+        "id": "0529830cb8b441839569b763929a85d9",
+        "status": "fail",
+        "command": "run",
+        "seconds": 17.54
+      }
+    ]
+  },
+  {
+    "run": "issue17-profile-species-final",
+    "invocations": [
+      {
+        "id": "76a9290bc8f0432cbef03eb75b79d4cf",
+        "status": "pass",
+        "command": "run",
+        "seconds": 68.28
+      }
+    ]
+  },
+  {
+    "run": "issue17-push-final-launch",
+    "invocations": [
+      {
+        "id": "1ea51092654b4deead3ae0ec9d2490d3",
+        "status": "fail",
+        "command": "launch",
+        "seconds": 0.42
+      }
+    ]
+  },
+  {
+    "run": "issue17-resume-pop-to-launch",
+    "invocations": [
+      {
+        "id": "4ae58f1fc94f4b1b84b744c9aa5dd88d",
+        "status": "pass",
+        "command": "launch",
+        "seconds": 42.78
+      }
+    ]
+  },
+  {
+    "run": "issue17-social",
+    "invocations": [
+      {
+        "id": "9bd13d30ff9f45df90acc3a8961057ed",
+        "status": "fail",
+        "command": "run",
+        "seconds": 58.54
+      }
+    ]
+  },
+  {
+    "run": "issue17-text-records",
+    "invocations": [
+      {
+        "id": "7bf00d0c5136457d9b68e4191666f495",
+        "status": "fail",
+        "command": "run",
+        "seconds": 0.0
+      }
+    ]
+  },
+  {
+    "run": "issue17-text-records-final",
+    "invocations": [
+      {
+        "id": "bd62ab54e2f14faaa9bcccc09037ba9f",
+        "status": "pass",
+        "command": "run",
+        "seconds": 75.04
+      }
+    ]
+  },
+  {
+    "run": "issue17-u2-login",
+    "invocations": [
+      {
+        "id": "5f0f69af22494ca58d29a7c7e265669c",
+        "status": "pass",
+        "command": "android-oauth-login",
+        "seconds": 33.76
+      },
+      {
+        "id": "ecc97e5849a7412e958b8293385a9915",
+        "status": "pass",
+        "command": "android-oauth-login",
+        "seconds": 32.2
+      }
+    ]
+  },
+  {
+    "run": "issue17-u2-restart",
+    "invocations": [
+      {
+        "id": "968fd08d59274dc08761fe23228dbfd6",
+        "status": "pass",
+        "command": "launch",
+        "seconds": 44.22
+      }
+    ]
+  },
+  {
+    "run": "issue17-used-invitation",
+    "invocations": [
+      {
+        "id": "f296a01a64c54370a8e47e13c76fc047",
+        "status": "pass",
+        "command": "run",
+        "seconds": 22.27
+      }
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "summary": {
+      "status": "fail",
+      "command": "android-test-file-picker",
+      "seconds": 3.37,
+      "invocation": "44635ee202c644e3822d4d209cfedeea",
+      "metrics": {
+        "adb_calls": 21,
+        "adb_seconds": 3.34,
+        "ui_reads": 1
+      },
+      "error": "No verified browse/search control available; no photo selected",
+      "artifacts": ".acceptance/issue17-peer/runs/issue17-photo-public-system-2"
+    },
+    "events": [
+      {
+        "action": "picker_metadata",
+        "package": "com.android.photopicker",
+        "controls": [
+          "取消"
+        ],
+        "ids": []
+      }
+    ]
+  }
+]

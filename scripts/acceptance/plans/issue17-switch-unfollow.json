@@ -1,0 +1,58 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/",
+      "expect": {
+        "label": "搜索宠物笔记"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "我的"
+    },
+    {
+      "action": "tap",
+      "label": "切换到17Dog",
+      "expect": {
+        "label": "17Dog"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "selected-dog"
+    },
+    {
+      "action": "open",
+      "path": "/pet/{publicPetId}",
+      "expect": {
+        "label": "宠物公开档案"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "关注宠物",
+      "expect": {
+        "label": "取消关注"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "取消关注",
+      "expect": {
+        "label": "关注宠物"
+      }
+    },
+    {
+      "action": "open",
+      "path": "/following",
+      "expect": {
+        "label": "还没有关注宠物的公开笔记。打开宠物公开档案即可关注。"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "unfollowed-dog-feed"
+    }
+  ]
+}

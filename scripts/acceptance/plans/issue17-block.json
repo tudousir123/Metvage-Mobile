@@ -1,0 +1,44 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/pet/{publicPetId}",
+      "expect": {
+        "label": "宠物公开档案"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "屏蔽此宠物的主人账号",
+      "expect": {
+        "label": "屏蔽这个宠物身份？"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "屏蔽"
+    },
+    {
+      "action": "open",
+      "path": "/settings/blocked-pets",
+      "expect": {
+        "label": "取消屏蔽"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "account-blocked"
+    },
+    {
+      "action": "open",
+      "path": "/pet/{privatePetId}",
+      "expect": {
+        "label": "暂时无法查看宠物档案"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "other-pet-blocked"
+    }
+  ]
+}

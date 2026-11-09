@@ -1,0 +1,76 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/settings/pets?edit={peerCatId}",
+      "expect": {
+        "label": "编辑宠物档案"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "公开介绍"
+    },
+    {
+      "action": "type",
+      "text": "issue17-cat-profile"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "保存档案",
+      "expect": {
+        "label": "猫咪 · issue17-cat-profile"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "edited-cat-profile"
+    },
+    {
+      "action": "open",
+      "path": "/settings/species-request",
+      "expect": {
+        "label": "希望记录其他宠物？"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "希望支持的物种"
+    },
+    {
+      "action": "type",
+      "text": "rabbit-issue17"
+    },
+    {
+      "action": "tap",
+      "label": "补充说明"
+    },
+    {
+      "action": "type",
+      "text": "issue17-species-request"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "提交申请",
+      "expect": {
+        "label": "已收到"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "species-request-received"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/records/new?mode=public&pet_id={peerCatId}",
+      "expect": {
+        "label": "记录内容"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "记录内容"
+    },
+    {
+      "action": "type",
+      "text": "issue17-text-public"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "发布",
+      "expect": {
+        "label": "把陪伴，写成故事"
+      }
+    },
+    {
+      "action": "assert",
+      "label": "issue17-text-public"
+    },
+    {
+      "action": "capture",
+      "name": "text-public"
+    },
+    {
+      "action": "open",
+      "path": "/records/new?mode=private&pet_id={peerDogId}",
+      "expect": {
+        "label": "记录内容"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "记录内容"
+    },
+    {
+      "action": "type",
+      "text": "issue17-text-private"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "保存私人记录",
+      "expect": {
+        "label": "把陪伴，写成故事"
+      }
+    },
+    {
+      "action": "assert",
+      "label": "issue17-text-private"
+    },
+    {
+      "action": "capture",
+      "name": "text-private"
+    }
+  ]
+}

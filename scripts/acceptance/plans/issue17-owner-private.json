@@ -1,0 +1,30 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/pets/{ownerCatId}/records",
+      "expect": {
+        "label": "管理记录：棉花的测试照片"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "管理记录：棉花的测试照片"
+    },
+    {
+      "action": "tap",
+      "label": "改为私人记录"
+    },
+    {
+      "action": "tap",
+      "label": "设为仅自己",
+      "expect": {
+        "label": "仅自己"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "owner-private"
+    }
+  ]
+}

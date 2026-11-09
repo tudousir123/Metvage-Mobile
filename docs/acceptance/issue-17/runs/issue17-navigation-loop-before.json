@@ -1,0 +1,113 @@
+[
+  {
+    "summary": {
+      "status": "fail",
+      "command": "run",
+      "seconds": 18.89,
+      "invocation": "6503caae5ec14606a0323846b3cb701c",
+      "metrics": {
+        "adb_calls": 61,
+        "adb_seconds": 18.212,
+        "ui_reads": 5
+      },
+      "error": "Test app has no stable visible content",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-navigation-loop-before"
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "issue17-navigation-loop.json",
+            "sha256": "9bb746ca66879fc8f1bc2e3ea0b82045412dbb659f8da6de70a4601ba791beb7"
+          }
+        ]
+      },
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "273ece5055dfd3613097c431eb88d85cc33c1f0f",
+          "dirty": true,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "metro": {
+          "port": 8081,
+          "root": "<mobileRoot>"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime",
+        "source": "166fb69f844143cbe8af8526415f5093c2bd220e3a1338780eb9872effbfadb6",
+        "scheme": "pixelfed",
+        "app_pid": "18928",
+        "metro_pid": 1223789
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 4.312,
+        "adb_calls": 8,
+        "adb_seconds": 4.308,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 4.483,
+        "adb_calls": 8,
+        "adb_seconds": 4.479,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.257,
+        "adb_calls": 8,
+        "adb_seconds": 3.253,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 4,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 2.615,
+        "adb_calls": 8,
+        "adb_seconds": 2.611,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 5,
+        "operation": "open",
+        "status": "fail",
+        "seconds": 2.486,
+        "adb_calls": 8,
+        "adb_seconds": 2.484,
+        "ui_reads": 1
+      }
+    ]
+  }
+]

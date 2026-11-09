@@ -48,6 +48,8 @@ def validate_plan(plan):
             raise AcceptanceError(f'Plan step {number}: index must be a nonnegative integer')
         if action == 'type' and not isinstance(step.get('text'),str):
             raise AcceptanceError(f'Plan step {number}: text required')
+        if 'replace' in step and (action != 'type' or type(step['replace']) is not bool):
+            raise AcceptanceError(f'Plan step {number}: replace must be a boolean on type actions')
         if action == 'open' and not valid_app_path(step.get('path')):
             raise AcceptanceError(f'Plan step {number}: encoded app-relative path required')
         if action == 'capture' and ('name' in step and (not isinstance(step['name'],str) or not re.fullmatch(r'[A-Za-z0-9_-]+',step['name']))):

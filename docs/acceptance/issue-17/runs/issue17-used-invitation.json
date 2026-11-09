@@ -1,0 +1,98 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "run",
+      "seconds": 22.27,
+      "invocation": "f296a01a64c54370a8e47e13c76fc047",
+      "metrics": {
+        "adb_calls": 65,
+        "adb_seconds": 21.417,
+        "ui_reads": 7
+      },
+      "run_id": "issue17-used-invitation",
+      "runtime_mode": "verified",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-used-invitation"
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "used-invite.json",
+            "sha256": "d04ff54a07a903b02407499d7eb4f43beb7d82345a69ccf5d3bf0025762a3b3c"
+          }
+        ]
+      },
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "273ece5055dfd3613097c431eb88d85cc33c1f0f",
+          "dirty": true,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "metro": {
+          "port": 8081,
+          "root": "<mobileRoot>"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime",
+        "source": "166fb69f844143cbe8af8526415f5093c2bd220e3a1338780eb9872effbfadb6",
+        "scheme": "pixelfed",
+        "app_pid": "21163",
+        "metro_pid": 1169523
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 6.422,
+        "adb_calls": 11,
+        "adb_seconds": 6.418,
+        "ui_reads": 2
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "assert",
+        "status": "pass",
+        "seconds": 2.538,
+        "adb_calls": 5,
+        "adb_seconds": 2.536,
+        "ui_reads": 1
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-used-invitation/used-invitation-rejected.png"
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.528,
+        "adb_calls": 21,
+        "adb_seconds": 10.514,
+        "ui_reads": 4
+      }
+    ]
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/pets/{peerDogId}/records",
+      "expect": {
+        "label": "把陪伴，写成故事"
+      }
+    },
+    {
+      "action": "open",
+      "path": "/settings/pets?edit={peerCatId}",
+      "expect": {
+        "label": "编辑宠物档案"
+      }
+    },
+    {
+      "action": "open",
+      "path": "/pets/{peerDogId}/records",
+      "expect": {
+        "label": "把陪伴，写成故事"
+      }
+    },
+    {
+      "action": "open",
+      "path": "/settings/pets?edit={peerCatId}",
+      "expect": {
+        "label": "编辑宠物档案"
+      }
+    },
+    {
+      "action": "open",
+      "path": "/pets/{peerDogId}/records",
+      "expect": {
+        "label": "把陪伴，写成故事"
+      }
+    }
+  ]
+}

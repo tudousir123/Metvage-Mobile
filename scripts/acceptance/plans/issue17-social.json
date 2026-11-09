@@ -1,0 +1,65 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/pet/{publicPetId}",
+      "expect": {
+        "label": "宠物公开档案"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "关注宠物",
+      "expect": {
+        "label": "取消关注"
+      }
+    },
+    {
+      "action": "open",
+      "path": "/following",
+      "expect": {
+        "label": "棉花的测试照片"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "following-feed"
+    },
+    {
+      "action": "open",
+      "path": "/note/{publicRecordId}",
+      "expect": {
+        "label": "查看{publicPetNickname}的主页"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "点赞",
+      "expect": {
+        "label": "取消点赞"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "写评论"
+    },
+    {
+      "action": "type",
+      "text": "issue17-peer-comment"
+    },
+    {
+      "action": "tap",
+      "label": "发送评论"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "peer-like-and-comment"
+    }
+  ]
+}

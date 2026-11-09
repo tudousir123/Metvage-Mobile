@@ -1,0 +1,71 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "doctor",
+      "seconds": 0.88,
+      "invocation": "e2c4690f252643a5bf75f12330ac926d",
+      "metrics": {
+        "adb_calls": 3,
+        "adb_seconds": 0.387,
+        "ui_reads": 0
+      },
+      "mobile": {
+        "root": "<mobileRoot>",
+        "repository": "tudousir123/Metvage-Mobile",
+        "branch": "codex/issue-17-acceptance",
+        "sha": "273ece5055dfd3613097c431eb88d85cc33c1f0f",
+        "dirty": false,
+        "node": "v24.22.0",
+        "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+      },
+      "metro": {
+        "port": 8081,
+        "root": "<mobileRoot>"
+      },
+      "server": {
+        "container": "metvage-issue17-phone-api",
+        "root": "<serverRoot>"
+      },
+      "api": {
+        "origin": "http://127.0.0.1:18080",
+        "status": 200
+      },
+      "device": {
+        "serial": "<device>",
+        "model": "24031PN0DC"
+      },
+      "artifacts": "<mobileRoot>/.acceptance/runs/issue17-inventory"
+    },
+    "events": [
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "273ece5055dfd3613097c431eb88d85cc33c1f0f",
+          "dirty": false,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "metro": {
+          "port": 8081,
+          "root": "<mobileRoot>"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      }
+    ]
+  }
+]

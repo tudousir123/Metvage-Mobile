@@ -1,0 +1,46 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "android-test-file-picker",
+      "seconds": 16.78,
+      "invocation": "d8c32a68b03244108cade935e641a67c",
+      "metrics": {
+        "adb_calls": 52,
+        "adb_seconds": 16.499,
+        "ui_reads": 5
+      },
+      "artifacts": ".acceptance/issue17-peer/runs/issue17-photo-private-system"
+    },
+    "events": [
+      {
+        "action": "verified_test_asset",
+        "filename": "metvage-issue17-generated-cat.png",
+        "sha256": "39ab622d2169afa4bf7ab5dc8b37160eca48bfeacf01ba0315013d6a1a828da4",
+        "modified": 1794218557,
+        "locator": "照片，2026年11月9日 18:02:37"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "下载内容"
+      },
+      {
+        "action": "picker_control",
+        "target": "verified-generated-image"
+      },
+      {
+        "action": "picker_control",
+        "target": "confirm-one-generated-image"
+      },
+      {
+        "action": "selection",
+        "filename": "metvage-issue17-generated-cat.png",
+        "test_app_photo_count": 1
+      }
+    ]
+  }
+]
