@@ -1,0 +1,65 @@
+{
+  "environment": "local Android emulator",
+  "role": "http",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "issue17-http-cold",
+        "seconds": 2.28,
+        "invocation": "f1d8e7777f3b4a5fb3a770ac6147fb33",
+        "artifacts": ".acceptance/issue17-sim-http/runs/issue17-http-cold"
+      },
+      "invocation_id": "f1d8e7777f3b4a5fb3a770ac6147fb33",
+      "events": [
+        {
+          "action": "environment",
+          "kind": "simulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One access token in isolated U2 test App",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Fresh acknowledged cold App process precedes persistence checks",
+          "result": "pass"
+        },
+        {
+          "action": "cold_process",
+          "before_pid": "7585",
+          "after_pid": "9467",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "serial": "<owned-emulator>",
+          "environment": "emulator"
+        },
+        {
+          "action": "assertion",
+          "name": "Selected U2 dog persists after cold start",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Timeline ownership survives pet switching and cold start",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Timeline ownership survives pet switching and cold start",
+          "result": "pass"
+        }
+      ]
+    }
+  ]
+}

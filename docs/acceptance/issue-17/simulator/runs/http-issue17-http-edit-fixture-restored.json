@@ -1,0 +1,53 @@
+{
+  "environment": "local Android emulator",
+  "role": "http",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "issue17-http-edit-fixture-restored",
+        "seconds": 1.91,
+        "invocation": "25bef2d266ed49858e485694c9152272",
+        "artifacts": ".acceptance/issue17-sim-http/runs/issue17-http-edit-fixture-restored"
+      },
+      "invocation_id": "25bef2d266ed49858e485694c9152272",
+      "events": [
+        {
+          "action": "environment",
+          "kind": "simulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One access token in isolated U2 test App",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Seed only the known cleared acceptance record",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Only generated fixture photo restored for combined edit reproduction",
+          "result": "pass"
+        },
+        {
+          "action": "fixture_seed",
+          "record_id": 26,
+          "photo_id": 28,
+          "ui_upload_claimed": false
+        }
+      ]
+    }
+  ]
+}

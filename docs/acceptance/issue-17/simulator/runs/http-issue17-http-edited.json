@@ -1,0 +1,236 @@
+{
+  "environment": "local Android emulator",
+  "role": "http",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "issue17-http-edited",
+        "seconds": 3.73,
+        "invocation": "342ab3ee650d4a5fa014ea7badb75937",
+        "artifacts": ".acceptance/issue17-sim-http/runs/issue17-http-edited"
+      },
+      "invocation_id": "342ab3ee650d4a5fa014ea7badb75937",
+      "events": [
+        {
+          "action": "environment",
+          "kind": "simulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One access token in isolated U2 test App",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "App edit changed title/text, removed photo and moved association",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Ordinary edit preserves historical interactions",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/22",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/28",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/22",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/28",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/22",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/28",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Both pet identities retain original interaction IDs after ordinary owner edit",
+          "result": "pass"
+        }
+      ]
+    },
+    {
+      "summary": {
+        "status": "pass",
+        "command": "issue17-http-edited",
+        "seconds": 3.02,
+        "invocation": "77fa673045df43d7b19e23f00f089d67",
+        "artifacts": ".acceptance/issue17-sim-http/runs/issue17-http-edited"
+      },
+      "invocation_id": "77fa673045df43d7b19e23f00f089d67",
+      "events": [
+        {
+          "action": "environment",
+          "kind": "simulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One access token in isolated U2 test App",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "App edit changed title/text, removed photo and moved association",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Ordinary edit preserves historical interactions",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/22",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/22",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/22",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Both pet identities retain original interaction IDs after ordinary owner edit",
+          "result": "pass"
+        }
+      ]
+    },
+    {
+      "summary": {
+        "status": "fail",
+        "command": "issue17-http-edited",
+        "seconds": 2.1,
+        "invocation": "d05a0e2ba61047bb85fe3e8da74a016b",
+        "error": "App edit changed title/text, removed photo and moved association",
+        "artifacts": ".acceptance/issue17-sim-http/runs/issue17-http-edited"
+      },
+      "invocation_id": "d05a0e2ba61047bb85fe3e8da74a016b",
+      "events": [
+        {
+          "action": "environment",
+          "kind": "simulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One access token in isolated U2 test App",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+          "result": "pass"
+        }
+      ]
+    },
+    {
+      "summary": {
+        "status": "pass",
+        "command": "issue17-http-edited",
+        "seconds": 3.05,
+        "invocation": "f6d8c4557b74414c9e2466881bd712e1",
+        "artifacts": ".acceptance/issue17-sim-http/runs/issue17-http-edited"
+      },
+      "invocation_id": "f6d8c4557b74414c9e2466881bd712e1",
+      "events": [
+        {
+          "action": "environment",
+          "kind": "simulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One access token in isolated U2 test App",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "App edit changed title/text, removed photo and moved association",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Ordinary edit preserves historical interactions",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/22",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/22",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/22",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Both pet identities retain original interaction IDs after ordinary owner edit",
+          "result": "pass"
+        }
+      ]
+    }
+  ]
+}

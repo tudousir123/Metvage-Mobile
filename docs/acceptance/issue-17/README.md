@@ -1,55 +1,57 @@
-# #17 跨账号与 Android 真机验收
+# #17 跨账号、真机与模拟器验收
 
-关联 [Metvage #17](https://github.com/tudousir123/Metvage/issues/17)，2026-11-09，Asia/Shanghai。基点 Mobile `273ece5055dfd3613097c431eb88d85cc33c1f0f`；Server `b7d0dadf8996289b3492a9b24c5a7bfaf4f5647f`。完整 A01–A09 矩阵在 Docs 仓库的 `docs/acceptance/metvage-v1-issue-17-2026-11-09.md`。
+本轮开始于 2026-11-09（Asia/Shanghai），关联 [Metvage #17](https://github.com/tudousir123/Metvage/issues/17)。用户后来要求拿走手机休息，并授权改用模拟器继续。现有 **35 张真机原图 + 39 张明确标注的模拟器原图**；模拟器补验不冒充真机通过。完整 A01–A09 矩阵在 Docs 配套 PR。
 
-当前为待真机续验的草稿交付。USB 已断开，用户选择“稍后连接，先继续独立工作”。这里只把实际通过的操作算作通过；计划文件、HTTP 测试及旧版截图不能替代尚未执行的当前真机操作。产品签收人、社区维护人员均待指定。
+Mobile 基点 `273ece5055dfd3613097c431eb88d85cc33c1f0f`；Server `b7d0dadf8996289b3492a9b24c5a7bfaf4f5647f`。最终 App 源码指纹 **`07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099` 已实际加载到真机及两个模拟器**。本次续验没有再修改产品 JS；仅补计划后置条件、证据和清理。
 
-## 环境与证据读法
+## 环境与读法
 
-实体 Xiaomi 14 Ultra，Android 16 / API 36，1440×3200，560 dpi，系统字体 1.45。两个独立的既有 arm64 调试包运行同一工作树的新 Metro bundle；没有新装 APK。API 为仅 loopback 的本地真实 Server、SQLite 和 Redis；凭据、邀请码、设备序列号及原始存储备份不发布。
+真机为 Xiaomi 14 Ultra，Android 16 / API 36，1440×3200、560 dpi、系统字体 1.45。沿用两个已安装的 arm64 调试包，没有在手机上安装新包。U1 为既有测试主人，U2 为本轮在手机浏览器实际邀请注册并完成 App OAuth 的第二账号。
 
-U1 为既有测试主人；U2 为本轮通过手机浏览器邀请表单注册、再完成 App OAuth 的另一账号。U2 的猫 `17Cat`、狗 `17Dog` 仅填昵称建档。四次照片上传均来自本轮生成猫图，私人狗时间线也使用同一生成照片作为上传测试素材；这不表示照片内容与关联宠物相同。
+- [真机调用索引](run-index.json)、`runs/`：77 组调用目录，包含失败、诊断和中断；目录数不等于通过数。每次完成调用保留独立 invocation ID、摘要和逐步结果，未覆盖失败为通过。
+- [真机截图指纹](screenshots.json)：35 张原始 PNG，未裁切或重绘。含已耗尽邀请码的原图不发布，仅保留脱敏操作与注册读回。
+- [模拟器结果](simulator/README.md)：两个本轮新建的本地 Android 16 x86_64 AVD，独立完成 U1/U2 真实浏览器登录与 App OAuth。37 组调用目录、39 张原图独立归档，不混入真机计数。
+- 接入同一已验证 Metro 时，读取该进程的源码/回传配置，强制冷启动目标测试 App 并等待真实原生包名回传；证明端口只临时映射到目标设备。没有跳过运行证明或注入登录状态。
+- 测试 API 是仅 loopback 的真实 Docker Server、SQLite 和 Redis。四次手机照片上传均来自生成猫图，私人狗时间线也用该图作为上传素材；不推断图片内容和关联宠物相同。系统重编码改变 PNG 字节 SHA，四次上传的解码 RGBA 像素与原生成图完全一致。
 
-- [所有调用结果](run-index.json)：保留每次调用的状态、耗时和 invocation ID；失败及中断没有被覆盖成通过。
-- `runs/`：各调用的脱敏摘要、源码指纹、计划 SHA 和逐步结果。`step` 事件才证明具体 UI 操作执行；HTTP 断言另行标识。
-- 已用邀请拒绝的原截图含已耗尽的一次性邀请码，未发布该图；只保留脱敏步骤与注册读回，不重绘证据。
-- [截图指纹](screenshots.json)：截图均为测试 App 前台保护下的原始 PNG 拷贝，没有裁切或重绘。照片文件经系统重编码后 SHA 改变，但四次上传的解码 RGBA 像素与生成原图完全一致，见 [像素验证](runs/issue17-http-pixels.json)。
-- 手机切到其他 App 时工具停止，恢复本轮设备设置；不读取或截图其他 App。此类调用不计通过。
+## 本轮真机补齐
 
-## 已补的实际操作
-
-| 检查 | 证据 |
+| 操作 | 实际证据 |
 | --- | --- |
-| 访客公开流、笔记、档案；私人拒绝；互动登录引导；无效邀请 | [20 步](runs/issue17-guest-2.json)、[公开笔记](guest-2-guest-public-note.png)、[私人拒绝](guest-2-guest-private-denied.png) |
-| 手机实际邀请注册、App OAuth、已用邀请拒绝 | [注册](runs/issue17-browser-register.json)、[OAuth 各次调用](runs/issue17-u2-login.json)、[已用邀请拒绝步骤](runs/issue17-used-invitation.json) |
-| 无宠浏览、点赞/关注/发布门槛；昵称建猫狗 | [14 步](runs/issue17-no-pet-final.json)、[建档](runs/issue17-create-profiles.json)、[两宠](create-profiles-nickname-only-cat-and-dog.png) |
-| 纯文字、纯照片、图文 × 公开/私人六类保存 | [文字](runs/issue17-text-records-final.json)、[公开照片重试](runs/issue17-photo-public-retry.json)、[私人照片](runs/issue17-photo-private-save.json)、[公开图文](runs/issue17-mixed-public-save.json)、[私人图文](runs/issue17-mixed-private-save.json)、[六条持久化与跨账号/访客权限](runs/issue17-http-records.json) |
-| 照片失败保留、恢复后只保存一条 | [失败截图](photo-public-retry-photo-upload-failure-retained.png)、[保存后](photo-public-retry-saved-photo-record.png)、[逐步结果](runs/issue17-photo-public-retry.json) |
-| 档案编辑、猫狗外物种申请回执及真实团队读取 | [14 步](runs/issue17-profile-species-final.json)、[公开介绍](profile-species-final-edited-cat-profile.png)、[回执](profile-species-final-species-request-received.png)、[HTTP 权限](runs/issue17-http-species.json) |
-| 猫身份关注、关注流、点赞、评论、三种通知持久化 | [前九步成功、返回步骤失败](runs/issue17-social.json)、[关注流](social-following-feed.png)、[真实 App token 读回](runs/issue17-http-social.json)。评论已创建，续验不得重复提交或切换点赞状态 |
+| 访客公开流、照片笔记、档案；私人拒绝；登录引导；无效邀请 | [20 步](runs/issue17-guest-2.json)、[公开笔记](guest-2-guest-public-note.png)、[私人拒绝](guest-2-guest-private-denied.png) |
+| 手机邀请表单注册、App OAuth、已用邀请拒绝 | [浏览器会话](runs/issue17-browser-register.json)、[注册读回](registration-result.json)、[OAuth](runs/issue17-u2-login.json)、[已用邀请](runs/issue17-used-invitation.json) |
+| 无宠浏览/互动门槛；昵称建一猫一狗 | [14 步](runs/issue17-no-pet-final.json)、[建档](runs/issue17-create-profiles.json)、[猫狗档案](create-profiles-nickname-only-cat-and-dog.png) |
+| 纯文字/纯照片/图文 × 公开/私人六类保存 | [文字](runs/issue17-text-records-final.json)、[公开照片重试](runs/issue17-photo-public-retry.json)、[私人照片](runs/issue17-photo-private-save.json)、[公开图文](runs/issue17-mixed-public-save.json)、[私人图文](runs/issue17-mixed-private-save.json)、[六条持久化与权限](runs/issue17-http-records.json)、[像素](runs/issue17-http-pixels.json) |
+| 照片断连失败保留、恢复后单条保存 | [失败](photo-public-retry-photo-upload-failure-retained.png)、[保存](photo-public-retry-saved-photo-record.png) |
+| 档案编辑、其他物种申请回执及团队读取 | [14 步](runs/issue17-profile-species-final.json)、[介绍](profile-species-final-edited-cat-profile.png)、[回执](profile-species-final-species-request-received.png)、[HTTP 权限](runs/issue17-http-species.json) |
+| 猫关注/点赞/评论；狗切换/关注/取消/点赞/评论 | [猫原流程与返回失败](runs/issue17-social.json)、[猫断点补拍](runs/issue17-social-resume.json)、[猫互动](social-resume-peer-like-and-comment.png)、[切狗及取消](runs/issue17-switch-unfollow.json)、[狗实际提交](runs/issue17-dog-social.json)、[两只身份与历史 ID 读回](runs/issue17-http-dog-social.json) |
+| 三类举报及真实治理 | [18 步手机举报](runs/issue17-reports.json)、[三类回执](reports-reported-record.png)、[团队读取/隐藏恢复/暂停解除](runs/issue17-http-reports.json)；技术角色不代表具名真人维护人员 |
+| 账号范围屏蔽及取消 | [首次截图不稳定失败](runs/issue17-block.json)、[不重复屏蔽的补拍](runs/issue17-block-resume.json)、[其他宠物同样被屏蔽](block-resume-other-pet-blocked.png)、[双向/全部宠物 HTTP 边界](runs/issue17-http-blocked.json)、[取消](runs/issue17-unblock.json) |
+| 部分未开放入口 | [手机执行至中断](runs/issue17-unavailable.json)：商城、每日灵感、附近点击已执行，前两项有原图；其余入口由模拟器完成，不补写成真机通过 |
 
-## 导航问题与回归
+狗互动原流程最后一次 Back 返回关注页，因此其命名为 `dog-like-and-comment.png` 的图片未作为互动截图发布；实际提交由步骤及 HTTP 读回证明。模拟器另有正确的只读互动截图。历史 `http-cold` 调用发生在切宠读回时，未绑定新进程证明，**不作为真机冷启动证据**。最终真机八步截图实际展示了加载新进程后狗的三类私人时间线；完整两宠重进矩阵由模拟器补验。
 
-重复打开外部深链，在 SDK 52 / react-native-screens 4.4.0 / Fabric 的现有包上出现 Fragment 未挂载、原生视图已有父容器和白屏。实际 App OAuth 仍可通过 HTTP 身份核验，不能把白屏归因于会话失效。
+## 导航红绿与限制
 
-- 原五步循环交替打开宠物时间线与档案编辑，失败在稳定可见内容检查：[修正前](runs/issue17-navigation-loop-before.json)、[原生错误](regression/native-navigation-before.txt)、[错误截图](navigation-error-native-navigation-error.png)。
-- 通过 URL 传 Router 私有 key 的尝试失败；独立入口转发原型也失败，均已撤回，不能当成修复证据。
-- 中间候选对 Android 暖启动业务深链使用 `router.dismissTo`。窄范围实现的相同五步真机循环通过 18.58 秒：[实测](runs/issue17-navigation-pop-to.json)。扩大到其他业务路由并格式化后的同一循环也通过 18.60 秒：[第二次实测](runs/issue17-navigation-final-loop.json)。但真实社交流程在返回步骤后进入其他 App，说明只测向前导航不够；`dismissTo` 候选已撤回。
-- 最终提交候选改为公开 `router.push`，创建新的原生页面并保留返回历史，同时处理两种自定义 scheme URL 形式。冷启动、OAuth `/login`、iOS、HTTP(S) 与分享入口保留已有处理。**最终候选还未加载到真机**：启动前已断连，[停止结果](runs/issue17-push-final-launch.json)。新增八步 [导航与返回计划](../../../scripts/acceptance/plans/issue17-navigation-back-loop.json) 尚未执行，必须通过后才能宣称修复。
-- 中间九项路由契约测试验证查询参数、冷启动/OAuth/iOS/分享边界：[先失败](regression/native-intent-red.txt)、[修正后](regression/native-intent-green.txt)。最终 16 项契约测试补充了保留返回栈的调用语义、根页面和 scheme 形式：[返回语义红](regression/navigation-back-red.txt)、[根路由红](regression/root-link-red.txt)、[最终绿](regression/root-link-green.txt)。这些测试不模拟原生视图挂载，不能替代真机循环。
+重复外部链接曾在 SDK 52 / react-native-screens 4.4.0 / Fabric 的既有包上出现 Fragment 未挂载、视图已有父容器及白屏：[修正前循环](runs/issue17-navigation-loop-before.json)、[原生错误](regression/native-navigation-before.txt)、[错误原图](navigation-error-native-navigation-error.png)。当时 HTTP 身份仍有效。URL 私有 key 和独立入口试验均失败，未进入最终代码。
 
-相关上游调查仅用于形成假设：[react-native-screens #2578](https://github.com/software-mansion/react-native-screens/issues/2578)、[Expo 原生深链入口说明](https://docs.expo.dev/router/advanced/native-intent/)。本报告不宣称已证明上游全部根因。
+中间 `dismissTo` 候选两次通过向前循环，但社交返回失败，已撤回。最终 Android 暖启动自定义链接使用公开 `router.push` 创建新页面；冷启动、OAuth `/login`、iOS、HTTP(S) 与分享保留原处理。
 
-## 代码回归
+**最终源码的真机八步打开/返回检查通过 38.43 秒**：[逐步结果](runs/issue17-navigation-push-back.json)、[返回仍在 App 且显示私人时间线](navigation-push-back-back-remains-in-app.png)。随后同一源码完成手机举报、屏蔽、猫狗互动；模拟器还通过真实 OAuth、跨页面返回与完整重进。最终源码没有 iOS 真机验证。
 
-终端输出仅脱敏路径、移除 ANSI 颜色和尾随空白；未修改测试名称、计数或结论。
+## 模拟器补验与异常保留
 
-- [Mobile Jest 最终](regression/mobile-tests-final.txt)：13 个文件，94 项通过。之前 87 项的输出保留在 [中间版本](regression/mobile-tests.txt)。
-- [验收工具](regression/tool-tests.txt)：35 项通过；新增文本替换与清空、非法计划提前拒绝、全选后失去前台时禁止删除。相关 [红](regression/replace-red.txt)、[前台保护红](regression/replace-focus-red.txt)、[绿](regression/replace-green.txt) 保留。
-- [类型与 Biome 最终](regression/check-final.txt)：原有 2,269 条类型诊断，无新增；Biome 无错误，88 个既有警告。
-- [Android Hermes 最终导出](regression/android-export-final.txt)：成功。它证明 JS 导出，不表示新原生 APK 构建或商店签名通过。
-- Server 另一个隔离容器运行 23 个相关 HTTP Feature 文件：79 passed / 911 assertions，未使用真机数据库；日志和 1,427 文件源码比对存于 Docs 仓库。
+[独立报告](simulator/README.md)包含主人通知打开、可见范围往返、另一账号列表/搜索/旧链接、编辑/移除照片/关联宠物、主人删除、访客改私旧链接、团队删除和完整重进。
 
-剩余真机步骤与数据恢复见 [续验清单](continuation.md)。最终候选 App 源码指纹 `07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099`，仅通过本地代码回归；尚无该指纹的真机回传。
+首轮组合编辑虽 UI 步骤通过，HTTP 仍读到一张照片，故未计编辑完成。单独移除通过；恢复本轮生成夹具后，新增“已选 0 张”后置条件的完整组合复验通过 77.11 秒，HTTP 确认字段、照片、关联宠物和两只宠物历史互动 ID。**未确认首轮异常的产品根因，也未声称修改了照片删除产品代码。** 两次结果均保留，后续真机组合验收仍需补。
 
-[两轴评审](review.md)：规范轴 0 项未解决发现；规格轴 3 组完成/合并阻断。保持 Draft，待真机复验与恢复后重新审查。
+## 回归与恢复
+
+- [完整 Jest](regression/mobile-tests-final.txt)：13 个文件、94 项通过；[工具](regression/tool-tests.txt)：35 项通过。新输入替换/清空与前台丢失保护有红绿输出，实际模拟器编辑字段也已读回验证。
+- [类型/Biome](regression/check-final.txt)：2,269 条历史类型诊断，无新增；Biome 无错误、88 个历史警告。[Android Hermes 导出](regression/android-export-final.txt)成功。终端输出只脱敏路径、去颜色和尾随空白，未改结论。
+- Server 23 个相关 HTTP Feature 文件：79 passed / 911 assertions；隔离容器未使用验收数据库，源码 1,427 文件比对与首次 DNS 失败/通过输出在 Docs 配套 PR。
+- [真机交还记录](phone-release.json)：已停止手机测试，恢复设置，原始 MMKV 四文件逐字节一致，随后不再读取或操作手机。
+- [数据清理](simulator/data-cleanup.json)、[详细断言](simulator/runs/http-issue17-finalize.json)：仅清理本轮夹具及相关数据；原 U1 记录哈希、清理前后原照片字节一致；U1 另外两个会话保留，U2 测试令牌撤销，技术角色降权。邀请注册账号作为空测试身份保留。
+- [环境清理](simulator/environment-cleanup.json)：模拟器测试包卸载、字体与端口恢复、本轮两个 AVD 删除，任务 Metro 停止；原有 AVD 保留。
+
+[续验清单](continuation.md)列出严格真机要求下的剩余项。本阶段不将模拟器补验改写为真机，PR 保持 Draft、未合并；签收人与真人社区维护人员仍待指定。

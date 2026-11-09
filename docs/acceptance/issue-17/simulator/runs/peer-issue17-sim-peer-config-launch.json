@@ -1,0 +1,58 @@
+{
+  "environment": "local Android emulator",
+  "role": "peer",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "attach-runtime",
+        "seconds": 16.74,
+        "invocation": "09036b0b0b59458bb37695d6ad7a9b10",
+        "metrics": {
+          "adb_calls": 30,
+          "adb_seconds": 4.933,
+          "ui_reads": 1
+        },
+        "artifacts": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-sim-peer-config-launch"
+      },
+      "invocation_id": "09036b0b0b59458bb37695d6ad7a9b10",
+      "events": [
+        {
+          "action": "doctor",
+          "mobile": {
+            "root": "<mobileRoot>",
+            "repository": "tudousir123/Metvage-Mobile",
+            "branch": "codex/issue-17-acceptance",
+            "sha": "c3c687ac841e88f552623da27351cd22b3d7ba9a",
+            "dirty": true,
+            "node": "v24.22.0",
+            "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+          },
+          "metro": {
+            "port": 8081,
+            "root": "<mobileRoot>"
+          },
+          "server": {
+            "container": "metvage-issue17-phone-api",
+            "root": "<serverRoot>"
+          },
+          "api": {
+            "origin": "http://127.0.0.1:18080",
+            "status": 200
+          },
+          "device": {
+            "serial": "<owned-emulator>",
+            "model": "sdk_gphone64_x86_64"
+          }
+        },
+        {
+          "action": "runtime_verified",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "metro_pid": 1282865,
+          "same_metro": true
+        }
+      ]
+    }
+  ]
+}

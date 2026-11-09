@@ -1,0 +1,30 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/records/{publicRecordId}/edit",
+      "expect": {
+        "label": "记录内容"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "移除第 1 张照片"
+    },
+    {
+      "action": "capture",
+      "name": "after-remove-before-save"
+    },
+    {
+      "action": "tap",
+      "label": "保存更改",
+      "expect": {
+        "label": "把陪伴，写成故事"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "after-remove-save"
+    }
+  ]
+}

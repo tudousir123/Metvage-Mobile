@@ -1,0 +1,78 @@
+{
+  "environment": "local Android emulator",
+  "role": "peer",
+  "invocations": [
+    {
+      "summary": {
+        "status": "fail",
+        "command": "run",
+        "seconds": 18.05,
+        "invocation": "2912ad59c4254858bfdf700d2c84a29e",
+        "metrics": {
+          "adb_calls": 48,
+          "adb_seconds": 17.02,
+          "ui_reads": 5
+        },
+        "error": "Expected test control not visible: 17Dog的时间线",
+        "artifacts": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-cold-resume"
+      },
+      "invocation_id": "2912ad59c4254858bfdf700d2c84a29e",
+      "events": [
+        {
+          "action": "plan",
+          "sources": [
+            {
+              "file": "issue17-cold-resume.json",
+              "sha256": "cec73eb4e3a206961bdbd45b3cc092be84d769de48602282d11130f1cdee65d7"
+            }
+          ]
+        },
+        {
+          "action": "doctor",
+          "mobile": {
+            "root": "<mobileRoot>",
+            "repository": "tudousir123/Metvage-Mobile",
+            "branch": "codex/issue-17-acceptance",
+            "sha": "c3c687ac841e88f552623da27351cd22b3d7ba9a",
+            "dirty": true,
+            "node": "v24.22.0",
+            "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+          },
+          "metro": {
+            "port": 8081,
+            "root": "<mobileRoot>"
+          },
+          "server": {
+            "container": "metvage-issue17-phone-api",
+            "root": "<serverRoot>"
+          },
+          "api": {
+            "origin": "http://127.0.0.1:18080",
+            "status": 200
+          },
+          "device": {
+            "serial": "<owned-emulator>",
+            "model": "sdk_gphone64_x86_64"
+          }
+        },
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "7585",
+          "metro_pid": 1282865
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "assert",
+          "status": "fail",
+          "seconds": 15.991,
+          "adb_calls": 25,
+          "adb_seconds": 15.72,
+          "ui_reads": 5
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,38 @@
 [
   {
+    "run": "issue17-http-blocked",
+    "invocations": [
+      {
+        "id": "4d924540cf6a4db089661a6bbb9c50eb",
+        "status": "pass",
+        "command": "issue17-http-blocked",
+        "seconds": 4.02
+      }
+    ]
+  },
+  {
+    "run": "issue17-http-cold",
+    "invocations": [
+      {
+        "id": "eb79f572eb7a4c9dbb863f0e20c1a26f",
+        "status": "pass",
+        "command": "issue17-http-cold",
+        "seconds": 1.93
+      }
+    ]
+  },
+  {
+    "run": "issue17-http-dog-social",
+    "invocations": [
+      {
+        "id": "af47a1bc528d4c79a636810c4a760564",
+        "status": "pass",
+        "command": "issue17-http-dog-social",
+        "seconds": 1.84
+      }
+    ]
+  },
+  {
     "run": "issue17-http-identity",
     "invocations": [
       {
@@ -29,6 +62,17 @@
         "status": "pass",
         "command": "issue17-http-records",
         "seconds": 8.34
+      }
+    ]
+  },
+  {
+    "run": "issue17-http-reports",
+    "invocations": [
+      {
+        "id": "c48bf48c7c6e4f028f07701a722b28c4",
+        "status": "pass",
+        "command": "issue17-http-reports",
+        "seconds": 6.44
       }
     ]
   },
@@ -83,6 +127,17 @@
     ]
   },
   {
+    "run": "issue17-http-unblocked",
+    "invocations": [
+      {
+        "id": "3b6fb458eb53416a9f1578243994f1f5",
+        "status": "pass",
+        "command": "issue17-http-unblocked",
+        "seconds": 2.19
+      }
+    ]
+  },
+  {
     "run": "issue17-inventory",
     "invocations": [
       {
@@ -90,6 +145,17 @@
         "status": "pass",
         "command": "doctor",
         "seconds": 0.88
+      }
+    ]
+  },
+  {
+    "run": "issue17-phone-token-revoked",
+    "invocations": [
+      {
+        "id": "436b63b62b9d48c79d6154946cf0c395",
+        "status": "pass",
+        "command": "phone-session-revoked",
+        "seconds": 0.44
       }
     ]
   },
@@ -116,6 +182,28 @@
     ]
   },
   {
+    "run": "issue17-block",
+    "invocations": [
+      {
+        "id": "318482a7d2274b57a75f49cee5c46f87",
+        "status": "fail",
+        "command": "run",
+        "seconds": 36.76
+      }
+    ]
+  },
+  {
+    "run": "issue17-block-resume",
+    "invocations": [
+      {
+        "id": "2f22cd5de208497eb8223dadd40a1d38",
+        "status": "pass",
+        "command": "run",
+        "seconds": 34.8
+      }
+    ]
+  },
+  {
     "run": "issue17-browser-register",
     "invocations": [
       {
@@ -134,6 +222,17 @@
         "status": "pass",
         "command": "run",
         "seconds": 92.39
+      }
+    ]
+  },
+  {
+    "run": "issue17-dog-social",
+    "invocations": [
+      {
+        "id": "9aba1241b73a45fda26980a31aa74671",
+        "status": "pass",
+        "command": "run",
+        "seconds": 41.05
       }
     ]
   },
@@ -338,6 +437,17 @@
         "status": "pass",
         "command": "run",
         "seconds": 18.58
+      }
+    ]
+  },
+  {
+    "run": "issue17-navigation-push-back",
+    "invocations": [
+      {
+        "id": "dbdd10bdaac54555b2c05d0d7e209a72",
+        "status": "pass",
+        "command": "run",
+        "seconds": 38.43
       }
     ]
   },
@@ -613,6 +723,23 @@
         "status": "fail",
         "command": "launch",
         "seconds": 0.42
+      },
+      {
+        "id": "ea5dc3f8b32b4319ab4085d4e5301dae",
+        "status": "pass",
+        "command": "launch",
+        "seconds": 46.31
+      }
+    ]
+  },
+  {
+    "run": "issue17-reports",
+    "invocations": [
+      {
+        "id": "a108fda89e48438a89332eb676df1f1d",
+        "status": "pass",
+        "command": "run",
+        "seconds": 92.11
       }
     ]
   },
@@ -635,6 +762,28 @@
         "status": "fail",
         "command": "run",
         "seconds": 58.54
+      }
+    ]
+  },
+  {
+    "run": "issue17-social-resume",
+    "invocations": [
+      {
+        "id": "3f1975e192d247cbaac6b397469f9672",
+        "status": "pass",
+        "command": "run",
+        "seconds": 20.18
+      }
+    ]
+  },
+  {
+    "run": "issue17-switch-unfollow",
+    "invocations": [
+      {
+        "id": "bd76e9965cb84ff9b8c1f6384b32425f",
+        "status": "pass",
+        "command": "run",
+        "seconds": 76.52
       }
     ]
   },
@@ -685,6 +834,28 @@
         "status": "pass",
         "command": "launch",
         "seconds": 44.22
+      }
+    ]
+  },
+  {
+    "run": "issue17-unavailable",
+    "invocations": [
+      {
+        "id": "7240935f0c7c4d919aad1562b19fcabc",
+        "status": "interrupted",
+        "command": "run",
+        "seconds": 68.27
+      }
+    ]
+  },
+  {
+    "run": "issue17-unblock",
+    "invocations": [
+      {
+        "id": "306c29d01a3d43dd8bec5cb3a46ac525",
+        "status": "pass",
+        "command": "run",
+        "seconds": 24.32
       }
     ]
   },

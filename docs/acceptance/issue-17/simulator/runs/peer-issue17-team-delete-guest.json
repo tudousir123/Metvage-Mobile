@@ -1,0 +1,55 @@
+{
+  "environment": "local Android emulator",
+  "role": "peer",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "simulator-final-ui",
+        "seconds": 20.55,
+        "invocation": "3e3bcf12178746beb6e0ec1632aca040",
+        "metrics": {
+          "adb_calls": 59,
+          "adb_seconds": 20.305,
+          "ui_reads": 7
+        },
+        "artifacts": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-team-delete-guest"
+      },
+      "invocation_id": "3e3bcf12178746beb6e0ec1632aca040",
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "9467",
+          "metro_pid": 1282865,
+          "environment": "emulator"
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 8.83,
+          "adb_calls": 18,
+          "adb_seconds": 8.822,
+          "ui_reads": 3
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-team-delete-guest/guest-team-deleted-old-link-denied.png"
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "capture",
+          "status": "pass",
+          "seconds": 10.641,
+          "adb_calls": 21,
+          "adb_seconds": 10.63,
+          "ui_reads": 4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "issue17-http-cold",
+      "seconds": 1.93,
+      "invocation": "eb79f572eb7a4c9dbb863f0e20c1a26f",
+      "artifacts": ".acceptance/runs/issue17-http-cold"
+    },
+    "events": [
+      {
+        "action": "assertion",
+        "name": "One access token in isolated U2 test App",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Selected U2 dog persists after cold start",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Timeline ownership survives pet switching and cold start",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Timeline ownership survives pet switching and cold start",
+        "result": "pass"
+      }
+    ]
+  }
+]

@@ -1,0 +1,108 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "run",
+      "seconds": 20.18,
+      "invocation": "3f1975e192d247cbaac6b397469f9672",
+      "metrics": {
+        "adb_calls": 59,
+        "adb_seconds": 19.335,
+        "ui_reads": 6
+      },
+      "run_id": "issue17-social-resume",
+      "runtime_mode": "verified",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-social-resume"
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "issue17-social-resume.json",
+            "sha256": "fab3ede3b94d32a8c5052145d57fdc7d5078c3aa81d5f452eb2147709d7f12f0"
+          }
+        ]
+      },
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "c3c687ac841e88f552623da27351cd22b3d7ba9a",
+          "dirty": false,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "metro": {
+          "port": 8081,
+          "root": "<mobileRoot>"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime",
+        "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+        "scheme": "pixelfed",
+        "app_pid": "13582",
+        "metro_pid": 1282865
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.422,
+        "adb_calls": 8,
+        "adb_seconds": 3.419,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "swipe",
+        "status": "pass",
+        "seconds": 0.667,
+        "adb_calls": 3,
+        "adb_seconds": 0.666,
+        "ui_reads": 0
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "assert",
+        "status": "pass",
+        "seconds": 2.554,
+        "adb_calls": 5,
+        "adb_seconds": 2.551,
+        "ui_reads": 1
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-social-resume/peer-like-and-comment.png"
+      },
+      {
+        "action": "step",
+        "number": 4,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 11.52,
+        "adb_calls": 21,
+        "adb_seconds": 11.501,
+        "ui_reads": 4
+      }
+    ]
+  }
+]

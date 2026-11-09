@@ -11,3 +11,5 @@
 邀请注册的实际顺序：App 输入有效邀请并进入手机浏览器；依次在服务器注册表单填写 username、email、password、password_confirm、display_name，逐页点击 Continue 后提交；服务端读回账号创建时间、邀请码使用次数 1/1、初始宠物数 0。随后通过 App 实际 OAuth 授权。没有直接调用注册 API 代替手机表单。[注册读回](../registration-result.json)、[浏览器会话](../runs/issue17-browser-register.json)、[OAuth](../runs/issue17-u2-login.json)。
 
 恢复环境后，在 Mobile 仓库根目录使用已有 `npm run acceptance -- --config <私有配置> ...` 命令执行版本化 `scripts/acceptance/plans/issue17-*.json`。私有配置与 `issue17-context.json` 需要保存本轮账号、宠物和记录 ID；不能将其他人的现有内容填入这些运行专用清理/治理分支。设备已断连时不继续任何点击或截图。
+
+本目录保留早期真机协议快照；本轮已经交还手机并清理旧夹具，不能直接执行旧变量。历史 `cold` 分支仅作切宠后的 HTTP 读回，未绑定冷启动证明，不计真机重进。后续模拟器协议改用真实前后 PID 和回传验证，见 [模拟器协议](../simulator/protocols/README.md)。

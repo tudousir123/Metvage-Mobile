@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "phone_checks_running": false,
+  "device_settings_restored": true,
+  "secondary_original_store_restored": true,
+  "store_files_byte_verified": 4,
+  "verification_retry": 1,
+  "original_font": "1.45",
+  "original_awake": "2",
+  "reverse_original": {},
+  "no_further_phone_use": true
+}

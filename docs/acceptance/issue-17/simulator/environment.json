@@ -1,0 +1,16 @@
+{
+  "kind": "local Android emulator",
+  "avds": [
+    "Codex_Metvage17_U2_20261109",
+    "Codex_Metvage17_U1_20261109"
+  ],
+  "android_api": 36,
+  "abi": "x86_64",
+  "apk_sha256": "fd19d8583e904a20d308ab1718f647ab0849bbcb385369cf1dbd7bd767e34103",
+  "apk_build_source": "a68c6d22",
+  "app_js_source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+  "physical_device_not_used": true,
+  "native_libraries_original_apk_sha256": "4c2f96b659ceb7ee2bd88512c95475feb8b6b196cb8cf54e386a9e141aefdc0a",
+  "native_build": false,
+  "config_asset_regenerated": true
+}

@@ -47,7 +47,10 @@
     },
     {
       "action": "tap",
-      "label": "移除第 1 张照片"
+      "label": "移除第 1 张照片",
+      "expect": {
+        "label": "添加照片，已选 0 张，最多 9 张"
+      }
     },
     {
       "action": "tap",

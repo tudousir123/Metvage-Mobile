@@ -1,0 +1,120 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "issue17-http-reports",
+      "seconds": 6.44,
+      "invocation": "c48bf48c7c6e4f028f07701a722b28c4",
+      "artifacts": ".acceptance/runs/issue17-http-reports"
+    },
+    "events": [
+      {
+        "action": "assertion",
+        "name": "One access token in isolated U2 test App",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+        "result": "pass"
+      },
+      {
+        "action": "technical_team",
+        "account_id": 4,
+        "human_maintainer": "not-designated"
+      },
+      {
+        "action": "team_http",
+        "method": "GET",
+        "path": "/admin/reports",
+        "status": 200
+      },
+      {
+        "action": "assertion",
+        "name": "All three App reports are visible to authorized team",
+        "result": "pass"
+      },
+      {
+        "action": "team_http",
+        "method": "PATCH",
+        "path": "/admin/reports/1",
+        "status": 200
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 404 /api/v1/metvage/records/26",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 404 /api/v1/metvage/records/26",
+        "result": "pass"
+      },
+      {
+        "action": "team_http",
+        "method": "PATCH",
+        "path": "/admin/reports/1",
+        "status": 200
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/26",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/26",
+        "result": "pass"
+      },
+      {
+        "action": "team_http",
+        "method": "PATCH",
+        "path": "/admin/reports/2",
+        "status": 200
+      },
+      {
+        "action": "assertion",
+        "name": "Comment moderation hide",
+        "result": "pass"
+      },
+      {
+        "action": "team_http",
+        "method": "PATCH",
+        "path": "/admin/reports/2",
+        "status": 200
+      },
+      {
+        "action": "assertion",
+        "name": "Comment moderation restore",
+        "result": "pass"
+      },
+      {
+        "action": "team_http",
+        "method": "PATCH",
+        "path": "/admin/reports/3",
+        "status": 200
+      },
+      {
+        "action": "assertion",
+        "name": "Technical suspension blocks new interactions",
+        "result": "pass"
+      },
+      {
+        "action": "team_http",
+        "method": "PATCH",
+        "path": "/admin/reports/3",
+        "status": 200
+      },
+      {
+        "action": "assertion",
+        "name": "Team actions persisted; technical account is not a designated human maintainer",
+        "result": "pass"
+      }
+    ]
+  }
+]

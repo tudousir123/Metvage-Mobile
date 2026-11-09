@@ -1,0 +1,96 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/",
+      "expect": {
+        "label": "搜索宠物笔记"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "我的"
+    },
+    {
+      "action": "assert",
+      "label": "17Dog"
+    },
+    {
+      "action": "capture",
+      "name": "cold-selected-dog"
+    },
+    {
+      "action": "open",
+      "path": "/pets/{peerCatId}/records",
+      "expect": {
+        "label": "issue17-mixed-public"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "cold-public-timeline-top"
+    },
+    {
+      "action": "swipe",
+      "fractions": [
+        0.5,
+        0.84,
+        0.5,
+        0.25
+      ]
+    },
+    {
+      "action": "assert",
+      "label": "issue17-text-public"
+    },
+    {
+      "action": "capture",
+      "name": "cold-public-timeline-bottom"
+    },
+    {
+      "action": "open",
+      "path": "/pets/{peerDogId}/records",
+      "expect": {
+        "label": "issue17-mixed-private"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "cold-private-timeline-top"
+    },
+    {
+      "action": "swipe",
+      "fractions": [
+        0.5,
+        0.84,
+        0.5,
+        0.25
+      ]
+    },
+    {
+      "action": "assert",
+      "label": "issue17-text-private"
+    },
+    {
+      "action": "capture",
+      "name": "cold-private-timeline-bottom"
+    },
+    {
+      "action": "open",
+      "path": "/note/{u2PublicPhotoId}",
+      "expect": {
+        "label": "笔记照片 1"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "cold-public-photo"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "label": "17Dog的时间线"
+      }
+    }
+  ]
+}

@@ -120,6 +120,30 @@
     "raw_copy": true
   },
   {
+    "file": "navigation-push-back-back-remains-in-app.png",
+    "sha256": "49ad90a865321bbdc0da7cd957fa6d30c7181a24f10f3aeb3da202c1b4f80d8e",
+    "run": "issue17-navigation-push-back",
+    "raw_copy": true
+  },
+  {
+    "file": "social-resume-peer-like-and-comment.png",
+    "sha256": "52064b9ef85de980351bd5c1cca674b70cc8cb9fb778dfd13cf0aadffdbff355",
+    "run": "issue17-social-resume",
+    "raw_copy": true
+  },
+  {
+    "file": "block-resume-account-blocked.png",
+    "sha256": "e41549e36b3c904e92c77b8f978f9345454a449791ad66f89d72b95029ef4535",
+    "run": "issue17-block-resume",
+    "raw_copy": true
+  },
+  {
+    "file": "block-resume-other-pet-blocked.png",
+    "sha256": "958b0226c491f9583ac60545e598a5f66dbbd4afbc44ca7d6956ec8dcc64e32f",
+    "run": "issue17-block-resume",
+    "raw_copy": true
+  },
+  {
     "file": "profile-species-final-edited-cat-profile.png",
     "sha256": "9f09889d28e95761fabe0a40fba56c311364ace374352cb9e9a61bb66241e493",
     "run": "issue17-profile-species-final",
@@ -135,6 +159,54 @@
     "file": "social-following-feed.png",
     "sha256": "aa541cbab2dddbdf451e2539ea3401e9048b49892424c242d288448b5625aa40",
     "run": "issue17-social",
+    "raw_copy": true
+  },
+  {
+    "file": "reports-reported-record.png",
+    "sha256": "c75261a2ac1d48768ef89655ee86bf2ec5b48ffe9d4ac99d8f00a97dadffefde",
+    "run": "issue17-reports",
+    "raw_copy": true
+  },
+  {
+    "file": "reports-reported-comment.png",
+    "sha256": "c75261a2ac1d48768ef89655ee86bf2ec5b48ffe9d4ac99d8f00a97dadffefde",
+    "run": "issue17-reports",
+    "raw_copy": true
+  },
+  {
+    "file": "reports-reported-pet.png",
+    "sha256": "2bbe7727806717e5037808cda7ce79e388284984b0f9c0f26155bfd9431de10d",
+    "run": "issue17-reports",
+    "raw_copy": true
+  },
+  {
+    "file": "unblock-block-removed.png",
+    "sha256": "6eaf774c062ebd16121982854841117c7ffc59ee792cf4acd39311066856eb89",
+    "run": "issue17-unblock",
+    "raw_copy": true
+  },
+  {
+    "file": "switch-unfollow-selected-dog.png",
+    "sha256": "b2ee7e9b1794c0c3ee0aa995b0e2c548bd6a8f7a70416e87541eb548a3ae7912",
+    "run": "issue17-switch-unfollow",
+    "raw_copy": true
+  },
+  {
+    "file": "switch-unfollow-unfollowed-dog-feed.png",
+    "sha256": "f7b8c0506afae5a6b29cc5394fe23989cea3f6b4ded39b46d56f9de2eae6bcbc",
+    "run": "issue17-switch-unfollow",
+    "raw_copy": true
+  },
+  {
+    "file": "unavailable-unavailable-shop.png",
+    "sha256": "607034c5e7c6f5429821584f377a548b8f0e0dba4229d6ffa22529dc0682d5fc",
+    "run": "issue17-unavailable",
+    "raw_copy": true
+  },
+  {
+    "file": "unavailable-unavailable-daily-inspiration.png",
+    "sha256": "7b5f6fd9129258d7345001d254b911b9128944ddb9d3c5e0ac8fb4c5a503bfd4",
+    "run": "issue17-unavailable",
     "raw_copy": true
   }
 ]

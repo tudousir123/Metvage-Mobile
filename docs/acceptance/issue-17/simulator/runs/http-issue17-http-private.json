@@ -1,0 +1,112 @@
+{
+  "environment": "local Android emulator",
+  "role": "http",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "issue17-http-private",
+        "seconds": 4.64,
+        "invocation": "ab0c417df4db4cfb9e53c2c4d18f5664",
+        "artifacts": ".acceptance/issue17-sim-http/runs/issue17-http-private"
+      },
+      "invocation_id": "ab0c417df4db4cfb9e53c2c4d18f5664",
+      "events": [
+        {
+          "action": "environment",
+          "kind": "simulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One access token in isolated U2 test App",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Owner App visibility mutation persisted",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/metvage/search?q=issue17-u1",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Search follows current visibility",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/metvage/records",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Public feed follows current visibility",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/metvage/search?q=issue17-u1",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Search follows current visibility",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/metvage/records",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Public feed follows current visibility",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/22",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26/photos/22",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/metvage/records/26/photos/22",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Historic interactions survive privacy round trip",
+          "result": "pass"
+        }
+      ]
+    }
+  ]
+}

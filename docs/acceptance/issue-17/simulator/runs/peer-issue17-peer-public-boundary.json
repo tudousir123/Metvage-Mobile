@@ -1,0 +1,127 @@
+{
+  "environment": "local Android emulator",
+  "role": "peer",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "run",
+        "seconds": 39.77,
+        "invocation": "9605398636c546e39bd0d05e6b59f738",
+        "metrics": {
+          "adb_calls": 94,
+          "adb_seconds": 39.008,
+          "ui_reads": 12
+        },
+        "run_id": "issue17-peer-public-boundary",
+        "runtime_mode": "verified",
+        "artifacts": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-peer-public-boundary"
+      },
+      "invocation_id": "9605398636c546e39bd0d05e6b59f738",
+      "events": [
+        {
+          "action": "plan",
+          "sources": [
+            {
+              "file": "issue17-peer-public-boundary.json",
+              "sha256": "ed7d0444f369e81e70ba8059ec123df64f4e9c255a2ccc513b059cf9c0522bd9"
+            }
+          ]
+        },
+        {
+          "action": "doctor",
+          "mobile": {
+            "root": "<mobileRoot>",
+            "repository": "tudousir123/Metvage-Mobile",
+            "branch": "codex/issue-17-acceptance",
+            "sha": "c3c687ac841e88f552623da27351cd22b3d7ba9a",
+            "dirty": true,
+            "node": "v24.22.0",
+            "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+          },
+          "metro": {
+            "port": 8081,
+            "root": "<mobileRoot>"
+          },
+          "server": {
+            "container": "metvage-issue17-phone-api",
+            "root": "<serverRoot>"
+          },
+          "api": {
+            "origin": "http://127.0.0.1:18080",
+            "status": 200
+          },
+          "device": {
+            "serial": "<owned-emulator>",
+            "model": "sdk_gphone64_x86_64"
+          }
+        },
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "9467",
+          "metro_pid": 1282865
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 5.177,
+          "adb_calls": 8,
+          "adb_seconds": 5.175,
+          "ui_reads": 1
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-peer-public-boundary/peer-republished-note.png"
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "capture",
+          "status": "pass",
+          "seconds": 13.821,
+          "adb_calls": 26,
+          "adb_seconds": 13.803,
+          "ui_reads": 5
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 5.337,
+          "adb_calls": 8,
+          "adb_seconds": 5.335,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.909,
+          "adb_calls": 8,
+          "adb_seconds": 2.907,
+          "ui_reads": 1
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-peer-public-boundary/peer-republished-search.png"
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "capture",
+          "status": "pass",
+          "seconds": 10.827,
+          "adb_calls": 21,
+          "adb_seconds": 10.814,
+          "ui_reads": 4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "file": "attach-runtime.py",
+    "original_source_sha256": "0600d1b2bc1137c9b0af17a8b93b29d3bb25afedc38dabb8820365845e788a90",
+    "published_sha256": "0600d1b2bc1137c9b0af17a8b93b29d3bb25afedc38dabb8820365845e788a90",
+    "transformation": "Replace private absolute root paths; no logic change"
+  },
+  {
+    "file": "browser.mjs",
+    "original_source_sha256": "5b591e123a29a614a658b72ca4a8720deb29c63560f4616600f09fa1b5f7d54f",
+    "published_sha256": "5b591e123a29a614a658b72ca4a8720deb29c63560f4616600f09fa1b5f7d54f",
+    "transformation": "Replace private absolute root paths; no logic change"
+  },
+  {
+    "file": "oauth-login.py",
+    "original_source_sha256": "b38706fb748855bace4cce0332c6e6ad12f582468a4eab436d9fd969158ffde8",
+    "published_sha256": "b38706fb748855bace4cce0332c6e6ad12f582468a4eab436d9fd969158ffde8",
+    "transformation": "Replace private absolute root paths; no logic change"
+  },
+  {
+    "file": "run.py",
+    "original_source_sha256": "e6a288c83bf44351f533e3a979e0a5f1f182d5f25dbccdd46a7fe1c4c1e8bf97",
+    "published_sha256": "e6a288c83bf44351f533e3a979e0a5f1f182d5f25dbccdd46a7fe1c4c1e8bf97",
+    "transformation": "Replace private absolute root paths; no logic change"
+  },
+  {
+    "file": "http-checks.py",
+    "original_source_sha256": "cdacf76d89eb1dbcbd6d223bcb1572f4595c146d6be7cb13adf22ea7e8739a7b",
+    "published_sha256": "cdacf76d89eb1dbcbd6d223bcb1572f4595c146d6be7cb13adf22ea7e8739a7b",
+    "transformation": "Replace private absolute root paths; no logic change"
+  },
+  {
+    "file": "finalize.py",
+    "original_source_sha256": "f793d692fafc945d1122b2c32d723aab8820cd38392d015beea15c4f5d0f39c6",
+    "published_sha256": "f793d692fafc945d1122b2c32d723aab8820cd38392d015beea15c4f5d0f39c6",
+    "transformation": "Replace private absolute root paths; no logic change"
+  },
+  {
+    "file": "cleanup-local.php",
+    "original_source_sha256": "54ab4bacc02fc85b0faacfd688fa2996c0efb173bed4ae7b3295a1aef6fa7b34",
+    "published_sha256": "54ab4bacc02fc85b0faacfd688fa2996c0efb173bed4ae7b3295a1aef6fa7b34",
+    "transformation": "Replace private absolute root paths; no logic change"
+  }
+]
