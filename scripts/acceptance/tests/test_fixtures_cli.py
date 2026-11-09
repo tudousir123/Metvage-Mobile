@@ -115,7 +115,8 @@ class FixtureCliTest(unittest.TestCase):
         self.temp.cleanup()
 
     def command(self, *args):
-        return subprocess.run([sys.executable, str(CLI), "--config", str(self.config), *args], env=self.env, capture_output=True, text=True, timeout=15)
+        target = CLI.with_name("tests") / "device_harness.py" if args and args[0] == "replay" else CLI
+        return subprocess.run([sys.executable, str(target), "--config", str(self.config), *args], env=self.env, capture_output=True, text=True, timeout=15)
 
     def test_rerun_reuses_ids_and_cleanup_handles_204_without_deleting_existing_data(self):
         for _ in range(2):
@@ -182,7 +183,7 @@ class FixtureCliTest(unittest.TestCase):
         device = self.root / 'device.json'
         device.write_text(json.dumps({'settings':{'system.font_scale':'1.45','global.stay_on_while_plugged_in':'2'},'reverse':{},'focus':'com.metvage.acceptance.phone'}))
         adb = self.root / 'adb'; adb.write_text(FAKE_ADB); adb.chmod(0o700)
-        config=json.loads(self.config.read_text());config.update({'driverOnly':True,'adb':str(adb),'serial':'phone','package':'com.metvage.acceptance.phone'})
+        config=json.loads(self.config.read_text());config.update({'adb':str(adb),'serial':'phone','package':'com.metvage.acceptance.phone'})
         self.config.write_text(json.dumps(config));self.env['FAKE_ADB_STATE']=str(device)
         plan=self.root/'plan.json';plan.write_text('{"steps":[{"action":"assert","label":"ready"}]}')
         result=self.command('replay','--run-id','replay-failure','--plan',str(plan),'--fail-after-step','1')

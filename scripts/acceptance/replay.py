@@ -5,6 +5,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+from plans import bind_plan
 from fixtures import FixtureRun, NoRedirect, positive_id
 from runtime import AcceptanceError, exclusive_lock
 
@@ -82,8 +83,9 @@ def replay(config, device, directory, run_id, plan, report, fail_after=None):
                 if spec['key'] in plan.get('publicFixtures', []):
                     owner.request('PATCH', f'/records/{record["id"]}/visibility', {'visibility': 'public'})
             device.config = {**device.config, 'variables': variables}
+            bound = bind_plan(plan, variables, run_id)
             with device.session(directory):
-                device.run_plan(plan, directory, run_id, fail_after)
+                device.run_plan(bound, directory, run_id, fail_after)
             for record in owner.state['records']:
                 value = owner.request('GET', f'/records/{record["id"]}')['record']
                 if value['visibility'] == 'private':

@@ -107,6 +107,11 @@ def proof_server(port, expected, package):
 
 
 def launch(config, device, directory, report, restart=False):
+    with device.session(directory):
+        return _launch_owned(config, device, directory, report, restart)
+
+
+def _launch_owned(config, device, directory, report, restart):
     root, port = Path(config['mobileRoot']), int(config['metroPort'])
     identity = metro_process(root, port)
     if identity:
@@ -128,7 +133,7 @@ def launch(config, device, directory, report, restart=False):
     process = None
     runtime_path(config).unlink(missing_ok=True)
     try:
-        with proof_server(proof_port, expected, device.package) as accepted, device.session(directory):
+        with proof_server(proof_port, expected, device.package) as accepted:
             scheme = device.installed_scheme()
             with (directory / 'metro.log').open('w') as log:
                 process = subprocess.Popen(command, cwd=root, env=environment, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)

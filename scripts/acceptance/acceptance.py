@@ -8,7 +8,7 @@ import sys
 import uuid
 
 from device import Device
-from plans import load_plan
+from plans import bind_plan, load_plan
 from launch import launch, verify_runtime
 from replay import replay, verify_api
 from doctor import diagnose
@@ -90,9 +90,9 @@ def main():
         plan = load_plan(args.plan) if args.command in {"run", "replay"} else None
         report = Report(directory, args.command)
         if args.command in {'run','replay'} and not config.get('mobileRoot'):
-            if config.get('driverOnly') is not True or config.get('adb', 'adb') == 'adb':
-                raise AcceptanceError('mobileRoot is required for App acceptance; driverOnly is reserved for explicit simulated adapters')
-            report.event('runtime', mode='driver-only')
+            raise AcceptanceError('mobileRoot is required for App acceptance; synthetic drivers use the tests harness')
+        if args.command == 'run':
+            plan = bind_plan(plan, config.get('variables', {}), args.run_id)
         device = Device(config, report) if args.command in {"run", "launch", "inspect", "replay"} or (args.command == "doctor" and not args.without_device) else None
         with interruptible():
             if args.command == 'discover':
@@ -185,7 +185,7 @@ def main():
                         errors.append(str(error))
                 if errors:
                     raise AcceptanceError("; ".join(errors))
-        report.finish("pass", run_id=args.run_id, **({"runtime_mode":"driver-only" if config.get("driverOnly") else "verified"} if args.command in {"run","replay"} else {}))
+        report.finish("pass", run_id=args.run_id, **({"runtime_mode":"verified"} if args.command in {"run","replay"} else {}))
         return 0
     except KeyboardInterrupt:
         report.finish("interrupted", error="Interrupted; inspect restoration journal before resuming")

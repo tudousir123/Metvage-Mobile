@@ -6,6 +6,7 @@ import socket
 import subprocess
 import sys
 import tempfile
+import time
 import unittest
 
 from test_device_cli import FAKE_ADB
@@ -111,6 +112,25 @@ elif a[:2]==['shell','getprop']:''')
         result=self.cli('run','--run-id','restarted','--plan',str(plan))
         self.assertEqual(result.returncode,1)
         self.assertIn('App process changed',result.stdout)
+
+    def test_busy_launch_preserves_the_active_metro_and_runtime_proof(self):
+        result=self.cli('launch','--run-id','owner-launch')
+        self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+        proof_path=self.root/'.acceptance/runtime.json';original=proof_path.read_bytes()
+        plan=self.root/'waiting.json';plan.write_text('{"steps":[{"action":"assert","label":"never"}]}')
+        child=subprocess.Popen([sys.executable,str(CLI),'--config',str(self.config),'run','--run-id','active-run','--plan',str(plan)],env=self.env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+        try:
+            deadline=time.monotonic()+5
+            while not (self.root/'runs/active-run/device.json').exists():
+                self.assertLess(time.monotonic(),deadline)
+                time.sleep(0.01)
+            result=self.cli('launch','--restart-metro','--run-id','competing-launch')
+            self.assertEqual(result.returncode,1,result.stdout)
+            self.assertIn('Resource busy',result.stdout)
+            self.assertTrue(proof_path.exists(),'busy launch deleted the active runtime proof')
+            self.assertEqual(proof_path.read_bytes(),original)
+        finally:
+            child.terminate();child.communicate(timeout=10)
 
 
 if __name__=='__main__':unittest.main()

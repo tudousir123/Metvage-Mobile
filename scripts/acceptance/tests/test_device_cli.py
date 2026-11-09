@@ -8,13 +8,15 @@ import time
 import unittest
 
 
-CLI = Path(__file__).resolve().parents[1] / "acceptance.py"
+PRODUCTION_CLI = Path(__file__).resolve().parents[1] / "acceptance.py"
+CLI = Path(__file__).with_name("device_harness.py")
 FAKE_ADB = r'''#!/usr/bin/env python3
 import base64,json,os,sys,time
 from pathlib import Path
 p=Path(os.environ['FAKE_ADB_STATE']); s=json.loads(p.read_text()); a=sys.argv[1:]
 if a[:1]==['-s']: a=a[2:]
 def save(): p.write_text(json.dumps(s))
+if a==['--acceptance-synthetic-adapter']: print('synthetic-adapter-v1');sys.exit()
 if a==['devices','-l']: print('List of devices attached\nphone device model:TestPhone'); sys.exit()
 if not s.get('connected',True): print('device offline',file=sys.stderr); sys.exit(1)
 if a[:2]==['shell','settings']:
@@ -32,6 +34,7 @@ elif a[:3]==['shell','wm','density']: print('Physical density: 560')
 elif a[:3]==['shell','pm','path']: print('package:/data/app/test.apk')
 elif a[:2]==['shell','getprop']: print('TestPhone')
 elif a[:3]==['shell','am','start']:
+ s['starts']=s.get('starts',0)+1;save()
  s['focus']='com.metvage.acceptance.phone';save()
 elif a==['shell','dumpsys','window']:
  if s.get('null_focus_reads',0):
@@ -78,7 +81,7 @@ class DeviceCliTest(unittest.TestCase):
         adb.chmod(0o700)
         self.config = self.root / "config.json"
         self.config.write_text(json.dumps({
-            "driverOnly": True, "adb": str(adb), "serial": "phone", "package": "com.metvage.acceptance.phone",
+            "adb": str(adb), "serial": "phone", "package": "com.metvage.acceptance.phone",
             "runRoot": str(self.root / "runs"), "reversePorts": {"8081": 8081, "18080": 18080},
         }))
         self.plan = self.root / "plan.json"
@@ -251,11 +254,44 @@ class DeviceCliTest(unittest.TestCase):
         self.assertEqual(json.loads(self.state.read_text())['null_focus_reads'],0)
 
     def test_normal_run_without_source_configuration_is_rejected(self):
-        config=json.loads(self.config.read_text());config.pop('driverOnly');self.config.write_text(json.dumps(config))
-        result=self.run_cli('run','--run-id','missing-source','--plan',str(self.plan))
+        config=json.loads(self.config.read_text())
+        config['driverOnly']=True  # A former bypass flag must have no effect.
+        self.config.write_text(json.dumps(config))
+        result=subprocess.run([sys.executable,str(PRODUCTION_CLI),'--config',str(self.config),'run','--run-id','missing-source','--plan',str(self.plan)],env=self.env,capture_output=True,text=True,timeout=15)
         self.assertEqual(result.returncode,1,result.stdout)
         self.assertIn('mobileRoot',result.stdout)
         self.assertNotIn('inputs',json.loads(self.state.read_text()))
+
+    def test_all_action_fields_are_checked_before_any_input(self):
+        for bad in [{'action':'swipe'}, {'action':'swipe','fractions':[0,0,1,2]}, {'action':'capture','name':'../outside'}, {'action':'open','path':'https://outside.test','expect':{'label':'ready'}}, {'action':'back','expect':{'label':''}}, {'action':[]}, {'action':'api_connection','state':[]}, {'action':'back','expect':{'keyboard':[]}}]:
+            with self.subTest(bad=bad):
+                self.state.write_text(json.dumps(self.initial))
+                self.plan.write_text(json.dumps({'steps':[{'action':'type','text':'must-not-run'},bad]}))
+                result=self.run_cli('run','--run-id','invalid-fields','--plan',str(self.plan))
+                self.assertEqual(result.returncode,1,result.stdout)
+                self.assertEqual(json.loads(result.stdout)['status'],'fail')
+                self.assertNotIn('inputs',json.loads(self.state.read_text()))
+
+    def test_empty_expanded_navigation_label_is_rejected_before_input(self):
+        config=json.loads(self.config.read_text());config['variables']={'empty':''};self.config.write_text(json.dumps(config))
+        self.plan.write_text('{"steps":[{"action":"type","text":"must-not-run"},{"action":"back","expect":{"label":"{empty}"}}]}')
+        result=self.run_cli('run','--run-id','empty-expanded','--plan',str(self.plan))
+        self.assertEqual(result.returncode,1,result.stdout)
+        self.assertNotIn('inputs',json.loads(self.state.read_text()))
+
+    def test_harness_rejects_an_unrecognised_adapter_before_device_commands(self):
+        log=self.root/'adapter-call.json';adapter=self.root/'unknown-adapter'
+        adapter.write_text('#!/usr/bin/env python3\nimport sys,json\nfrom pathlib import Path\nPath('+repr(str(log))+').write_text(json.dumps(sys.argv[1:]))\nprint("unrecognised")\n')
+        adapter.chmod(0o700)
+        config=json.loads(self.config.read_text());config['adb']=str(adapter);self.config.write_text(json.dumps(config))
+        result=self.run_cli('run','--run-id','unknown-adapter','--plan',str(self.plan))
+        self.assertEqual(result.returncode,1,result.stdout)
+        self.assertEqual(json.loads(log.read_text()),['--acceptance-synthetic-adapter'])
+
+    def test_ready_foreground_app_does_not_receive_a_redundant_activity_launch(self):
+        result=self.run_cli('run','--run-id','already-ready','--plan',str(self.plan))
+        self.assertEqual(result.returncode,0,result.stdout)
+        self.assertEqual(json.loads(self.state.read_text()).get('starts',0),0)
 
 
 if __name__ == "__main__":

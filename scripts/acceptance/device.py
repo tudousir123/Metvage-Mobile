@@ -9,6 +9,7 @@ import time
 from urllib.parse import urlsplit
 import xml.etree.ElementTree as ET
 
+from plans import bind_plan, validate_condition, valid_app_path
 from runtime import AcceptanceError, execute, exclusive_lock, read_json, write_json
 
 
@@ -57,7 +58,7 @@ class Device:
             focus = re.search(r'mCurrentFocus=.*?\bu\d+\s+([^\s/]+)/', window)
             if focus:
                 if focus.group(1) != self.package:
-                    raise AcceptanceError('Foreground changed: device operation stopped before reading/capturing another app')
+                    raise AcceptanceError('Foreground changed to ' + focus.group(1) + ': stopped before reading/capturing another app')
                 return window
             if time.monotonic() >= deadline:
                 raise AcceptanceError('Test App focus unavailable; no UI was read')
@@ -151,6 +152,7 @@ class Device:
         raise AcceptanceError('Tap target not visible before timeout')
 
     def wait_condition(self, condition, timeout=15):
+        validate_condition(condition)
         deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
             nodes, _ = self.tree()
@@ -172,7 +174,7 @@ class Device:
         return schemes[0]
 
     def open_path(self, path):
-        if not path.startswith('/') or any(ch in path for ch in ["'", '"', '\n', '\r', ' ']):
+        if not valid_app_path(path):
             raise AcceptanceError('Open path must be an encoded app-relative route')
         self.foreground()
         url = self.installed_scheme() + '://' + path
@@ -303,23 +305,25 @@ class Device:
                               adb_seconds=round(self.adb_seconds-adb_time,3), ui_reads=self.ui_reads-reads)
 
     def run_plan(self, plan, directory, run_id, fail_after=None):
-        self.call("shell", "am", "start", "-n", self.package + "/.MainActivity")
-        deadline = time.monotonic() + 10
-        while True:
-            try:
-                self.foreground()
-                break
-            except AcceptanceError:
-                if time.monotonic() >= deadline:
-                    raise AcceptanceError("Test app did not reach the foreground after launch")
-                time.sleep(0.1)
+        if not plan.get("_bound"):
+            plan = bind_plan(plan, self.config.get("variables",{}), run_id)
+        try:
+            self.foreground()
+        except AcceptanceError:
+            self.preflight()
+            self.call('shell','am','start','-n',self.package + '/.MainActivity')
+            deadline = time.monotonic() + 10
+            while True:
+                try:
+                    self.foreground()
+                    break
+                except AcceptanceError:
+                    if time.monotonic() >= deadline:
+                        raise AcceptanceError('Test app did not reach the foreground after launch')
+                    time.sleep(0.1)
         for index, step in enumerate(plan["steps"], 1):
             action = step["action"]
-            def expand(value):
-                for key, replacement in {**self.config.get("variables", {}), "run_id": run_id}.items():
-                    value = value.replace("{" + key + "}", str(replacement))
-                return value
-            label = expand(step.get("label", ""))
+            label = step.get("label", "")
             with self.measured_step(index, action):
                 if action == "assert":
                     self.wait_label(label, timeout=step.get("timeout",15))
@@ -327,7 +331,7 @@ class Device:
                     self.tap(label, step.get("index"))
                 elif action == "type":
                     self.foreground()
-                    value = expand(step["text"])
+                    value = step["text"]
                     if not value.isascii():
                         raise AcceptanceError("adb text input supports ASCII here; use the API for Unicode fixture names")
                     self.call("shell", "input", "text", shlex.quote(value.replace(" ", "%s")))
@@ -335,7 +339,7 @@ class Device:
                     self.foreground()
                     self.call("shell", "input", "keyevent", "KEYCODE_BACK")
                 elif action == 'open':
-                    self.open_path(expand(step['path']))
+                    self.open_path(step['path'])
                 elif action == 'api_connection':
                     self.change_api_connection(directory, step['state'])
                 elif action == 'touch':
@@ -377,6 +381,6 @@ class Device:
                 else:
                     raise AcceptanceError("Unsupported acceptance plan action")
                 if step.get('expect'):
-                    self.wait_condition({key: expand(value) for key, value in step['expect'].items()}, timeout=step.get("timeout",15))
+                    self.wait_condition(step['expect'], timeout=step.get("timeout",15))
                 if index == fail_after:
                     raise AcceptanceError("Injected failure after requested step")
