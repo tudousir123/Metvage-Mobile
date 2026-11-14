@@ -1,0 +1,17 @@
+[
+  {
+    "summary": {
+      "status": "fail",
+      "command": "android-test-file-picker",
+      "seconds": 1.06,
+      "invocation": "3c5b0738cab14efb8105e77eebd55ff5",
+      "metrics": {
+        "adb_calls": 18,
+        "adb_seconds": 1.04,
+        "ui_reads": 0
+      },
+      "error": "Expected Android system photo/document picker",
+      "artifacts": ".acceptance/issue17-peer/runs/issue17-photo-public-system"
+    }
+  }
+]

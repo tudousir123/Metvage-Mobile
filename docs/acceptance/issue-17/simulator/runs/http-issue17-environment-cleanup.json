@@ -1,0 +1,54 @@
+{
+  "environment": "local Android emulator",
+  "role": "http",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "emulator-environment-cleanup",
+        "seconds": 3.11,
+        "invocation": "d1893239194144729fe3958cee58efaf",
+        "artifacts": ".acceptance/issue17-sim-http/runs/issue17-environment-cleanup"
+      },
+      "invocation_id": "d1893239194144729fe3958cee58efaf",
+      "events": [
+        {
+          "action": "recovery",
+          "earlier_shell_process_match_was_too_broad": true,
+          "actual_owned_emulator_processes_stopped": true,
+          "fonts_already_restored": true,
+          "apps_already_removed": true
+        },
+        {
+          "action": "owned_avds_removed",
+          "count": 2,
+          "preexisting_avds_retained": true
+        },
+        {
+          "action": "metro_stop_requested",
+          "owned_worktree": true
+        }
+      ]
+    },
+    {
+      "summary": null,
+      "invocation_id": "f9917a4c709a4d1ab4ba332e035426cb",
+      "events": [
+        {
+          "action": "owned_emulator_restored",
+          "role": "U2",
+          "font_restored": true,
+          "test_package_removed": true,
+          "ports_restored": true
+        },
+        {
+          "action": "owned_emulator_restored",
+          "role": "U1",
+          "font_restored": true,
+          "test_package_removed": true,
+          "ports_restored": true
+        }
+      ]
+    }
+  ]
+}

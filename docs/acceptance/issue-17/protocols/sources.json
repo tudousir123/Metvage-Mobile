@@ -1,0 +1,32 @@
+[
+  {
+    "file": "http-checks.py",
+    "original_source_sha256": "d485084a180d3287a8a76e214332ef60c2fa49de79726bd8d8d581ece699bd03",
+    "published_sha256": "d485084a180d3287a8a76e214332ef60c2fa49de79726bd8d8d581ece699bd03",
+    "transformation": "Replace absolute private server path with <serverRoot>; no logic change"
+  },
+  {
+    "file": "technical-team.py",
+    "original_source_sha256": "7c95c1d52ec74d734adb16715cbb964438c6f110ee7a1dc851da3d77d3ba66f0",
+    "published_sha256": "7c95c1d52ec74d734adb16715cbb964438c6f110ee7a1dc851da3d77d3ba66f0",
+    "transformation": "Replace absolute private server path with <serverRoot>; no logic change"
+  },
+  {
+    "file": "android-file-picker.py",
+    "original_source_sha256": "8a59585a4b4fbea55f81b2d15dcff34649bc6b27766eb535e123e30d53389c6b",
+    "published_sha256": "8a59585a4b4fbea55f81b2d15dcff34649bc6b27766eb535e123e30d53389c6b",
+    "transformation": "Replace absolute private server path with <serverRoot>; no logic change"
+  },
+  {
+    "file": "browser-driver.mjs",
+    "original_source_sha256": "670b517c8d2d6f81e57b83aba52530754dba00a625bb81c24ad4a5596f40feaf",
+    "published_sha256": "68fb3d4fbadc8656354ab854a52734fa0418ead029bf4cf144306b6b6124c12b",
+    "transformation": "Replace absolute private server path with <serverRoot>; no logic change"
+  },
+  {
+    "file": "android-oauth-login.py",
+    "original_source_sha256": "239734fadc74169e15fd6a8a6f86a14e11c0da412b3b47e0122e99f30f2e7d6d",
+    "published_sha256": "239734fadc74169e15fd6a8a6f86a14e11c0da412b3b47e0122e99f30f2e7d6d",
+    "transformation": "Replace absolute private server path with <serverRoot>; no logic change"
+  }
+]

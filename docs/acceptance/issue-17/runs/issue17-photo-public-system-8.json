@@ -1,0 +1,34 @@
+[
+  {
+    "summary": {
+      "status": "fail",
+      "command": "android-test-file-picker",
+      "seconds": 10.63,
+      "invocation": "37c99f9037cd4686983757234d91a8f4",
+      "metrics": {
+        "adb_calls": 36,
+        "adb_seconds": 10.562,
+        "ui_reads": 3
+      },
+      "error": "",
+      "artifacts": ".acceptance/issue17-peer/runs/issue17-photo-public-system-8"
+    },
+    "events": [
+      {
+        "action": "verified_test_asset",
+        "filename": "metvage-issue17-generated-cat.png",
+        "sha256": "39ab622d2169afa4bf7ab5dc8b37160eca48bfeacf01ba0315013d6a1a828da4",
+        "modified": 1794218557,
+        "locator": "照片，2026年11月9日 18:02:37"
+      },
+      {
+        "action": "picker_control",
+        "target": "verified-generated-image"
+      },
+      {
+        "action": "picker_control",
+        "target": "confirm-one-generated-image"
+      }
+    ]
+  }
+]

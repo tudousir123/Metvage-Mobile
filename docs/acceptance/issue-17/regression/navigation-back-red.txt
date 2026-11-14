@@ -1,0 +1,213 @@
+FAIL __tests__/native-intent.test.ts
+  ✕ warm Android business link pushes a fresh screen: /pets/20/records (19 ms)
+  ✕ warm Android business link pushes a fresh screen: /settings/pets?edit=19 (2 ms)
+  ✕ warm Android business link pushes a fresh screen: /pet/17 (1 ms)
+  ✕ warm Android business link pushes a fresh screen: /note/26 (1 ms)
+  ✕ warm Android business link pushes a fresh screen: /records/26/edit
+  ✕ warm Android business link pushes a fresh screen: /reports/new?target_type=record&target_id=26 (1 ms)
+  ✕ warm Android business link pushes a fresh screen: /following (1 ms)
+  ✓ cold launch and OAuth callback retain normal Router handling (1 ms)
+  ✓ iOS and share intents retain their existing handling
+  ✕ normalizes a business link without discarding its host path: pixelfed://note/26 (1 ms)
+  ✕ normalizes a business link without discarding its host path: metvagephone://note/26
+  ✕ normalizes a business link without discarding its host path: /note/26 (1 ms)
+  ✕ web links keep the default Router handling (1 ms)
+
+  ● warm Android business link pushes a fresh screen: /pets/20/records
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "/pets/20/records"
+
+    Number of calls: 0
+
+      19 | ])('warm Android business link pushes a fresh screen: %s', (path) => {
+      20 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+    > 21 |   expect(router.push).toHaveBeenCalledWith(path)
+         |                       ^
+      22 | })
+      23 |
+      24 | test('cold launch and OAuth callback retain normal Router handling', () => {
+
+      at toHaveBeenCalledWith (__tests__/native-intent.test.ts:21:23)
+
+  ● warm Android business link pushes a fresh screen: /settings/pets?edit=19
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "/settings/pets?edit=19"
+
+    Number of calls: 0
+
+      19 | ])('warm Android business link pushes a fresh screen: %s', (path) => {
+      20 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+    > 21 |   expect(router.push).toHaveBeenCalledWith(path)
+         |                       ^
+      22 | })
+      23 |
+      24 | test('cold launch and OAuth callback retain normal Router handling', () => {
+
+      at toHaveBeenCalledWith (__tests__/native-intent.test.ts:21:23)
+
+  ● warm Android business link pushes a fresh screen: /pet/17
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "/pet/17"
+
+    Number of calls: 0
+
+      19 | ])('warm Android business link pushes a fresh screen: %s', (path) => {
+      20 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+    > 21 |   expect(router.push).toHaveBeenCalledWith(path)
+         |                       ^
+      22 | })
+      23 |
+      24 | test('cold launch and OAuth callback retain normal Router handling', () => {
+
+      at toHaveBeenCalledWith (__tests__/native-intent.test.ts:21:23)
+
+  ● warm Android business link pushes a fresh screen: /note/26
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "/note/26"
+
+    Number of calls: 0
+
+      19 | ])('warm Android business link pushes a fresh screen: %s', (path) => {
+      20 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+    > 21 |   expect(router.push).toHaveBeenCalledWith(path)
+         |                       ^
+      22 | })
+      23 |
+      24 | test('cold launch and OAuth callback retain normal Router handling', () => {
+
+      at toHaveBeenCalledWith (__tests__/native-intent.test.ts:21:23)
+
+  ● warm Android business link pushes a fresh screen: /records/26/edit
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "/records/26/edit"
+
+    Number of calls: 0
+
+      19 | ])('warm Android business link pushes a fresh screen: %s', (path) => {
+      20 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+    > 21 |   expect(router.push).toHaveBeenCalledWith(path)
+         |                       ^
+      22 | })
+      23 |
+      24 | test('cold launch and OAuth callback retain normal Router handling', () => {
+
+      at toHaveBeenCalledWith (__tests__/native-intent.test.ts:21:23)
+
+  ● warm Android business link pushes a fresh screen: /reports/new?target_type=record&target_id=26
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "/reports/new?target_type=record&target_id=26"
+
+    Number of calls: 0
+
+      19 | ])('warm Android business link pushes a fresh screen: %s', (path) => {
+      20 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+    > 21 |   expect(router.push).toHaveBeenCalledWith(path)
+         |                       ^
+      22 | })
+      23 |
+      24 | test('cold launch and OAuth callback retain normal Router handling', () => {
+
+      at toHaveBeenCalledWith (__tests__/native-intent.test.ts:21:23)
+
+  ● warm Android business link pushes a fresh screen: /following
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "/following"
+
+    Number of calls: 0
+
+      19 | ])('warm Android business link pushes a fresh screen: %s', (path) => {
+      20 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+    > 21 |   expect(router.push).toHaveBeenCalledWith(path)
+         |                       ^
+      22 | })
+      23 |
+      24 | test('cold launch and OAuth callback retain normal Router handling', () => {
+
+      at toHaveBeenCalledWith (__tests__/native-intent.test.ts:21:23)
+
+  ● normalizes a business link without discarding its host path: pixelfed://note/26
+
+    expect(received).toBeNull()
+
+    Received: "pixelfed://note/26"
+
+      48 |
+      49 |  test.each(['pixelfed://note/26', 'metvagephone://note/26', '/note/26'])('normalizes a business link without discarding its host path: %s', (path) => {
+    > 50 |   expect(redirectSystemPath({ path, initial: false })).toBeNull()
+         |                                                        ^
+      51 |   expect(router.push).toHaveBeenCalledWith('/note/26')
+      52 | })
+      53 |
+
+      at toBeNull (__tests__/native-intent.test.ts:50:56)
+
+  ● normalizes a business link without discarding its host path: metvagephone://note/26
+
+    expect(received).toBeNull()
+
+    Received: "metvagephone://note/26"
+
+      48 |
+      49 |  test.each(['pixelfed://note/26', 'metvagephone://note/26', '/note/26'])('normalizes a business link without discarding its host path: %s', (path) => {
+    > 50 |   expect(redirectSystemPath({ path, initial: false })).toBeNull()
+         |                                                        ^
+      51 |   expect(router.push).toHaveBeenCalledWith('/note/26')
+      52 | })
+      53 |
+
+      at toBeNull (__tests__/native-intent.test.ts:50:56)
+
+  ● normalizes a business link without discarding its host path: /note/26
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "/note/26"
+
+    Number of calls: 0
+
+      49 |  test.each(['pixelfed://note/26', 'metvagephone://note/26', '/note/26'])('normalizes a business link without discarding its host path: %s', (path) => {
+      50 |   expect(redirectSystemPath({ path, initial: false })).toBeNull()
+    > 51 |   expect(router.push).toHaveBeenCalledWith('/note/26')
+         |                       ^
+      52 | })
+      53 |
+      54 | test('web links keep the default Router handling', () => {
+
+      at toHaveBeenCalledWith (__tests__/native-intent.test.ts:51:23)
+
+  ● web links keep the default Router handling
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "https://example.test/note/26"
+    Received: null
+
+      54 | test('web links keep the default Router handling', () => {
+      55 |   const path = 'https://example.test/note/26'
+    > 56 |   expect(redirectSystemPath({ path, initial: false })).toBe(path)
+         |                                                        ^
+      57 |   expect(router.push).not.toHaveBeenCalled()
+      58 | })
+      59 |
+
+      at Object.toBe (__tests__/native-intent.test.ts:56:56)
+
+Test Suites: 1 failed, 1 total
+Tests:       11 failed, 2 passed, 13 total
+Snapshots:   0 total
+Time:        1.025 s
+Ran all test suites matching /__tests__\/native-intent.test.ts/i.

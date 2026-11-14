@@ -1,0 +1,20 @@
+PASS __tests__/native-intent.test.ts
+  ✓ warm Android business link pushes a fresh screen: /pets/20/records (19 ms)
+  ✓ warm Android business link pushes a fresh screen: /settings/pets?edit=19 (2 ms)
+  ✓ warm Android business link pushes a fresh screen: /pet/17 (1 ms)
+  ✓ warm Android business link pushes a fresh screen: /note/26
+  ✓ warm Android business link pushes a fresh screen: /records/26/edit (1 ms)
+  ✓ warm Android business link pushes a fresh screen: /reports/new?target_type=record&target_id=26 (1 ms)
+  ✓ warm Android business link pushes a fresh screen: /following (1 ms)
+  ✓ cold launch and OAuth callback retain normal Router handling (1 ms)
+  ✓ iOS and share intents retain their existing handling (1 ms)
+  ✓ normalizes a business link without discarding its host path: pixelfed://note/26 (1 ms)
+  ✓ normalizes a business link without discarding its host path: metvagephone://note/26
+  ✓ normalizes a business link without discarding its host path: /note/26
+  ✓ web links keep the default Router handling (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       13 passed, 13 total
+Snapshots:   0 total
+Time:        1.061 s
+Ran all test suites matching /__tests__\/native-intent.test.ts/i.

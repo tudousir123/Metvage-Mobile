@@ -1,0 +1,16 @@
+{
+  "steps": [
+    {
+      "action": "assert",
+      "label": "17Dog的时间线"
+    },
+    {
+      "action": "assert",
+      "label": "issue17-text-private"
+    },
+    {
+      "action": "capture",
+      "name": "cold-return-private-timeline"
+    }
+  ]
+}

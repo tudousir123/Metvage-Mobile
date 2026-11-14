@@ -1,0 +1,161 @@
+[
+  {
+    "summary": {
+      "status": "interrupted",
+      "command": "run",
+      "seconds": 68.27,
+      "invocation": "7240935f0c7c4d919aad1562b19fcabc",
+      "metrics": {
+        "adb_calls": 140,
+        "adb_seconds": 67.582,
+        "ui_reads": 21
+      },
+      "error": "Interrupted; inspect restoration journal before resuming",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-unavailable"
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "issue17-unavailable.json",
+            "sha256": "37b8b85fe6dcff3e12edfba3dfab158f049e4b204d4305da5e9937d91bb42b2f"
+          }
+        ]
+      },
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "c3c687ac841e88f552623da27351cd22b3d7ba9a",
+          "dirty": true,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "metro": {
+          "port": 8081,
+          "root": "<mobileRoot>"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime",
+        "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+        "scheme": "pixelfed",
+        "app_pid": "13582",
+        "metro_pid": 1282865
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 6.737,
+        "adb_calls": 8,
+        "adb_seconds": 6.732,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 8.859,
+        "adb_calls": 16,
+        "adb_seconds": 8.848,
+        "ui_reads": 3
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-unavailable/unavailable-shop.png"
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.711,
+        "adb_calls": 21,
+        "adb_seconds": 10.696,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 4,
+        "operation": "back",
+        "status": "pass",
+        "seconds": 3.293,
+        "adb_calls": 7,
+        "adb_seconds": 3.289,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 5,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 9.039,
+        "adb_calls": 16,
+        "adb_seconds": 9.028,
+        "ui_reads": 3
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-unavailable/unavailable-daily-inspiration.png"
+      },
+      {
+        "action": "step",
+        "number": 6,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 11.595,
+        "adb_calls": 21,
+        "adb_seconds": 11.58,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 7,
+        "operation": "back",
+        "status": "pass",
+        "seconds": 3.216,
+        "adb_calls": 7,
+        "adb_seconds": 3.211,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 8,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 8.919,
+        "adb_calls": 16,
+        "adb_seconds": 8.908,
+        "ui_reads": 3
+      },
+      {
+        "action": "step",
+        "number": 9,
+        "operation": "capture",
+        "status": "fail",
+        "seconds": 4.091,
+        "adb_calls": 7,
+        "adb_seconds": 4.088,
+        "ui_reads": 1
+      }
+    ]
+  }
+]

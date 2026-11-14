@@ -1,0 +1,38 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "issue17-http-unblocked",
+      "seconds": 2.19,
+      "invocation": "3b6fb458eb53416a9f1578243994f1f5",
+      "artifacts": ".acceptance/runs/issue17-http-unblocked"
+    },
+    "events": [
+      {
+        "action": "assertion",
+        "name": "One access token in isolated U2 test App",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/26",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "App unblock persisted without leaving a block",
+        "result": "pass"
+      }
+    ]
+  }
+]

@@ -1,0 +1,96 @@
+FAIL __tests__/native-intent.test.ts
+  ✓ warm Android business link returns to its stack position: /pets/20/records (19 ms)
+  ✓ warm Android business link returns to its stack position: /settings/pets?edit=19 (2 ms)
+  ✕ warm Android business link returns to its stack position: /pet/17 (2 ms)
+  ✕ warm Android business link returns to its stack position: /note/26 (1 ms)
+  ✕ warm Android business link returns to its stack position: /records/26/edit (1 ms)
+  ✕ warm Android business link returns to its stack position: /reports/new?target_type=record&target_id=26 (1 ms)
+  ✕ warm Android business link returns to its stack position: /following
+  ✓ cold launch and OAuth callback retain normal Router handling (1 ms)
+  ✓ iOS and share intents retain their existing handling (1 ms)
+
+  ● warm Android business link returns to its stack position: /pet/17
+
+    expect(received).toBeNull()
+
+    Received: "pixelfed:///pet/17"
+
+      18 |   '/following',
+      19 | ])('warm Android business link returns to its stack position: %s', (path) => {
+    > 20 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+         |                                                                              ^
+      21 |   expect(router.dismissTo).toHaveBeenCalledWith(path)
+      22 | })
+      23 |
+
+      at toBeNull (__tests__/native-intent.test.ts:20:78)
+
+  ● warm Android business link returns to its stack position: /note/26
+
+    expect(received).toBeNull()
+
+    Received: "pixelfed:///note/26"
+
+      18 |   '/following',
+      19 | ])('warm Android business link returns to its stack position: %s', (path) => {
+    > 20 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+         |                                                                              ^
+      21 |   expect(router.dismissTo).toHaveBeenCalledWith(path)
+      22 | })
+      23 |
+
+      at toBeNull (__tests__/native-intent.test.ts:20:78)
+
+  ● warm Android business link returns to its stack position: /records/26/edit
+
+    expect(received).toBeNull()
+
+    Received: "pixelfed:///records/26/edit"
+
+      18 |   '/following',
+      19 | ])('warm Android business link returns to its stack position: %s', (path) => {
+    > 20 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+         |                                                                              ^
+      21 |   expect(router.dismissTo).toHaveBeenCalledWith(path)
+      22 | })
+      23 |
+
+      at toBeNull (__tests__/native-intent.test.ts:20:78)
+
+  ● warm Android business link returns to its stack position: /reports/new?target_type=record&target_id=26
+
+    expect(received).toBeNull()
+
+    Received: "pixelfed:///reports/new?target_type=record&target_id=26"
+
+      18 |   '/following',
+      19 | ])('warm Android business link returns to its stack position: %s', (path) => {
+    > 20 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+         |                                                                              ^
+      21 |   expect(router.dismissTo).toHaveBeenCalledWith(path)
+      22 | })
+      23 |
+
+      at toBeNull (__tests__/native-intent.test.ts:20:78)
+
+  ● warm Android business link returns to its stack position: /following
+
+    expect(received).toBeNull()
+
+    Received: "pixelfed:///following"
+
+      18 |   '/following',
+      19 | ])('warm Android business link returns to its stack position: %s', (path) => {
+    > 20 |   expect(redirectSystemPath({ path: `pixelfed://${path}`, initial: false })).toBeNull()
+         |                                                                              ^
+      21 |   expect(router.dismissTo).toHaveBeenCalledWith(path)
+      22 | })
+      23 |
+
+      at toBeNull (__tests__/native-intent.test.ts:20:78)
+
+Test Suites: 1 failed, 1 total
+Tests:       5 failed, 4 passed, 9 total
+Snapshots:   0 total
+Time:        1.072 s
+Ran all test suites matching /__tests__\/native-intent.test.ts/i.

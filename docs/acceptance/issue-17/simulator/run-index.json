@@ -1,0 +1,491 @@
+[
+  {
+    "role": "peer",
+    "run": "issue17-cold-matrix",
+    "file": "runs/peer-issue17-cold-matrix.json",
+    "invocations": [
+      {
+        "id": "ad2badc61f994338b544a5813556a969",
+        "status": "pass",
+        "seconds": 110.94
+      },
+      {
+        "id": "b6c797d6ebf348f68ca68629688ce577",
+        "status": "fail",
+        "seconds": 123.49
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-cold-resume",
+    "file": "runs/peer-issue17-cold-resume.json",
+    "invocations": [
+      {
+        "id": "2912ad59c4254858bfdf700d2c84a29e",
+        "status": "fail",
+        "seconds": 18.05
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-dog-social-readonly",
+    "file": "runs/peer-issue17-dog-social-readonly.json",
+    "invocations": [
+      {
+        "id": "70b252b7b7de44288e6fff8f812d9b1d",
+        "status": "pass",
+        "seconds": 20.52
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-edited-readonly",
+    "file": "runs/peer-issue17-edited-readonly.json",
+    "invocations": [
+      {
+        "id": "53020177c0294fe5b7e3cd42f63421d2",
+        "status": "pass",
+        "seconds": 24.18
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-final-guest",
+    "file": "runs/peer-issue17-final-guest.json",
+    "invocations": [
+      {
+        "id": "bbf10bd4c5054645a435fd038d2e9b6b",
+        "status": "pass",
+        "seconds": 135.44
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-peer-private-boundary",
+    "file": "runs/peer-issue17-peer-private-boundary.json",
+    "invocations": [
+      {
+        "id": "3b092ac9524e4d9688d8123b48b80ff5",
+        "status": "pass",
+        "seconds": 57.83
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-peer-public-boundary",
+    "file": "runs/peer-issue17-peer-public-boundary.json",
+    "invocations": [
+      {
+        "id": "9605398636c546e39bd0d05e6b59f738",
+        "status": "pass",
+        "seconds": 39.77
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-sim-cold-header-inspect",
+    "file": "runs/peer-issue17-sim-cold-header-inspect.json",
+    "invocations": [
+      {
+        "id": "3a1ea6327fe6411db00042c5f026fba3",
+        "status": "pass",
+        "seconds": 5.39
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-sim-cold-inspect",
+    "file": "runs/peer-issue17-sim-cold-inspect.json",
+    "invocations": [
+      {
+        "id": "ed38789da81042a0937466d026ef2205",
+        "status": "pass",
+        "seconds": 5.46
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-sim-peer-cold",
+    "file": "runs/peer-issue17-sim-peer-cold.json",
+    "invocations": [
+      {
+        "id": "0193e37127bf4173be9b93fb8b7ddd27",
+        "status": "pass",
+        "seconds": 16.15
+      },
+      {
+        "id": "9491d0a71b5341cb8351cad6202df511",
+        "status": "pass",
+        "seconds": 21.32
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-sim-peer-config-final-launch",
+    "file": "runs/peer-issue17-sim-peer-config-final-launch.json",
+    "invocations": [
+      {
+        "id": "07980e4a772f4448b73079b995cb3331",
+        "status": "pass",
+        "seconds": 15.17
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-sim-peer-config-launch",
+    "file": "runs/peer-issue17-sim-peer-config-launch.json",
+    "invocations": [
+      {
+        "id": "09036b0b0b59458bb37695d6ad7a9b10",
+        "status": "pass",
+        "seconds": 16.74
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-sim-peer-launch",
+    "file": "runs/peer-issue17-sim-peer-launch.json",
+    "invocations": [
+      {
+        "id": "07bf39f18597426c891e18fc918e2508",
+        "status": "pass",
+        "seconds": 35.03
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-sim-u2-oauth",
+    "file": "runs/peer-issue17-sim-u2-oauth.json",
+    "invocations": [
+      {
+        "id": "00867241ea704c41918cfcd7bb573d41",
+        "status": "fail",
+        "seconds": 7.85
+      },
+      {
+        "id": "432ec227e9c2462db736aee0a30672d9",
+        "status": "fail",
+        "seconds": 88.04
+      },
+      {
+        "id": "9f40119af23847dcbe932d57cd1f016d",
+        "status": "pass",
+        "seconds": 50.02
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-team-delete-guest",
+    "file": "runs/peer-issue17-team-delete-guest.json",
+    "invocations": [
+      {
+        "id": "3e3bcf12178746beb6e0ec1632aca040",
+        "status": "pass",
+        "seconds": 20.55
+      }
+    ]
+  },
+  {
+    "role": "peer",
+    "run": "issue17-unavailable",
+    "file": "runs/peer-issue17-unavailable.json",
+    "invocations": [
+      {
+        "id": "13b8d6d0d348451cb6aea2780455144c",
+        "status": "pass",
+        "seconds": 197.82
+      }
+    ]
+  },
+  {
+    "role": "owner",
+    "run": "issue17-owner-combined-repro",
+    "file": "runs/owner-issue17-owner-combined-repro.json",
+    "invocations": [
+      {
+        "id": "415a5fcca61245d8b42307405657ee49",
+        "status": "pass",
+        "seconds": 77.11
+      }
+    ]
+  },
+  {
+    "role": "owner",
+    "run": "issue17-owner-edit-delete",
+    "file": "runs/owner-issue17-owner-edit-delete.json",
+    "invocations": [
+      {
+        "id": "a1c5dea9790b4a26ac823e8be4e79fbf",
+        "status": "pass",
+        "seconds": 111.24
+      }
+    ]
+  },
+  {
+    "role": "owner",
+    "run": "issue17-owner-notifications",
+    "file": "runs/owner-issue17-owner-notifications.json",
+    "invocations": [
+      {
+        "id": "9132b0ceae8e4e92b2ad7f8c5fd36c5f",
+        "status": "pass",
+        "seconds": 42.51
+      }
+    ]
+  },
+  {
+    "role": "owner",
+    "run": "issue17-owner-private",
+    "file": "runs/owner-issue17-owner-private.json",
+    "invocations": [
+      {
+        "id": "0346b1041cfd4e79837db4b300cb4d5e",
+        "status": "pass",
+        "seconds": 42.44
+      }
+    ]
+  },
+  {
+    "role": "owner",
+    "run": "issue17-owner-public",
+    "file": "runs/owner-issue17-owner-public.json",
+    "invocations": [
+      {
+        "id": "bdfd3663a2be4259b62e299972652d0a",
+        "status": "pass",
+        "seconds": 42.62
+      }
+    ]
+  },
+  {
+    "role": "owner",
+    "run": "issue17-owner-repro-cold",
+    "file": "runs/owner-issue17-owner-repro-cold.json",
+    "invocations": [
+      {
+        "id": "97854489b5f945e1971a20dbf36fbc41",
+        "status": "pass",
+        "seconds": 21.2
+      }
+    ]
+  },
+  {
+    "role": "owner",
+    "run": "issue17-remove-photo-repro",
+    "file": "runs/owner-issue17-remove-photo-repro.json",
+    "invocations": [
+      {
+        "id": "c1b9aa75fd3a45a0b9bd37ada5729628",
+        "status": "pass",
+        "seconds": 44.9
+      }
+    ]
+  },
+  {
+    "role": "owner",
+    "run": "issue17-sim-owner-launch",
+    "file": "runs/owner-issue17-sim-owner-launch.json",
+    "invocations": [
+      {
+        "id": "e4d501082fff43f1bb321941a3bf5c83",
+        "status": "pass",
+        "seconds": 16.97
+      }
+    ]
+  },
+  {
+    "role": "owner",
+    "run": "issue17-sim-u1-oauth",
+    "file": "runs/owner-issue17-sim-u1-oauth.json",
+    "invocations": [
+      {
+        "id": "20f7f6884b8c4519ace74c064c2b241f",
+        "status": "pass",
+        "seconds": 47.6
+      }
+    ]
+  },
+  {
+    "role": "http",
+    "run": "issue17-environment-cleanup",
+    "file": "runs/http-issue17-environment-cleanup.json",
+    "invocations": [
+      {
+        "id": "d1893239194144729fe3958cee58efaf",
+        "status": "pass",
+        "seconds": 3.11
+      },
+      {
+        "id": "f9917a4c709a4d1ab4ba332e035426cb",
+        "status": "no-completion-summary",
+        "seconds": null
+      }
+    ]
+  },
+  {
+    "role": "http",
+    "run": "issue17-finalize",
+    "file": "runs/http-issue17-finalize.json",
+    "invocations": [
+      {
+        "id": "e9031c5e278144c4a4cfac87950b6784",
+        "status": "pass",
+        "seconds": 177.36
+      }
+    ]
+  },
+  {
+    "role": "http",
+    "run": "issue17-http-cold",
+    "file": "runs/http-issue17-http-cold.json",
+    "invocations": [
+      {
+        "id": "f1d8e7777f3b4a5fb3a770ac6147fb33",
+        "status": "pass",
+        "seconds": 2.28
+      }
+    ]
+  },
+  {
+    "role": "http",
+    "run": "issue17-http-deleted",
+    "file": "runs/http-issue17-http-deleted.json",
+    "invocations": [
+      {
+        "id": "7cbb12949c9343d1bc5b5bee7edc9da1",
+        "status": "pass",
+        "seconds": 3.28
+      }
+    ]
+  },
+  {
+    "role": "http",
+    "run": "issue17-http-dog-social",
+    "file": "runs/http-issue17-http-dog-social.json",
+    "invocations": [
+      {
+        "id": "26e383fe53894368a1fad712b8302189",
+        "status": "pass",
+        "seconds": 2.14
+      },
+      {
+        "id": "dd6ca0c0e8cc40b59f612dbd8fb007b6",
+        "status": "pass",
+        "seconds": 2.11
+      }
+    ]
+  },
+  {
+    "role": "http",
+    "run": "issue17-http-edit-fixture-restored",
+    "file": "runs/http-issue17-http-edit-fixture-restored.json",
+    "invocations": [
+      {
+        "id": "25bef2d266ed49858e485694c9152272",
+        "status": "pass",
+        "seconds": 1.91
+      }
+    ]
+  },
+  {
+    "role": "http",
+    "run": "issue17-http-edited",
+    "file": "runs/http-issue17-http-edited.json",
+    "invocations": [
+      {
+        "id": "342ab3ee650d4a5fa014ea7badb75937",
+        "status": "pass",
+        "seconds": 3.73
+      },
+      {
+        "id": "77fa673045df43d7b19e23f00f089d67",
+        "status": "pass",
+        "seconds": 3.02
+      },
+      {
+        "id": "d05a0e2ba61047bb85fe3e8da74a016b",
+        "status": "fail",
+        "seconds": 2.1
+      },
+      {
+        "id": "f6d8c4557b74414c9e2466881bd712e1",
+        "status": "pass",
+        "seconds": 3.05
+      }
+    ]
+  },
+  {
+    "role": "http",
+    "run": "issue17-http-edited-details",
+    "file": "runs/http-issue17-http-edited-details.json",
+    "invocations": [
+      {
+        "id": "16dbb65e73aa4b10945bf86076db5d0e",
+        "status": "no-completion-summary",
+        "seconds": null
+      }
+    ]
+  },
+  {
+    "role": "http",
+    "run": "issue17-http-pixels",
+    "file": "runs/http-issue17-http-pixels.json",
+    "invocations": [
+      {
+        "id": "e5989dad9be848b79a8b9841d7315729",
+        "status": "pass",
+        "seconds": 4.24
+      }
+    ]
+  },
+  {
+    "role": "http",
+    "run": "issue17-http-private",
+    "file": "runs/http-issue17-http-private.json",
+    "invocations": [
+      {
+        "id": "ab0c417df4db4cfb9e53c2c4d18f5664",
+        "status": "pass",
+        "seconds": 4.64
+      }
+    ]
+  },
+  {
+    "role": "http",
+    "run": "issue17-http-public",
+    "file": "runs/http-issue17-http-public.json",
+    "invocations": [
+      {
+        "id": "931432efeba648a6837e8be22ab43d26",
+        "status": "pass",
+        "seconds": 4.77
+      }
+    ]
+  },
+  {
+    "role": "http",
+    "run": "issue17-http-records",
+    "file": "runs/http-issue17-http-records.json",
+    "invocations": [
+      {
+        "id": "39bba15a703542b895d9d9518c6998ae",
+        "status": "pass",
+        "seconds": 8.42
+      }
+    ]
+  }
+]

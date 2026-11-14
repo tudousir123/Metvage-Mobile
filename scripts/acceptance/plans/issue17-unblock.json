@@ -1,0 +1,22 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/settings/blocked-pets",
+      "expect": {
+        "label": "取消屏蔽"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "取消屏蔽",
+      "expect": {
+        "label": "当前没有屏蔽关系"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "block-removed"
+    }
+  ]
+}

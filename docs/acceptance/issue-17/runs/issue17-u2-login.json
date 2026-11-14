@@ -1,0 +1,106 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "android-oauth-login",
+      "seconds": 33.76,
+      "invocation": "5f0f69af22494ca58d29a7c7e265669c",
+      "metrics": {
+        "adb_calls": 73,
+        "adb_seconds": 30.804,
+        "ui_reads": 9
+      },
+      "artifacts": ".acceptance/issue17-peer/runs/issue17-u2-login"
+    },
+    "events": [
+      {
+        "action": "runtime",
+        "source": "166fb69f844143cbe8af8526415f5093c2bd220e3a1338780eb9872effbfadb6",
+        "scheme": "pixelfed",
+        "app_pid": "21163",
+        "metro_pid": 1169523
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 2.789,
+        "adb_calls": 8,
+        "adb_seconds": 2.786,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 4.903,
+        "adb_calls": 11,
+        "adb_seconds": 4.899,
+        "ui_reads": 2
+      },
+      {
+        "action": "oauth_identity",
+        "role": "U2",
+        "verified_via_actual_app_token": true
+      },
+      {
+        "action": "screenshot",
+        "path": ".acceptance/issue17-peer/runs/issue17-u2-login/u2-home-after-oauth.png"
+      }
+    ]
+  },
+  {
+    "summary": {
+      "status": "pass",
+      "command": "android-oauth-login",
+      "seconds": 32.2,
+      "invocation": "ecc97e5849a7412e958b8293385a9915",
+      "metrics": {
+        "adb_calls": 68,
+        "adb_seconds": 28.716,
+        "ui_reads": 8
+      },
+      "artifacts": ".acceptance/issue17-peer/runs/issue17-u2-login"
+    },
+    "events": [
+      {
+        "action": "runtime",
+        "source": "fb554dd0999f3fd7548a6162dcda759de1d1fc047b5a10b59431ac625dd3d9a1",
+        "scheme": "pixelfed",
+        "app_pid": "18476",
+        "metro_pid": 1252841
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 2.738,
+        "adb_calls": 8,
+        "adb_seconds": 2.735,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 5.657,
+        "adb_calls": 11,
+        "adb_seconds": 5.653,
+        "ui_reads": 2
+      },
+      {
+        "action": "oauth_identity",
+        "role": "U2",
+        "verified_via_actual_app_token": true
+      },
+      {
+        "action": "screenshot",
+        "path": ".acceptance/issue17-peer/runs/issue17-u2-login/u2-home-after-oauth.png"
+      }
+    ]
+  }
+]

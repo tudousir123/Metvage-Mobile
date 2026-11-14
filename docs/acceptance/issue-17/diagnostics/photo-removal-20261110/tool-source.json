@@ -1,0 +1,45 @@
+{
+  "app_source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+  "git_parent_during_local_runs": "8a4297ca4eb2291e0955ef627c0b84e6b5e6670e",
+  "tools_tested_in_working_tree": true,
+  "local_node": "24.22.0",
+  "ci_node": "20",
+  "native_tested_files": [
+    {
+      "file": "scripts/acceptance/photo_probe.py",
+      "sha256": "95d95bb0daaf623b54fe1730501200254f83a509a456ec60b090bf0f5aa4361c"
+    },
+    {
+      "file": "scripts/acceptance/acceptance.py",
+      "sha256": "aa8a91155e86256b8dc2524902b514333ed8fb070186a3447497266a35684ec6"
+    },
+    {
+      "file": "scripts/acceptance/plans/photo-edit-probe.json",
+      "sha256": "090448d1cd113f19428399a20f2dbda6564bfaa73977720e5988756e7ce0e36c"
+    },
+    {
+      "file": "scripts/acceptance/tests/test_photo_probe.py",
+      "sha256": "5ffb17f45d82709393bf7ac11bb20d0276915bf6276a0a6eb46c9c3fef0198e6"
+    }
+  ],
+  "captured_native_tool_commit": "687bf51b63114d10b1e6b9bc2970cdc813b6f3af",
+  "current_files": [
+    {
+      "file": "scripts/acceptance/photo_probe.py",
+      "sha256": "0861b92ac3c9cb42e5158161c66dc4f921e6992584643f9a323e21a0a5b5e4b1"
+    },
+    {
+      "file": "scripts/acceptance/acceptance.py",
+      "sha256": "d0a91aec9ac843dd3d771ed385db7437d1c82ac7a6f8a408f16f9df1a3bc839f"
+    },
+    {
+      "file": "scripts/acceptance/plans/photo-edit-probe.json",
+      "sha256": "090448d1cd113f19428399a20f2dbda6564bfaa73977720e5988756e7ce0e36c"
+    },
+    {
+      "file": "scripts/acceptance/tests/test_photo_probe.py",
+      "sha256": "80afd4127fb6c7197a98b53b86f06922af79ffa3d5ce5eed02a5ab315a155497"
+    }
+  ],
+  "after_review_validation": "Recovery change tested against local HTTP service and real FixtureRun; no additional device tests"
+}

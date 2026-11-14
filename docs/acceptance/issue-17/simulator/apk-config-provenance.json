@@ -1,0 +1,9 @@
+{
+  "original_apk_sha256": "4c2f96b659ceb7ee2bd88512c95475feb8b6b196cb8cf54e386a9e141aefdc0a",
+  "simulator_apk_sha256": "fd19d8583e904a20d308ab1718f647ab0849bbcb385369cf1dbd7bd767e34103",
+  "method": "Regenerate assets/app.config using current METVAGE_LOCAL_TEST=1 expo config, zipalign and debug-sign; no native build claimed",
+  "native_libraries_unchanged": 28,
+  "config_sha256": "083118f603579365f064a52bed27781c3c78a801c864639e92018994bb246eb4",
+  "other_zip_entries_unchanged": 1970,
+  "android_manifest_unchanged": true
+}

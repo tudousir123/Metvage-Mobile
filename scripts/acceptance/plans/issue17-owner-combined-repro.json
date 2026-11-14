@@ -1,0 +1,71 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/records/{publicRecordId}/edit",
+      "expect": {
+        "label": "记录内容"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "记录内容"
+    },
+    {
+      "action": "type",
+      "text": "issue17-owner-edited",
+      "replace": true
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "记录标题（可选）"
+    },
+    {
+      "action": "type",
+      "text": "issue17-owner-title",
+      "replace": true
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "更改关联宠物"
+    },
+    {
+      "action": "tap",
+      "label": "麦芽"
+    },
+    {
+      "action": "tap",
+      "label": "移除第 1 张照片",
+      "expect": {
+        "label": "添加照片，已选 0 张，最多 9 张"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "combined-photo-removed-before-save"
+    },
+    {
+      "action": "tap",
+      "label": "保存更改",
+      "expect": {
+        "label": "把陪伴，写成故事"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "edited-and-reassociated"
+    }
+  ]
+}

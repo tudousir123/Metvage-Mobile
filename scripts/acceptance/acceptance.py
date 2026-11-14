@@ -14,6 +14,7 @@ from replay import replay, verify_api
 from doctor import diagnose
 from fixtures import FixtureRun
 from runtime import AcceptanceError, Report, exclusive_lock, execute, interruptible, read_json, run_directory
+from photo_probe import app_fixture_session, cleanup_app_fixtures, probe_photos, validate_probe_config
 
 
 def main():
@@ -52,6 +53,11 @@ def main():
     run.add_argument("--run-id", default="accept-" + uuid.uuid4().hex[:16])
     run.add_argument("--font-scale", type=float)
     run.add_argument("--fail-after-step", type=int)
+    probe = commands.add_parser('probe-photo-edit')
+    probe.add_argument('--run-id', required=True)
+    probe.add_argument('--iterations', type=int, default=1)
+    probe.add_argument('--font-scale', type=float, default=1.45)
+    probe.add_argument('--negative-control', action='store_true')
     cleanup = commands.add_parser("cleanup")
     cleanup.add_argument("--run-id", required=True)
     args = parser.parse_args()
@@ -93,7 +99,7 @@ def main():
             raise AcceptanceError('mobileRoot is required for App acceptance; synthetic drivers use the tests harness')
         if args.command == 'run':
             plan = bind_plan(plan, config.get('variables', {}), args.run_id)
-        device = Device(config, report) if args.command in {"run", "launch", "inspect", "replay"} or (args.command == "doctor" and not args.without_device) else None
+        device = Device(config, report) if args.command in {"run", "launch", "inspect", "replay", "probe-photo-edit"} or (args.command == "doctor" and not args.without_device) else None
         with interruptible():
             if args.command == 'discover':
                 from doctor import git_identity
@@ -133,6 +139,11 @@ def main():
                     device.run_plan(plan, directory, args.run_id, args.fail_after_step)
                 if config.get("mobileRoot"):
                     verify_runtime(config, device)
+            elif args.command == 'probe-photo-edit':
+                validate_probe_config(config, args.iterations)
+                diagnose(config, report, device)
+                probe_photos(config, device, directory, args.run_id, report,
+                             args.iterations, args.font_scale, args.negative_control)
             elif args.command == 'replay':
                 if config.get('mobileRoot'):
                     diagnose(config, report, device)
@@ -166,8 +177,13 @@ def main():
                     try:
                         with exclusive_lock("account:" + config["apiOrigin"] + ":" + config["profileUsername"]):
                             fixture = FixtureRun(config, directory, args.run_id, report)
-                            with fixture.authenticated():
-                                fixture.cleanup()
+                            if fixture.state.get('authentication') == 'app-oauth':
+                                device = Device(config, report)
+                                with exclusive_lock('device:' + device.serial), app_fixture_session(fixture, device):
+                                    cleanup_app_fixtures(fixture)
+                            else:
+                                with fixture.authenticated():
+                                    fixture.cleanup()
                     except AcceptanceError as error:
                         errors.append(str(error))
                 peer_path = directory / 'peer' / 'fixtures.json'
@@ -185,7 +201,7 @@ def main():
                         errors.append(str(error))
                 if errors:
                     raise AcceptanceError("; ".join(errors))
-        report.finish("pass", run_id=args.run_id, **({"runtime_mode":"verified"} if args.command in {"run","replay"} else {}))
+        report.finish("pass", run_id=args.run_id, **({"runtime_mode":"verified"} if args.command in {"run","replay","probe-photo-edit"} else {}))
         return 0
     except KeyboardInterrupt:
         report.finish("interrupted", error="Interrupted; inspect restoration journal before resuming")

@@ -1,0 +1,83 @@
+{
+  "environment": "local Android emulator",
+  "role": "owner-clone",
+  "invocations": [
+    {
+      "id": "0fe6343a40e54bb090bdaa4915d8f2ef",
+      "summary": {
+        "status": "pass",
+        "command": "launch",
+        "seconds": 46.49,
+        "invocation": "0fe6343a40e54bb090bdaa4915d8f2ef",
+        "metrics": {
+          "adb_calls": 30,
+          "adb_seconds": 4.477,
+          "ui_reads": 1
+        },
+        "runtime": {
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "17155",
+          "metro_pid": 1415574
+        },
+        "artifacts": "<mobileRoot>/.acceptance/photo-debug-owner/runs/photo-debug-owner-launch"
+      },
+      "events": [
+        {
+          "action": "doctor",
+          "mobile": {
+            "root": "<mobileRoot>",
+            "repository": "tudousir123/Metvage-Mobile",
+            "branch": "codex/issue-17-acceptance",
+            "sha": "8a4297ca4eb2291e0955ef627c0b84e6b5e6670e",
+            "dirty": false,
+            "node": "v24.22.0",
+            "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+          },
+          "server": {
+            "container": "metvage-photo-debug-owner-api",
+            "root": "<isolatedServerRoot>"
+          },
+          "api": {
+            "origin": "http://127.0.0.1:18084",
+            "status": 200
+          },
+          "device": {
+            "serial": "<owned-emulator>",
+            "model": "sdk_gphone64_x86_64"
+          }
+        },
+        {
+          "action": "runtime_verified",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "metro_pid": 1415574
+        }
+      ]
+    },
+    {
+      "id": "cc5c65cbc72e40b494f1731ae00806e8",
+      "summary": {
+        "status": "fail",
+        "command": "launch",
+        "seconds": 0.3,
+        "invocation": "cc5c65cbc72e40b494f1731ae00806e8",
+        "error": "HTTP Error 500: Internal Server Error",
+        "artifacts": "<mobileRoot>/.acceptance/photo-debug-owner/runs/photo-debug-owner-launch"
+      },
+      "events": []
+    },
+    {
+      "id": "e0876b52a24f48838f40aa2cf0a4ea3e",
+      "summary": {
+        "status": "fail",
+        "command": "launch",
+        "seconds": 0.16,
+        "invocation": "e0876b52a24f48838f40aa2cf0a4ea3e",
+        "error": "[Errno 104] Connection reset by peer",
+        "artifacts": "<mobileRoot>/.acceptance/photo-debug-owner/runs/photo-debug-owner-launch"
+      },
+      "events": []
+    }
+  ]
+}

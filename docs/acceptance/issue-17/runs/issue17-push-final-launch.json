@@ -1,0 +1,64 @@
+[
+  {
+    "summary": {
+      "status": "fail",
+      "command": "launch",
+      "seconds": 0.42,
+      "invocation": "1ea51092654b4deead3ae0ec9d2490d3",
+      "error": "Device unavailable: check USB connection, debugging authorization and host USB permissions",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-push-final-launch"
+    }
+  },
+  {
+    "summary": {
+      "status": "pass",
+      "command": "launch",
+      "seconds": 46.31,
+      "invocation": "ea5dc3f8b32b4319ab4085d4e5301dae",
+      "metrics": {
+        "adb_calls": 30,
+        "adb_seconds": 8.305,
+        "ui_reads": 1
+      },
+      "runtime": {
+        "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+        "scheme": "pixelfed",
+        "app_pid": "13582",
+        "metro_pid": 1282865
+      },
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-push-final-launch"
+    },
+    "events": [
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "c3c687ac841e88f552623da27351cd22b3d7ba9a",
+          "dirty": false,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime_verified",
+        "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+        "scheme": "pixelfed",
+        "metro_pid": 1282865
+      }
+    ]
+  }
+]

@@ -1,0 +1,179 @@
+{
+  "environment": "local Android emulator",
+  "role": "peer",
+  "invocations": [
+    {
+      "summary": {
+        "status": "fail",
+        "command": "simulator-actual-oauth",
+        "seconds": 7.85,
+        "invocation": "00867241ea704c41918cfcd7bb573d41",
+        "metrics": {
+          "adb_calls": 36,
+          "adb_seconds": 7.699,
+          "ui_reads": 2
+        },
+        "error": "signal 2",
+        "artifacts": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-sim-u2-oauth"
+      },
+      "invocation_id": "00867241ea704c41918cfcd7bb573d41",
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "6097",
+          "metro_pid": 1282865,
+          "environment": "emulator"
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 3.287,
+          "adb_calls": 8,
+          "adb_seconds": 3.284,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "fail",
+          "seconds": 3.332,
+          "adb_calls": 7,
+          "adb_seconds": 3.33,
+          "ui_reads": 1
+        }
+      ]
+    },
+    {
+      "summary": {
+        "status": "fail",
+        "command": "simulator-actual-oauth",
+        "seconds": 88.04,
+        "invocation": "432ec227e9c2462db736aee0a30672d9",
+        "metrics": {
+          "adb_calls": 224,
+          "adb_seconds": 30.209,
+          "ui_reads": 3
+        },
+        "error": "Owned localhost browser authentication page not ready",
+        "artifacts": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-sim-u2-oauth"
+      },
+      "invocation_id": "432ec227e9c2462db736aee0a30672d9",
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "2845",
+          "metro_pid": 1282865,
+          "environment": "emulator"
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 4.975,
+          "adb_calls": 8,
+          "adb_seconds": 4.973,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.777,
+          "adb_calls": 11,
+          "adb_seconds": 5.772,
+          "ui_reads": 2
+        }
+      ]
+    },
+    {
+      "summary": {
+        "status": "pass",
+        "command": "simulator-actual-oauth",
+        "seconds": 50.02,
+        "invocation": "9f40119af23847dcbe932d57cd1f016d",
+        "metrics": {
+          "adb_calls": 92,
+          "adb_seconds": 43.389,
+          "ui_reads": 8
+        },
+        "artifacts": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-sim-u2-oauth"
+      },
+      "invocation_id": "9f40119af23847dcbe932d57cd1f016d",
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "6559",
+          "metro_pid": 1282865,
+          "environment": "emulator"
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 3.076,
+          "adb_calls": 8,
+          "adb_seconds": 3.074,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.152,
+          "adb_calls": 11,
+          "adb_seconds": 5.149,
+          "ui_reads": 2
+        },
+        {
+          "action": "owned_emulator_browser_setup",
+          "control": "Use without an account"
+        },
+        {
+          "action": "local_browser",
+          "path": "/login",
+          "inputs": [
+            {
+              "name": "email",
+              "type": "email"
+            },
+            {
+              "name": "password",
+              "type": "password"
+            },
+            {
+              "name": "remember",
+              "type": "checkbox"
+            }
+          ],
+          "buttons": [
+            "",
+            "Login"
+          ]
+        },
+        {
+          "action": "oauth_identity",
+          "role": "U2",
+          "actual_app_token": true,
+          "environment": "emulator"
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-sim-u2-oauth/authenticated-home.png"
+        }
+      ]
+    }
+  ]
+}

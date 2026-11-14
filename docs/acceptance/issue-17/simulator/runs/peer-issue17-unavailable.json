@@ -1,0 +1,381 @@
+{
+  "environment": "local Android emulator",
+  "role": "peer",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "run",
+        "seconds": 197.82,
+        "invocation": "13b8d6d0d348451cb6aea2780455144c",
+        "metrics": {
+          "adb_calls": 400,
+          "adb_seconds": 196.776,
+          "ui_reads": 67
+        },
+        "run_id": "issue17-unavailable",
+        "runtime_mode": "verified",
+        "artifacts": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-unavailable"
+      },
+      "invocation_id": "13b8d6d0d348451cb6aea2780455144c",
+      "events": [
+        {
+          "action": "plan",
+          "sources": [
+            {
+              "file": "issue17-unavailable.json",
+              "sha256": "37b8b85fe6dcff3e12edfba3dfab158f049e4b204d4305da5e9937d91bb42b2f"
+            }
+          ]
+        },
+        {
+          "action": "doctor",
+          "mobile": {
+            "root": "<mobileRoot>",
+            "repository": "tudousir123/Metvage-Mobile",
+            "branch": "codex/issue-17-acceptance",
+            "sha": "c3c687ac841e88f552623da27351cd22b3d7ba9a",
+            "dirty": true,
+            "node": "v24.22.0",
+            "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+          },
+          "metro": {
+            "port": 8081,
+            "root": "<mobileRoot>"
+          },
+          "server": {
+            "container": "metvage-issue17-phone-api",
+            "root": "<serverRoot>"
+          },
+          "api": {
+            "origin": "http://127.0.0.1:18080",
+            "status": 200
+          },
+          "device": {
+            "serial": "<owned-emulator>",
+            "model": "sdk_gphone64_x86_64"
+          }
+        },
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "9467",
+          "metro_pid": 1282865
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 4.733,
+          "adb_calls": 8,
+          "adb_seconds": 4.728,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 15.042,
+          "adb_calls": 26,
+          "adb_seconds": 15.023,
+          "ui_reads": 5
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-unavailable/unavailable-shop.png"
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "capture",
+          "status": "pass",
+          "seconds": 10.822,
+          "adb_calls": 21,
+          "adb_seconds": 10.808,
+          "ui_reads": 4
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 3.171,
+          "adb_calls": 7,
+          "adb_seconds": 3.168,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 8.914,
+          "adb_calls": 16,
+          "adb_seconds": 8.904,
+          "ui_reads": 3
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-unavailable/unavailable-daily-inspiration.png"
+        },
+        {
+          "action": "step",
+          "number": 6,
+          "operation": "capture",
+          "status": "pass",
+          "seconds": 10.699,
+          "adb_calls": 21,
+          "adb_seconds": 10.685,
+          "ui_reads": 4
+        },
+        {
+          "action": "step",
+          "number": 7,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 3.053,
+          "adb_calls": 7,
+          "adb_seconds": 3.049,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 8,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 8.714,
+          "adb_calls": 16,
+          "adb_seconds": 8.704,
+          "ui_reads": 3
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-unavailable/unavailable-nearby.png"
+        },
+        {
+          "action": "step",
+          "number": 9,
+          "operation": "capture",
+          "status": "pass",
+          "seconds": 10.73,
+          "adb_calls": 21,
+          "adb_seconds": 10.716,
+          "ui_reads": 4
+        },
+        {
+          "action": "step",
+          "number": 10,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 3.234,
+          "adb_calls": 7,
+          "adb_seconds": 3.23,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 11,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.373,
+          "adb_calls": 11,
+          "adb_seconds": 5.364,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 12,
+          "operation": "assert",
+          "status": "pass",
+          "seconds": 3.713,
+          "adb_calls": 5,
+          "adb_seconds": 3.71,
+          "ui_reads": 1
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-unavailable/explore-no-fake-places.png"
+        },
+        {
+          "action": "step",
+          "number": 13,
+          "operation": "capture",
+          "status": "pass",
+          "seconds": 11.19,
+          "adb_calls": 21,
+          "adb_seconds": 11.172,
+          "ui_reads": 4
+        },
+        {
+          "action": "step",
+          "number": 14,
+          "operation": "swipe",
+          "status": "pass",
+          "seconds": 0.684,
+          "adb_calls": 3,
+          "adb_seconds": 0.683,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 15,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 8.748,
+          "adb_calls": 16,
+          "adb_seconds": 8.741,
+          "ui_reads": 3
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-unavailable/unavailable-tasks.png"
+        },
+        {
+          "action": "step",
+          "number": 16,
+          "operation": "capture",
+          "status": "pass",
+          "seconds": 10.751,
+          "adb_calls": 21,
+          "adb_seconds": 10.737,
+          "ui_reads": 4
+        },
+        {
+          "action": "step",
+          "number": 17,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 3.181,
+          "adb_calls": 7,
+          "adb_seconds": 3.178,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 18,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 8.566,
+          "adb_calls": 16,
+          "adb_seconds": 8.558,
+          "ui_reads": 3
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-unavailable/unavailable-growth.png"
+        },
+        {
+          "action": "step",
+          "number": 19,
+          "operation": "capture",
+          "status": "pass",
+          "seconds": 10.672,
+          "adb_calls": 21,
+          "adb_seconds": 10.658,
+          "ui_reads": 4
+        },
+        {
+          "action": "step",
+          "number": 20,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 3.085,
+          "adb_calls": 7,
+          "adb_seconds": 3.082,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 21,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 8.808,
+          "adb_calls": 16,
+          "adb_seconds": 8.8,
+          "ui_reads": 3
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-unavailable/unavailable-messages.png"
+        },
+        {
+          "action": "step",
+          "number": 22,
+          "operation": "capture",
+          "status": "pass",
+          "seconds": 10.636,
+          "adb_calls": 21,
+          "adb_seconds": 10.622,
+          "ui_reads": 4
+        },
+        {
+          "action": "step",
+          "number": 23,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 3.069,
+          "adb_calls": 7,
+          "adb_seconds": 3.066,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 24,
+          "operation": "swipe",
+          "status": "pass",
+          "seconds": 0.662,
+          "adb_calls": 3,
+          "adb_seconds": 0.662,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 25,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 8.827,
+          "adb_calls": 16,
+          "adb_seconds": 8.819,
+          "ui_reads": 3
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-unavailable/unavailable-auto-book.png"
+        },
+        {
+          "action": "step",
+          "number": 26,
+          "operation": "capture",
+          "status": "pass",
+          "seconds": 10.708,
+          "adb_calls": 21,
+          "adb_seconds": 10.693,
+          "ui_reads": 4
+        },
+        {
+          "action": "step",
+          "number": 27,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 3.041,
+          "adb_calls": 7,
+          "adb_seconds": 3.038,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 28,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 5.14,
+          "adb_calls": 8,
+          "adb_seconds": 5.136,
+          "ui_reads": 1
+        }
+      ]
+    }
+  ]
+}

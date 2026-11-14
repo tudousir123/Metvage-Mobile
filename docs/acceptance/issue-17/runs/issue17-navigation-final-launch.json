@@ -1,0 +1,54 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "launch",
+      "seconds": 45.57,
+      "invocation": "968a738446624cf588d746bcbe99f569",
+      "metrics": {
+        "adb_calls": 30,
+        "adb_seconds": 7.846,
+        "ui_reads": 1
+      },
+      "runtime": {
+        "source": "9e3999a554a05c4beea5567d75e99a1895df8d0cc2ae079d695032fd412a7816",
+        "scheme": "pixelfed",
+        "app_pid": "28106",
+        "metro_pid": 1255447
+      },
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-navigation-final-launch"
+    },
+    "events": [
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "273ece5055dfd3613097c431eb88d85cc33c1f0f",
+          "dirty": true,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime_verified",
+        "source": "9e3999a554a05c4beea5567d75e99a1895df8d0cc2ae079d695032fd412a7816",
+        "scheme": "pixelfed",
+        "metro_pid": 1255447
+      }
+    ]
+  }
+]

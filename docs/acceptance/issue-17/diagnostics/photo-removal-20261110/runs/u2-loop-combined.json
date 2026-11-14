@@ -1,0 +1,1037 @@
+{
+  "environment": "local Android emulator",
+  "role": "u2",
+  "invocations": [
+    {
+      "id": "7e2de38fc81941a18425b02f16e4bf2f",
+      "summary": {
+        "status": "pass",
+        "command": "photo-edit-loop",
+        "seconds": 158.99,
+        "invocation": "7e2de38fc81941a18425b02f16e4bf2f",
+        "metrics": {
+          "adb_calls": 364,
+          "adb_seconds": 156.469,
+          "ui_reads": 52
+        },
+        "iterations": 3,
+        "mode": "combined",
+        "artifacts": ".acceptance/photo-debug/runs/loop-combined"
+      },
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "2697",
+          "metro_pid": 1380750,
+          "environment": "emulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One real App OAuth token",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 36
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 7.558,
+          "adb_calls": 13,
+          "adb_seconds": 7.553,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.35,
+          "adb_calls": 11,
+          "adb_seconds": 5.343,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 3.405,
+          "adb_calls": 6,
+          "adb_seconds": 3.405,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 3.041,
+          "adb_calls": 8,
+          "adb_seconds": 3.037,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.417,
+          "adb_calls": 11,
+          "adb_seconds": 5.411,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 6,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.041,
+          "adb_calls": 6,
+          "adb_seconds": 1.04,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 7,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.859,
+          "adb_calls": 8,
+          "adb_seconds": 2.856,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 8,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.449,
+          "adb_calls": 11,
+          "adb_seconds": 5.443,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 9,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.335,
+          "adb_calls": 11,
+          "adb_seconds": 5.331,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 10,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.411,
+          "adb_calls": 11,
+          "adb_seconds": 5.405,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 11,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 11.6,
+          "adb_calls": 21,
+          "adb_seconds": 11.589,
+          "ui_reads": 4
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 1,
+          "record_id": 36,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": false
+        },
+        {
+          "action": "assertion",
+          "name": "Association changed to generated dog",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 37
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 3.844,
+          "adb_calls": 8,
+          "adb_seconds": 3.84,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.309,
+          "adb_calls": 11,
+          "adb_seconds": 5.303,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.112,
+          "adb_calls": 6,
+          "adb_seconds": 1.112,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.925,
+          "adb_calls": 8,
+          "adb_seconds": 2.921,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.351,
+          "adb_calls": 11,
+          "adb_seconds": 5.345,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 6,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.013,
+          "adb_calls": 6,
+          "adb_seconds": 1.012,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 7,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.741,
+          "adb_calls": 8,
+          "adb_seconds": 2.737,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 8,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.342,
+          "adb_calls": 11,
+          "adb_seconds": 5.334,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 9,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.305,
+          "adb_calls": 11,
+          "adb_seconds": 5.301,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 10,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.429,
+          "adb_calls": 11,
+          "adb_seconds": 5.424,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 11,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 10.771,
+          "adb_calls": 21,
+          "adb_seconds": 10.76,
+          "ui_reads": 4
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 2,
+          "record_id": 37,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": true
+        },
+        {
+          "action": "assertion",
+          "name": "Association changed to generated dog",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 38
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 3.894,
+          "adb_calls": 8,
+          "adb_seconds": 3.89,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.286,
+          "adb_calls": 11,
+          "adb_seconds": 5.28,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.219,
+          "adb_calls": 6,
+          "adb_seconds": 1.218,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.855,
+          "adb_calls": 8,
+          "adb_seconds": 2.852,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.359,
+          "adb_calls": 11,
+          "adb_seconds": 5.352,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 6,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 0.894,
+          "adb_calls": 6,
+          "adb_seconds": 0.893,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 7,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.863,
+          "adb_calls": 8,
+          "adb_seconds": 2.861,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 8,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.297,
+          "adb_calls": 11,
+          "adb_seconds": 5.291,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 9,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.359,
+          "adb_calls": 11,
+          "adb_seconds": 5.355,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 10,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.478,
+          "adb_calls": 11,
+          "adb_seconds": 5.472,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 11,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 11.098,
+          "adb_calls": 21,
+          "adb_seconds": 11.087,
+          "ui_reads": 4
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 3,
+          "record_id": 38,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": true
+        },
+        {
+          "action": "assertion",
+          "name": "Association changed to generated dog",
+          "result": "pass"
+        }
+      ]
+    },
+    {
+      "id": "90d3f7b7635d44b5b92394005fe3d7fe",
+      "summary": {
+        "status": "pass",
+        "command": "photo-edit-loop",
+        "seconds": 57.21,
+        "invocation": "90d3f7b7635d44b5b92394005fe3d7fe",
+        "metrics": {
+          "adb_calls": 143,
+          "adb_seconds": 56.119,
+          "ui_reads": 19
+        },
+        "iterations": 1,
+        "mode": "combined",
+        "artifacts": ".acceptance/photo-debug/runs/loop-combined"
+      },
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "2697",
+          "metro_pid": 1380750,
+          "environment": "emulator"
+        },
+        {
+          "action": "protocol",
+          "script_sha256": "64484ce614908dade5e67cd50543feb67bb2c50c152ef74909dc339a1b69a64c",
+          "mode": "combined",
+          "iterations": 1,
+          "api_proxy_port": 18081
+        },
+        {
+          "action": "assertion",
+          "name": "One real App OAuth token",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 56
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 4.436,
+          "adb_calls": 8,
+          "adb_seconds": 4.433,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.277,
+          "adb_calls": 11,
+          "adb_seconds": 5.27,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.141,
+          "adb_calls": 6,
+          "adb_seconds": 1.14,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.828,
+          "adb_calls": 8,
+          "adb_seconds": 2.824,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.28,
+          "adb_calls": 11,
+          "adb_seconds": 5.275,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 6,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.096,
+          "adb_calls": 6,
+          "adb_seconds": 1.095,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 7,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.804,
+          "adb_calls": 8,
+          "adb_seconds": 2.801,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 8,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.373,
+          "adb_calls": 11,
+          "adb_seconds": 5.368,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 9,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.433,
+          "adb_calls": 11,
+          "adb_seconds": 5.429,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 10,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.405,
+          "adb_calls": 11,
+          "adb_seconds": 5.399,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 11,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 16.132,
+          "adb_calls": 31,
+          "adb_seconds": 16.116,
+          "ui_reads": 6
+        },
+        {
+          "action": "save_readback",
+          "record_id": 56,
+          "photo_count": 0,
+          "other_changes_confirmed": true
+        },
+        {
+          "action": "assertion",
+          "name": "Save of other intended changes is confirmed; otherwise not the target symptom",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 1,
+          "record_id": 56,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": true
+        },
+        {
+          "action": "assertion",
+          "name": "Association changed to generated dog",
+          "result": "pass"
+        }
+      ]
+    },
+    {
+      "id": "bf28b15a8b1e43f6914c9fd4ca7781c3",
+      "summary": {
+        "status": "pass",
+        "command": "photo-edit-loop",
+        "seconds": 159.8,
+        "invocation": "bf28b15a8b1e43f6914c9fd4ca7781c3",
+        "metrics": {
+          "adb_calls": 364,
+          "adb_seconds": 156.905,
+          "ui_reads": 52
+        },
+        "iterations": 3,
+        "mode": "combined",
+        "artifacts": ".acceptance/photo-debug/runs/loop-combined"
+      },
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "2697",
+          "metro_pid": 1380750,
+          "environment": "emulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One real App OAuth token",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 41
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 7.92,
+          "adb_calls": 13,
+          "adb_seconds": 7.914,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.382,
+          "adb_calls": 11,
+          "adb_seconds": 5.376,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.365,
+          "adb_calls": 6,
+          "adb_seconds": 1.364,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.946,
+          "adb_calls": 8,
+          "adb_seconds": 2.943,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.349,
+          "adb_calls": 11,
+          "adb_seconds": 5.343,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 6,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.173,
+          "adb_calls": 6,
+          "adb_seconds": 1.172,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 7,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.846,
+          "adb_calls": 8,
+          "adb_seconds": 2.842,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 8,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.42,
+          "adb_calls": 11,
+          "adb_seconds": 5.414,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 9,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.419,
+          "adb_calls": 11,
+          "adb_seconds": 5.415,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 10,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.484,
+          "adb_calls": 11,
+          "adb_seconds": 5.478,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 11,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 12.12,
+          "adb_calls": 21,
+          "adb_seconds": 12.109,
+          "ui_reads": 4
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 1,
+          "record_id": 41,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": true
+        },
+        {
+          "action": "assertion",
+          "name": "Association changed to generated dog",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 42
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 3.943,
+          "adb_calls": 8,
+          "adb_seconds": 3.939,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.275,
+          "adb_calls": 11,
+          "adb_seconds": 5.269,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.081,
+          "adb_calls": 6,
+          "adb_seconds": 1.081,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.794,
+          "adb_calls": 8,
+          "adb_seconds": 2.79,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.329,
+          "adb_calls": 11,
+          "adb_seconds": 5.325,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 6,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 0.995,
+          "adb_calls": 6,
+          "adb_seconds": 0.994,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 7,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 3.007,
+          "adb_calls": 8,
+          "adb_seconds": 3.003,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 8,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.328,
+          "adb_calls": 11,
+          "adb_seconds": 5.321,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 9,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.475,
+          "adb_calls": 11,
+          "adb_seconds": 5.47,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 10,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.394,
+          "adb_calls": 11,
+          "adb_seconds": 5.389,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 11,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 11.415,
+          "adb_calls": 21,
+          "adb_seconds": 11.403,
+          "ui_reads": 4
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 2,
+          "record_id": 42,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": true
+        },
+        {
+          "action": "assertion",
+          "name": "Association changed to generated dog",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 43
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 3.857,
+          "adb_calls": 8,
+          "adb_seconds": 3.854,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.278,
+          "adb_calls": 11,
+          "adb_seconds": 5.273,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.079,
+          "adb_calls": 6,
+          "adb_seconds": 1.078,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.838,
+          "adb_calls": 8,
+          "adb_seconds": 2.835,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.282,
+          "adb_calls": 11,
+          "adb_seconds": 5.276,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 6,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.227,
+          "adb_calls": 6,
+          "adb_seconds": 1.226,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 7,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.835,
+          "adb_calls": 8,
+          "adb_seconds": 2.832,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 8,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.361,
+          "adb_calls": 11,
+          "adb_seconds": 5.355,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 9,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.374,
+          "adb_calls": 11,
+          "adb_seconds": 5.37,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 10,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.383,
+          "adb_calls": 11,
+          "adb_seconds": 5.377,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 11,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 11.769,
+          "adb_calls": 21,
+          "adb_seconds": 11.757,
+          "ui_reads": 4
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 3,
+          "record_id": 43,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": true
+        },
+        {
+          "action": "assertion",
+          "name": "Association changed to generated dog",
+          "result": "pass"
+        }
+      ]
+    }
+  ]
+}

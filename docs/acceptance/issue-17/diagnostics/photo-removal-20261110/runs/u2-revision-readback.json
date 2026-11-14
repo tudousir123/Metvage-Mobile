@@ -1,0 +1,51 @@
+{
+  "environment": "local Android emulator",
+  "role": "u2",
+  "invocations": [
+    {
+      "id": "626884ad6d994e0fa730a32f37ca2e54",
+      "summary": {
+        "status": "pass",
+        "command": "revision-readback",
+        "seconds": 14.7,
+        "invocation": "626884ad6d994e0fa730a32f37ca2e54",
+        "metrics": {
+          "adb_calls": 22,
+          "adb_seconds": 10.663,
+          "ui_reads": 4
+        },
+        "artifacts": ".acceptance/photo-debug/runs/revision-readback"
+      },
+      "events": [
+        {
+          "action": "readback",
+          "record_id": 54,
+          "pet_id": 22,
+          "photo_count": 0,
+          "text_matches": true,
+          "title_matches": true
+        },
+        {
+          "action": "readback",
+          "record_id": 54,
+          "pet_id": 22,
+          "photo_count": 0,
+          "text_matches": true,
+          "title_matches": true
+        },
+        {
+          "action": "readback",
+          "record_id": 54,
+          "pet_id": 22,
+          "photo_count": 0,
+          "text_matches": true,
+          "title_matches": true
+        },
+        {
+          "action": "screenshot",
+          "path": ".acceptance/photo-debug/revision-result.png"
+        }
+      ]
+    }
+  ]
+}

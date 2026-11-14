@@ -1,0 +1,16 @@
+PASS __tests__/native-intent.test.ts
+  ✓ warm Android business link returns to its stack position: /pets/20/records (19 ms)
+  ✓ warm Android business link returns to its stack position: /settings/pets?edit=19 (1 ms)
+  ✓ warm Android business link returns to its stack position: /pet/17 (1 ms)
+  ✓ warm Android business link returns to its stack position: /note/26 (1 ms)
+  ✓ warm Android business link returns to its stack position: /records/26/edit (1 ms)
+  ✓ warm Android business link returns to its stack position: /reports/new?target_type=record&target_id=26 (1 ms)
+  ✓ warm Android business link returns to its stack position: /following
+  ✓ cold launch and OAuth callback retain normal Router handling (1 ms)
+  ✓ iOS and share intents retain their existing handling
+
+Test Suites: 1 passed, 1 total
+Tests:       9 passed, 9 total
+Snapshots:   0 total
+Time:        1.019 s
+Ran all test suites matching /__tests__\/native-intent.test.ts/i.

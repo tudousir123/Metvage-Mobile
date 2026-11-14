@@ -57,6 +57,12 @@ elif a[:2]==['shell','rm']:
  s['xml_files']=[p for p in s.get('xml_files',[]) if p!=a[-1]];save()
 elif a[:2]==['shell','input']:
  s.setdefault('inputs',[]).append(a[2:]);save()
+ if a[2:]==['keycombination','113','29'] and s.get('lose_focus_on_select_all'):s['focus']='other.app';save()
+ if 'text_value' in s:
+  if a[2:]==['keycombination','113','29']:s['selected_all']=True
+  elif a[2:]==['keyevent','KEYCODE_DEL'] and s.get('selected_all'):s['text_value']='';s['selected_all']=False
+  elif a[2:3]==['text']:s['text_value']=('' if s.get('selected_all') else s['text_value'])+a[3];s['selected_all']=False
+  save()
  if s.get('null_on_input'):s['null_focus_reads']=2;save()
  if a[2:]==['keyevent','KEYCODE_BACK'] and s.get('transition_reads'): s['pending_reads']=s['transition_reads'];save()
  if a[2:3]==['text'] and s.get('pending_reads',0):sys.exit(2)
@@ -94,6 +100,30 @@ class DeviceCliTest(unittest.TestCase):
     def run_cli(self, *args):
         return subprocess.run([sys.executable, str(CLI), "--config", str(self.config), *args],
                               env=self.env, capture_output=True, text=True, timeout=15)
+
+    def test_replace_text_updates_or_clears_the_existing_field(self):
+        for text in ['corrected', '']:
+            with self.subTest(text=text):
+                self.state.write_text(json.dumps({**self.initial, 'text_value': 'old content'}))
+                self.plan.write_text(json.dumps({'steps': [{'action': 'type', 'text': text, 'replace': True}]}))
+                result = self.run_cli('run', '--plan', str(self.plan), '--run-id', 'replace-' + (text or 'empty'))
+                self.assertEqual(result.returncode, 0, result.stdout)
+                self.assertEqual(json.loads(self.state.read_text())['text_value'], text)
+
+    def test_invalid_replace_flag_is_rejected_before_device_mutation(self):
+        self.plan.write_text(json.dumps({'steps': [{'action': 'type', 'text': 'new', 'replace': 'yes'}]}))
+        result = self.run_cli('run', '--plan', str(self.plan), '--run-id', 'invalid-replace')
+        self.assertEqual(result.returncode, 1)
+        self.assertEqual(json.loads(self.state.read_text()), self.initial)
+
+    def test_replace_stops_before_delete_when_focus_changes(self):
+        self.state.write_text(json.dumps({**self.initial, 'text_value': 'old content', 'lose_focus_on_select_all': True}))
+        self.plan.write_text(json.dumps({'steps': [{'action': 'type', 'text': 'new', 'replace': True}]}))
+        result = self.run_cli('run', '--plan', str(self.plan), '--run-id', 'replace-focus')
+        self.assertEqual(result.returncode, 1)
+        current = json.loads(self.state.read_text())
+        self.assertEqual(current['text_value'], 'old content')
+        self.assertEqual(current['inputs'], [['keycombination', '113', '29']])
 
     def test_failed_plan_restores_settings_and_prior_port_mappings(self):
         result = self.run_cli("run", "--plan", str(self.plan), "--run-id", "failure",

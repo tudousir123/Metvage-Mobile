@@ -1,0 +1,16 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "android-browser-registration",
+      "seconds": 119.16,
+      "invocation": "4cf16d2865ce4deba929848c4ad09c39",
+      "metrics": {
+        "adb_calls": 16,
+        "adb_seconds": 1.11,
+        "ui_reads": 0
+      },
+      "artifacts": ".acceptance/issue17-peer/runs/issue17-browser-register"
+    }
+  }
+]

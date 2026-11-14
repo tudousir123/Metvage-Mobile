@@ -1,0 +1,26 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/settings/blocked-pets",
+      "expect": {
+        "label": "取消屏蔽"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "account-blocked"
+    },
+    {
+      "action": "open",
+      "path": "/pet/{privatePetId}",
+      "expect": {
+        "label": "暂时无法查看宠物档案"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "other-pet-blocked"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "environment": "local Android emulator",
+  "role": "http",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "issue17-http-deleted",
+        "seconds": 3.28,
+        "invocation": "7cbb12949c9343d1bc5b5bee7edc9da1",
+        "artifacts": ".acceptance/issue17-sim-http/runs/issue17-http-deleted"
+      },
+      "invocation_id": "7cbb12949c9343d1bc5b5bee7edc9da1",
+      "events": [
+        {
+          "action": "environment",
+          "kind": "simulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One access token in isolated U2 test App",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/27",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/27/photos/23",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/27",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/27/photos/23",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/27",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/27/photos/23",
+          "result": "pass"
+        }
+      ]
+    }
+  ]
+}

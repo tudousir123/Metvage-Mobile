@@ -1,0 +1,94 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "run",
+      "seconds": 10.57,
+      "invocation": "1140ed42b15b4256838667d51164e4e8",
+      "metrics": {
+        "adb_calls": 43,
+        "adb_seconds": 9.785,
+        "ui_reads": 3
+      },
+      "run_id": "issue17-invitation-handoff",
+      "runtime_mode": "verified",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-invitation-handoff"
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "register-plan.json",
+            "sha256": "8ab1a4310306fb44d5987b002f8b214bf780cac91a8b73d8ad914b38cbcb315f"
+          }
+        ]
+      },
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "273ece5055dfd3613097c431eb88d85cc33c1f0f",
+          "dirty": true,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "metro": {
+          "port": 8081,
+          "root": "<mobileRoot>"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime",
+        "source": "166fb69f844143cbe8af8526415f5093c2bd220e3a1338780eb9872effbfadb6",
+        "scheme": "pixelfed",
+        "app_pid": "21163",
+        "metro_pid": 1169523
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "type",
+        "status": "pass",
+        "seconds": 0.603,
+        "adb_calls": 2,
+        "adb_seconds": 0.603,
+        "ui_reads": 0
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "back",
+        "status": "pass",
+        "seconds": 2.62,
+        "adb_calls": 8,
+        "adb_seconds": 2.617,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 5.407,
+        "adb_calls": 11,
+        "adb_seconds": 5.403,
+        "ui_reads": 2
+      }
+    ]
+  }
+]

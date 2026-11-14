@@ -1,0 +1,40 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/note/{publicRecordId}",
+      "expect": {
+        "label": "查看{publicPetNickname}的主页"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "点赞",
+      "expect": {
+        "label": "取消点赞"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "写评论"
+    },
+    {
+      "action": "type",
+      "text": "issue17-dog-comment"
+    },
+    {
+      "action": "tap",
+      "label": "发送评论"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "dog-like-and-comment"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "owned_avds_removed": true,
+  "owned_apps_removed": true,
+  "fonts_restored": true,
+  "ports_restored": true,
+  "metro_stop_requested": true,
+  "physical_device_used": false
+}

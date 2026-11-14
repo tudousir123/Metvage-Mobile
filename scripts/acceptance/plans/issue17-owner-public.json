@@ -1,0 +1,30 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/pets/{ownerCatId}/records",
+      "expect": {
+        "label": "管理记录：棉花的测试照片"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "管理记录：棉花的测试照片"
+    },
+    {
+      "action": "tap",
+      "label": "公开这条记录"
+    },
+    {
+      "action": "tap",
+      "label": "确认公开",
+      "expect": {
+        "label": "公开"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "owner-public"
+    }
+  ]
+}

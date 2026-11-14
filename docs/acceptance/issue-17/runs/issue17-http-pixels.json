@@ -1,0 +1,76 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "issue17-http-pixels",
+      "seconds": 4.13,
+      "invocation": "8647568cc0004049ab4653d4489fd0a9",
+      "artifacts": ".acceptance/runs/issue17-http-pixels"
+    },
+    "events": [
+      {
+        "action": "assertion",
+        "name": "One access token in isolated U2 test App",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/30/photos/24",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Decoded App upload matches generated source pixels: public_photo",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/32/photos/26",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Decoded App upload matches generated source pixels: public_mixed",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/31/photos/25",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Decoded App upload matches generated source pixels: private_photo",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/33/photos/27",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Decoded App upload matches generated source pixels: private_mixed",
+        "result": "pass"
+      },
+      {
+        "action": "image_identity",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "rgba_sha256": "e947fefc4f1feda1aafbdb0c57631f833a82237f62ad7242216c560e1a33cf31"
+      }
+    ]
+  }
+]

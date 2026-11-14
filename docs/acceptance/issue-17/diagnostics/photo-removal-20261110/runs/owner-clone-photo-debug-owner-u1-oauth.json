@@ -1,0 +1,114 @@
+{
+  "environment": "local Android emulator",
+  "role": "owner-clone",
+  "invocations": [
+    {
+      "id": "52bf4049c912470ba1432ff7a48f2b1e",
+      "summary": {
+        "status": "fail",
+        "command": "simulator-actual-oauth",
+        "seconds": 16.73,
+        "invocation": "52bf4049c912470ba1432ff7a48f2b1e",
+        "metrics": {
+          "adb_calls": 45,
+          "adb_seconds": 16.588,
+          "ui_reads": 5
+        },
+        "error": "Navigation postcondition not reached; subsequent actions stopped",
+        "artifacts": "<mobileRoot>/.acceptance/photo-debug-owner/runs/photo-debug-owner-u1-oauth"
+      },
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "17155",
+          "metro_pid": 1415574,
+          "environment": "emulator"
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "fail",
+          "seconds": 15.757,
+          "adb_calls": 28,
+          "adb_seconds": 15.738,
+          "ui_reads": 5
+        }
+      ]
+    },
+    {
+      "id": "6f9a7e55be7145df8344ea850315660e",
+      "summary": {
+        "status": "fail",
+        "command": "simulator-actual-oauth",
+        "seconds": 27.89,
+        "invocation": "6f9a7e55be7145df8344ea850315660e",
+        "metrics": {
+          "adb_calls": 64,
+          "adb_seconds": 22.202,
+          "ui_reads": 3
+        },
+        "error": "adb exited 1",
+        "artifacts": "<mobileRoot>/.acceptance/photo-debug-owner/runs/photo-debug-owner-u1-oauth"
+      },
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "17155",
+          "metro_pid": 1415574,
+          "environment": "emulator"
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 2.868,
+          "adb_calls": 8,
+          "adb_seconds": 2.866,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.063,
+          "adb_calls": 11,
+          "adb_seconds": 5.06,
+          "ui_reads": 2
+        },
+        {
+          "action": "owned_emulator_browser_setup",
+          "control": "Use without an account"
+        },
+        {
+          "action": "local_browser",
+          "path": "/login",
+          "inputs": [
+            {
+              "name": "email",
+              "type": "email"
+            },
+            {
+              "name": "password",
+              "type": "password"
+            },
+            {
+              "name": "remember",
+              "type": "checkbox"
+            }
+          ],
+          "buttons": [
+            "",
+            "Login"
+          ]
+        }
+      ]
+    }
+  ]
+}

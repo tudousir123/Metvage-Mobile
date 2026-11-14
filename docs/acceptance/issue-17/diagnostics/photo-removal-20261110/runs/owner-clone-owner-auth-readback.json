@@ -1,0 +1,38 @@
+{
+  "environment": "local Android emulator",
+  "role": "owner-clone",
+  "invocations": [
+    {
+      "id": "844a10d53b2b407a8f43103df5e65ff2",
+      "summary": {
+        "status": "pass",
+        "command": "owner-auth-readback",
+        "seconds": 0.48,
+        "invocation": "844a10d53b2b407a8f43103df5e65ff2",
+        "metrics": {
+          "adb_calls": 1,
+          "adb_seconds": 0.069,
+          "ui_reads": 0
+        },
+        "artifacts": ".acceptance/photo-debug-owner/runs/owner-auth-readback"
+      },
+      "events": [
+        {
+          "action": "subject",
+          "sub": "1",
+          "scopes": [
+            "read",
+            "write",
+            "follow",
+            "push"
+          ]
+        },
+        {
+          "action": "identity",
+          "status": 200,
+          "username_matches": true
+        }
+      ]
+    }
+  ]
+}

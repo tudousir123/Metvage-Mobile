@@ -1,0 +1,433 @@
+[
+  {
+    "role": "u2",
+    "run": "auth-diagnostic",
+    "file": "runs/u2-auth-diagnostic.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "b8ff4a31c13047248033b780a7ee54a2",
+        "status": "pass",
+        "seconds": 1.87
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "environment-cleanup",
+    "file": "runs/u2-environment-cleanup.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "d3ecd97f2f4e4d8f8016546d65809da6",
+        "status": "pass",
+        "seconds": 5.6
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "finalize",
+    "file": "runs/u2-finalize.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "87b9bcc55fde468fbec5c68cf9278f75",
+        "status": "pass",
+        "seconds": 25.53
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "grid-readback",
+    "file": "runs/u2-grid-readback.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "acd8453161434587a0ec84878e762449",
+        "status": "pass",
+        "seconds": 0.44
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "loop-combined",
+    "file": "runs/u2-loop-combined.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "7e2de38fc81941a18425b02f16e4bf2f",
+        "status": "pass",
+        "seconds": 158.99
+      },
+      {
+        "id": "90d3f7b7635d44b5b92394005fe3d7fe",
+        "status": "pass",
+        "seconds": 57.21
+      },
+      {
+        "id": "bf28b15a8b1e43f6914c9fd4ca7781c3",
+        "status": "pass",
+        "seconds": 159.8
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "loop-history",
+    "file": "runs/u2-loop-history.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "3f9b0ee9f67945bfbde00065fe73b97e",
+        "status": "pass",
+        "seconds": 117.34
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "loop-hit-grid",
+    "file": "runs/u2-loop-hit-grid.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "00374e9196054156832c67b43e649a93",
+        "status": "fail",
+        "seconds": 65.37
+      },
+      {
+        "id": "fefaa248cfb84afc8ca3bc659699a486",
+        "status": "pass",
+        "seconds": 176.59
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "loop-negative-control",
+    "file": "runs/u2-loop-negative-control.json",
+    "classification": "intentional-negative-control",
+    "invocations": [
+      {
+        "id": "907613629eea4e4897f6e53de429779e",
+        "status": "fail",
+        "seconds": 56.41
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "loop-race",
+    "file": "runs/u2-loop-race.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "8aceefb16dd24e73b1d574b95d107e5b",
+        "status": "fail",
+        "seconds": 69.12
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "loop-race-revision",
+    "file": "runs/u2-loop-race-revision.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "dc0dc963d0b94ceab3d4b28f6c80c4db",
+        "status": "fail",
+        "seconds": 57.12
+      },
+      {
+        "id": "e2afdaff67f6499a8d41649d8af5c172",
+        "status": "fail",
+        "seconds": 11.38
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "photo-debug-launch",
+    "file": "runs/u2-photo-debug-launch.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "1b9ade05353644b98fca0ce22864331a",
+        "status": "pass",
+        "seconds": 58.46
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "photo-debug-u2-oauth",
+    "file": "runs/u2-photo-debug-u2-oauth.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "5e72684634e04563b4287d0e9c6aa082",
+        "status": "pass",
+        "seconds": 56.91
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "race-readback",
+    "file": "runs/u2-race-readback.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "4c761ffd37474af09202777a2608edda",
+        "status": "pass",
+        "seconds": 12.6
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "revision-readback",
+    "file": "runs/u2-revision-readback.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "626884ad6d994e0fa730a32f37ca2e54",
+        "status": "pass",
+        "seconds": 14.7
+      }
+    ]
+  },
+  {
+    "role": "u2",
+    "run": "setup",
+    "file": "runs/u2-setup.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "00262caf76554e4f8a0f1dfe898423a6",
+        "status": "fail",
+        "seconds": 1.05
+      },
+      {
+        "id": "6b3a3391ae2347949336975541d6bb3a",
+        "status": "fail",
+        "seconds": 2.43
+      },
+      {
+        "id": "8738ea4677554eabbed8aa9a514110da",
+        "status": "pass",
+        "seconds": 3.49
+      },
+      {
+        "id": "ceaa1da76775469b87831455f4a8261b",
+        "status": "pass",
+        "seconds": 3.56
+      }
+    ]
+  },
+  {
+    "role": "owner-clone",
+    "run": "fixture-cleanup",
+    "file": "runs/owner-clone-fixture-cleanup.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "3ffe2a7f37d94566bcd9ef2506e30767",
+        "status": "pass",
+        "seconds": 3.49
+      }
+    ]
+  },
+  {
+    "role": "owner-clone",
+    "run": "loop-history",
+    "file": "runs/owner-clone-loop-history.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "d7a5580a787c462f81a5982c2cbd1907",
+        "status": "pass",
+        "seconds": 102.04
+      }
+    ]
+  },
+  {
+    "role": "owner-clone",
+    "run": "oauth-resume",
+    "file": "runs/owner-clone-oauth-resume.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "133457aacb774316a1cbd08674acbe03",
+        "status": "fail",
+        "seconds": 16.07
+      },
+      {
+        "id": "e9fccb8d980e4cfc81016dbba1dae664",
+        "status": "pass",
+        "seconds": 4.04
+      }
+    ]
+  },
+  {
+    "role": "owner-clone",
+    "run": "original-data",
+    "file": "runs/owner-clone-original-data.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "e57ef87ec5df4dbcb362ced875067dff",
+        "status": "pass",
+        "seconds": 0.8
+      }
+    ]
+  },
+  {
+    "role": "owner-clone",
+    "run": "owner-auth-readback",
+    "file": "runs/owner-clone-owner-auth-readback.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "844a10d53b2b407a8f43103df5e65ff2",
+        "status": "pass",
+        "seconds": 0.48
+      }
+    ]
+  },
+  {
+    "role": "owner-clone",
+    "run": "photo-debug-owner-launch",
+    "file": "runs/owner-clone-photo-debug-owner-launch.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "0fe6343a40e54bb090bdaa4915d8f2ef",
+        "status": "pass",
+        "seconds": 46.49
+      },
+      {
+        "id": "cc5c65cbc72e40b494f1731ae00806e8",
+        "status": "fail",
+        "seconds": 0.3
+      },
+      {
+        "id": "e0876b52a24f48838f40aa2cf0a4ea3e",
+        "status": "fail",
+        "seconds": 0.16
+      }
+    ]
+  },
+  {
+    "role": "owner-clone",
+    "run": "photo-debug-owner-u1-oauth",
+    "file": "runs/owner-clone-photo-debug-owner-u1-oauth.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "52bf4049c912470ba1432ff7a48f2b1e",
+        "status": "fail",
+        "seconds": 16.73
+      },
+      {
+        "id": "6f9a7e55be7145df8344ea850315660e",
+        "status": "fail",
+        "seconds": 27.89
+      }
+    ]
+  },
+  {
+    "role": "owner-clone",
+    "run": "probe-owner-final-negative",
+    "file": "runs/owner-clone-probe-owner-final-negative.json",
+    "classification": "intentional-negative-control",
+    "invocations": [
+      {
+        "id": "114c36f971174a6d9ccb192e5f58669d",
+        "status": "pass",
+        "seconds": 3.48
+      },
+      {
+        "id": "220bb81ec7b645df8a3b81fb27d62f13",
+        "status": "fail",
+        "seconds": 68.2
+      },
+      {
+        "id": "39d3f78291214d91b45f9f116f9450db",
+        "status": "pass",
+        "seconds": 2.78
+      }
+    ]
+  },
+  {
+    "role": "owner-clone",
+    "run": "probe-owner-final-positive",
+    "file": "runs/owner-clone-probe-owner-final-positive.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "284dd808cb3749cd88eafe04d5d8f2bf",
+        "status": "pass",
+        "seconds": 68.15
+      },
+      {
+        "id": "ace6e48fbdae4230b536b42c011b7d3e",
+        "status": "pass",
+        "seconds": 3.63
+      }
+    ]
+  },
+  {
+    "role": "owner-clone",
+    "run": "probe-owner-negative",
+    "file": "runs/owner-clone-probe-owner-negative.json",
+    "classification": "intentional-negative-control",
+    "invocations": [
+      {
+        "id": "bda952b827454baaad0cf9b7eeb987bf",
+        "status": "fail",
+        "seconds": 68.42
+      },
+      {
+        "id": "dc08c64566e84da3bafad15513c56037",
+        "status": "pass",
+        "seconds": 3.55
+      }
+    ]
+  },
+  {
+    "role": "owner-clone",
+    "run": "probe-owner-positive",
+    "file": "runs/owner-clone-probe-owner-positive.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "1ae92dd6c1b140c19f118d25b5d5f51a",
+        "status": "pass",
+        "seconds": 126.96
+      },
+      {
+        "id": "4bb041d4b08f4741857b0453b73115e4",
+        "status": "pass",
+        "seconds": 4.42
+      }
+    ]
+  },
+  {
+    "role": "owner-clone",
+    "run": "setup",
+    "file": "runs/owner-clone-setup.json",
+    "classification": "diagnostic-or-natural-attempt",
+    "invocations": [
+      {
+        "id": "b0d29836add1475eb2c332169ba28521",
+        "status": "pass",
+        "seconds": 2.46
+      }
+    ]
+  }
+]

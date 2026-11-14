@@ -1,0 +1,18 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "phone-session-revoked",
+      "seconds": 0.44,
+      "invocation": "436b63b62b9d48c79d6154946cf0c395",
+      "artifacts": ".acceptance/runs/issue17-phone-token-revoked"
+    },
+    "events": [
+      {
+        "action": "phone_token_revoked",
+        "active_tokens": 0,
+        "original_owner_session_untouched": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "environment": "local Android emulator",
+  "role": "peer",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "inspect",
+        "seconds": 5.46,
+        "invocation": "ed38789da81042a0937466d026ef2205",
+        "metrics": {
+          "adb_calls": 13,
+          "adb_seconds": 5.446,
+          "ui_reads": 2
+        },
+        "count": 0,
+        "candidates": [],
+        "adb_calls": 13,
+        "ui_reads": 2,
+        "artifacts": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-sim-cold-inspect"
+      },
+      "invocation_id": "ed38789da81042a0937466d026ef2205"
+    }
+  ]
+}

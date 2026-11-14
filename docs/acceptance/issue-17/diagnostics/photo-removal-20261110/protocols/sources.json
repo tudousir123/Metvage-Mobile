@@ -1,0 +1,81 @@
+[
+  {
+    "file": "latency-driver.py",
+    "original_sha256": "ffbd34bc63cf9d7c6af2a27e1f3c12944d8f9aebd4aaf553982f522353d6e6c3",
+    "published_sha256": "ffbd34bc63cf9d7c6af2a27e1f3c12944d8f9aebd4aaf553982f522353d6e6c3",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  },
+  {
+    "file": "revision-driver.py",
+    "original_sha256": "702cb7d2ea40bfc947c3130517e7a1a7c8a3b67545c766ce4e943c1c4b78672c",
+    "published_sha256": "702cb7d2ea40bfc947c3130517e7a1a7c8a3b67545c766ce4e943c1c4b78672c",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  },
+  {
+    "file": "revision-precondition.py",
+    "original_sha256": "4e609fc60a8c1e939bf666430efc931b1b08f2a24d600eeda73aa3384c04ec3e",
+    "published_sha256": "4e609fc60a8c1e939bf666430efc931b1b08f2a24d600eeda73aa3384c04ec3e",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command",
+    "reconstruction": "Reverse one route/payload change from the next snapshot; original SHA equals recorded invocation e2afdaff67f6499a8d41649d8af5c172"
+  },
+  {
+    "file": "settled-driver.py",
+    "original_sha256": "64484ce614908dade5e67cd50543feb67bb2c50c152ef74909dc339a1b69a64c",
+    "published_sha256": "64484ce614908dade5e67cd50543feb67bb2c50c152ef74909dc339a1b69a64c",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  },
+  {
+    "file": "photo-probe-v1.py",
+    "original_sha256": "0ae8848d9c1f386f8bd6646c548a1ba4379fb4201710e63b0cf72d5891a15444",
+    "published_sha256": "0ae8848d9c1f386f8bd6646c548a1ba4379fb4201710e63b0cf72d5891a15444",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  },
+  {
+    "file": "photo-probe-v2.py",
+    "original_sha256": "95d95bb0daaf623b54fe1730501200254f83a509a456ec60b090bf0f5aa4361c",
+    "published_sha256": "95d95bb0daaf623b54fe1730501200254f83a509a456ec60b090bf0f5aa4361c",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  },
+  {
+    "file": "latency-proxy.py",
+    "original_sha256": "b43844476172b700303e6508b6ae67277268c9b037b40f5223c52a3148c6c887",
+    "published_sha256": "b43844476172b700303e6508b6ae67277268c9b037b40f5223c52a3148c6c887",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  },
+  {
+    "file": "cleanup-local.php",
+    "original_sha256": "1c95ce42f221425b77f0dad33687726f6c9f1ccb7951e19228873005649fbf05",
+    "published_sha256": "1c95ce42f221425b77f0dad33687726f6c9f1ccb7951e19228873005649fbf05",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  },
+  {
+    "file": "finalize.py",
+    "original_sha256": "a6373b797d4074b36729d25d2e5263c475756954a7fbad4989c1cb0590109ce1",
+    "published_sha256": "aa7d837d7bb99cfdf9f159deb1dd500fa6046423a42f34a2b23d4131c0bfdcff",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  },
+  {
+    "file": "cleanup-environment.py",
+    "original_sha256": "f6ea41532accfd1b9014e43bcb3c76987773be7856e775eeec4d67143916400f",
+    "published_sha256": "9856906fbab0ff5040b51b8c6c804d553436188e66bc46137f4e8a7977f81775",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  },
+  {
+    "file": "owner-driver.py",
+    "original_sha256": "dc21fad8051e035c408541e509f948fdabdfc3ef9223b7281ace4c84cfaf2c9a",
+    "published_sha256": "dc21fad8051e035c408541e509f948fdabdfc3ef9223b7281ace4c84cfaf2c9a",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  },
+  {
+    "file": "verify-originals.php",
+    "original_sha256": "078046ea57fb856d95a949845ab553d92f2dca8dec69cfeccd2ef2845b7149c9",
+    "published_sha256": "078046ea57fb856d95a949845ab553d92f2dca8dec69cfeccd2ef2845b7149c9",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  },
+  {
+    "file": "verify-originals.py",
+    "original_sha256": "c041a16acded1eacd58dd1fcff17c03ce15550fcfd4c1ac8ae77499a0294772f",
+    "published_sha256": "c041a16acded1eacd58dd1fcff17c03ce15550fcfd4c1ac8ae77499a0294772f",
+    "transformation": "Redact local roots and emulator identifier; audit snapshot, not a supported runnable command"
+  }
+]

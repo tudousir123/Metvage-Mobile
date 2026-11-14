@@ -1,0 +1,22 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "capture-error",
+      "seconds": 10.25,
+      "invocation": "5e2684df6ebd427bba49b2802da73a9a",
+      "metrics": {
+        "adb_calls": 21,
+        "adb_seconds": 10.23,
+        "ui_reads": 4
+      },
+      "artifacts": ".acceptance/issue17-peer/runs/issue17-navigation-error"
+    },
+    "events": [
+      {
+        "action": "screenshot",
+        "path": ".acceptance/issue17-peer/runs/issue17-navigation-error/native-navigation-error.png"
+      }
+    ]
+  }
+]

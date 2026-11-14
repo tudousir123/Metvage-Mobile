@@ -1,0 +1,19 @@
+{
+  "environment": "local Android emulator",
+  "role": "owner-clone",
+  "invocations": [
+    {
+      "id": "e57ef87ec5df4dbcb362ced875067dff",
+      "summary": {
+        "status": "pass",
+        "command": "original-data-comparison",
+        "seconds": 0.8,
+        "invocation": "e57ef87ec5df4dbcb362ced875067dff",
+        "original_pet_count": 2,
+        "original_photo_bytes_equal": true,
+        "artifacts": ".acceptance/photo-debug-owner/runs/original-data"
+      },
+      "events": []
+    }
+  ]
+}

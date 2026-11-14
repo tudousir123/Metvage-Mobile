@@ -1,0 +1,87 @@
+{
+  "environment": "local Android emulator",
+  "role": "owner",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "simulator-actual-oauth",
+        "seconds": 47.6,
+        "invocation": "20f7f6884b8c4519ace74c064c2b241f",
+        "metrics": {
+          "adb_calls": 92,
+          "adb_seconds": 42.511,
+          "ui_reads": 8
+        },
+        "artifacts": "<mobileRoot>/.acceptance/issue17-sim-owner/runs/issue17-sim-u1-oauth"
+      },
+      "invocation_id": "20f7f6884b8c4519ace74c064c2b241f",
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "5197",
+          "metro_pid": 1282865,
+          "environment": "emulator"
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 3.033,
+          "adb_calls": 8,
+          "adb_seconds": 3.031,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.174,
+          "adb_calls": 11,
+          "adb_seconds": 5.17,
+          "ui_reads": 2
+        },
+        {
+          "action": "owned_emulator_browser_setup",
+          "control": "Use without an account"
+        },
+        {
+          "action": "local_browser",
+          "path": "/login",
+          "inputs": [
+            {
+              "name": "email",
+              "type": "email"
+            },
+            {
+              "name": "password",
+              "type": "password"
+            },
+            {
+              "name": "remember",
+              "type": "checkbox"
+            }
+          ],
+          "buttons": [
+            "",
+            "Login"
+          ]
+        },
+        {
+          "action": "oauth_identity",
+          "role": "U1",
+          "actual_app_token": true,
+          "environment": "emulator"
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-owner/runs/issue17-sim-u1-oauth/authenticated-home.png"
+        }
+      ]
+    }
+  ]
+}

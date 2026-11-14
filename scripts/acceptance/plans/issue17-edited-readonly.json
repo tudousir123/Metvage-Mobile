@@ -1,0 +1,23 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/note/{publicRecordId}",
+      "expect": {
+        "label": "查看麦芽的主页"
+      }
+    },
+    {
+      "action": "assert",
+      "label": "issue17-owner-title"
+    },
+    {
+      "action": "assert",
+      "label": "issue17-owner-edited"
+    },
+    {
+      "action": "capture",
+      "name": "edited-public-note-with-history"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "environment": "local Android emulator",
+  "role": "http",
+  "invocations": [
+    {
+      "summary": null,
+      "invocation_id": "16dbb65e73aa4b10945bf86076db5d0e",
+      "events": [
+        {
+          "action": "environment",
+          "kind": "simulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One access token in isolated U2 test App",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+          "result": "pass"
+        }
+      ]
+    }
+  ]
+}

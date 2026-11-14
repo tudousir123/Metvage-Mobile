@@ -1,0 +1,36 @@
+{
+  "environment": "local Android emulator",
+  "role": "u2",
+  "invocations": [
+    {
+      "id": "b8ff4a31c13047248033b780a7ee54a2",
+      "summary": {
+        "status": "pass",
+        "command": "fixture-auth-diagnostic",
+        "seconds": 1.87,
+        "invocation": "b8ff4a31c13047248033b780a7ee54a2",
+        "artifacts": ".acceptance/photo-debug/runs/auth-diagnostic"
+      },
+      "events": [
+        {
+          "action": "token_metadata",
+          "iat": 1794241054.120535,
+          "nbf": 1794241054.120538,
+          "exp": 1825777054.111288
+        },
+        {
+          "action": "auth",
+          "path": "/api/v1/accounts/verify_credentials",
+          "status": 401,
+          "error": "Unauthenticated."
+        },
+        {
+          "action": "auth",
+          "path": "/api/v1/metvage/pets",
+          "status": 401,
+          "error": "Unauthenticated."
+        }
+      ]
+    }
+  ]
+}

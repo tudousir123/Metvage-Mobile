@@ -1,0 +1,98 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "run",
+      "seconds": 24.32,
+      "invocation": "306c29d01a3d43dd8bec5cb3a46ac525",
+      "metrics": {
+        "adb_calls": 67,
+        "adb_seconds": 23.507,
+        "ui_reads": 8
+      },
+      "run_id": "issue17-unblock",
+      "runtime_mode": "verified",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-unblock"
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "issue17-unblock.json",
+            "sha256": "2e7b5c42b45aca28b532dbac1a2ffdd60f74800d526c408faa7ac4710d37368e"
+          }
+        ]
+      },
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "c3c687ac841e88f552623da27351cd22b3d7ba9a",
+          "dirty": true,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "metro": {
+          "port": 8081,
+          "root": "<mobileRoot>"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime",
+        "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+        "scheme": "pixelfed",
+        "app_pid": "13582",
+        "metro_pid": 1282865
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.289,
+        "adb_calls": 8,
+        "adb_seconds": 3.286,
+        "ui_reads": 1
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "tap",
+        "status": "pass",
+        "seconds": 8.576,
+        "adb_calls": 16,
+        "adb_seconds": 8.57,
+        "ui_reads": 3
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-unblock/block-removed.png"
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.322,
+        "adb_calls": 21,
+        "adb_seconds": 10.311,
+        "ui_reads": 4
+      }
+    ]
+  }
+]

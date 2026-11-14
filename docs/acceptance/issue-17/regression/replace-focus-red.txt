@@ -1,0 +1,13 @@
+F
+======================================================================
+FAIL: test_replace_stops_before_delete_when_focus_changes (scripts.acceptance.tests.test_device_cli.DeviceCliTest.test_replace_stops_before_delete_when_focus_changes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<mobileRoot>/scripts/acceptance/tests/test_device_cli.py", line 123, in test_replace_stops_before_delete_when_focus_changes
+    self.assertEqual(result.returncode, 1)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 0.979s
+
+FAILED (failures=1)

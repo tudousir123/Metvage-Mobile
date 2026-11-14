@@ -42,6 +42,8 @@ npm run acceptance -- run --run-id keyboard-001 --plan scripts/acceptance/plans/
 
 计划支持按可访问性标签点击、ASCII 输入、返回、断言文字、比例坐标滚动、评论键盘净空断言及截图。定位按可访问性标识、资源 ID、文字查找，并合并属于同一可点击祖先的节点；两个不同按钮同名时仍要求明确 `index`。诊断使用 `inspect --label <标签>`，只返回指定目标的候选数量、类型、范围和可点击状态，不输出完整页面文字。
 
+编辑已有字段时，先 `tap` 指定输入框，再使用 `{"action":"type","text":"new value","replace":true}` 全选并替换；空字符串会清空该字段。`replace` 只能是输入操作上的布尔值，非法值在设备修改前拒绝。
+
 每个 `back`/`open` 步骤必须声明 `expect`，例如 `{"keyboard":"hidden"}` 或 `{"label":"保留这份回忆？"}`。计划及其 `include` 子计划的操作参数、路径、文件名和后置条件在修改设备前统一校验；变量展开后再次校验，空标签不能放行；操作完成后等待条件满足，再执行下一步。状态未到达即停止。`variables` 可提供测试宠物名称，`{run_id}` 用于标记本轮文字；生成宠物的中文名字通过 API 设置。
 
 设备计划和恢复命令持有同一序列号的进程锁，其他操作命令会立即返回 busy；doctor 只读检查环境。截图前后都验证测试包前台与稳定布局；失焦或布局发生变化时丢弃图片。UI XML 在手机上使用本进程专用临时路径，读取后立即删除；恢复日志记录该路径，中断后由新进程清理原文件。输出不包含完整界面文本。
@@ -70,6 +72,23 @@ npm run --silent acceptance -- verify-api --run-id api-001
 `replay` 在一次调用中持有账号锁，先创建带本轮标记的生成素材，再明确公开计划声明的猫图；其他记录保持私人。设备操作持有设备锁；任一步失败也会先恢复设备设置/端口、精确删除该批素材并撤销令牌。评论是否单条持久化由 UI 之后的 HTTP 重新读取确认。`verify-api` 以主人、另一账号及访客读取现有记录，只核验权限，不修改原有内容。
 
 `run` / `replay` 始终要求 `mobileRoot` 和有效的 App 回执，没有跳过验证的配置开关。模拟 ADB 的低层契约测试通过 `tests/device_harness.py` 专用入口执行，和常规 App 验收隔离。
+
+## 模拟器照片移除诊断
+
+`probe-photo-edit` 只接受 Android 模拟器、`testAccount: true` 和有效的 App 回执。配置须包含 `cat`、`dog` 两项生成素材，昵称与已有宠物不同；先在测试 App 真实 OAuth 登录与 `profileUsername` 对应的账号。
+
+```sh
+npm run --silent acceptance -- --config .acceptance/probe/config.json probe-photo-edit --run-id photo-probe-001 --iterations 3
+npm run --silent acceptance -- --config .acceptance/probe/config.json probe-photo-edit --run-id photo-control-001 --negative-control
+```
+
+命令创建本轮两个宠物档案及私人照片夹具，在 App 中组合修改正文、标题、关联宠物并移除照片，然后通过真实 HTTP 确认。其他修改未落库时标为保存未确认；确认其他修改后，照片仍保留才作为目标失败。读回会等待保存收敛，避免把一次过早读取判为照片未删除。
+
+负向对照故意跳过移除，预期退出码为 1，且日志标明不是产品问题复现。它证明检测器能报出照片残留，不能证明未经改动的 App 有稳定触发器。正常操作通过也不证明历史偶发问题已修复。
+
+每次使用新 run-id。命令沿用当前 App 的实际令牌，只清理本轮生成夹具；照片重新关联后按实际关联更新清单，并用请求标记校验删除范围。成功、失败及对照退出均恢复设备设置和端口。`cleanup-summary.json` 独立记录清理结果，不覆盖验收结论；中断后先查看该文件和 `device.json`，存在待恢复项时沿用既有 `cleanup` 流程。
+
+此命令的清单带有 App OAuth 来源标记；恢复时 `cleanup` 从同一模拟器 App 验证当前账号后借用令牌，再读取记录的实际关联并保留请求标记校验，不注销 App 会话。App 令牌已失效时先在模拟器重新登录对应账号，再重试清理。其他素材清单继续使用原有临时令牌流程。
 
 每次运行保存展开计划所有源文件的哈希；凭据及实际设备参数仍只在本地配置。中断后沿用 `cleanup --run-id <原值>`，也会重试撤销补充账号的临时令牌。
 

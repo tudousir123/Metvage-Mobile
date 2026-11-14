@@ -1,0 +1,355 @@
+{
+  "environment": "local Android emulator",
+  "role": "http",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "simulator-finalize",
+        "seconds": 177.36,
+        "invocation": "e9031c5e278144c4a4cfac87950b6784",
+        "artifacts": ".acceptance/issue17-sim-http/runs/issue17-finalize"
+      },
+      "invocation_id": "e9031c5e278144c4a4cfac87950b6784",
+      "events": [
+        {
+          "action": "assertion",
+          "name": "One current access token in owned emulator App",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Actual emulator OAuth identity phoneu11103",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "One current access token in owned emulator App",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Actual emulator OAuth identity phoneu21103",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "U2 subject matches actual invited account",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "U1 subject matches protected owner",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Original U1 records unchanged before cleanup: 1",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Original U1 records unchanged before cleanup: 2",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Only six known U2 acceptance records are eligible for removal",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/28",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/28",
+          "result": "pass"
+        },
+        {
+          "action": "technical_team",
+          "account_id": 4,
+          "human_maintainer": "not-designated"
+        },
+        {
+          "action": "team_http",
+          "method": "GET",
+          "path": "/admin/reports",
+          "status": 200
+        },
+        {
+          "action": "assertion",
+          "name": "Governance targets match actual App reports",
+          "result": "pass"
+        },
+        {
+          "action": "team_http",
+          "method": "PATCH",
+          "path": "/admin/reports/2",
+          "status": 200
+        },
+        {
+          "action": "assertion",
+          "name": "Team deletes only reported cat comment and retains dog comment",
+          "result": "pass"
+        },
+        {
+          "action": "team_http",
+          "method": "PATCH",
+          "path": "/admin/reports/1",
+          "status": 200
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/26",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cleanup record is owned generated pet content",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/28",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/28",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/28",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cleanup record is owned generated pet content",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/29",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/29",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/29",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cleanup record is owned generated pet content",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/30",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/30",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/30",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cleanup record is owned generated pet content",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/31",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/31",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/31",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cleanup record is owned generated pet content",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/32",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/32",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/32",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Cleanup record is owned generated pet content",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/33",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/33",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/33",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/30/photos/24",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/30/photos/24",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/30/photos/24",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/31/photos/25",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/31/photos/25",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/31/photos/25",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/32/photos/26",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/32/photos/26",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/32/photos/26",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/33/photos/27",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/33/photos/27",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "HTTP 404 /api/v1/metvage/records/33/photos/27",
+          "result": "pass"
+        },
+        {
+          "action": "fixtures_cleaned",
+          "run_id": "issue17-u1"
+        },
+        {
+          "action": "assertion",
+          "name": "Original U1 selection restored",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Only original U1 pets remain",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Original U1 record hash matches after cleanup: 1",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Original U1 record hash matches after cleanup: 2",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Original U1 photo bytes match before/after cleanup",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Original U1 photo bytes match before/after cleanup",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Invited U2 account retained empty with no selected pet",
+          "result": "pass"
+        },
+        {
+          "action": "relations_cleanup",
+          "fixture_notifications_removed": 6,
+          "technical_role_disabled": true,
+          "new_account_retained_without_pets": true
+        },
+        {
+          "action": "u2_token_cleanup",
+          "active_tokens": 0
+        },
+        {
+          "action": "owner_emulator_token_cleanup",
+          "only_emulator_session_revoked": true,
+          "other_owner_sessions_preserved": 2
+        }
+      ]
+    }
+  ]
+}

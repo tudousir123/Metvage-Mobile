@@ -1,0 +1,43 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "issue17-http-dog-social",
+      "seconds": 1.84,
+      "invocation": "af47a1bc528d4c79a636810c4a760564",
+      "artifacts": ".acceptance/runs/issue17-http-dog-social"
+    },
+    "events": [
+      {
+        "action": "assertion",
+        "name": "One access token in isolated U2 test App",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Likes retain both selected pet identities after switching",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Comments retain cat and dog identities",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Historic cat comment ID unchanged after switch",
+        "result": "pass"
+      }
+    ]
+  }
+]

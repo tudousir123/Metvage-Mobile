@@ -1,0 +1,87 @@
+[
+  {
+    "summary": {
+      "status": "fail",
+      "command": "android-test-file-picker",
+      "seconds": 44.55,
+      "invocation": "0a8b7ddcde6c4a31a620d21a4a2adbf8",
+      "metrics": {
+        "adb_calls": 121,
+        "adb_seconds": 44.407,
+        "ui_reads": 17
+      },
+      "error": "signal 2",
+      "artifacts": ".acceptance/issue17-peer/runs/issue17-photo-public-system-4"
+    },
+    "events": [
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      },
+      {
+        "action": "picker_control",
+        "target": "影集"
+      }
+    ]
+  }
+]

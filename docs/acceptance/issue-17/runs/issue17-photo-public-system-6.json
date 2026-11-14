@@ -1,0 +1,115 @@
+[
+  {
+    "summary": {
+      "status": "fail",
+      "command": "android-test-file-picker",
+      "seconds": 62.35,
+      "invocation": "dcb712c88e93455bbfa36271a1e94f1e",
+      "metrics": {
+        "adb_calls": 160,
+        "adb_seconds": 62.164,
+        "ui_reads": 24
+      },
+      "error": "Test photo selection timed out",
+      "artifacts": ".acceptance/issue17-peer/runs/issue17-photo-public-system-6"
+    },
+    "events": [
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_control",
+        "target": "相册"
+      }
+    ]
+  }
+]

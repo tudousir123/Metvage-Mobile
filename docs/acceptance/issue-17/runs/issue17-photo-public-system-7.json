@@ -1,0 +1,31 @@
+[
+  {
+    "summary": {
+      "status": "fail",
+      "command": "android-test-file-picker",
+      "seconds": 5.64,
+      "invocation": "c3346f46fb69408997354857f9b92d43",
+      "metrics": {
+        "adb_calls": 27,
+        "adb_seconds": 5.604,
+        "ui_reads": 2
+      },
+      "error": "No verified browse/search control available; no photo selected",
+      "artifacts": ".acceptance/issue17-peer/runs/issue17-photo-public-system-7"
+    },
+    "events": [
+      {
+        "action": "picker_control",
+        "target": "相册"
+      },
+      {
+        "action": "picker_metadata",
+        "package": "com.android.photopicker",
+        "controls": [
+          "相册"
+        ],
+        "ids": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,640 @@
+{
+  "environment": "local Android emulator",
+  "role": "u2",
+  "invocations": [
+    {
+      "id": "00374e9196054156832c67b43e649a93",
+      "summary": {
+        "status": "fail",
+        "command": "photo-edit-loop",
+        "seconds": 65.37,
+        "invocation": "00374e9196054156832c67b43e649a93",
+        "metrics": {
+          "adb_calls": 147,
+          "adb_seconds": 64.048,
+          "ui_reads": 22
+        },
+        "error": "Test app has no stable visible content",
+        "artifacts": ".acceptance/photo-debug/runs/loop-hit-grid"
+      },
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "2697",
+          "metro_pid": 1380750,
+          "environment": "emulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One real App OAuth token",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 44
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 4.558,
+          "adb_calls": 8,
+          "adb_seconds": 4.554,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.319,
+          "adb_calls": 11,
+          "adb_seconds": 5.313,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.418,
+          "adb_calls": 11,
+          "adb_seconds": 5.414,
+          "ui_reads": 2
+        },
+        {
+          "action": "removal_touch",
+          "bounds": [
+            200,
+            503,
+            294,
+            597
+          ],
+          "fraction": [
+            0.5,
+            0.5
+          ],
+          "point": [
+            247,
+            550
+          ]
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.515,
+          "adb_calls": 12,
+          "adb_seconds": 5.504,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 11.978,
+          "adb_calls": 21,
+          "adb_seconds": 11.966,
+          "ui_reads": 4
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 1,
+          "record_id": 44,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": false
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 45
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 3.777,
+          "adb_calls": 8,
+          "adb_seconds": 3.774,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.375,
+          "adb_calls": 11,
+          "adb_seconds": 5.369,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.282,
+          "adb_calls": 11,
+          "adb_seconds": 5.278,
+          "ui_reads": 2
+        },
+        {
+          "action": "removal_touch",
+          "bounds": [
+            200,
+            503,
+            294,
+            597
+          ],
+          "fraction": [
+            0.5,
+            0.25
+          ],
+          "point": [
+            247,
+            526
+          ]
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.452,
+          "adb_calls": 12,
+          "adb_seconds": 5.441,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "fail",
+          "seconds": 10.41,
+          "adb_calls": 21,
+          "adb_seconds": 10.4,
+          "ui_reads": 4
+        }
+      ]
+    },
+    {
+      "id": "fefaa248cfb84afc8ca3bc659699a486",
+      "summary": {
+        "status": "pass",
+        "command": "photo-edit-loop",
+        "seconds": 176.59,
+        "invocation": "fefaa248cfb84afc8ca3bc659699a486",
+        "metrics": {
+          "adb_calls": 370,
+          "adb_seconds": 172.738,
+          "ui_reads": 61
+        },
+        "iterations": 5,
+        "mode": "hit-grid",
+        "artifacts": ".acceptance/photo-debug/runs/loop-hit-grid"
+      },
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "2697",
+          "metro_pid": 1380750,
+          "environment": "emulator"
+        },
+        {
+          "action": "assertion",
+          "name": "One real App OAuth token",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 46
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 7.028,
+          "adb_calls": 13,
+          "adb_seconds": 7.023,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.329,
+          "adb_calls": 11,
+          "adb_seconds": 5.323,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.392,
+          "adb_calls": 11,
+          "adb_seconds": 5.388,
+          "ui_reads": 2
+        },
+        {
+          "action": "removal_touch",
+          "bounds": [
+            200,
+            503,
+            294,
+            597
+          ],
+          "fraction": [
+            0.75,
+            0.25
+          ],
+          "point": [
+            270,
+            526
+          ]
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.538,
+          "adb_calls": 12,
+          "adb_seconds": 5.527,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 13.017,
+          "adb_calls": 26,
+          "adb_seconds": 13.002,
+          "ui_reads": 5
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 1,
+          "record_id": 46,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": false
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 47
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 4.218,
+          "adb_calls": 8,
+          "adb_seconds": 4.214,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.323,
+          "adb_calls": 11,
+          "adb_seconds": 5.317,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.438,
+          "adb_calls": 11,
+          "adb_seconds": 5.433,
+          "ui_reads": 2
+        },
+        {
+          "action": "removal_touch",
+          "bounds": [
+            200,
+            503,
+            294,
+            597
+          ],
+          "fraction": [
+            0.25,
+            0.75
+          ],
+          "point": [
+            223,
+            573
+          ]
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.408,
+          "adb_calls": 12,
+          "adb_seconds": 5.397,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 13.264,
+          "adb_calls": 26,
+          "adb_seconds": 13.249,
+          "ui_reads": 5
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 2,
+          "record_id": 47,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": false
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 48
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 3.994,
+          "adb_calls": 8,
+          "adb_seconds": 3.99,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.384,
+          "adb_calls": 11,
+          "adb_seconds": 5.378,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.42,
+          "adb_calls": 11,
+          "adb_seconds": 5.416,
+          "ui_reads": 2
+        },
+        {
+          "action": "removal_touch",
+          "bounds": [
+            200,
+            503,
+            294,
+            597
+          ],
+          "fraction": [
+            0.75,
+            0.75
+          ],
+          "point": [
+            270,
+            573
+          ]
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.585,
+          "adb_calls": 12,
+          "adb_seconds": 5.574,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 13.511,
+          "adb_calls": 26,
+          "adb_seconds": 13.497,
+          "ui_reads": 5
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 3,
+          "record_id": 48,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": false
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 49
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 4.078,
+          "adb_calls": 8,
+          "adb_seconds": 4.074,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.256,
+          "adb_calls": 11,
+          "adb_seconds": 5.25,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.432,
+          "adb_calls": 11,
+          "adb_seconds": 5.428,
+          "ui_reads": 2
+        },
+        {
+          "action": "removal_touch",
+          "bounds": [
+            200,
+            503,
+            294,
+            597
+          ],
+          "fraction": [
+            0.1,
+            0.1
+          ],
+          "point": [
+            209,
+            512
+          ]
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.501,
+          "adb_calls": 12,
+          "adb_seconds": 5.491,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 13.673,
+          "adb_calls": 26,
+          "adb_seconds": 13.658,
+          "ui_reads": 5
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 4,
+          "record_id": 49,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": false
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 50
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 4.014,
+          "adb_calls": 8,
+          "adb_seconds": 4.011,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.338,
+          "adb_calls": 11,
+          "adb_seconds": 5.332,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.514,
+          "adb_calls": 11,
+          "adb_seconds": 5.509,
+          "ui_reads": 2
+        },
+        {
+          "action": "removal_touch",
+          "bounds": [
+            200,
+            503,
+            294,
+            597
+          ],
+          "fraction": [
+            0.9,
+            0.1
+          ],
+          "point": [
+            284,
+            512
+          ]
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.433,
+          "adb_calls": 12,
+          "adb_seconds": 5.422,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 13.381,
+          "adb_calls": 26,
+          "adb_seconds": 13.366,
+          "ui_reads": 5
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "pass",
+          "iteration": 5,
+          "record_id": 50,
+          "photo_count": 0,
+          "pet_id": 22,
+          "combined_fields_match": false
+        }
+      ]
+    }
+  ]
+}

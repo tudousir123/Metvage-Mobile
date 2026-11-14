@@ -1,0 +1,392 @@
+[
+  {
+    "file": "peer-cold-matrix-cold-private-timeline-bottom.png",
+    "sha256": "95894987dcbb990a46d2aa504d137c0b6de73b3b2c25934d4307509d164e9c63",
+    "run": "issue17-cold-matrix",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "ad2badc61f994338b544a5813556a969",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-cold-matrix-cold-public-timeline-top.png",
+    "sha256": "58cfdb7e8378daaedc708e6136cd2ca61d512faf836d24297242d0123dbaa128",
+    "run": "issue17-cold-matrix",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "ad2badc61f994338b544a5813556a969",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-cold-matrix-cold-public-timeline-bottom.png",
+    "sha256": "402ffe103092545d17097b43b3e90e5199b7f82096c14c8348621f19eeac6f6f",
+    "run": "issue17-cold-matrix",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "ad2badc61f994338b544a5813556a969",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-cold-matrix-cold-private-timeline-top.png",
+    "sha256": "91c2ae1e5e6a134c4e7cb3031c9ea1d9e2923c37002e85a0ed01053bf9d7bb7f",
+    "run": "issue17-cold-matrix",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "ad2badc61f994338b544a5813556a969",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-cold-matrix-cold-selected-dog.png",
+    "sha256": "bce34c3d9d60adf6e293b4a4eb1dc233b3269a4f36fc122ffc95459ec8497c9b",
+    "run": "issue17-cold-matrix",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "ad2badc61f994338b544a5813556a969",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-cold-matrix-cold-public-photo.png",
+    "sha256": "1a2960c39b56427230b2f5245772dfcde3bc2f3c6283994b1e83668a469a1cd7",
+    "run": "issue17-cold-matrix",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "ad2badc61f994338b544a5813556a969",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-dog-social-readonly-dog-and-cat-historic-interactions.png",
+    "sha256": "4d5adc5c8ef09fed4adadc25be80eea30938a7f0619f3ceb2b85ba0fdb44fe2b",
+    "run": "issue17-dog-social-readonly",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "70b252b7b7de44288e6fff8f812d9b1d",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-edited-readonly-edited-public-note-with-history.png",
+    "sha256": "196c70775e37644799d59c0b55a6efd51669e1ea880d2c1f020eb081b8d8baa2",
+    "run": "issue17-edited-readonly",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "53020177c0294fe5b7e3cd42f63421d2",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-final-guest-actual-logout.png",
+    "sha256": "cb4b792a27c001c317c6c79a1d1601c5e87481280d95f71c8d22fd0dc3aff759",
+    "run": "issue17-final-guest",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "bbf10bd4c5054645a435fd038d2e9b6b",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-final-guest-guest-public-photo-visible.png",
+    "sha256": "b0fd3eda89114d56689a8cc608cc9aeadd9476e02caf013a5faf58c5ee5fbf22",
+    "run": "issue17-final-guest",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "bbf10bd4c5054645a435fd038d2e9b6b",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-final-guest-guest-private-photo-note-denied.png",
+    "sha256": "c316341f279e38d62bffc567c685e9d9590f1589dfa43eff9fac5a269ddc7a8d",
+    "run": "issue17-final-guest",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "bbf10bd4c5054645a435fd038d2e9b6b",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-final-guest-guest-old-link-now-private-denied.png",
+    "sha256": "9d4de4613398617608aa513a28fc007ccb524a3c0c47afadb6fe25f0142520cd",
+    "run": "issue17-final-guest",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "bbf10bd4c5054645a435fd038d2e9b6b",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-final-guest-owner-private-text-before-logout.png",
+    "sha256": "ca2e8825883f39b07eb589ca5ab9dcd6a5b1a71c4c0aafa877cc700552c5045c",
+    "run": "issue17-final-guest",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "bbf10bd4c5054645a435fd038d2e9b6b",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-peer-private-boundary-peer-private-removed-from-pet.png",
+    "sha256": "405d141982ada5b2c5d4e8056e5cd2d70f770fd4c7dd19993da9327ea71e2e55",
+    "run": "issue17-peer-private-boundary",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "3b092ac9524e4d9688d8123b48b80ff5",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-peer-private-boundary-peer-private-search-empty.png",
+    "sha256": "fbd80c1033df7dcc697b8e62085e4f4d361f2d73616cb66e889ca65899c8b57d",
+    "run": "issue17-peer-private-boundary",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "3b092ac9524e4d9688d8123b48b80ff5",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-peer-private-boundary-peer-old-link-private-denied.png",
+    "sha256": "f0b9b923f7531ffd44c35e18100364fb2fe9ce44c32b4688d9c802b791877481",
+    "run": "issue17-peer-private-boundary",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "3b092ac9524e4d9688d8123b48b80ff5",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-peer-public-boundary-peer-republished-note.png",
+    "sha256": "19a6f15e547a8e0eee473e879b27e403a8d3614bc1d574bfb26c8a356c5d2c70",
+    "run": "issue17-peer-public-boundary",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "9605398636c546e39bd0d05e6b59f738",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-peer-public-boundary-peer-republished-search.png",
+    "sha256": "f81b01727be583d8418f6293913af3232c4bdad58559f413e0eb983313cc4477",
+    "run": "issue17-peer-public-boundary",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "9605398636c546e39bd0d05e6b59f738",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-sim-u2-oauth-authenticated-home.png",
+    "sha256": "dfafb1ea3acee87da32898119d94b31bdf22c9ede2d87ac93f0132142f61f1c8",
+    "run": "issue17-sim-u2-oauth",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "9f40119af23847dcbe932d57cd1f016d",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-team-delete-guest-guest-team-deleted-old-link-denied.png",
+    "sha256": "a0d64bb5abfa2eafed8a5c7649014dc7c6d2a0e94b814cddfb2497f637cf7d5b",
+    "run": "issue17-team-delete-guest",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "3e3bcf12178746beb6e0ec1632aca040",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-unavailable-explore-no-fake-places.png",
+    "sha256": "ce3edd8cb0e0fd9110588b0317ebe5b2db70bef8aadc2c6384f4ac2e471c8938",
+    "run": "issue17-unavailable",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "13b8d6d0d348451cb6aea2780455144c",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-unavailable-unavailable-daily-inspiration.png",
+    "sha256": "601e2a7ebcaf53d803f733c40c67112d5236ed2cfb7d39b54588dc177dc2e2c8",
+    "run": "issue17-unavailable",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "13b8d6d0d348451cb6aea2780455144c",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-unavailable-unavailable-messages.png",
+    "sha256": "a63b5a1c8b019d0f0cc2e1f15b9284e8f3b438236840f760b0b4c3f899dd3019",
+    "run": "issue17-unavailable",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "13b8d6d0d348451cb6aea2780455144c",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-unavailable-unavailable-growth.png",
+    "sha256": "986cede63a49466330a0129e6be10356d16c0ce3d28e8ad64db1da9bc72159ce",
+    "run": "issue17-unavailable",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "13b8d6d0d348451cb6aea2780455144c",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-unavailable-unavailable-auto-book.png",
+    "sha256": "b24ad6e964470c2d1d8a50e0f52deecab4a48c51c31e4c18f55ef744706b64bd",
+    "run": "issue17-unavailable",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "13b8d6d0d348451cb6aea2780455144c",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-unavailable-unavailable-nearby.png",
+    "sha256": "23198df8e681e3d6527d44d5ec7f4c2e841dd2fa5fde2b372737916b352cc860",
+    "run": "issue17-unavailable",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "13b8d6d0d348451cb6aea2780455144c",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-unavailable-unavailable-shop.png",
+    "sha256": "7b6774efb90367acb555aa01a7a5023e21af6dcf59eb64b2ee083f449a5eb67d",
+    "run": "issue17-unavailable",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "13b8d6d0d348451cb6aea2780455144c",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "peer-unavailable-unavailable-tasks.png",
+    "sha256": "a0e2b19d9240eb68b2a2952d7b2f47a5f5e6cdfcb417bd264a29e553ff7b2ba2",
+    "run": "issue17-unavailable",
+    "role": "peer",
+    "environment": "emulator",
+    "latest_run_invocation": "13b8d6d0d348451cb6aea2780455144c",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "owner-owner-combined-repro-edited-and-reassociated.png",
+    "sha256": "41307bbc6c86af3a0ac781d409aea22fb36dca504d76d5dbf9cfc8bc4878c48e",
+    "run": "issue17-owner-combined-repro",
+    "role": "owner",
+    "environment": "emulator",
+    "latest_run_invocation": "415a5fcca61245d8b42307405657ee49",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "owner-owner-combined-repro-combined-photo-removed-before-save.png",
+    "sha256": "d2bf96625ce07d3b8dd0e7c56b82ba624689f842afdea2a8a141bd1ae66eae3c",
+    "run": "issue17-owner-combined-repro",
+    "role": "owner",
+    "environment": "emulator",
+    "latest_run_invocation": "415a5fcca61245d8b42307405657ee49",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "owner-owner-edit-delete-owner-deleted-private-record.png",
+    "sha256": "eb5ffc112d3a23caa84a83a47a7b87e6388e8618eab7784a5b39b90c112b0252",
+    "run": "issue17-owner-edit-delete",
+    "role": "owner",
+    "environment": "emulator",
+    "latest_run_invocation": "a1c5dea9790b4a26ac823e8be4e79fbf",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "owner-owner-edit-delete-edited-and-reassociated.png",
+    "sha256": "6c262a80e5aca1a1c7dfc409f57299b44237dd0e503d88e43b127417b26c2d95",
+    "run": "issue17-owner-edit-delete",
+    "role": "owner",
+    "environment": "emulator",
+    "latest_run_invocation": "a1c5dea9790b4a26ac823e8be4e79fbf",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "owner-owner-notifications-owner-notifications.png",
+    "sha256": "c143285fe85b05eabe9d5665f197866b65c22077f6b8d9895a7aa11f4c5456e7",
+    "run": "issue17-owner-notifications",
+    "role": "owner",
+    "environment": "emulator",
+    "latest_run_invocation": "9132b0ceae8e4e92b2ad7f8c5fd36c5f",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "owner-owner-notifications-notification-opens-actual-note.png",
+    "sha256": "416c7952e75ec9a6f5c21d445fd7690e96846a285ab1513c569310e1e45a22bd",
+    "run": "issue17-owner-notifications",
+    "role": "owner",
+    "environment": "emulator",
+    "latest_run_invocation": "9132b0ceae8e4e92b2ad7f8c5fd36c5f",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "owner-owner-private-owner-private.png",
+    "sha256": "4760443b420c10d1ec6bcbc96c713fdb17d2f4096fb3e29d4d688667bf906d17",
+    "run": "issue17-owner-private",
+    "role": "owner",
+    "environment": "emulator",
+    "latest_run_invocation": "0346b1041cfd4e79837db4b300cb4d5e",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "owner-owner-public-owner-public.png",
+    "sha256": "da8cdaab190726d310002b3b3dadcfc395a1c891b1040f22812c7dd49224c7ee",
+    "run": "issue17-owner-public",
+    "role": "owner",
+    "environment": "emulator",
+    "latest_run_invocation": "bdfd3663a2be4259b62e299972652d0a",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "owner-remove-photo-repro-after-remove-before-save.png",
+    "sha256": "a75257790187d4139015a5e40ff3b2ea3f53f63a3ca4bd771103dfe491c2128b",
+    "run": "issue17-remove-photo-repro",
+    "role": "owner",
+    "environment": "emulator",
+    "latest_run_invocation": "c1b9aa75fd3a45a0b9bd37ada5729628",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "owner-remove-photo-repro-after-remove-save.png",
+    "sha256": "6464df3c4602a12db6b7b6a170c262d33a3e1b5a96bfed1fb7524ee091b40061",
+    "run": "issue17-remove-photo-repro",
+    "role": "owner",
+    "environment": "emulator",
+    "latest_run_invocation": "c1b9aa75fd3a45a0b9bd37ada5729628",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  },
+  {
+    "file": "owner-sim-u1-oauth-authenticated-home.png",
+    "sha256": "35496f0b943971b8e9f72bbb0a6a40397e852c091c0f1fa4571deeaa052c42d8",
+    "run": "issue17-sim-u1-oauth",
+    "role": "owner",
+    "environment": "emulator",
+    "latest_run_invocation": "20f7f6884b8c4519ace74c064c2b241f",
+    "raw_copy": true,
+    "note": "PNG files at a reused run-id represent the latest capture; older failure JSON remains separate"
+  }
+]

@@ -1,0 +1,113 @@
+{
+  "environment": "local Android emulator",
+  "role": "peer",
+  "invocations": [
+    {
+      "summary": {
+        "status": "pass",
+        "command": "run",
+        "seconds": 24.18,
+        "invocation": "53020177c0294fe5b7e3cd42f63421d2",
+        "metrics": {
+          "adb_calls": 62,
+          "adb_seconds": 23.323,
+          "ui_reads": 7
+        },
+        "run_id": "issue17-edited-readonly",
+        "runtime_mode": "verified",
+        "artifacts": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-edited-readonly"
+      },
+      "invocation_id": "53020177c0294fe5b7e3cd42f63421d2",
+      "events": [
+        {
+          "action": "plan",
+          "sources": [
+            {
+              "file": "issue17-edited-readonly.json",
+              "sha256": "1abd461aabe5543b44b994a0b4d6dd489713488efaa7f1d5742f15a75448d6e2"
+            }
+          ]
+        },
+        {
+          "action": "doctor",
+          "mobile": {
+            "root": "<mobileRoot>",
+            "repository": "tudousir123/Metvage-Mobile",
+            "branch": "codex/issue-17-acceptance",
+            "sha": "c3c687ac841e88f552623da27351cd22b3d7ba9a",
+            "dirty": true,
+            "node": "v24.22.0",
+            "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+          },
+          "metro": {
+            "port": 8081,
+            "root": "<mobileRoot>"
+          },
+          "server": {
+            "container": "metvage-issue17-phone-api",
+            "root": "<serverRoot>"
+          },
+          "api": {
+            "origin": "http://127.0.0.1:18080",
+            "status": 200
+          },
+          "device": {
+            "serial": "<owned-emulator>",
+            "model": "sdk_gphone64_x86_64"
+          }
+        },
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "9467",
+          "metro_pid": 1282865
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 5.86,
+          "adb_calls": 8,
+          "adb_seconds": 5.856,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "assert",
+          "status": "pass",
+          "seconds": 2.692,
+          "adb_calls": 5,
+          "adb_seconds": 2.688,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "assert",
+          "status": "pass",
+          "seconds": 2.619,
+          "adb_calls": 5,
+          "adb_seconds": 2.615,
+          "ui_reads": 1
+        },
+        {
+          "action": "screenshot",
+          "path": "<mobileRoot>/.acceptance/issue17-sim-peer/runs/issue17-edited-readonly/edited-public-note-with-history.png"
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "capture",
+          "status": "pass",
+          "seconds": 11.083,
+          "adb_calls": 21,
+          "adb_seconds": 11.064,
+          "ui_reads": 4
+        }
+      ]
+    }
+  ]
+}

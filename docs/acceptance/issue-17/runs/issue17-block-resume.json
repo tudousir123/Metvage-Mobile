@@ -1,0 +1,112 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "run",
+      "seconds": 34.8,
+      "invocation": "2f22cd5de208497eb8223dadd40a1d38",
+      "metrics": {
+        "adb_calls": 90,
+        "adb_seconds": 34.088,
+        "ui_reads": 12
+      },
+      "run_id": "issue17-block-resume",
+      "runtime_mode": "verified",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-block-resume"
+    },
+    "events": [
+      {
+        "action": "plan",
+        "sources": [
+          {
+            "file": "issue17-block-resume.json",
+            "sha256": "35301514737b22c10fe63fd57eb7da5ea8063d8210a166f0536cee9078c874e4"
+          }
+        ]
+      },
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "c3c687ac841e88f552623da27351cd22b3d7ba9a",
+          "dirty": true,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "metro": {
+          "port": 8081,
+          "root": "<mobileRoot>"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      },
+      {
+        "action": "runtime",
+        "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+        "scheme": "pixelfed",
+        "app_pid": "13582",
+        "metro_pid": 1282865
+      },
+      {
+        "action": "step",
+        "number": 1,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 3.109,
+        "adb_calls": 8,
+        "adb_seconds": 3.106,
+        "ui_reads": 1
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-block-resume/account-blocked.png"
+      },
+      {
+        "action": "step",
+        "number": 2,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.627,
+        "adb_calls": 21,
+        "adb_seconds": 10.613,
+        "ui_reads": 4
+      },
+      {
+        "action": "step",
+        "number": 3,
+        "operation": "open",
+        "status": "pass",
+        "seconds": 8.528,
+        "adb_calls": 18,
+        "adb_seconds": 8.523,
+        "ui_reads": 3
+      },
+      {
+        "action": "screenshot",
+        "path": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-block-resume/other-pet-blocked.png"
+      },
+      {
+        "action": "step",
+        "number": 4,
+        "operation": "capture",
+        "status": "pass",
+        "seconds": 10.561,
+        "adb_calls": 21,
+        "adb_seconds": 10.549,
+        "ui_reads": 4
+      }
+    ]
+  }
+]

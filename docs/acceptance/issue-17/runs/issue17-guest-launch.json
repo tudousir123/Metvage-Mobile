@@ -1,0 +1,43 @@
+[
+  {
+    "summary": {
+      "status": "interrupted",
+      "command": "launch",
+      "seconds": 115.58,
+      "invocation": "2088033bcddd4eaf9e1e829038cea10c",
+      "metrics": {
+        "adb_calls": 176,
+        "adb_seconds": 78.341,
+        "ui_reads": 30
+      },
+      "error": "Interrupted; inspect restoration journal before resuming",
+      "artifacts": "<mobileRoot>/.acceptance/issue17-peer/runs/issue17-guest-launch"
+    },
+    "events": [
+      {
+        "action": "doctor",
+        "mobile": {
+          "root": "<mobileRoot>",
+          "repository": "tudousir123/Metvage-Mobile",
+          "branch": "codex/issue-17-acceptance",
+          "sha": "273ece5055dfd3613097c431eb88d85cc33c1f0f",
+          "dirty": false,
+          "node": "v24.22.0",
+          "entry": "<mobileRoot>/node_modules/expo-router/entry.js"
+        },
+        "server": {
+          "container": "metvage-issue17-phone-api",
+          "root": "<serverRoot>"
+        },
+        "api": {
+          "origin": "http://127.0.0.1:18080",
+          "status": 200
+        },
+        "device": {
+          "serial": "<device>",
+          "model": "24031PN0DC"
+        }
+      }
+    ]
+  }
+]

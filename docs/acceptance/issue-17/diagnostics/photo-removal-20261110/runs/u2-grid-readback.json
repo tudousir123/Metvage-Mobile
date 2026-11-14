@@ -1,0 +1,29 @@
+{
+  "environment": "local Android emulator",
+  "role": "u2",
+  "invocations": [
+    {
+      "id": "acd8453161434587a0ec84878e762449",
+      "summary": {
+        "status": "pass",
+        "command": "grid-readback",
+        "seconds": 0.44,
+        "invocation": "acd8453161434587a0ec84878e762449",
+        "metrics": {
+          "adb_calls": 1,
+          "adb_seconds": 0.07,
+          "ui_reads": 0
+        },
+        "artifacts": ".acceptance/photo-debug/runs/grid-readback"
+      },
+      "events": [
+        {
+          "action": "readback",
+          "record_id": 45,
+          "pet_id": 22,
+          "photo_count": 0
+        }
+      ]
+    }
+  ]
+}

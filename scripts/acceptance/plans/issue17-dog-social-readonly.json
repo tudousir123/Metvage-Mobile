@@ -1,0 +1,28 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/note/{publicRecordId}",
+      "expect": {
+        "label": "取消点赞"
+      }
+    },
+    {
+      "action": "swipe",
+      "fractions": [
+        0.5,
+        0.83,
+        0.5,
+        0.34
+      ]
+    },
+    {
+      "action": "assert",
+      "label": "issue17-dog-comment"
+    },
+    {
+      "action": "capture",
+      "name": "dog-and-cat-historic-interactions"
+    }
+  ]
+}

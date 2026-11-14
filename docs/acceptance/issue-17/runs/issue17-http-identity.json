@@ -1,0 +1,33 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "issue17-http-identity",
+      "seconds": 1.77,
+      "invocation": "8f9ee476e23548c4ad00e286af8b2192",
+      "artifacts": ".acceptance/runs/issue17-http-identity"
+    },
+    "events": [
+      {
+        "action": "assertion",
+        "name": "One access token in isolated U2 test App",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Actual App OAuth session is still authenticated",
+        "result": "pass"
+      }
+    ]
+  }
+]

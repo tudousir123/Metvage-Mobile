@@ -1,0 +1,23 @@
+
+> pixelfed@1.0.0 test:ci
+> jest --runInBand --watch=false
+
+PASS __tests__/autolinker.ts
+PASS __tests__/native-intent.test.ts
+PASS __tests__/record-leave.test.jsx
+PASS __tests__/record-comment.test.jsx
+PASS __tests__/auth-recovery.test.jsx
+PASS __tests__/metvage-settings.test.jsx
+PASS __tests__/metvage-request.test.ts
+PASS __tests__/online-manager.test.jsx
+PASS __tests__/record-drafts.test.ts
+PASS __tests__/instanceOrigin.test.ts
+PASS __tests__/acceptance-runtime.test.ts
+PASS __tests__/unavailable-features.test.ts
+PASS __tests__/public-pet-records.test.ts
+
+Test Suites: 13 passed, 13 total
+Tests:       94 passed, 94 total
+Snapshots:   0 total
+Time:        3.608 s, estimated 4 s
+Ran all test suites.

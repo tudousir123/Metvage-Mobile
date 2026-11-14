@@ -1,0 +1,237 @@
+{
+  "environment": "local Android emulator",
+  "role": "u2",
+  "invocations": [
+    {
+      "id": "907613629eea4e4897f6e53de429779e",
+      "summary": {
+        "status": "fail",
+        "command": "photo-edit-loop",
+        "seconds": 56.41,
+        "invocation": "907613629eea4e4897f6e53de429779e",
+        "metrics": {
+          "adb_calls": 131,
+          "adb_seconds": 50.791,
+          "ui_reads": 17
+        },
+        "error": "Saved record has zero photos",
+        "artifacts": ".acceptance/photo-debug/runs/loop-negative-control"
+      },
+      "events": [
+        {
+          "action": "runtime",
+          "source": "07b6e5e8aa88c34c64854e72056ba6dccc479b89ddaa79084be36f97eefe7099",
+          "scheme": "pixelfed",
+          "app_pid": "2697",
+          "metro_pid": 1380750,
+          "environment": "emulator"
+        },
+        {
+          "action": "protocol",
+          "script_sha256": "64484ce614908dade5e67cd50543feb67bb2c50c152ef74909dc339a1b69a64c",
+          "mode": "negative-control",
+          "iterations": 1,
+          "api_proxy_port": 18081
+        },
+        {
+          "action": "assertion",
+          "name": "One real App OAuth token",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Seed has exactly one generated photo",
+          "result": "pass",
+          "record_id": 55
+        },
+        {
+          "action": "negative_control",
+          "intentional": true,
+          "omitted_action": "photo removal",
+          "not_a_bug_reproduction": true
+        },
+        {
+          "action": "step",
+          "number": 1,
+          "operation": "open",
+          "status": "pass",
+          "seconds": 4.63,
+          "adb_calls": 8,
+          "adb_seconds": 4.627,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 2,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.254,
+          "adb_calls": 11,
+          "adb_seconds": 5.248,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 3,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.043,
+          "adb_calls": 6,
+          "adb_seconds": 1.043,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 4,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.926,
+          "adb_calls": 8,
+          "adb_seconds": 2.922,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 5,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.365,
+          "adb_calls": 11,
+          "adb_seconds": 5.359,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 6,
+          "operation": "type",
+          "status": "pass",
+          "seconds": 1.094,
+          "adb_calls": 6,
+          "adb_seconds": 1.093,
+          "ui_reads": 0
+        },
+        {
+          "action": "step",
+          "number": 7,
+          "operation": "back",
+          "status": "pass",
+          "seconds": 2.823,
+          "adb_calls": 8,
+          "adb_seconds": 2.819,
+          "ui_reads": 1
+        },
+        {
+          "action": "step",
+          "number": 8,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.36,
+          "adb_calls": 11,
+          "adb_seconds": 5.354,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 9,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 5.382,
+          "adb_calls": 11,
+          "adb_seconds": 5.378,
+          "ui_reads": 2
+        },
+        {
+          "action": "step",
+          "number": 10,
+          "operation": "tap",
+          "status": "pass",
+          "seconds": 16.055,
+          "adb_calls": 31,
+          "adb_seconds": 16.035,
+          "ui_reads": 6
+        },
+        {
+          "action": "save_readback",
+          "record_id": 55,
+          "photo_count": 1,
+          "other_changes_confirmed": true
+        },
+        {
+          "action": "save_readback",
+          "record_id": 55,
+          "photo_count": 1,
+          "other_changes_confirmed": true
+        },
+        {
+          "action": "save_readback",
+          "record_id": 55,
+          "photo_count": 1,
+          "other_changes_confirmed": true
+        },
+        {
+          "action": "save_readback",
+          "record_id": 55,
+          "photo_count": 1,
+          "other_changes_confirmed": true
+        },
+        {
+          "action": "save_readback",
+          "record_id": 55,
+          "photo_count": 1,
+          "other_changes_confirmed": true
+        },
+        {
+          "action": "save_readback",
+          "record_id": 55,
+          "photo_count": 1,
+          "other_changes_confirmed": true
+        },
+        {
+          "action": "save_readback",
+          "record_id": 55,
+          "photo_count": 1,
+          "other_changes_confirmed": true
+        },
+        {
+          "action": "save_readback",
+          "record_id": 55,
+          "photo_count": 1,
+          "other_changes_confirmed": true
+        },
+        {
+          "action": "save_readback",
+          "record_id": 55,
+          "photo_count": 1,
+          "other_changes_confirmed": true
+        },
+        {
+          "action": "save_readback",
+          "record_id": 55,
+          "photo_count": 1,
+          "other_changes_confirmed": true
+        },
+        {
+          "action": "save_readback",
+          "record_id": 55,
+          "photo_count": 1,
+          "other_changes_confirmed": true
+        },
+        {
+          "action": "assertion",
+          "name": "Save of other intended changes is confirmed; otherwise not the target symptom",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Saved record has zero photos",
+          "result": "fail",
+          "iteration": 1,
+          "record_id": 55,
+          "photo_count": 1,
+          "pet_id": 22,
+          "combined_fields_match": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+[
+  {
+    "summary": {
+      "status": "pass",
+      "command": "issue17-http-records",
+      "seconds": 8.34,
+      "invocation": "458f8c5ad33543c0a65078f29c1174b5",
+      "artifacts": ".acceptance/runs/issue17-http-records"
+    },
+    "events": [
+      {
+        "action": "assertion",
+        "name": "One access token in isolated U2 test App",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/accounts/verify_credentials",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Cross-account HTTP uses actual Android U2 OAuth session",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Six App saves produce six persisted records",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "public has text-only, photo-only, and mixed records",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "public text persisted exactly once",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/28",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/28",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "public photo persisted exactly once",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/30",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/30",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/30/photos/24",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Saved App photo is an actual image",
+        "result": "pass"
+      },
+      {
+        "action": "saved_photo",
+        "record_id": 30,
+        "sha256": "2ab78035e0ad1121b14fac7b0e84f93a9acc5147bc785168f56c1ca2546b0213",
+        "bytes": 2050120
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/30/photos/24",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/30/photos/24",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "public mixed persisted exactly once",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/32",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/32",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/32/photos/26",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Saved App photo is an actual image",
+        "result": "pass"
+      },
+      {
+        "action": "saved_photo",
+        "record_id": 32,
+        "sha256": "2ab78035e0ad1121b14fac7b0e84f93a9acc5147bc785168f56c1ca2546b0213",
+        "bytes": 2050120
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/32/photos/26",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/32/photos/26",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "private has text-only, photo-only, and mixed records",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "private text persisted exactly once",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 404 /api/v1/metvage/records/29",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 404 /api/v1/metvage/records/29",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "private photo persisted exactly once",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 404 /api/v1/metvage/records/31",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 404 /api/v1/metvage/records/31",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/31/photos/25",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Saved App photo is an actual image",
+        "result": "pass"
+      },
+      {
+        "action": "saved_photo",
+        "record_id": 31,
+        "sha256": "2ab78035e0ad1121b14fac7b0e84f93a9acc5147bc785168f56c1ca2546b0213",
+        "bytes": 2050120
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 404 /api/v1/metvage/records/31/photos/25",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 404 /api/v1/metvage/records/31/photos/25",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "private mixed persisted exactly once",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 404 /api/v1/metvage/records/33",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 404 /api/v1/metvage/records/33",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 200 /api/v1/metvage/records/33/photos/27",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "Saved App photo is an actual image",
+        "result": "pass"
+      },
+      {
+        "action": "saved_photo",
+        "record_id": 33,
+        "sha256": "2ab78035e0ad1121b14fac7b0e84f93a9acc5147bc785168f56c1ca2546b0213",
+        "bytes": 2050120
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 404 /api/v1/metvage/records/33/photos/27",
+        "result": "pass"
+      },
+      {
+        "action": "assertion",
+        "name": "HTTP 404 /api/v1/metvage/records/33/photos/27",
+        "result": "pass"
+      }
+    ]
+  }
+]

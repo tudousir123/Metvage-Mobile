@@ -1,0 +1,41 @@
+E/unknown:SurfaceMountingManager(18928): Unhandled SoftException
+E/unknown:SurfaceMountingManager(18928): java.lang.IllegalStateException: addViewAt: cannot insert view [1104] into parent [352]: View already has a parent: [-1]  Parent: ScreensCoordinatorLayout View: Screen
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.SurfaceMountingManager.addViewAt(SurfaceMountingManager.java:390)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.mountitems.IntBufferBatchMountItem.execute(IntBufferBatchMountItem.java:119)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.executeOrEnqueue(MountItemDispatcher.java:387)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.dispatchMountItems(MountItemDispatcher.java:293)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.tryDispatchMountItems(MountItemDispatcher.java:126)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.FabricUIManager$DispatchUIFrameCallback.doFrameGuarded(FabricUIManager.java:1399)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.GuardedFrameCallback.doFrame(GuardedFrameCallback.kt:22)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.modules.core.ReactChoreographer.frameCallback$lambda$1(ReactChoreographer.kt:60)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.modules.core.ReactChoreographer.$r8$lambda$nSkFhrr5T7rop_XKwzlLov4NLLw(Unknown Source:0)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.modules.core.ReactChoreographer$$ExternalSyntheticLambda0.doFrame(D8$$SyntheticClass:0)
+E/unknown:SurfaceMountingManager(18928): 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:2086)
+--
+E/unknown:SurfaceMountingManager(18928): Unhandled SoftException
+E/unknown:SurfaceMountingManager(18928): java.lang.IllegalStateException: addViewAt: cannot insert view [758] into parent [352]: View already has a parent: [-1]  Parent: ScreensCoordinatorLayout View: Screen
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.SurfaceMountingManager.addViewAt(SurfaceMountingManager.java:390)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.mountitems.IntBufferBatchMountItem.execute(IntBufferBatchMountItem.java:119)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.executeOrEnqueue(MountItemDispatcher.java:387)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.dispatchMountItems(MountItemDispatcher.java:293)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.tryDispatchMountItems(MountItemDispatcher.java:126)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.FabricUIManager$DispatchUIFrameCallback.doFrameGuarded(FabricUIManager.java:1399)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.GuardedFrameCallback.doFrame(GuardedFrameCallback.kt:22)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.modules.core.ReactChoreographer.frameCallback$lambda$1(ReactChoreographer.kt:60)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.modules.core.ReactChoreographer.$r8$lambda$nSkFhrr5T7rop_XKwzlLov4NLLw(Unknown Source:0)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.modules.core.ReactChoreographer$$ExternalSyntheticLambda0.doFrame(D8$$SyntheticClass:0)
+E/unknown:SurfaceMountingManager(18928): 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:2086)
+--
+E/unknown:SurfaceMountingManager(18928): Unhandled SoftException
+E/unknown:SurfaceMountingManager(18928): java.lang.IllegalStateException: addViewAt: cannot insert view [1104] into parent [352]: View already has a parent: [-1]  Parent: ScreensCoordinatorLayout View: Screen
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.SurfaceMountingManager.addViewAt(SurfaceMountingManager.java:390)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.mountitems.IntBufferBatchMountItem.execute(IntBufferBatchMountItem.java:119)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.executeOrEnqueue(MountItemDispatcher.java:387)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.dispatchMountItems(MountItemDispatcher.java:293)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.mounting.MountItemDispatcher.tryDispatchMountItems(MountItemDispatcher.java:126)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.FabricUIManager$DispatchUIFrameCallback.doFrameGuarded(FabricUIManager.java:1399)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.fabric.GuardedFrameCallback.doFrame(GuardedFrameCallback.kt:22)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.modules.core.ReactChoreographer.frameCallback$lambda$1(ReactChoreographer.kt:60)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.modules.core.ReactChoreographer.$r8$lambda$nSkFhrr5T7rop_XKwzlLov4NLLw(Unknown Source:0)
+E/unknown:SurfaceMountingManager(18928): 	at com.facebook.react.modules.core.ReactChoreographer$$ExternalSyntheticLambda0.doFrame(D8$$SyntheticClass:0)
+E/unknown:SurfaceMountingManager(18928): 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:2086)

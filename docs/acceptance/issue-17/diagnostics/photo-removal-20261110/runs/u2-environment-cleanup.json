@@ -1,0 +1,73 @@
+{
+  "environment": "local Android emulator",
+  "role": "u2",
+  "invocations": [
+    {
+      "id": "d3ecd97f2f4e4d8f8016546d65809da6",
+      "summary": {
+        "status": "pass",
+        "command": "photo-debug-environment-cleanup",
+        "seconds": 5.6,
+        "invocation": "d3ecd97f2f4e4d8f8016546d65809da6",
+        "metrics": {
+          "adb_calls": 11,
+          "adb_seconds": 0.772,
+          "ui_reads": 0
+        },
+        "artifacts": ".acceptance/photo-debug/runs/environment-cleanup"
+      },
+      "events": [
+        {
+          "action": "assertion",
+          "name": "Exact owned emulator identity",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Console matches newly created AVD",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Original emulator font restored",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Mapping still belongs to this diagnosis: 8081",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Mapping still belongs to this diagnosis: 18080",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Owned emulator reverse mappings restored empty",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Metro process still matches recorded owned launch",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Exact owned latency proxy process",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Exact owned isolated Server copy",
+          "result": "pass"
+        },
+        {
+          "action": "assertion",
+          "name": "Container mount belongs to isolated copy",
+          "result": "pass"
+        }
+      ]
+    }
+  ]
+}

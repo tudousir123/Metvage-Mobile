@@ -1,0 +1,100 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/reports/new?target_type=record&target_id={publicRecordId}",
+      "expect": {
+        "label": "举报原因"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "举报原因"
+    },
+    {
+      "action": "type",
+      "text": "issue17-report-record"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "提交举报",
+      "expect": {
+        "label": "已收到"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "reported-record"
+    },
+    {
+      "action": "open",
+      "path": "/reports/new?target_type=comment&target_id={peerCommentId}",
+      "expect": {
+        "label": "举报原因"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "举报原因"
+    },
+    {
+      "action": "type",
+      "text": "issue17-report-comment"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "提交举报",
+      "expect": {
+        "label": "已收到"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "reported-comment"
+    },
+    {
+      "action": "open",
+      "path": "/reports/new?target_type=pet&target_id={publicPetId}",
+      "expect": {
+        "label": "举报原因"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "举报原因"
+    },
+    {
+      "action": "type",
+      "text": "issue17-report-pet"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "提交举报",
+      "expect": {
+        "label": "已收到"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "reported-pet"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "steps": [
+    {
+      "action": "open",
+      "path": "/settings/pets",
+      "expect": {
+        "label": "还没有宠物档案。一起留下第一份回忆吧。"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "添加宠物"
+    },
+    {
+      "action": "tap",
+      "label": "宠物昵称"
+    },
+    {
+      "action": "type",
+      "text": "17Cat"
+    },
+    {
+      "action": "tap",
+      "label": "猫咪"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "保存档案",
+      "expect": {
+        "label": "17Cat"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "添加宠物"
+    },
+    {
+      "action": "tap",
+      "label": "宠物昵称"
+    },
+    {
+      "action": "type",
+      "text": "17Dog"
+    },
+    {
+      "action": "tap",
+      "label": "狗狗"
+    },
+    {
+      "action": "back",
+      "expect": {
+        "keyboard": "hidden"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "保存档案",
+      "expect": {
+        "label": "17Dog"
+      }
+    },
+    {
+      "action": "capture",
+      "name": "nickname-only-cat-and-dog"
+    },
+    {
+      "action": "open",
+      "path": "/",
+      "expect": {
+        "label": "搜索宠物笔记"
+      }
+    },
+    {
+      "action": "tap",
+      "label": "我的"
+    },
+    {
+      "action": "assert",
+      "label": "17Cat"
+    },
+    {
+      "action": "capture",
+      "name": "current-cat"
+    }
+  ]
+}
